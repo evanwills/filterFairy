@@ -1,0 +1,13 @@
+*.css
+*.csv*
+*.docx
+*.html
+*.ico
+*.js
+*.ods*
+*.swp
+*.txt
+*.xlsx
+bootstrap*
+add-new-event-4-Strath_files*
+.gitignore
