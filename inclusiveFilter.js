@@ -23,7 +23,7 @@ $.inclusiveFilter = function( filterSubject , filterIDs ) {
 
 	function getResetFilterFunc( filterSubjectSelector ) {
 
-		var filterSubjectsArray = [];
+		var filterableItemsArray = [];
 		/**
 		 * @var numeric a local itterator for looping through an
 		 *	array
@@ -36,84 +36,80 @@ $.inclusiveFilter = function( filterSubject , filterIDs ) {
 		$( filterSubjectSelector ).each(function(){
 			var classes = _splitValueOnWhiteSpace( $(this).classes() );
 
-			/**
-			 * @function filterFunc()  takes a string and checks if it matches
-			 *	     any of the items in its array if the string is empty
-			 *
-			 * @param string filterString the string to be matched
-			 *
-			 * @return boolean numeric If the string is not empty, then TRUE is
-			 *	   returned if the string was matched or FALSE otherwise.
-			 *	   If filterString is empty then the ID of the filterable
-			 *	   item is returned.
-			 */
-			var filterFunc = function( filterString ) {
+			var jQueryRef = $(this);
+			function filterableItem() { 
 				/**
-				 * @var numeric id the index of the filterable item that has been
-				 *	matched
+				 * @function filterFunc()  takes a string and checks if it matches
+				 *	     any of the items in its array if the string is empty
+				 *
+				 * @param string filterString the string to be matched
+				 *
+				 * @return boolean numeric If the string is not empty, then TRUE is
+				 *	   returned if the string was matched or FALSE otherwise.
+				 *	   If filterString is empty then the ID of the filterable
+				 *	   item is returned.
 				 */
-				var item = $(this);
+				this.testFilter = function( filterString ) {
 
-				/**
-				 * @var string classArray the list of items applied to the
-				 *	filterable item (split on space)
-				 */
-				var classArray = classes;
+					/**
+					 * @var string classArray the list of items applied to the
+					 *	filterable item (split on space)
+					 */
+					var classArray = classes;
 
-				// check if the string is empty or not
-				if( filterString !== '' ) {
-					// get clean up the input string
-					filterString = filtersString.trim();
-	
-					// loop through the class array
-					for( i = 0 ; i < classArray.length ; i += 1 ) {
-						// check if the string was matched by an item in the array
-						if( filterString === classArray[a] ) {
-							// yes we have a match
-							return true;
+					// check if the string is empty or not
+					if( filterString !== '' ) {
+						// get clean up the input string
+						filterString = filtersString.trim();
+		
+						// loop through the class array
+						for( i = 0 ; i < classArray.length ; i += 1 ) {
+							// check if the string was matched by an item in the array
+							if( filterString === classArray[a] ) {
+								// yes we have a match
+								return true;
+							}
 						}
 					}
 					// no there was no match for this item.
 					return false;
-				} else {
-					// there was nothing to match so return the ID of the item.
-					return item;
+				}
+
+				this.showItem = function() {
+					var item = $(this);
+					item.addClass('filter-show').removeClass('filter-hide');
+				}
+
+				this.hideItem = function() {
+					var item = $(this);
+					item.removeClass('filter-show').addClass('filter-hide');
 				}
 			}
 			// Add the function to an array
-			filterSubjectsArray[a] = filterFunc;
+			filterableItemsArray[a] = new filterableItem();
 			a += 1;
 		});
 	
 		return = function() {
-			var output = filterSubjectsArray;
+			var output = filterableItemsArray;
 			for( i = 0 ; i < output.len ; i += 1 ) {
-				var item = output[i];
-				var DOMobject = item();
-				DOMobject.addClass('filter-hide').removeClass('filter-show');
+				output[i].hideItem();
 			}
 			return output;
 		}
 	}
 	
-	applyfilter = function() {
+	applyFilter = function() {
 		var excluded = getFilterSubjects();
+		var tmpExcluded = Excluded;
 		var included = [];
 
-		// reset filter state to everything hidden.
-		var item;
-		var tmp;
-		for( i = 0 ; i < exclude.length ; i += 1 ) {
-			tmp = exclued[i];
-			item = tmp();
-			item.addClass('filter-hide').removeClass('filter-show');
-		}
-
-		// loop through each filter field adding matched items to the included array;
+		// loop through each filter fields adding matched items to the included array;
 		//
 	
 	}
 
+	// loop through each filter field adding the applyFilter
 	for( i = 0 ; i < filterIDs.length ; i += 1 ) {
 		$(filterIDs[i]).change(applyfilter);
 	}
