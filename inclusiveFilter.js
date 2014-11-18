@@ -1,69 +1,122 @@
 "use strict";
 
+// step 1 build an array of filterable items 
+//
+// object filterableItem {
+// 	item : (reference to the jQuery DOM object to have classes added to or removed from to show or hide it)
+// 	filterTest : function that checks a supplied string against the items in its array
+// 	filterShow : function that makes an item visible
+// 	filterHide : function that makes an item hidden
+
 $.inclusiveFilter = function( filterSubject , filterIDs ) {
 	/**
-	 * @var array filterSubjectArray an array of functions 
+	 * @var array resetFilterFunc a function that first hides all
+	 *	filterable items then returns an array of all the
+	 *	unfiltered filterable items 
 	 */
-	var filterSubjectsArray = [];
+	var resetFilterFunc;
+
+	/**
+	 * @var numeric i itterator for looping through an array
+	 */
 	var i = 0;
-	var a = 0;
-	var filterFunc;
-	var excluded = [];
-	var included = [];
-	
-	/// build an array where each item is a function that tests
-	$(filterSubject).each(function(){
-		var classes = _splitValueOnWhiteSpace( $(this).classes() );
 
+	function getResetFilterFunc( filterSubjectSelector ) {
+
+		var filterSubjectsArray = [];
 		/**
-		 * @function filterFunc()  takes a string and checks if it matches
-		 *	     any of the items in its array if the string is empty
-		 *
-		 * @param string filterString the string to be matched
-		 *
-		 * @return boolean numeric If the string is not empty, then TRUE is
-		 *	   returned if the string was matched or FALSE otherwise.
-		 *	   If filterString is empty then the ID of the filterable
-		 *	   item is returned.
+		 * @var numeric a local itterator for looping through an
+		 *	array
 		 */
-		filterFunc = function( filterString ) {
-			/**
-			 * @var numeric id the index of the filterable item that has been
-			 *	matched
-			 */
-			var id = a;
+		var a = 0;
+
+		// build an array where each filterable item is represented by
+		// a function that tests whether a supplied string is matched
+		// by an item in an array within the function
+		$( filterSubjectSelector ).each(function(){
+			var classes = _splitValueOnWhiteSpace( $(this).classes() );
 
 			/**
-			 * @var string classArray the list of items applied to the
-			 *	filterable item (split on space)
+			 * @function filterFunc()  takes a string and checks if it matches
+			 *	     any of the items in its array if the string is empty
+			 *
+			 * @param string filterString the string to be matched
+			 *
+			 * @return boolean numeric If the string is not empty, then TRUE is
+			 *	   returned if the string was matched or FALSE otherwise.
+			 *	   If filterString is empty then the ID of the filterable
+			 *	   item is returned.
 			 */
-			var classArray = classes;
+			var filterFunc = function( filterString ) {
+				/**
+				 * @var numeric id the index of the filterable item that has been
+				 *	matched
+				 */
+				var item = $(this);
 
-			// check if the string is empty or not
-			if( filterString !== '' ) {
-				// get clean up the input string
-				filterString = filtersString.trim();
+				/**
+				 * @var string classArray the list of items applied to the
+				 *	filterable item (split on space)
+				 */
+				var classArray = classes;
 
-				// loop through the class array
-				for( i = 0 ; i < classArray.length ; i += 1 ) {
-					// check if the string was matched by an item in the array
-					if( filterString === classArray[a] ) {
-						// yes we have a match
-						return true;
-					}
-				}
-				// no there was no match for this item.
-				return false;
-			} else {
-				// there was nothing to match so return the ID of the item.
-				return id;
-			}
-		}
-		// Add the function to an array
-		filterSubjectsArray[a] = filterFunc;
-		a += 1;
-	});
+				// check if the string is empty or not
+				if( filterString !== '' ) {
+					// get clean up the input string
+					filterString = filtersString.trim();
 	
+					// loop through the class array
+					for( i = 0 ; i < classArray.length ; i += 1 ) {
+						// check if the string was matched by an item in the array
+						if( filterString === classArray[a] ) {
+							// yes we have a match
+							return true;
+						}
+					}
+					// no there was no match for this item.
+					return false;
+				} else {
+					// there was nothing to match so return the ID of the item.
+					return item;
+				}
+			}
+			// Add the function to an array
+			filterSubjectsArray[a] = filterFunc;
+			a += 1;
+		});
+	
+		return = function() {
+			var output = filterSubjectsArray;
+			for( i = 0 ; i < output.len ; i += 1 ) {
+				var item = output[i];
+				var DOMobject = item();
+				DOMobject.addClass('filter-hide').removeClass('filter-show');
+			}
+			return output;
+		}
+	}
+	
+	applyfilter = function() {
+		var excluded = getFilterSubjects();
+		var included = [];
+
+		// reset filter state to everything hidden.
+		var item;
+		var tmp;
+		for( i = 0 ; i < exclude.length ; i += 1 ) {
+			tmp = exclued[i];
+			item = tmp();
+			item.addClass('filter-hide').removeClass('filter-show');
+		}
+
+		// loop through each filter field adding matched items to the included array;
+		//
+	
+	}
+
+	for( i = 0 ; i < filterIDs.length ; i += 1 ) {
+		$(filterIDs[i]).change(applyfilter);
+	}
 
 	/**
 	 * @function getFiltered() takes an array of filter strings then
@@ -92,10 +145,10 @@ $.inclusiveFilter = function( filterSubject , filterIDs ) {
 		var func;
 		
 		for( i = 0 ; i < excluded.length ; i += 1 ) {
-			ID = false;
+			tmp = false;
+			func = excluded[i];
 			for( var j = 0 ; j < filterBy.length ; j += 1 ) {
-				func = excluded[i];
-				tmp = tmp( filterBy[j] );
+				tmp = func( filterBy[j] );
 				if( tmp === true ) {
 					included[] = func;
 					break;
@@ -110,6 +163,8 @@ $.inclusiveFilter = function( filterSubject , filterIDs ) {
 		return included;
 	}
 	
+
+	resetFilter = getResetFilterFunc( filterSuject );
 // ==================================================================
 /**
  * @function _getFormFieldDetails() find the element matched by a given
