@@ -18,6 +18,7 @@ $.filterFairy = function( filterSubject , filterFields , postFilterFunc ) {
 	 * @var numeric i itterator for looping through an array
 	 */
 	var i = 0;
+	var j = 0;
 	
 	// ======================================
 	// START paramater validation
@@ -101,7 +102,7 @@ $.filterFairy = function( filterSubject , filterFields , postFilterFunc ) {
 		 *	array
 		 */
 		var a = 0;
-console.log($(filterSubject).length);
+
 		// build an array where each filterable item is represented by
 		// a function that tests whether a supplied string is matched
 		// by an item in an array within the function
@@ -155,6 +156,12 @@ console.log($(filterSubject).length);
 					var id = a;
 					return id;
 				}
+				this.showItem = function() {
+					jQueryRef.addClass('filter-show').removeClass('filter-hide');
+				}
+				this.hideItem = function() {
+					jQueryRef.addClass('filter-hide').removeClass('filter-show');
+				}
 			}
 			// Add the function to an array
 			filterableItemsArray[a] = new filterableItem();
@@ -190,108 +197,65 @@ console.log($(filterSubject).length);
 
 	var filterableItems = new getFilterableItems();
 
-//	this.hideAll = filterableItems.hideAll;
-//	this.showAll = filterableItems.showAll;
-	filterableItems.hideAll();
+	this.hideAll = filterableItems.hideAll;
+	this.showAll = filterableItems.showAll;
+//	filterableItems.hideAll();
 
-	function getFilterFields() {
-		
-		console.log(filterFields);
-	}
-	getFilterFields();
-
-console.log(filterableItems);
-	
-	var _applyFilter = function( hideAll ) {
-		if( hideAll === true ) {
-			filterableItems.hideAll();
-		}
-		var excluded = filterableItems.getAll();
-		var tmpExcluded = excluded;
-		var included = [];
-
-		// loop through each filter fields adding matched items to the included array;
-		//
-		for( i = 0 ; i < included.length ; i += 1 ) {
-			showItem( included[i].getID() );
-		}
-	};
-
-	// loop through each filter field adding the applyFilter
-	for( i = 0 ; i < filterFields.length ; i += 1 ) {
-		$(filterFields[i]).on('change',_applyFilter);
-	}
-
-	/**
-	* @function presetFilterFromUrl() takes the filter ID and the data
-	*           attribute name/get variable and searches through the
-	*           select field to find the option with the matching data
-	*           key/value pair. If found, that option is preselected
-	*
-	* @param string filterField the CSS selector for the select field to be
-	*        used as the filter
-	*
-	* @param string dataAttr the data attribute name used and get variable
-	*        used to store the value to be matched
-	*/
-	this.presetFilterFromUrl = function( filterField , dataAttr ) {
-		/**
-		* @var string sPageUrl the GET string part of the URL
-		*/
-		var getString = window.location.search.substring(1);
-
-		/**
-		* @var array getVars all of the GET variables in the url
-		*/
-		var getVars = getString.split('&');
-
-		/**
-		* @var boolean string dataAttrVal the value of the data Attribute
-		*      to be matched
-		*/
-		var dataAttrVal = false;
-
-		// loop through the GET variables
-		for( var i = 0 ; i < getVars.length ; i += 1) {
-			/**
-			 * @var array getVarParts individual GET variable split into
-			 *      its key/value pair parts
-			 */
-			var getVarParts = getVars[i].split('=');
-
-			// check the key to see if it matches
-			if( getVarParts[0] == dataAttr ) {
-				// asign the value
-				dataAttrVal = getVarParts[1];
-			}
-		}
-
-		var formFieldDetails = $._getFormFieldDetails(filterField);
-
-		if( formFieldDetails === false ) {
-			return false;
-		}
-
-		// we have a value to use for preselecting
-		if( dataAttrVal !== false ) {
-			// loop through each option
-			if( formFieldDetails.fieldType == 'select' || formFieldDetails.fieldType == 'checkbox' || formFieldDetails.fieldType == 'radio' ) {
-				$( formFieldDetails.itemSelector ).each(function() {
-					// check if the option has the appropriate data attribute
-					// containing with the correct value
-					if( $(this).data(dataAttr) == dataAttrVal ) {
-						// YAY, we have a match. Make this option preselected
-						$(this).attr(formFieldDetails.fieldChosen,formFieldDetails.fieldChosen);
-					}
-				});
+	if( filterFields.lenght > 0 ) {
+		var exclusiveFilterFields = [];
+		var inclusiveFilterFields = [];
+		for( i = 0 ; i < filterFields.length ; i += 1 ) {
+			if( filterFields[i].exclusive ) {
+				exclusiveFilterFields.push(filterField[i]);
 			} else {
-				$( formFieldDetails.itemSelector ).val(dataAttrVal);
+				inclusiveFilterFields.push(filterField[i]);
 			}
-			return dataAttrVal;
-		} else {
-			return '';
 		}
-	}
+		var _applyFilter = function( hideAll ) {
+			console.log('about to apply filter');
+			if( hideAll === true ) {
+				filterableItems.hideAll();
+			}
+			var excluded = filterableItems.getAll();
+			var included = [];
+			var filters = [];
+			if( exclusiveFilterFields.length > 0 ) {
+				for( j = 0 ; j < exclusiveFilters.length ; j += 1 ) {
+					included = [];
+					for( i = 0 ; i < excluded.length ; i += 1 ) {
+						if( excluded[i].testFilter( exclusiveFilters[i].getFilterValues() ) ) {
+							included.push(excluded[i]);
+						}							
+					}
+					excluded = included;
+				}
+			}
+
+			if( inclusiveFilterFields.lenght > 0 && excluded.length > 0 ) {
+				var tmpExcluded = [];
+				for( j = 0 ; j < inclusiveFilters.length ; j += 1 ) {
+					for( i = 0 ; i < excluded.length ; i += 1 ) {
+						if( excluded[i].testFilter( exclusiveFilters[i].getFilterValues() ) ) {
+							included.push(excluded[i]);
+						} else {
+							tmpExcluded.push(excluded[i]);
+						}
+					}
+					excluded = tmpExcluded;
+				}
+			}
+			// loop through each filter fields adding matched items to the included array;
+			//
+			for( i = 0 ; i < included.length ; i += 1 ) {
+				included[i].showItem();
+			}
+		};
+
+		// loop through each filter field adding the applyFilter
+		for( i = 0 ; i < filterFields.length ; i += 1 ) {
+			$(filterFields[i]).on('change',_applyFilter);
+		}
+	} 
 
 
 
@@ -344,7 +308,35 @@ console.log(filterableItems);
 		return included;
 	}
 
-	this.presetFilter = function( selector , attrName , getName ) {
+	var _get = [];
+	var getString = window.location.search.substring(1);
+	if( getString !== '' ) {
+		getString = getString.split('&');
+		for( i = 0 ; i < getString.length ; i += 1 ) {
+			_get.push( getString[i].split('=') );
+		}
+	}		
+
+
+	/**
+	* @function presetFilter() takes the filter ID and the data
+	*           attribute name/get variable and searches through the
+	*           select field to find the option with the matching data
+	*           key/value pair. If found, that option is preselected
+	*
+	* @param string selector the CSS selector for the select field to be
+	*        used as the filter
+	*
+	* @param string attrName the data attribute name used and get variable
+	*        used to store the value to be matched
+	*
+	* @param string getName the data attribute name used and get variable
+	*        used to store the value to be matched
+	*
+	* @param string isDataAttr the data attribute name used and get variable
+	*        used to store the value to be matched
+	*/
+	this.presetFilter = function( selector , attrName , getName , isDataAttr ) {
 
 		if( _validateType(selector) !== 'string' ) {
 			console.log( 'presetFilter\'s first paramater must be a string' );
@@ -356,45 +348,31 @@ console.log(filterableItems);
 		}
 		if( _validateType(getName) !== 'string' ) {
 			getName = attrName;
+		};
+		if( _validateType(isDataAttr) !== 'boolean' ) {
+			isDataAttr = true;
 		}
 	
+		var _get_ = _get;
+		var goodToGo = false;
+	
 		for( i = 0 ; i < filterFields.length ; i += 1 ) {
-			if( filterFields[i].select(selector) === true ) {
-				console.log('Yay, we have a filter to preset: '+filterFields[i].getSelector());
-				/**
-				 * @var string sPageUrl the GET string part of the URL
-				 */
-				var getString = window.location.search.substring(1);
-				if( getString === '' ) {
-					break;
-				}
-
-				/**
-				 * @var array getVars all of the GET variables in the url
-				 */
-				var getVars = getString.split('&');
-
-				/**
-				 * @var boolean string dataAttrVal the value of the data Attribute
-				 *      to be matched
-				 */
-				var dataAttrVal = false;
+			if( filterFields[i].useFilter(selector) === true ) {
 
 				// loop through the GET variables
-				for( var i = 0 ; i < getVars.length ; i++ ) {
-					/**
-					 * @var array getVarParts individual GET variable split into
-					 *      its key/value pair parts
-					 */
-					var getVarParts = getVars[i].split('=');console.log(getVarParts);
+				for( j = 0 ; j < _get_.length ; j += 1 ) {
 
 					// check the key to see if it matches
-					if(getVarParts[0] == getName ) { console.log('getVarParts[0] ("' + getVarParts[0] + '") == getName ("' + getName + '")');
+					if( _get_[j][0] == getName ) {
 						// asign the value
-						filterFields[i].preset(getVarParts[1],attrName);
+						filterFields[i].preset( _get_[j][1] , attrName , isDataAttr );
+						goodToGo = true;
+						break;
 					}
 				}
-				break;
+				if( goodToGo === true ) {
+					break;
+				}
 			}
 		}
 	}
@@ -411,72 +389,82 @@ console.log(filterableItems);
  *         field or FALSE if it did not
  */
 	function _getFormFieldDetails( filterField ) {
-		console.log(filterField);
 		try {
-			$(filterField).prop('tagName');console.log($(filterField).prop('tagName'));
+			/**
+			 * @var string fieldType HTML element the filter form field is
+			 */
+			var fieldType = $(filterField).prop('tagName').toLowerCase();
 		} catch(e) {
 			console.log('Supplied filter field selector (' + filterField + ') did not match anything in the DOM.'); 
 			return false;
 		}
 
 		/**
-		 * @var object formFieldDetails list of info about the filter form
-		 *      element
+		 * @var string _tmpFilterField contains possible modified
+		 *		filterField selector
 		 */
-		/**
-		 * @var string baseSelector The selector that finds the filter
-		 *           form element
-		 */
-		var baseSelector = filterField;
-
-		/**
-		 * @var string itemSelector the selector that selects which
-		 *           item in the field is selected (used for select box and
-		 *           radio buttons)
-		 */
-
-		var itemSelector = filterField;
-		/**
-		 * @var string valueSelector The selector for the selected item
-		 *           (used for select box and radio buttons)
-		 */
-
-		var valueSelector = filterField;
-		/**
-		 * @var string fieldChosen the selector that finds which part
-		 *           of the element is selected (used for select box and
-		 *           radio buttons)
-		 */
-		var fieldChosen = '';
-
-		/**
-		 * @var string fieldType HTML element the filter form field is
-		 */
-		
-		var fieldType = $(filterField).prop('tagName').toLowerCase();
-		
 		var _tmpFilterField = filterField;
-		
+
+		/**
+		 * @var funcion _useFilter() used to test whether the
+		 *	object matches the selector provided
+		 */
 		var _useFilter=  function( selector ) {
 			if( selector === filterField  ) {
 				return true;
 			}
 			return false;
 		}
-	
-		var _.getSelector = function() {
-			console.log(filterField);
+
+		/**
+		 * @var function _getSelector returns the selector
+		 *	used to match the filter field
+		 */
+		var _getSelector = function() {
 			return filterField;
 		}
-		var goodToGo = false;
 
+		/**
+		 * @var function _preset() presets the filter field
+		 *	based on the value of a GET variable
+		 */
+		var _preset;
+
+		/**
+		 * @var function _getFilterValues() returns an array
+		 *	of filterField values of the selected/checked
+		 *	item (or an empty array in the case of checkboxes
+		 *	if the box isn't checked
+		 */
+		var _getFilterValues;
+
+		/**
+		 * @var function _getType() returns the type of
+		 *	filterField [ text , select , radio , checkbox ]
+		 */
+		var _getType;
+
+		/**
+		 * @var bolean goodToGo whether or not the selector
+		 *	provided is a usable filter field
+		 */
+		var goodToGo = false;
+		
+		/**
+		 * @var string _chooser the string used to check
+		 *	whether a select/radio/checkbox field is selected
+		 */
+		var _chooser = 'checked';
+		
+		var _exclusive = false;
+		
 		if( fieldType == 'input' ) {
+			// becaues this is an input we need to know wht type of input
 			fieldType = $(filterField).attr('type').toLowerCase();
+			
 			if( fieldType === 'checkbox' ) {
-				preset = function( attrValue , attrName ) {
-					console.log('filterField = ' + filterField);
-					console.log('presetting checkbox field');
-					console.log('attrValue = ' + attrValue );console.log('attrName = ' + attrName );
+				// checkbox fields need a custom function for presetting
+				_preset = function( attrValue , attrName , isData ) {
 					if( _validateType(attrValue) !== 'string' ) {
 						console.log( 'first praramater for preset() must be a string' );
 						return;
@@ -485,65 +473,77 @@ console.log(filterableItems);
 						console.log( 'second praramater for preset() must be a string' );
 						return;
 					}
-					if( this.attrType !== false ) {
-						if( this.attrType === null || this.attrType === 'data' ) {
-							console.log($(filterField).data(attrName) );
-							if( $(filterField).data(attrName) === attrValue ) {
-								attrIsSet = data;
-								$(filterField + '[' + attrName + '="' + attrValue +'"]' ).attr('checked','checked');
-							}
+
+					if( isData === true ) {
+						if( $(filterField).data(attrName) === attrValue ) {
+							$(filterField).attr( 'checked' , 'checked' );
+							return true;
 						}
-						if( this.attrType === null || attrIsSet == 'attr' ) {
-							console.log($(filterField).attr(attrName) );
-							if( $(filterField).attr(attrName) === attrValue ) {
-								attrIsSet = attr;
-								$(filterField + '[' + attrName + '="' + attrValue +'"]' ).attr('checked','checked');
-							}
+					} else {
+						if( $(filterField).attr(attrName) === attrValue ) {
+							$(filterField).attr( 'checked' , 'checked' );
+							return true;
 						}
 					}
-					if( this.attrType === null ) {
-						console.log( 'preset() could not find a data attribute or normal attribute with identified by "' + attrName + '"');
-						this.attrType = false;
+					return false
+				}
+			
+				_getFilterValues = function() {
+					var output = $( filterField + ':' + _chooser).val();
+					if( _validateType(output) === 'string' ) {
+						return _splitValueOnWhiteSpace(output);
+					} else {
+						return [];
 					}
 				}
 			} else if( fieldType !== 'radio' ) {
+				// if the input field is not a radio or checkbox, treat it like a text field
 				fieldType = 'text';
-		-	}
+			}
 			goodToGo = true;
 		}
 		if( fieldType === 'text' || fieldType === 'textarea' ) {
 			fieldType = 'text';
 
 			_getFilterValues = function() {
-				if( $(filterField).is(':checked') ) {
-					return _splitValueOnWhiteSpace( $(filterField).val() );
-				} else {
-					return [];
-				}
+				return _splitValueOnWhiteSpace( $(filterField).val() );
 			}
 
-			_preset = function( attrValue , attrName ) {
-				console.log('presetting checkbox textarea field');
+			_preset = function( attrValue , attrName , isData ) {
 				if( _validateType(attrValue) !== 'string' ) {
 					console.log( 'first praramater for preset() must be a string' );
+					return false;
 				}
-				$(fieldSelector).val(attrValue ) ;
+				$(filterField).val(attrValue ) ;
 			}
 		
 			goodToGo = true;
+		}
+		if( fieldType === 'radio' ) {
+			var round = false;
+			$(_tmpFilterField).each(function() {
+				if( round === false ) {
+					if( $(this).data('exclusive') ) {
+						_exclusive = true;
+					}
+				}
+			});
+		} else {
+			if( $(filterField).data('exclusive') ) {
+				_exclusive = true;
+			}
 		}
 	
 		if ( fieldType === 'select' || fieldType === 'radio' ) {
 			if( fieldType === 'select' ) {
 				_tmpFilterField = filterField + ' option';
-				var _chooser = 'selected';
+				_chooser = 'selected';
 			} else { // radio
-				_tmpFilterField = 'input[name="' + $(baseSelector).attr('name') + '"]';
-				var _chooser = 'checked';
+				_tmpFilterField = 'input[name="' + $(filterField).attr('name') + '"]';
 			}
 		
 			_useFilter =  function( selector ) {
-				if( selector === filterField || selector ===  tmpFilterField ) {
+				if( selector === filterField || selector ===  _tmpFilterField ) {
 					return true;
 				}
 				return false;
@@ -557,58 +557,56 @@ console.log(filterableItems);
 					return [];
 				}
 			}
-			_preset = function( attrValue , attName ) {
-				console.log('presetting select field');
+			_preset = function( attrValue , attrName , isData ) {
+
+				var preset = false;
+				var msg = '';
+
 				if( _validateType(attrValue) !== 'string' ) {
 					console.log( 'first praramater for preset() must be a string' );
-				}
-				if( _validateType(attName) !== 'string' ) {
+				};
+
+				if( _validateType(attrName) !== 'string' ) {
 					console.log( 'second praramater for preset() must be a string' );
-				}
-				if( this.attrType !== false ) {
-					if( this.attrType === null || this.attrType === 'data' ) {
-						$( fieldSelector ).each(function(){
-							if( $(this).data(attrName) === attrValue ) {
-								attrIsSet = data;
-								$(this).data(attrName).attr( _chooser , _chooser );
-							}
-						});
-					} else {
-						if( attrIsSet !== 'data' ) {
-							$( fieldSelector ).each(function(){
-								if( $(this).attr(attrName) === attrValue ) {
-									attrIsSet = attr;
-									$(this).attr(attrName).attr( _chooser , _chooser );
-								}
-							});
-						}
-					}
-				}
-				if( this.attrType === null ) {
-					console.log( 'preset() could not find a data attribute or normal attribute with identified by "' + attrName + '"');
-					this.attrType = false;
-				}
+				};
+
+				if( isData === true ) {
+					$( _tmpFilterField ).each(function(){
+						if( $(this).data(attrName) === attrValue ) {
+							$(this).data( _chooser , _chooser );
+							preset = true;
+						};
+					});
+				} else {
+					$( _tmpFilterField ).each(function(){
+						if( $(this).attr(attrName) === attrValue ) {
+							$(this).attr( _chooser , _chooser );
+							preset = true;
+						};
+					});
+				};
+				return preset;
 			}
 			goodToGo = true;
 		}
 		
 		if( goodToGo === true ) {
-			var _getType = function() {
+			_getType = function() {
 				return fieldType;
 			}
 			var usableFilterField = function() {
 				this.getSelector = _getSelector;
 				this.useFilter = _useFilter;
 				this.getType = _getType;
-				this.getFilterFalues = _getFilterValues;
+				this.getFilterValues = _getFilterValues;
 				this.preset = _preset;
+				this.attrType = null;
+				this.exclusive = function() { return _exclusive; };
 			}
-		
-			console.log(usableFilterField);
+
 			return new usableFilterField();
 		} else {
 			console.log('Supplied filterField (' + filterField + ') did not return a valid form field type. ' + tagname + ' was returned. Was expecting, select; input or textarea');
-			formFieldDetails = false;
 			return false;
 		}
 }
@@ -637,7 +635,7 @@ console.log(filterableItems);
 
 	function _validateType( input ) {
 		try {
-			return input ? $.type(input) : false;
+			return $.type(input);
 		} catch(e) {
 			return false;
 		}
