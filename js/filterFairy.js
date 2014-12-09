@@ -1,6 +1,16 @@
 "use strict";
 
 
+if( typeof console !== 'object' ) {
+	var Console = function() {
+		this.log = function() { };
+		this.warn = function() { };
+		this.error = function() { };
+		this.info = function() { };
+	};
+	var console = new Console();
+};
+
 
 /**
  * @function filterFairy() uses form fields to dynamically filter a
@@ -19,12 +29,12 @@ $.filterFairy = function( filterWrapper ) {
 
 	// ======================================
 	// START paramater validation
-	
+
 	/**
 	 * @var boolean canDo whether or not filteFairy is viable.
 	 */
 	var canDo = true;
-	
+
 	/**
 	 * @var array filterFields list of filters to be used
 	 */
@@ -35,7 +45,7 @@ $.filterFairy = function( filterWrapper ) {
 
 	// validate filterWrapper
 	if( _validateType(filterWrapper) !== 'string' ) {
-		console.log( 'The first parameter for filterFairy must be a string' );
+		console.error( 'The first parameter for filterFairy must be a string' );
 		return false;
 	};
 
@@ -68,7 +78,7 @@ $.filterFairy = function( filterWrapper ) {
 		 *	were found
 		 */
 		var standardFilterItems = false;
-		
+
 		/**
 		 * @var array nonStandardFilterItems list of wrapper tag names for non
 		 *	standard filterable items
@@ -96,10 +106,10 @@ $.filterFairy = function( filterWrapper ) {
 		if( $(filterWrapper + ' .filter-this').length === 0 ) {
 			// cutting our losses there's nothing to filter.
 			// See ya lata Turkey
-			console.log( '"' + filterWrapper + '" did not match any items. i.e. it can\'t find anything to filter' );
+			console.warn( '"' + filterWrapper + '" did not match any items. i.e. it can\'t find anything to filter' );
 			return false;
 		} else {
-			
+
 			$( filterThis ).each( function() {
 				/**
 				 * @var string filterThisItem the tag name used for filterable
@@ -114,7 +124,7 @@ $.filterFairy = function( filterWrapper ) {
 				var tmpFilterThis = '';
 
 				tmpItemWrapper = $(this).prop('tagName').toLowerCase();
-				
+
 				// check whether we've encountered this tag name before
 				if( $.inArray( tmpItemWrapper , filterThisTags ) > -1 ) {
 					// we've done this one before;
@@ -126,7 +136,7 @@ $.filterFairy = function( filterWrapper ) {
 
 				// work out the best tag name to use for filterable items
 				switch( tmpItemWrapper ) {
-					case 'ul': 
+					case 'ul':
 					case 'ol':
 						// <LI> is the expected filterable item
 						filterThisItem = ' li';
@@ -151,7 +161,7 @@ $.filterFairy = function( filterWrapper ) {
 							// this is a non-standard filterable item wrapper have to assume that
 							// it is the filterable item itself
 							nonStandardFilterItems.push(tmpItemWrapper);
-							console.log( 'This non-standard filterable item wrapper (' + filterWrapper + ' ' + tmp + '.filter-this' + filterThisItem + ') didn\'t contain any .filter-item nodes. It may be useable as a filterable item itself');
+							console.warn( 'This non-standard filterable item wrapper (' + filterWrapper + ' ' + tmp + '.filter-this' + filterThisItem + ') didn\'t contain any .filter-item nodes. It may be useable as a filterable item itself');
 							return;
 						};
 						tmpItemWrapper = '';
@@ -185,7 +195,7 @@ $.filterFairy = function( filterWrapper ) {
 //				filterThis = filterThisSelectors.join(' , ');
 			} else {
 				// Well that sucks! Couldn't find any filterable items.
-				console.log( 'Couldn\'t find any filterable items using "' + filterThis + '". Nothing to do!!!');
+				console.warn( 'Couldn\'t find any filterable items using "' + filterThis + '". Nothing to do!!!');
 				return false;
 			};
 
@@ -201,6 +211,7 @@ $.filterFairy = function( filterWrapper ) {
 					var item = $(this).get();
 					var tmpClasses = $(this).prop('classList');
 					var classes = [];
+					var FilterableItem;
 					for( var i = 0 ; i < tmpClasses.length ; i += 1 ) {
 						classes.push(tmpClasses[i]);
 					}
@@ -209,10 +220,10 @@ $.filterFairy = function( filterWrapper ) {
 					/**
 					 * @function filterableItem() does everything to do with filtering an item.
 					 */
-					
+
 					index += 1;
 
-					function filterableItem() { 
+					FilterableItem = function () {
 						/**
 						 * @function testFilter()  takes a string and checks if it matches
 						 *	     any of the items in its array if the string is empty
@@ -232,7 +243,7 @@ $.filterFairy = function( filterWrapper ) {
 								filterListType = 'array';
 							};
 							if( filterListType !== 'array' ) {
-								console.log( 'parameter one for filterableItem.testFilter() must be an array! "' + filterListType + '" given.' );
+								console.error( 'parameter one for filterableItem.testFilter() must be an array! "' + filterListType + '" given.' );
 							};
 							/**
 							 * @var string classArray the list of items applied to the
@@ -281,20 +292,20 @@ $.filterFairy = function( filterWrapper ) {
 								return false;
 							};
 						};
-					
+
 						this.getClasses = function() {
 							return classes;
 						}
 					};
 					// Add the function to an array
-					filterableItemsArray.push(new filterableItem());
+					filterableItemsArray.push(new FilterableItem());
 				});
 			};
 		};
 
 		var _selectorCount = filterThisSelectors.length;
 
-		var _filterableItems = function () {
+		var FilterableItems = function () {
 			this.getAll = function() {
 				return filterableItemsArray;
 			};
@@ -315,7 +326,7 @@ $.filterFairy = function( filterWrapper ) {
 				}
 			}
 		};
-		return new _filterableItems();
+		return new FilterableItems();
 	};
 
 
@@ -324,7 +335,7 @@ $.filterFairy = function( filterWrapper ) {
 		var _filterFieldTypes = [ 'select' , 'textarea' , 'input' ];
 		var filterFieldSelectors = [];
 		for( var i = 0 ; i < 3 ; i += 1 ) {
-			
+
 			$( filterWrapper + ' ' + _filterFieldTypes[i] ).each(function() {
 				/**
 				 * @var string fieldType HTML element the filter form field is
@@ -397,12 +408,17 @@ $.filterFairy = function( filterWrapper ) {
 				 *	provided is a usable filter field
 				 */
 				var goodToGo = false;
-				
+
 				/**
 				 * @var string _chooser the string used to check
 				 *	whether a select/radio/checkbox field is selected
 				 */
 				var _chooser = 'checked';
+
+				/**
+				 * @object UsableFilterField everthing to do with this filter field
+				 */
+				var UsableFilterField;
 
 				if( _fieldType === 'input' ) {
 					// becaues this is an input we need to know what type of input
@@ -456,7 +472,7 @@ $.filterFairy = function( filterWrapper ) {
 					// already got this one.
 					return true;
 				}
-				
+
 				_getSelector = function() {
 					return _selector;
 				};
@@ -481,7 +497,7 @@ console.log( itemClasses );
 					if( _validateType(itemClasses) === 'string' ){
 						itemClasses = [ itemClasses ];
 					} else if( _validateType(itemClasses) !== 'array' ) {
-						console.log('first paramater for _testItem() must be a string');
+						console.error('first paramater for _testItem() must be a string');
 						return false;
 					};
 					var value = $(_selector).val();
@@ -501,16 +517,16 @@ console.log( itemClasses );
 					return _fieldType;
 				};
 
-				
+
 				if( _fieldType === 'checkbox' ) {
 					// checkbox fields need a custom function for presetting
 					_preset = function( attrValue , attrName , isData ) {
 						if( _validateType(attrValue) !== 'string' ) {
-							console.log( 'first praramater for preset() must be a string' );
+							console.error( 'first praramater for preset() must be a string' );
 							return;
 						};
 						if( _validateType(attrName) !== 'string' ) {
-							console.log( 'second praramater for preset() must be a string' );
+							console.error( 'second praramater for preset() must be a string' );
 							return;
 						};
 
@@ -527,14 +543,14 @@ console.log( itemClasses );
 						};
 						return false;
 					};
-					
+
 					if( _inclusive ) {
 						_testItem  = function ( itemClasses ) {
 
 							if( _validateType(itemClasses) === 'string' ){
 								itemClasses = [ itemClasses ];
 							} else if( _validateType(itemClasses) !== 'array' ) {
-								console.log('first paramater for _testItem() must be a string');
+								console.error('first paramater for _testItem() must be a string');
 								return false;
 							};
 							var value = _splitValueOnWhiteSpace($(_selector).val());
@@ -560,7 +576,7 @@ console.log( itemClasses );
 							if( _validateType(itemClasses) === 'string' ){
 								itemClasses = [ itemClasses ];
 							} else if( _validateType(itemClasses) !== 'array' ) {
-								console.log('first paramater for _testItem() must be a string');
+								console.error('first paramater for _testItem() must be a string');
 								return false;
 							};
 							var value = $(_selector).val();
@@ -574,7 +590,7 @@ console.log( itemClasses );
 							return false;
 						};
 					};
-				
+
 					_getFilterValues = function() {
 						var output = $( _selector + ':' + _chooser).val();//console.log('$(' + _selector + ':' + _chooser + ').val() = "' + output + '"');
 						if( _validateType(output) === 'string' && output.trim() !== '' ) {
@@ -592,12 +608,12 @@ console.log( itemClasses );
 
 					_preset = function( attrValue , attrName , isData ) {
 						if( _validateType(attrValue) !== 'string' ) {
-							console.log( 'first praramater for preset() must be a string' );
+							console.error( 'first praramater for preset() must be a string' );
 							return false;
 						};
 						$(_selector).val(attrValue ) ;
 					};
-				
+
 					goodToGo = true;
 				} else  if ( _fieldType === 'select' || _fieldType === 'radio' ) {
 					var _selectorSelected = _selector;
@@ -610,7 +626,7 @@ console.log( itemClasses );
 						if( _validateType(itemClasses) === 'string' ){
 							itemClasses = [ itemClasses ];
 						} else if( _validateType(itemClasses) !== 'array' ) {
-							console.log('first paramater for _testItem() must be a array');
+							console.error('first paramater for _testItem() must be a array');
 							return false;
 						};
 						var value = _splitValueOnWhiteSpace($(_selectorSelected + ':' + _chooser).val());
@@ -636,16 +652,16 @@ console.log( itemClasses );
 						var msg = '';
 
 						if( _validateType(attrValue) !== 'string' ) {
-							console.log( 'first praramater for preset() must be a string' );
+							console.error( 'first praramater for preset() must be a string' );
 						};
 
 						if( _validateType(attrName) !== 'string' ) {
-							console.log( 'second praramater for preset() must be a string' );
+							console.error( 'second praramater for preset() must be a string' );
 						};
 
 						if( isData !== false ) {
 							$( _selectorSelected ).each(function(){
-								if( $(this).data(attrName) === attrValue ) { 
+								if( $(this).data(attrName) === attrValue ) {
 									$(this).attr( _chooser , _chooser );
 									preset = true;
 								};
@@ -662,9 +678,9 @@ console.log( itemClasses );
 					};
 					goodToGo = true;
 				};
-				
+
 				if( goodToGo === true ) {
-					var usableFilterField = function() {
+					var UsableFilterField = function() {
 						this.getSelector = _getSelector;
 						this.getMatchingSelectors = function() { return _matchingSelectors; };
 						this.useFilter = _useFilter;
@@ -677,25 +693,25 @@ console.log( itemClasses );
 						this.inclusive = function() { return _inclusive; };
 					};
 
-					tmpFilterFields.push( new usableFilterField() );
+					tmpFilterFields.push( new UsableFilterField() );
 					goodToGo = false;
 				} else {
 					console.log('Supplied filterField (' + _getSelector() + ') did not return a valid form field type. ' + _name + ' was returned. Was expecting, select; input or textarea');
 					return false;
 				};
-				
+
 			});
 		};
 		if( tmpFilterFields.length === 0 ) {
-			console.log('"' + filterWrapper + '" did not contain any form fields. i.e. can\'t find any thing to use as a filter.' );
+			console.warn('"' + filterWrapper + '" did not contain any form fields. i.e. can\'t find any thing to use as a filter.' );
 			return false;
 		};
 		return function() {
 			return tmpFilterFields;
 		};
 	};
-	
-	
+
+
 
 	/**
 	 * @function _splitValueOnWhiteSpace() takes a string, trims white
@@ -709,7 +725,7 @@ console.log( itemClasses );
 	 *         white space characters
 	 */
 	function _splitValueOnWhiteSpace( inputValue ) {
-		var regex = /\s+/; 
+		var regex = /\s+/;
 		try {
 			return inputValue.trim().replace(regex,' ').split(' ');
 		} catch(e) {
@@ -741,7 +757,7 @@ console.log( itemClasses );
 
 	// did anything go wrong?
 	if( filterFields === false || filterableItems === false ) {
-		console.log( 'Because of the previously mentioned errors, filterFairy cannot continue. Goodbye!' );
+		console.error( 'Because of the previously mentioned errors, filterFairy cannot continue. Goodbye!' );
 		return false;
 	};
 
@@ -790,7 +806,7 @@ console.log( itemClasses );
 	 */
 	var fields = filterFields();
 	if( fields.length > 0 ) {
-		
+
 		// Build the list of inclusive and exclusive filters
 		var exclusiveFilterFields = [];
 		var inclusiveFilterFields = [];
@@ -820,14 +836,14 @@ console.log( itemClasses );
 			 *	contains items that have not been shown.
 			 */
 			var excluded = filterableItems.getAll();
-			
+
 			var tmpExcluded = excluded;
-			
+
 			/**
 			 * @var array included filterable items that are to be shown
 			 */
 			var included = [];
-			
+
 			/**
 			 * @var array filterStrings temporarily holds the list of filter strings for
 			 *	a given filter
@@ -873,7 +889,7 @@ console.log( itemClasses );
 									// Oh well, we'll save this one for later
 										tmpExcluded.push(excluded[j]);
 									}
-								};		
+								};
 							};
 						};
 console.log('included.length = ' + included.length);
@@ -904,7 +920,7 @@ console.log('included.length = ' + included.length);
 			if( included.length > 0 ) {
 				// hide all items
 				filterableItems.hideAll()
-				
+
 				// loop through all the included items
 				for( var i = 0 ; i < included.length ; i += 1 ) {
 					// show the included items
@@ -934,7 +950,7 @@ console.log('included.length = ' + included.length);
 		};
 	} else {
 		// there were no filter fields so complain
-		console.log('There are no filter fields to use');
+		console.warn('There are no filter fields to use');
 	};
 
 	/**
@@ -956,7 +972,7 @@ console.log('included.length = ' + included.length);
 			// add the key/value pairs
 			_get.push( getString[i].split('=') );
 		};
-	};	
+	};
 
 
 	/**
@@ -981,14 +997,15 @@ console.log('included.length = ' + included.length);
 	 */
 	this.presetFilter = function( selector , attrName , getName , isDataAttr ) {
 		if( _validateType(selector) !== 'string' ) {
-			console.log( 'presetFilter\'s first paramater must be a string' );
+			console.error( 'presetFilter\'s first paramater must be a string' );
 			return;
 		};
 		if( _validateType(attrName) !== 'string' ) {
-			console.log( 'presetFilter\'s second paramater must be a string' );
-			return;
+			console.info( 'presetFilter\'s second paramater was not a string. using first parameter ("' + selector + '") instead' );
+			attrName = selector;
 		};
 		if( _validateType(getName) !== 'string' ) {
+			console.info( 'presetFilter\'s third paramater was not a string. using second parameter ("' + attrName + '") instead' );
 			getName = attrName;
 		};
 		if( _validateType(isDataAttr) !== 'boolean' ) {
