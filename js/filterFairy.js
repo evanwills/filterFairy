@@ -73,7 +73,7 @@ $.FilterFairy = function( filterWrapper ) {
 	var getString = window.location.search.substring(1);
 
 	/**
-	 * @function _applyFilter when any of the filter fields
+	 * @function applyFilter when any of the filter fields
 	 *	     are changed (or blurred in the case of
 	 *	     text/textare fields) this function is executed
 	 *
@@ -82,7 +82,7 @@ $.FilterFairy = function( filterWrapper ) {
 	 * by running exclusive filters then by adding the
 	 * inclusive filters
 	 */
-	var _applyFilter
+	var applyFilter
 
 // END:   declaring variables
 // ==================================================================
@@ -621,10 +621,23 @@ $.FilterFairy = function( filterWrapper ) {
 					// this is an inclusive filter. i.e. items matched by this filter
 					// will be shown regardless of preceeding or succeeding filters
 					exclusiveField = false;
-				};
 
-				if( $(this).data('priority') ) {
-					priority = true;
+					switch( $(this).data('inclusive').toLowerCase() ) {
+						case 'exclusive':
+						case 'checkbox':
+							if( _fieldType === 'checkbox' ) {
+								// this filter needs to be treated as a normal exclusive filter because
+								exclusiveField = true;
+								// but we want the filter to know that it's sort of inclusive.
+								inclusiveCheckbox = true;
+							}
+							break;
+						case 'priority':
+						case 'first':
+						case 'before':
+							priority = true;
+							break;
+					}
 				}
 
 				if( $(this).data('inverse') !== undefined && $(this).data('inverse') !== false ) {
@@ -643,7 +656,6 @@ $.FilterFairy = function( filterWrapper ) {
 
 				if( _fieldType === 'checkbox' ) {
 
-
 					// checkbox fields need a custom function for presetting
 					_preset = function( attrValue , attrName , isData , tryValue ) {
 						if( ( isData === true && $(_selector).data(attrName) === attrValue ) || ( isData === false && $(_selector).attr(attrName) === attrValue ) || (tryValue === true && $(_selector).val() === attrValue ) ) {
@@ -653,14 +665,6 @@ $.FilterFairy = function( filterWrapper ) {
 						};
 						return false;
 					};
-
-
-					if( !exclusiveField && $(this).data('inclusive').toLowerCase() === 'exclusive' ) {
-						// this filter needs to be treated as a normal exclusive filter because
-						exclusiveField = true;
-						// but we want the filter to know that it's sort of inclusive.
-						inclusiveCheckbox = true;
-					}
 
 					if( inclusiveCheckbox ) {
 
@@ -1269,11 +1273,11 @@ $.FilterFairy = function( filterWrapper ) {
 //		var priorityInclusiveFitlerFields = new FilterFieldsObj();
 		var exclusiveFilterFields = new FilterFieldsObj();
 		var inclusiveFilterFields = new FilterFieldsObj();
-		var inclusiveCheckboxFields = new FilterFieldsObj();
+		var priorityInclusiveFields = new FilterFieldsObj();
 
 
 		/**
-		 * @function _applyFilter when any of the filter fields
+		 * @function applyFilter when any of the filter fields
 		 *	     are changed (or blurred in the case of
 		 *	     text/textare fields) this function is executed
 		 *
@@ -1282,7 +1286,7 @@ $.FilterFairy = function( filterWrapper ) {
 		 * by running exclusive filters then by adding the
 		 * inclusive filters
 		 */
-		_applyFilter = function() {
+		applyFilter = function() {
 
 			/**
 			 * @var array excluded initialy a list o fall the filterable items
@@ -1290,6 +1294,8 @@ $.FilterFairy = function( filterWrapper ) {
 			 *	contains items that have not been shown.
 			 */
 			var source = filterableItems.getAll();
+
+			var tmpSource = [];
 
 			/**
 			 * @var array Excluded a storage bucket for filterable items that
@@ -1321,7 +1327,7 @@ $.FilterFairy = function( filterWrapper ) {
 			/**
 			 * @var array list of filter types
 			 */
-			var types = [ 'exclusive' , 'checkbox' , 'inclusive' ];
+			var types = [ 'priorityInclusive' , 'exclusive' , 'inclusive' ];
 
 			/**
 			 * @var numeric processedFilters the number of filters that have been
@@ -1351,38 +1357,41 @@ $.FilterFairy = function( filterWrapper ) {
 
 			// add this filterField to the list of fields to be processed
 			if( thisField.isExclusive() === true ) {
-				inclusiveCheckboxFields.addField(thisField);
+				exclusiveFilterFields.addField(thisField);
 			} else {
-				inclusiveFilterFields.addField(thisField);
+				if( thisField.hasPriority() === true ) {
+					priorityInclusiveFields.addField(thisField);
+				} else {
+					inclusiveFilterFields.addField(thisField);
+				}
 			}
 
 			for( var h = 0 ; h < 3 ; h += 1 ) {
-				filterType = types[h];
 
-				switch( filterType) {
+				switch( types[h] ) {
+					case 'priorityInclusive':
+						fields = priorityInclusiveFields.getFields();
+						tmpSource = filterableItems.getAll();
+						break;
 					case 'exclusive':
 						fields = exclusiveFilterFields.getFields();
-						break;
-					case 'checkbox':
-						fields = inclusiveCheckboxFields.getFields();
+						if( processedFilters > 0 ) {
+							tmpSource = included;
+						} else {
+							tmpSource = filterableItems.getAll();
+						}
 						break;
 					case 'inclusive':
 						fields = inclusiveFilterFields.getFields();
+						tmpSource = excluded;
 						break;
 				}
 
 				if( fields.length > 0 ) {
+					source = tmpSource;
+					tmpSource = null;
 
 					// loop through this type of filters
-
-					if( filterType !== 'checkbox' ) {
-						source = filterableItems.getAll();
-					} else {
-						if( included.length > 0 ) {
-								source = included;
-						}
-					}
-
 					for( var i = 0 ; i < fields.length ; i += 1 ) {
 						if( fields[i].getFilterValuesCount() > 0 || fields[i].isInclusiveCheckbox() === true ) {
 							processedFilters += 1;
@@ -1392,7 +1401,6 @@ $.FilterFairy = function( filterWrapper ) {
 								// test this the list of filter strings against this filterable item
 								if( fields[i].testItem(source[j].getClasses()) ) {
 									// Yay the filter matched something for this item lets include it
-
 									if( $.inArray(source[j],included) === -1 ) {
 										included.push(source[j]);
 									}
@@ -1405,7 +1413,7 @@ $.FilterFairy = function( filterWrapper ) {
 							};
 						};
 						if( i < ( fields.length - 1 ) ) {
-							if( filterType === 'exclusive' || filterType === 'checkbox' ) {
+							if( types[h] === 'exclusive' ) {
 								// make included excluded so that the next filter only has a limited
 								// subset of filterable items to work with.
 								source = included;
@@ -1451,10 +1459,10 @@ $.FilterFairy = function( filterWrapper ) {
 
 			if( fields[i].getType() === 'text' ) {
 				// if a filter field is text then only apply filter on blur
-				$(fields[i].getSelector()).on('blur',_applyFilter);
+				$(fields[i].getSelector()).on('blur',applyFilter);
 			} else {
 				// if a filter field is not text then try applying the filter every time it changes
-				$(fields[i].getSelector()).on('change',_applyFilter);
+				$(fields[i].getSelector()).on('change',applyFilter);
 			};
 		};
 	} else {
