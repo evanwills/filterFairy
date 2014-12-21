@@ -1,0 +1,189 @@
+/* small devise Students override styles */
+
+@media screen and (max-width: 799px) 
+{
+#content { margin-left:2%; }
+
+.vis-list_box_2col ul.list-box2 /* Orientation */, .vis-list_column_1 ul, .list-box div { display:none !important; }
+
+
+header { background-color: #00539f; }
+nav#global-portals ul {
+    margin-left: 3em;
+    right: 0;
+    top: 3.6em;
+}	
+
+h1.site-heading-students {
+    left: 45%;
+    top: 0.2em;
+    position:absolute;
+    color:#CCDDEC;
+    font-size: 180%;
+    font-weight:bold;
+}
+
+#h_wrap h1.site-heading-students a {
+    color:#CCDDEC;
+    font-size: 100%;
+    display:inline!important;
+    font-weight:bold;
+}
+
+form#landing-form a { display:none; }
+section#main-rotation { margin-top: 150px !important; }
+}
+
+#content h1 { background-color:none; font-size: 180%; border-bottom: 1px solid #CCDDEC; margin-top: 0.4em; }
+
+#global-main li { width:100%; }
+
+fieldset { border:none !important; }
+
+/* landing page icons tranformed into buttons */
+.students-icon {
+    font-size: 80% !important;
+    color:#fff !important;
+}
+#content #landing_links .list-box h2 a { font-size:90%; margin-bottom:0; min-width:17em; }
+.vis-list_column_1 { margin-right:3em; }
+#landing_links .vis-list_column_1 {
+    float: left;
+    width: 280px !important;
+}
+.vis-list_box_2col .list-box {
+  min-height: 3em !important;
+}
+
+aside#right { margin-left:0.8em; }
+#right #home-promo-social { width:100%; margin: 1em; }
+#right #home-promo-social img { display:inline!important; margin-right: 3%; margin-top:1em; }
+
+header #h_wrap nav#global-portals ul {
+    display: inline !important;
+}
+nav#global-portals ul {
+    top: 3.5em !important; font-size:100%; width:auto;
+}
+
+#askacu { clear:both; }
+#askacu input#searchstring { width:85%; height:2em; float:left; }
+#askacu .btn { margin-top:-0.1em; margin-left:0.3em; }
+#askacu legend { border:0; margin-bottom:0; }
+
+
+#right span.glyphicon-chevron-right {
+    font-size: 0.9em;
+    opacity: 1;
+}
+p#tiny_url { background-color:#193869; color:#fff; margin:0; padding:1em 0.5em 0.5em 0.5em; text-align:center;  }
+
+
+/*
+----------------------------------------------
+Academic Skills custom styles
+----------------------------------------------
+*/
+p.apa-style
+{
+	margin-top: 1em;
+	margin-bottom: 1em;
+	margin-left: 2em !important;
+	text-indent: -2em !important;
+	line-height: 2em;
+}
+blockquote.apa-style { line-height: 2em; }
+
+p.chicago-bib
+{
+	text-indent: -2em;
+	margin-left: 2em;
+}
+p.chicago-footnote
+{
+	text-indent: 2em;
+	margin: 0%;
+}
+ol.chicago-footnote
+{
+	margin: 1em 0%;
+	padding: 0%;
+}
+ol.chicago-footnote li
+{
+	text-indent: 2em;
+	list-style-position: inside;
+	margin: 0%;
+}
+h4.chicago-net-foot { color: #000; }
+.referencing-intent { text-indent:-2em; margin-left:2em }
+
+}
+
+@media screen and (max-width: 560px)
+{
+/*  
+----------------------------------
+tiny-landscape - phones  (480x320)  
+----------------------------------
+*/
+
+section#main-rotation { margin-top: 150px !important; }
+.site-heading {
+    font-size: 180%;
+    color:#CCDDEC;
+    left: 45%;
+    top: 0.2em;
+    position:absolute;
+    font-weight:bold;
+}
+.vis-list_column_1 { min-with:99% !important; }
+
+#content #landing_links .list-box h2 a, #landing_links .vis-list_column_1 {
+  min-width: 48% !important;
+}
+}
+
+@media screen and (max-width: 400px)
+{
+/*  
+--------------------------------
+tiny-portrait - phones (480x320)  
+--------------------------------
+*/
+
+h1.site-heading-students {
+    left: 12%;
+    top: 3.8em;
+    position:absolute;
+    color:#CCDDEC;
+    font-size: 160%;
+    font-weight:bold;
+}
+
+#h_wrap h1.site-heading-students a {
+    color:#CCDDEC;
+    font-size: 100%;
+    display:inline!important;
+    font-weight:bold;
+}
+
+header #h_wrap nav#global-portals ul.home {
+    display: block !important;
+    font-size: 90% !important;
+    top: 3.5em !important;
+}
+
+header #h_wrap { height:9.4em!important; }
+
+nav#content-fixed-content form, body.os-mac nav#content-fixed-content form { height:auto; min-height:6.6em; }
+section#main-rotation { margin-top: 150px !important; }
+form#landing-form a { display:none; }
+
+#content #landing_links .list-box h2 a, #landing_links .vis-list_column_1 {
+  min-width: 90% !important;
+}
+
+}
+
+	

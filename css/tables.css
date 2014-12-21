@@ -1,0 +1,137 @@
+/* table styles  */
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        Tables with and without borders */
+  table.border
+, table.border th
+, table.border td
+, .border table
+, .border table th
+, .border table td
+{
+    border-collapse: collapse;
+    border: 0.1em solid #000;
+    padding: 0.3em;
+    margin: 0%;
+}
+ table {
+    border-collapse: collapse;
+    /* border: 0.075em solid #000;  Forces borders on Matrix generated tables e.g. Events */
+    padding: 0%;
+    margin: 0%;
+}
+ table thead {
+    font-weight: bold;
+    font-size: 110%;
+}
+ table thead th{
+    vertical-align: bottom;
+    text-align: center;
+}
+ table.no-border_normal thead th{
+    vertical-align: bottom;
+    text-align: left;
+}
+
+ table tfoot {
+    font-weight: normal;
+    font-size: 80%;
+    font-style: italic;
+}
+.regular_foot {font-size:100%; font-style:normal;}
+
+ table tbody th,  table td {
+    vertical-align: top;
+    text-align: left;
+   /*  border: 0.075em solid #000;  Forcing borders on Matrix generated tables e.g. Events */
+    border-collapse: collapse;
+    padding: 0.3em 0.5em;
+    margin: 0%;
+}
+ table th p,  table td p{
+    margin: 0% 0% 1em 0%;
+}
+
+ table body th {
+    font-weight: bold;
+}
+
+ table td {
+    vertical-align: top;
+    text-align: left;
+    font-weight: normal;
+}
+ table.no-border,
+ table.no-border_normal,
+ table.no-border th,
+ table.no-border_normal th,
+ table.no-border td,
+ table.no-border_normal td,
+ form table,
+ form table th,
+ form table td {
+    border: none;
+}
+ table .left {
+    text-align: left;
+}
+ table .centre {
+    text-align: center;
+}
+ table .right {
+    text-align: right;
+}
+ table .bottom {
+    vertical-align: bottom;
+}
+ table .middle {
+    vertical-align: middle;
+}
+
+/* backgound-color for alternate tr (rows) and tables headings */
+ table tr.row-bg , table td.row-bg
+,table tbody tr.stripe , table.grey-head thead
+,table.highlight-row tbody tr:hover
+,table.head-background thead
+,table.head-background tbody th { background-color:#E4DFD9; }
+
+table.head-background.highlight-row tbody tr:hover
+,table.highlight-row tbody tr.strip:hover { background-color:#D9E4DF; }
+
+/*
+- - - - - - - - - - - - - - - - -
+for notes at the base of a table
+- - - - - - - - - - - - - - - - -
+*/
+p.table-note { font-size:0.85em; }
+div.table-note p { font-size:0.85em; margin:0 0 0.3em 0; } 
+div.table-note ul { font-size:0.85em; margin-top:0; }
+div.table-note { margin:0 0 1em 0; }
+
+/*
+----------------------------------
+To centre a table
+----------------------------------
+*/
+table.table_center{margin-left:auto; margin-right:auto;}
+
+/*
+----------------------------------
+To align td content right
+----------------------------------
+*/
+.numeric-content{text-align:right;}
+
+/*
+----------------------------------
+Custom styling for IRM tables
+----------------------------------
+*/
+ table.unit-fees-charges th
+,table.unit-fees-charges td { padding: 0.3em 0.5em; } 
+table.unit-fees-charges thead th span { white-space: nowrap; }
+table.unit-fees-charges tbody th { font-weight: normal; text-align: center; }
+table.unit-fees-charges tbody td { text-align:right; }
+table.unit-fees-charges tbody td.eftsl,
+table.unit-fees-charges tbody td.title { text-align:left; }

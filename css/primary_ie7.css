@@ -1,0 +1,1451 @@
+/**
+ * Asset name: acu_2012_primary_ie7.css
+ * Asset ID:   #598946 
+ * Asset URL:  http://www.acu.edu.au/__data/assets/text_file/0005/598946/acu_2012_primary_ie7.css `
+ *
+ * This style sheet is an agregation of all the style sheets need to
+ * format the ACU website as details by the 2012 design.
+ * 
+ * ==================================================================
+ * START @media: RESET, BASIC & INTERFACE - print, screen, projection
+ */
+
+@media print , screen , projection
+{
+
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: interface_png-images_as_file-calls (#470466) 
+ * Last updated by: Evan Wills
+ * Last updated: 06 Aug 2013 9:38am 
+ */
+
+/** -----------------------------------------------------------------
+ * search_magnifying-glass_white_17x18.png 
+ */
+form .search-and-submit input.submit
+,button.search
+{
+	background-repeat: no-repeat;
+	background-image: url('//www.acu.edu.au/__data/assets/image/0009/458514/search_magnifying-glass_white_17x18.png');
+}
+
+span.input-group-btn button.btn { position: absolute; margin-bottom:0.1em; border:0!important; }
+#site-search span.input-group-btn button.btn {height:3.6em !important; }
+span.input-group-btn button.search { height:2.7em !important; }
+
+
+/** -----------------------------------------------------------------
+ * promo_lower_background_260x1.png 
+ */
+section#promo li.promo-bottom div.article div {
+	background-repeat: repeat-y;
+	background-image: url('//www.acu.edu.au/__data/assets/image/0011/451757/promo_lower_background_260x1.png');
+}
+
+/** -----------------------------------------------------------------
+ * column-divider_gradient.png
+ */
+.column-divider_gradient
+,div#wrap-outer.home section#content
+{
+	background: none;
+	background-repeat: repeat-y;
+	background-image: url('//www.acu.edu.au/__data/assets/image/0003/477822/column-divider_gradient.png') !important;
+	background-position: 0%;
+        width:66%; 
+        padding-left:3%;
+}
+
+section#main-rotation li article img { background-color: #00f; }
+
+.Arrow_small-red
+,nav#content-menu li.Nav_Selected ul li a
+,nav#content-menu ul.level2 li a
+,ul.arrow-links li
+,li.arrow-links
+,a.arrow-links
+,.web-tile p a.Arrow_small-red+
+{
+	background-image: url('//www.acu.edu.au/__data/assets/image/0006/458250/Arrow_small-red.png');
+}
+
+
+/**
+ * END: interface_png-images_as_file-calls (#470466)
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ */
+
+
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: interface_basic_IE7 (#472208) 
+ * Last updated by: Evan Wills
+ * Last updated: 18 Nov 2013 4:30pm 
+ */
+
+body { font-family: verdana, arial, helvetica, sans-serif !important; overflow-x: hidden; }
+
+/**
+ * END: interface_basic_IE7 (#472208)
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ */
+
+
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: interface_general_IE7 (#459790) 
+ * Last updated by: Evan Wills
+ * Last updated: 18 Nov 2013 4:30pm 
+ */
+
+
+nav#breadcrumbs ol li a
+{
+	background-repeat: no-repeat;
+	background-position: 100% 0;
+	padding-right: 2em;
+	padding-left: 0.7em;
+	background-image: url('//www.acu.edu.au/__data/assets/image/0007/460933/breadcrumbs_separator_9x14.png');
+	background-repeat: no-repeat;
+}
+
+
+nav#breadcrumbs ol li span
+{
+	padding-left: 0.7em;
+}
+ nav#breadcrumbs ol li.first a
+,nav#breadcrumbs ol li.fist span
+{
+	padding-left: 0%;
+}
+
+
+
+/**
+ * END: interface_general_IE7 (#459790)
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ */
+
+
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: interface_colour_IE7 (#459631) 
+ * Last updated by: Paul Hudson
+ * Last updated: 06 Dec 2012 1:24pm 
+ */
+
+ header nav#global-primary ul li a
+, #footer nav#global-footer-useful li a
+{
+	border-left-color: #fff;
+}
+ header nav#global-portals ul li a
+{
+	border-left-color: #fff;
+}
+#submit-site-search
+{
+	background-color: #00ACED
+}
+#submit-site-search
+{
+	background-color: #00ACED
+}
+nav#global-main url li h2 a
+{
+	background-color: #B7002A;
+	background: #B7002A;
+}
+ div#wrap-outer nav#content-fixed-content li
+,.international_ div#wrap-outer.content article#buttons li
+{
+	border-color: #dbdbdb;
+}
+ div#wrap-outer nav#content-fixed-content li a
+,.international_ div#wrap-outer.content article#buttons li a
+{
+	border-right-color: #dbdbdb;
+}
+
+
+/**
+ * END: interface_colour_IE7 (#459631)
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ */
+
+
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: interface_header_IE7 (#459560) 
+ * Last updated by: Evan Wills
+ * Last updated: 12 Oct 2012 1:58pm 
+ */
+
+
+header nav#global-primary
+{
+	padding: 0.3em;
+}
+ nav#global-primary ul li a
+,nav#global-portals ul li a
+{
+	padding: 0% 1em;
+	border-left: 0.1em solid;
+}
+ nav#global-primary ul li.first a
+,nav#global-portals ul li.first a
+{
+	border-left: none;
+}
+ header nav#global-primary ul li
+{
+	font-size: 75%;
+}
+header nav#global-portals ul li
+{
+	font-size: 80%;
+}
+
+
+header form#site-search-form
+{
+	right: 7em;
+}
+header form#site-search-form .input-group-btn
+{
+	display: block;
+	position: relative;
+	right: -26.0em;
+	top: -4.65em;
+}
+
+
+/**
+ * END: interface_header_IE7 (#459560)
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ */
+
+
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: interface_left-menu_IE7 (#472218) 
+ * Last updated by: Evan Wills
+ * Last updated: 12 Oct 2012 9:08am 
+ */
+
+
+
+/**
+ * END: interface_left-menu_IE7 (#472218)
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ */
+
+
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: interface_mega-menu_IE7 (#479584) 
+ * Last updated by: Evan Wills
+ * Last updated: 22 Jan 2013 1:24pm 
+ */
+
+nav#global-main ul
+{
+	display: block;
+	overflow: visible;
+	width: 100%;
+}
+
+nav#global-main ul li
+{
+	display: block;
+	float: left;
+	list-style-type: none;
+}
+
+
+nav#global-main ul li#tools			{ width: 4.457em; }
+nav#global-main ul li#office_of_student_success		{ width: 16.571em; }
+nav#global-main ul li#services		{ width: 6.057em; }
+nav#global-main ul li#administration_amp_enrolment	{ width: 17.2em; }
+nav#global-main ul li#calendars_amp_timetables	{ width: 14.471em; }
+nav#global-main ul li#student_life		{ width: 8.314em; }
+
+
+.with-js { padding-right:0 !important; font-size: 75%; }
+
+nav#global-main ul li ul.l2 li ul
+{
+	height: auto !important;
+}
+
+
+/**
+ * END: interface_mega-menu_IE7 (#479584)
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ */
+
+
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: interface_footer_IE7 (#459722) 
+ * Last updated by: Evan Wills
+ * Last updated: 18 Nov 2013 4:59pm 
+ */
+
+
+
+/**
+ * END: interface_footer_IE7 (#459722)
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ */
+
+
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: interface_right-col_IE7 (#460899) 
+ * Last updated by: Evan Wills
+ * Last updated: 25 Jan 2013 10:30am 
+ */
+
+aside#right article#sharethis
+{
+	border-style: solid;
+	border-width: 0.05em;
+	border-color: #ccc;
+}
+
+#right li span.glyphicon
+{
+	padding: 0% 0.75em 0% 0.25em;
+}
+ul#social-links
+{
+	padding: 0 0 2.5em 0;
+	margin-top:0 !important;
+	margin-bottom:0 !important;
+}
+#home-promo-social ul#social-links
+{
+	padding: 0 0 0.5em 0;
+	margin-top: -1em !important;
+	margin-bottom: -1em !important;
+}
+ul#social-links li
+{
+	float: left;
+	padding: 0% 0% 0% 1.15em;
+	margin: 0%;
+	width: 3.1em;
+}
+#promo #home-promo-social ul#social-links li
+{
+	width: 3.31em !important;
+}
+ul#social-links li.first
+{
+	padding: 0%;
+}
+ul#social-links li a
+{
+	display: block;
+	/* position: relative; */
+	/* left: -0.2em; */
+}
+#home-promo-social ul#social-links li a
+{
+	padding-right: 3em;
+}
+ul#social-links li a.facebook { background-position: 0em 0.2em;   }
+ul#social-links li a.twitter  { background-position: 0em -6.9em;  }
+ul#social-links li a.youtube  { background-position: 0em -3.4em;  }
+ul#social-links li a.LinkedIn { background-position: 0em -10.4em; }
+ul#social-links li a.email    { background-position: 0em -17.2em; }
+ul#social-links li a.weibo    { background-position: 0em -13.9em; }
+
+#home-promo-social ul#social-links { margin-left: 0em; }
+#home-promo-social ul#social-links li a { height: 3.2em; }
+#home-promo-social ul#social-links li a.facebook { background-position: 0em 0.5em !important; }
+#home-promo-social ul#social-links li a.twitter  { background-position: 0em -5.5em !important;  }
+#home-promo-social ul#social-links li a.youtube  { background-position: 0em -2.6em !important;  }
+#home-promo-social ul#social-links li a.LinkedIn { background-position: 0em -8.5em !important; }
+
+#right ul#social-links li a.twitter  { background-position: 0em -6.9em;  }
+#right ul#social-links li a.youtube  { background-position: 0em -3.4em;  }
+#right ul#social-links li a.rss      { background-position: 0em -20.85em; }
+#right ul#social-links li a.weibo    { background-position: -0.1em -13.8em; }
+
+body.international_ ul#social-links li#li-weibo
+{
+	display: block;
+}
+
+#web-tile_top , web-tile_bottom , right-col-buttons
+{
+	clear: both;
+}
+/*
+#askacu a
+{
+	margin-bottom: -16em;
+}
+
+#askacu form
+{
+	margin-top: -16em;
+}
+*/
+#askacu input
+{
+	display: none;
+	padding: 0%;
+}
+#askacu input.form-control
+{
+	display: inline;
+	padding: 0.2em 0% 0.2em 0.2em !important;
+}
+#askacu input.btn-primary
+{
+	display: inline;
+	padding: 0.5em 0.3em !important;
+	position: relative;
+	right: 0.5em;
+	top: 0.1em;
+}
+/**
+ * END: interface_right-col_IE7 (#460899)
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ */
+
+
+
+
+
+
+
+}
+
+
+
+/**
+ * END @media: RESET, BASIC & INTERFACE - print, screen, projection
+ * ==================================================================
+ */
+
+
+
+
+
+@media print , screen , projection
+{
+
+
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: content_depricated_ie7 (#472575) 
+ * Last updated by: Evan Wills
+ * Last updated: 12 Oct 2012 10:37am 
+ */
+
+
+
+/**
+ * END: content_depricated_ie7 (#472575)
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ */
+
+
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: content_basic_IE7 (#461033) 
+ * Last updated by: Robin Shi
+ * Last updated: 21 Jan 2013 10:34am 
+ */
+
+#content h1
+{
+	border-bottom-width: 0.05em;
+	margin-top: -0.25em;
+	overflow: visible;
+	margin-right: 0%;
+}
+
+p, #content h1, #content h2, #content h3, #content h4, nav#content-menu, nav#global-main, nav#breadcrumbs, nav#global-portals, nav#global-primary, section#content { 
+    font-family: Verdana, Geneva, Arial, sans-serif!important; 
+}
+
+@font-face {
+font-family:"proxima-nova";
+font-style:normal;font-weight:bold; }
+
+/**
+ * END: content_basic_IE7 (#461033)
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ */
+
+
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: content_images_IE7 (#472234) 
+ * Last updated by: Evan Wills
+ * Last updated: 12 Oct 2012 9:09am 
+ */
+
+
+
+/**
+ * END: content_images_IE7 (#472234)
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ */
+
+
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: content_lists_IE7 (#472242) 
+ * Last updated by: Victoria Whittleton
+ * Last updated: 13 May 2013 1:47pm 
+ */
+
+.institute_of_child_protection_studies_.workshop_and_seminar_payments_ #firstform dl.table-def.X11 dt {font-size:87%;}
+
+/**
+ * END: content_lists_IE7 (#472242)
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ */
+
+
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: content_tables_IE7 (#472248) 
+ * Last updated by: Evan Wills
+ * Last updated: 12 Oct 2012 9:09am 
+ */
+
+
+
+/**
+ * END: content_tables_IE7 (#472248)
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ */
+
+
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: content_forms_IE7 (#459786) 
+ * Last updated by: Evan Wills
+ * Last updated: 22 Oct 2012 3:11pm 
+ */
+
+form .search-and-submit input.submit
+{
+	color: transparent;
+	text-transform: capitalize;
+}
+
+/**
+ * END: content_forms_IE7 (#459786)
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ */
+
+
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: content_complex_IE7 (#470862) 
+ * Last updated by: Evan Wills
+ * Last updated: 06 Jun 2013 3:30pm 
+ */
+
+ div#wrap-outer nav#content-fixed-content li
+,.international_ div#wrap-outer.content article#buttons li
+{
+	border-width: 0.05em;
+	border-style: solid;
+	display: block;
+	list-style-type: none;
+}
+ div#wrap-outer nav#content-fixed-content li a
+,.international_ div#wrap-outer.content article#buttons li a
+{
+	border-right-width: 0.05em;
+}
+section#content ul.events-list article h2, section#content ul.news-list article header h1
+{
+	margin-top: 0%;
+}
+section#content ul.events-list, section#content ul.news-list
+{
+	margin-top: 0;
+}
+section#content ul.events-list article hgroup h1
+{
+	top: 0.3em;
+	height: 6.7em;
+	border-right: 0.05em solid #e1e1e1;
+	border-bottom: 0.05em solid #e1e1e1;
+	border-left: 0.05em solid #e1e1e1;
+}
+section#content ul.events-list article hgroup h1 span.day
+{
+	line-height: 1.1em;
+}
+section#main-rotation li article div
+{
+	background-position: -33% 0%;
+}
+
+/*  Staff Directory  */
+div#staff_dir { width:auto; display:relative; } 
+   #form3 dd { margin-left:0.1em; }
+#staff_dir .profile_box ( z-index:100; margin-bottom:1em!important; }
+   #staff_dir .profile_box dt.img img { z-index:300; display:none; }
+
+
+#content .doc-library ul li h1 a
+{
+	background-position: 94% 4.5em;
+	padding-bottom: 0.9em
+}
+#content .doc-library ul li p a
+{
+	font-size: 92%;
+}
+
+a.onOffScreen-close
+{
+	padding-right: 1.7em;
+}
+
+.has-cols.c2 .is-col.pos1  , .has-cols.c2 .is-col.pos3  , .has-cols.c2 .is-col.pos5  , .has-cols.c2 .is-col.pos7,
+.has-cols.c2 .is-col.pos9  , .has-cols.c2 .is-col.pos11 , .has-cols.c2 .is-col.pos13 , .has-cols.c2 .is-col.pos15,
+.has-cols.c2 .is-col.pos17 , .has-cols.c2 .is-col.pos19 , .has-cols.c2 .is-col.pos21 , .has-cols.c2 .is-col.pos23,
+.has-cols.c2 .is-col.pos25 , .has-cols.c2 .is-col.pos27 , .has-cols.c2 .is-col.pos29 , .has-cols.c2 .is-col.pos31,
+
+.has-cols.c3 .is-col.pos1  , .has-cols.c3 .is-col.pos4  , .has-cols.c3 .is-col.pos7  , .has-cols.c3 .is-col.pos10,
+.has-cols.c3 .is-col.pos13 , .has-cols.c3 .is-col.pos16 , .has-cols.c3 .is-col.pos19 , .has-cols.c3 .is-col.pos22,
+.has-cols.c3 .is-col.pos25 , .has-cols.c3 .is-col.pos28 , .has-cols.c3 .is-col.pos31 ,
+
+.has-cols.c4 .is-col.pos1  , .has-cols.c4 .is-col.pos5  , .has-cols.c4 .is-col.pos9  , .has-cols.c4 .is-col.pos13,
+.has-cols.c4 .is-col.pos17 , .has-cols.c4 .is-col.pos21 , .has-cols.c4 .is-col.pos25 , .has-cols.c4 .is-col.pos29,
+.has-cols.c4 .is-col.pos33 , .has-cols.c4 .is-col.pos37 ,
+
+.has-cols.c5 .is-col.pos1  , .has-cols.c5 .is-col.pos6  , .has-cols.c5 .is-col.pos11 , .has-cols.c5 .is-col.pos16,
+.has-cols.c5 .is-col.pos21 , .has-cols.c5 .is-col.pos26 , .has-cols.c5 .is-col.pos31 , .has-cols.c5 .is-col.pos36,
+.has-cols.c5 .is-col.pos41 , .has-cols.c5 .is-col.pos46
+{
+	clear: both;
+}
+
+.closed
+{
+	left: -330px !important;
+	top: 260px;
+}
+
+#wrap-outer > p#tiny_url
+{
+	position: absolute;
+	top: 78em;
+	left: 23em;
+	width: 100%;
+}
+
+
+/**
+ * END: content_complex_IE7 (#470862)
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ */
+
+
+
+
+
+
+
+
+
+
+}
+
+
+/**
+ * END: CONTENT - print screen projection
+ * ==================================================================
+ * START: CONTENT - screen, projection
+ */
+
+
+@media screen , projection
+{
+
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: content_tabs_IE7 (#472256) 
+ * Last updated by: Evan Wills
+ * Last updated: 12 Oct 2012 2:09pm 
+ */
+
+
+.ui-tabs .ui-tabs-nav
+{
+	border-bottom: 0.05em solid #bfbfbf;
+}
+.ui-tabs .ui-tabs-nav li
+{
+	border: 0.05em solid #bfbfbf;
+}
+
+/**
+ * END: content_tabs_IE7 (#472256)
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ */
+
+
+
+
+
+
+
+
+}
+/**
+ * END: CONTENT - print screen projection
+ * ==================================================================
+ * START: general - hacks
+ * (This is for getting around (theoretically) compliant browser
+ *  issues - e.g. web-kit handling of input[type=search])
+ */
+
+
+
+/**
+ * END: general - hacks
+ * ==================================================================
+ */
+
+
+/**
+ * START: PRINT STYLES
+ * ==================================================================
+ * START @media: Interface - print only
+ * (page visual structure)
+*/
+
+@media print {
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: interface_print_IE7 (#472227) 
+ * Last updated by: Evan Wills
+ * Last updated: 12 Oct 2012 9:08am 
+ */
+
+
+
+/**
+ * END: interface_print_IE7 (#472227)
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ */
+
+
+}
+
+/**
+ * END: Interface - print
+ * ==================================================================
+ * START: @media: Interface - media queries screen, projection
+ */
+
+
+
+
+
+
+
+
+/**
+ * END: @media: Interface - media queries screen, projection
+ * ==================================================================
+ * START: PARSE FILE ASSOCIATED IMAGES
+ */
+}
+
+/**
+ * END: PARSE FILE ASSOCIATED IMAGES
+ * ==================================================================
+ * 
+
+
+
+/* 
+----------------------------
+Bootstrap adjusted IE styles 
+----------------------------
+*/
+body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, a, li, p, div, label, span { 
+   font-family: Verdana, Geneva, Arial, sans-serif !important; 
+   font-style:normal !important; 
+}
+
+.thumbnail { max-width:37em!important; }
+
+.tabs-here { float:right!important; margin-top:1.8em; }
+.form-control { height:1.4em; }
+.input-group .form-control { display:inline; width:75%; margin-bottom:0.9em; margin-right:0; }
+.nav-tabs { padding-bottom:3.1em; }
+.nav-tabs > li { margin-bottom: -2px !important; }
+
+#site-search-form .form-control
+{
+    left: 5.4em;
+    position: relative;
+}
+
+.tabs-here section p.view-all { top:2em!important; }
+section#promo li.promo-bottom article div { padding-right:3em; }
+button.search { margin-left:-0.6em; height:36px !important; margin-top:1px; width:2.8em; }
+button.search a { margin-left:-0.6em; height:36px !important; margin-top:1px; width:2.8em; }
+
+nav#content-fixed-content form { width:auto !important; }
+#landing-form a.btn-default { color:#333; float:right; font-size:0.8em; padding:0.3em 0; width:7.8em; margin-top:0.3em; border:0; }
+
+.carousel-indicators .active, .carousel-indicators li { width:10px; height:14px; margin-right:0.4em; }
+.carousel-indicators li { background-color:#fff; display:inline!important; }
+.carousel-indicators { left: 72% !important; margin-left:0 !important; }
+
+section.tabs-here#content section { padding-top:0; }
+
+
+footer nav#global-footer-main ul { margin-left:1em; }
+footer nav#global-footer-main ul li ul { margin-left:0; }
+footer nav#global-footer-main ul li ul li a { margin-left:0; }
+footer nav#global-footer-main ul li { width:20%; }
+.pre-footer-strip { background-color: rgb(0, 94, 145) !important; margin-top:-1.4em; position: relative;display:none; }
+#f_wrap {
+	position: relative;
+	padding:0.5em 1em 0 1em !important; 
+	/* margin-left: -100em;
+	margin-right: -100em;
+	padding-left: 100em;
+	padding-right: 100em; */
+	background-color:#193869 !important;
+}
+
+nav#global-main ul li ul.l2 li ul li
+{
+	background-position: 0% 0.4em;
+	font-weight: 600;
+}
+nav#global-main h3 { font-size:90% !important; line-height:0.7em !important; }
+nav#global-main ul li ul.with-js li { width:15em!important; margin-top:0.5em; line-height:1em!important; }
+nav#global-main ul li ul.with-js li ul li { font-size:100%; padding:0; line-height:1.2em !important; background-image:none; }
+nav#global-main ul li ul.with-js li h3 { line-height:1.5em !important; }
+nav#global-main ul li ul.with-js li.menu-promo { padding-top:1em; }
+nav#global-main ul li ul.with-js li.menu-promo p { font-weight:normal; }
+
+#footer {  background-color: #193869 !important; height:auto !important; }
+nav#global-main ul li ul { height:27em !important; }
+
+
+/*
+-----------------------
+Landing pages and icons
+-----------------------
+*/ 
+#content .list-box h2 {
+    margin-bottom: 0.5em;
+}
+
+/*
+------------------------------------
+Glyphicons style adjustment for IE7 
+------------------------------------
+*/
+.glyphicon {
+  font-family: 'Glyphicons Halflings' !important; 
+  font-style: normal !important; 
+  text-decoration: inherit !important; 
+  line-height: normal !important; 
+}
+
+section#promo li p.read a span.glyphicon-chevron-right { position:absolute; top:0.5em; right:1em; }
+section#promo li p.read { height:2.2em !important; }
+section#promo li p.read a { margin-top:0.5em; }
+
+.glyphicon-glass {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe001;');
+}
+.glyphicon-music {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe002;');
+}
+.glyphicon-search {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe003;');
+}
+.glyphicon-envelope {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x2709;');
+}
+.glyphicon-heart {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe005;');
+}
+.glyphicon-star {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe006;');
+}
+.glyphicon-star-empty {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe007;');
+}
+.glyphicon-user {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe008;');
+}
+.glyphicon-film {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe009;');
+}
+.glyphicon-th-large {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe010;');
+}
+.glyphicon-th {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe011;');
+}
+.glyphicon-th-list {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe012;');
+}
+.glyphicon-ok {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe013;');
+}
+.glyphicon-remove {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe014;');
+}
+.glyphicon-zoom-in {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe015;');
+}
+.glyphicon-zoom-out {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe016;');
+}
+.glyphicon-off {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe017;');
+}
+.glyphicon-signal {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe018;');
+}
+.glyphicon-cog {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe019;');
+}
+.glyphicon-trash {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe020;');
+}
+.glyphicon-home {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe021;');
+}
+.glyphicon-file {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe022;');
+}
+.glyphicon-time {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe023;');
+}
+.glyphicon-road {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe024;');
+}
+.glyphicon-download-alt {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe025;');
+}
+.glyphicon-download {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe026;');
+}
+.glyphicon-upload {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe027;');
+}
+.glyphicon-inbox {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe028;');
+}
+.glyphicon-play-circle {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe029;');
+}
+.glyphicon-repeat {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe030;');
+}
+.glyphicon-refresh {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe031;');
+}
+.glyphicon-list-alt {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe032;');
+}
+.glyphicon-lock {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe033;');
+}
+.glyphicon-flag {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe034;');
+}
+.glyphicon-headphones {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe035;');
+}
+.glyphicon-volume-off {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe036;');
+}
+.glyphicon-volume-down {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe037;');
+}
+.glyphicon-volume-up {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe038;');
+}
+.glyphicon-qrcode {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe039;');
+}
+.glyphicon-barcode {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe040;');
+}
+.glyphicon-tag {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe041;');
+}
+.glyphicon-tags {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe042;');
+}
+.glyphicon-book {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe043;');
+}
+.glyphicon-bookmark {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe044;');
+}
+.glyphicon-print {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe045;');
+}
+.glyphicon-camera {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe046;');
+}
+.glyphicon-font {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe047;');
+}
+.glyphicon-bold {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe048;');
+}
+.glyphicon-italic {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe049;');
+}
+.glyphicon-text-height {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe050;');
+}
+.glyphicon-text-width {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe051;');
+}
+.glyphicon-align-left {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe052;');
+}
+.glyphicon-align-center {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe053;');
+}
+.glyphicon-align-right {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe054;');
+}
+.glyphicon-align-justify {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe055;');
+}
+.glyphicon-list {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe056;');
+}
+.glyphicon-indent-left {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe057;');
+}
+.glyphicon-indent-right {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe058;');
+}
+.glyphicon-facetime-video {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe059;');
+}
+.glyphicon-picture {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe060;');
+}
+.glyphicon-pencil {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x270f;');
+}
+.glyphicon-map-marker {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe062;');
+}
+.glyphicon-adjust {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe063;');
+}
+.glyphicon-tint {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe064;');
+}
+.glyphicon-edit {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe065;');
+}
+.glyphicon-share {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe066;');
+}
+.glyphicon-check {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe067;');
+}
+.glyphicon-move {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe068;');
+}
+.glyphicon-step-backward {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe069;');
+}
+.glyphicon-fast-backward {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe070;');
+}
+.glyphicon-backward {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe071;');
+}
+.glyphicon-play {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe072;');
+}
+.glyphicon-pause {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe073;');
+}
+.glyphicon-stop {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe074;');
+}
+.glyphicon-forward {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe075;');
+}
+.glyphicon-fast-forward {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe076;');
+}
+.glyphicon-step-forward {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe077;');
+}
+.glyphicon-eject {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe078;');
+}
+.glyphicon-chevron-left {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe079;');
+}
+.glyphicon-chevron-right {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe080;');
+}
+.glyphicon-plus-sign {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe081;');
+}
+.glyphicon-minus-sign {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe082;');
+}
+.glyphicon-remove-sign {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe083;');
+}
+.glyphicon-ok-sign {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe084;');
+}
+.glyphicon-question-sign {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe085;');
+}
+.glyphicon-info-sign {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe086;');
+}
+.glyphicon-screenshot {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe087;');
+}
+.glyphicon-remove-circle {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe088;');
+}
+.glyphicon-ok-circle {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe089;');
+}
+.glyphicon-ban-circle {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe090;');
+}
+.glyphicon-arrow-left {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe091;');
+}
+.glyphicon-arrow-right {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe092;');
+}
+.glyphicon-arrow-up {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe093;');
+}
+.glyphicon-arrow-down {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe094;');
+}
+.glyphicon-share-alt {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe095;');
+}
+.glyphicon-resize-full {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe096;');
+}
+.glyphicon-resize-small {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe097;');
+}
+.glyphicon-plus {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x002b;');
+}
+.glyphicon-minus {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x2212;');
+}
+.glyphicon-asterisk {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x002a;');
+}
+.glyphicon-exclamation-sign {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe101;');
+}
+.glyphicon-gift {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe102;');
+}
+.glyphicon-leaf {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe103;');
+}
+.glyphicon-fire {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe104;');
+}
+.glyphicon-eye-open {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe105;');
+}
+.glyphicon-eye-close {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe106;');
+}
+.glyphicon-warning-sign {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe107;');
+}
+.glyphicon-plane {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe108;');
+}
+.glyphicon-calendar {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe109;');
+}
+.glyphicon-random {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe110;');
+}
+.glyphicon-comment {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe111;');
+}
+.glyphicon-magnet {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe112;');
+}
+.glyphicon-chevron-up {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe113;');
+}
+.glyphicon-chevron-down {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe114;');
+}
+.glyphicon-retweet {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe115;');
+}
+.glyphicon-shopping-cart {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe116;');
+}
+.glyphicon-folder-close {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe117;');
+}
+.glyphicon-folder-open {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe118;');
+}
+.glyphicon-resize-vertical {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe119;');
+}
+.glyphicon-resize-horizontal {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe120;');
+}
+.glyphicon-hdd {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe121;');
+}
+.glyphicon-bullhorn {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe122;');
+}
+.glyphicon-bell {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe123;');
+}
+.glyphicon-certificate {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe124;');
+}
+.glyphicon-thumbs-up {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe125;');
+}
+.glyphicon-thumbs-down {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe126;');
+}
+.glyphicon-hand-right {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe127;');
+}
+.glyphicon-hand-left {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe128;');
+}
+.glyphicon-hand-up {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe129;');
+}
+.glyphicon-hand-down {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe130;');
+}
+.glyphicon-circle-arrow-right {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe131;');
+}
+.glyphicon-circle-arrow-left {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe132;');
+}
+.glyphicon-circle-arrow-up {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe133;');
+}
+.glyphicon-circle-arrow-down {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe134;');
+}
+.glyphicon-globe {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe135;');
+}
+.glyphicon-wrench {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe136;');
+}
+.glyphicon-tasks {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe137;');
+}
+.glyphicon-filter {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe138;');
+}
+.glyphicon-briefcase {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe139;');
+}
+.glyphicon-fullscreen {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe140;');
+}
+.glyphicon-dashboard {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe141;');
+}
+.glyphicon-paperclip {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe142;');
+}
+.glyphicon-heart-empty {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe143;');
+}
+.glyphicon-link {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe144;');
+}
+.glyphicon-phone {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe145;');
+}
+.glyphicon-pushpin {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe146;');
+}
+.glyphicon-euro {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x20ac;');
+}
+.glyphicon-usd {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe148;');
+}
+.glyphicon-gbp {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe149;');
+}
+.glyphicon-sort {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe150;');
+}
+.glyphicon-sort-by-alphabet {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe151;');
+}
+.glyphicon-sort-by-alphabet-alt {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe152;');
+}
+.glyphicon-sort-by-order {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe153;');
+}
+.glyphicon-sort-by-order-alt {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe154;');
+}
+.glyphicon-sort-by-attributes {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe155;');
+}
+.glyphicon-sort-by-attributes-alt {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe156;');
+}
+.glyphicon-unchecked {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe157;');
+}
+.glyphicon-expand {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe158;');
+}
+.glyphicon-collapse {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe159;');
+}
+.glyphicon-collapse-top {
+  zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe160;');
+}
+
+/* icon cluster links */
+#landing_links { margin:1em 1em 2em 0 !important; }
+#landing_links img { display:block; float:left; margin-right:0.8em; }
+#landing_links .vis-list_box_2col {
+    float: left;
+    margin-bottom: 5px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    padding-bottom: 15px;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 5px;
+}
+#landing_links .list-box h2 {
+    margin-top: 0.3em !important;
+    padding-top: 0;
+    font-size:100%;
+    font-weight:bold;
+}
+.list-box { float:left !important; margin:0; width:15em; }
+#landing_links .vis-list_column_1 {
+    float: left;
+    width: 21em !important;
+    margin-right:2em;
+}
+/* Library home */ .home #landing_links .vis-list_column_1 {
+    float: left;
+    width: 21em !important;
+}
+
+#landing_links p {
+    margin-top: -0.6em;
+}
+
+/* BUTTONS */
+.btn-secondary {
+    background-color: #00529E;
+    color: #FFFFFF !important;
+}
+
+#site-search input {
+    width: 80%;
+}
+
+
+/* ----------------------------------------------
+ * START: search box form (IE7)
+ */
+
+.search-side-by-side {
+	position: relative;
+}
+.search-side-by-side .form-control {
+	float: left;
+	height: 2.1em !important;
+	padding: 0.6em 2% 0% !important;
+}
+.search-side-by-side .btn {
+	float: left;
+	padding: 0.6em 2% !important;
+}
+.search-side-by-side .form-control.width_90pct { width: 85% !important; }
+.search-side-by-side .form-control.width_85pct { width: 80% !important; }
+.search-side-by-side .form-control.width_80pct { width: 75% !important; }
+.search-side-by-side .form-control.width_75pct { width: 70% !important; }
+.search-side-by-side .form-control.width_70pct { width: 65% !important; }
+.search-side-by-side .form-control.width_65pct { width: 60% !important; }
+.search-side-by-side .form-control.width_60pct { width: 55% !important; }
+.search-side-by-side .form-control.width_55pct { width: 50% !important; }
+.search-side-by-side .form-control.width_50pct { width: 45% !important; }
+
+
+
+
+.search-btn-inside .form-control {
+	display: block;
+	width: 90%;
+	height: 2.3em !important;
+	padding: 1em 5% 0% 5% !important;
+}
+.search-btn-inside .btn {
+	right: 5%;
+	top: 0.3em !important;
+	right: 0.1em;
+	display: block;
+	padding: 0.2em;
+	height: 3em !important;
+}
+
+/**
+ * END: search box form
+ * ------------------------------------------- */
+
+
+

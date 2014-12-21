@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=8; IE=9" />
+		<meta name="viewport" content="user-scalable=yes, initial-scale=1.0, width=device-width, height=device-height" />
+		<title>CSV Data Sources - Students - ACU (Australian Catholic University)</title>
+		<script src="js/jquery_1-10-2.min.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="shortcut icon" href="favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="css/clear.css" media="screen, print" />
+		<link rel="stylesheet" type="text/css" href="css/proxima-nova.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="css/smallscreen.css" media="screen and (max-width: 799px)" />
+		<link rel="stylesheet" type="text/css" href="css/smallscreen-students.css" media="screen and (max-width: 799px)" />
+		<link rel="stylesheet" type="text/css" href="css/primary_all.css" media="screen and (min-width: 800px)" />
+		<link rel="stylesheet" type="text/css" href="css/students.css" media="screen and (min-width: 800px)" />
+		<link rel="stylesheet" type="text/css" href="css/landing-page.css" media="all" />
+
+		<style type="text/css">
+.inline-list
+{
+	margin: 0%;
+	padding: 0%;
+}
+.inline-list li
+{
+	margin: 0%;
+	padding:0% 0.5em;
+	list-style-type: none;
+	display: inline;
+}
+		</style>
+	</head>
+
+    <body class="_  hide-right-col_ SITE_students information_for_ new_students_ orientation_2015_ orientation_at_strathfield_campus_ csv_data_sources_ ">
+
+        <!-- div id="wrap-global" -->
+        <div id="main-body" class="">
+
+
+            <div id="wrap-outer" class="   folder">
+                <div id="wrap-inner">
+                    <section id="content">
+                    	<h1 class="content-heading">CSV Data Sources</h1>
+
+
+
+
+
+<div id="table-filter">
+	<fieldset class="highlight-v2 block__rounded--grey">
+		<h2 class="margin-top_0 margin_bottom_m">Refine the scholarships list below</h2>
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<div class="margin_bottom_m">
+					<label for="audience">Show me scholarships open to</label> <br>
+					<select id="audience" class="form-control">
+						<option value="">All</option>
+						<option value="non-aboriginal_and_torres_strait_islander_applicants">Non Aboriginal and Torres Strait Islander applicants</option>
+						<option value="aboriginal_and_torres_strait_islander_applicants_only">Aboriginal and Torres Strait Islander applicants only</option>
+						<option value="aboriginal_and_torres_strait_islander_applicants">Aboriginal and Torres Strait Islander applicants</option>
+						<option value="international_applicants">International applicants</option>
+					</select>
+				</div>
+
+				<div class="margin_bottom_m">
+					<label for="faculty">Faculty:</label> <br>
+					<select class="form-control" id="faculty" name="faculty">
+						<option value="">All</option>
+						<option value="education_and_arts">Education and Arts</option>
+						<option value="health_sciences">Health Sciences</option>
+						<option value="law_and_business">Law and Business</option>
+						<option value="theology_and_philosophy">Theology and Philosophy</option>
+					</select>
+				</div>
+
+				<div class="margin-bottom_1">
+					<label for="stu_type">Student Type:</label> <br>
+					<select class="form-control" id="stu_type" name="stu_type">
+						<option value="">All</option>
+						<option value="commencing">New student</option>
+						<option value="continuing">Current student</option>
+						<option value="alumni">Alumni</option>
+					</select>
+				</div>
+<!--
+				<div class="margin_bottom_m margin__top--10">
+					<input type="checkbox" id="show_closed" value="sc_closed" checked="checked" data-inclusive="exclusive" data-inverse="inverse" />
+					<label for="show_closed" style="font-weight:normal">Hide scholarships that are currently closed</label>
+				</div>
+-->
+				<div class="margin_bottom_m margin__top--10">
+					<input type="checkbox" id="hide_closed" value="sc_closed" data-inclusive="exclusive" data-inverse="inverse" data-preset="true" />
+					<label for="hide_closed" style="font-weight:normal">Hide scholarships that are currently closed</label>
+				</div>
+			</div>
+
+
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<div class="margin_bottom_m">
+					<label for="campus">Campus:</label> <br>
+					<select class="form-control" id="campus" name="campus" data-preset="true">
+						<option value="campus_any">All</option>
+						<option value="adelaide">Adelaide</option>
+						<option value="ballarat">Ballarat</option>
+						<option value="brisbane">Brisbane</option>
+						<option value="canberra">Canberra</option>
+						<option value="melbourne">Melbourne</option>
+						<option value="north_sydney">North Sydney</option>
+						<option value="strathfield">Strathfield</option>
+						<option value="nsw">New South Wales</option>
+						<option value="vic">Victoria</option>
+						<option value="sydney">Sydney</option>
+					</select>
+				</div>
+
+				<div class="margin_bottom_m">
+					<label for="level">Course type:</label> <br>
+					<select class="form-control" id="level" name="level">
+						<option value="">All</option>
+						<option value="undergraduate">Undergraduate (eg your first degree)</option>
+						<option value="postgraduate">Postgraduate</option>
+						<option value="http_www_acu_edu_au_research_future_research_students_scholarships">Research</option>
+					</select>
+				</div>
+
+				<div class="margin_bottom_m">
+					<label for="sch_type">Scholarship Type:</label> <br>
+					<select class="form-control" id="sch_type" name="sch_type">
+						<option value="">All</option>
+						<option value="academic_merit">Academic merit</option>
+						<option value="community_engagement">Community engagement</option>
+						<option value="financial_need">Financial need</option>
+						<option value="placement">Placement</option>
+						<option value="rural_or_regional">Rural or regional</option>
+						<option value="socio-economic_barriers">Socio-economic barriers</option>
+						<option value="travel">Travel</option>
+					</select>
+				</div>
+			</div>
+		</div>
+	</fieldset>
+
+	<table class="table table-responsive table-hover table-striped table-condensed table-bordered margin-bottom_1 filter-this" id="scholarships-list">
+		<thead>
+			<tr>
+				<th width="68%">Award</th>
+				<th width="16%">Opening date</th>
+				<th width="16%">Closing date</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="sc_closed aboriginal_and_torres_strait_islander_applicants_non-aboriginal_and_torres_strait_islander_applicants canberra brisbane north_sydney melbourne strathfield ballarat adelaide undergraduate education_and_arts_health_sciences_law_and_business_theology_and_philosophy continuing academic_merit">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/acu_academic_excellence_scholarship" target="_blank">ACU Academic Excellence Scholarship</a></td>
+				<td><span class="">Closed</span> <span class="hide_me">01 Jan 2011</span> <span class="hide_me"> </span></td>
+				<td>Closed<span class="hide_me">01 Jan 2011</span></td>
+			</tr>
+			<tr class="sc_open aboriginal_and_torres_strait_islander_applicants_non-aboriginal_and_torres_strait_islander_applicants north_sydney melbourne strathfield postgraduate_undergraduate education_and_arts_health_sciences_law_and_business_theology_and_philosophy commencing_continuing financial_need">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/acu_equity_bursaries" target="_blank">ACU Equity Bursaries</a></td>
+				<td><span class="hide_me"></span> <span class="">06 Aug 2014</span> <span class=""> </span></td>
+				<td><span class="">07 Jan 2015</span></td>
+			</tr>
+			<tr class="sc_open aboriginal_and_torres_strait_islander_applicants_only north_sydney melbourne strathfield undergraduate law_and_business commencing financial_need">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/acu_law_-_aboriginal_and_torres_strait_islander_bursary" target="_blank">ACU Law - Aboriginal and Torres Strait Islander Bursary</a></td>
+				<td><span class="hide_me">Closed</span> <span class="hide_me">01 Jan 2011</span> <span class=""> </span></td>
+				<td><span class="">25 Aug 2014</span></td>
+			</tr>
+			<tr class="sc_open aboriginal_and_torres_strait_islander_applicants_non-aboriginal_and_torres_strait_islander_applicants melbourne undergraduate law_and_business commencing financial_need">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/acu_law-equity_bursary" target="_blank">ACU Law - Equity Bursary</a></td>
+				<td><span class="hide_me">Closed</span> <span class="hide_me">01 Jan 2011</span> <span class=""> </span></td>
+				<td><span class="">31 Mar 2014</span></td>
+			</tr>
+			<tr class="sc_open aboriginal_and_torres_strait_islander_applicants_non-aboriginal_and_torres_strait_islander_applicants north_sydney melbourne strathfield undergraduate law_and_business commencing academic_merit_community_engagement">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/acu_law_academic_merit_scholarship" target="_blank">ACU Law Academic Merit Scholarship</a></td>
+				<td><span class="hide_me">Closed</span> <span class="hide_me">01 Jan 2011</span> <span class=""> </span></td>
+				<td><span class="">31 Mar 2014</span></td>
+			</tr>
+			<tr class="sc_closed aboriginal_and_torres_strait_islander_applicants_non-aboriginal_and_torres_strait_islander_applicants_international_applicants campus_any postgraduate_undergraduate education_and_arts_health_sciences_law_and_business_theology_and_philosophy continuing financial_need_travel">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/acu_national_student_association_-_stts" target="_blank">ACU National Student Association - Student Travel and Training Scholarship (STTS)</a></td>
+				<td><span class="">Closed</span> <span class="hide_me">01 Jan 2011</span> <span class="hide_me"> </span></td>
+				<td>Closed<span class="hide_me">22 Oct 2014</span></td>
+			</tr>
+			<tr class="sc_open aboriginal_and_torres_strait_islander_applicants_non-aboriginal_and_torres_strait_islander_applicants_international_applicants canberra brisbane north_sydney melbourne strathfield ballarat adelaide postgraduate education_and_arts_health_sciences_law_and_business_theology_and_philosophy continuing academic_merit_community_engagement_placement_travel">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/anne_lyons_memorial_travel_scholarship" target="_blank">Anne Lyons Memorial Travel Scholarship (Postgraduate)</a></td>
+				<td><span class="hide_me"></span> <span class="">31 Oct 2014</span> <span class=""> </span></td>
+				<td><span class="">08 Mar 2015</span></td>
+			</tr>
+			<tr class="sc_open aboriginal_and_torres_strait_islander_applicants_non-aboriginal_and_torres_strait_islander_applicants_international_applicants canberra brisbane north_sydney melbourne strathfield ballarat undergraduate education_and_arts_health_sciences_law_and_business_theology_and_philosophy continuing academic_merit_community_engagement_placement_travel">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/anne_lyons_memorial_travel_scholarship_undergraduates" target="_blank">Anne Lyons Memorial Travel Scholarship (Undergraduates)</a></td>
+				<td><span class="hide_me"></span> <span class="">31 Oct 2014</span> <span class=""> </span></td>
+				<td><span class="">08 Mar 2015</span></td>
+			</tr>
+			<tr class="sc_open aboriginal_and_torres_strait_islander_applicants_non-aboriginal_and_torres_strait_islander_applicants_international_applicants brisbane postgraduate theology_and_philosophy commencing_continuing academic_merit_community_engagement_financial_need">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/archdiocese_of_brisbane_theology_scholarship" target="_blank">Archdiocese of Brisbane Theology Scholarship</a></td>
+				<td><span class="hide_me"></span> <span class="">31 Oct 2014</span> <span class=""> </span></td>
+				<td><span class="">08 Mar 2015</span></td>
+			</tr>
+			<tr class="sc_open aboriginal_and_torres_strait_islander_applicants_non-aboriginal_and_torres_strait_islander_applicants_international_applicants canberra brisbane north_sydney strathfield postgraduate education_and_arts_health_sciences commencing_continuing_alumni academic_merit">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/australian_catholic_superannuation_and_retirement_fund_-_postgraduate_scholarships" target="_blank">Australian Catholic Superannuation and Retirement Fund - Postgraduate Scholarships</a></td>
+				<td><span class="hide_me"></span> <span class="">31 Oct 2014</span> <span class=""> </span></td>
+				<td><span class="">08 Mar 2015</span></td>
+			</tr>
+			<tr class="sc_closed international_applicants campus_any postgraduate_undergraduate education_and_arts_health_sciences_law_and_business_theology_and_philosophy commencing academic_merit">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/int_stu_schol" target="_blank">Australian Catholic University International Student Scholarship</a></td>
+				<td><span class="">Closed</span> <span class="hide_me">01 Jan 2011</span> <span class="hide_me"> </span></td>
+				<td>Closed<span class="hide_me">01 Jan 2011</span></td>
+			</tr>
+			<tr class="sc_closed aboriginal_and_torres_strait_islander_applicants_non-aboriginal_and_torres_strait_islander_applicants_international_applicants canberra north_sydney strathfield postgraduate_undergraduate education_and_arts commencing_continuing_alumni academic_merit_community_engagement_travel">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/bob_and_margaret_frater_travel_scholarship" target="_blank">Bob and Margaret Frater Travel Scholarship</a></td>
+				<td><span class="">Closed</span> <span class="hide_me">01 Jan 2011</span> <span class="hide_me"> </span></td>
+				<td>Closed<span class="hide_me">31 Aug 2014</span></td>
+			</tr>
+			<tr class="sc_open aboriginal_and_torres_strait_islander_applicants_non-aboriginal_and_torres_strait_islander_applicants_international_applicants melbourne undergraduate health_sciences continuing academic_merit_financial_need">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/cabrini_health_bursary" target="_blank">Cabrini Health Bursary</a></td>
+				<td><span class="hide_me">Closed</span> <span class="hide_me">01 Jan 2011</span> <span class=""> </span></td>
+				<td><span class="">25 Aug 2014</span></td>
+			</tr>
+			<tr class="sc_open aboriginal_and_torres_strait_islander_applicants_non-aboriginal_and_torres_strait_islander_applicants_international_applicants brisbane undergraduate education_and_arts_health_sciences_law_and_business commencing community_engagement_financial_need">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/catherine_mcauley_scholarship" target="_blank">Catherine McAuley Scholarship</a></td>
+				<td><span class="hide_me"></span> <span class="">31 Oct 2014</span> <span class=""> </span></td>
+				<td><span class="">08 Mar 2015</span></td>
+			</tr>
+			<tr class="sc_closed aboriginal_and_torres_strait_islander_applicants_non-aboriginal_and_torres_strait_islander_applicants campus_any postgraduate_undergraduate education_and_arts_health_sciences_law_and_business_theology_and_philosophy continuing academic_merit_community_engagement_financial_need_rural_or_regional">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/co-op_bookshop_scholarship" target="_blank">Co-op Bookshop Scholarship</a></td>
+				<td><span class="">Closed</span> <span class="hide_me">01 Jan 2011</span> <span class="hide_me"> </span></td>
+				<td>Closed<span class="hide_me">01 Jan 2011</span></td>
+			</tr>
+			<tr class="sc_open aboriginal_and_torres_strait_islander_applicants_only campus_any postgraduate_undergraduate education_and_arts_health_sciences_law_and_business_theology_and_philosophy commencing_continuing financial_need_rural_or_regional">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/commonwealth_accommodation_scholarship" target="_blank">Commonwealth Accommodation Scholarship</a></td>
+				<td><span class="hide_me"></span> <span class="">06 Aug 2014</span> <span class=""> </span></td>
+				<td><span class="">07 Jan 2015</span></td>
+			</tr>
+			<tr class="sc_open aboriginal_and_torres_strait_islander_applicants_only campus_any postgraduate_undergraduate education_and_arts_health_sciences_law_and_business_theology_and_philosophy commencing_continuing financial_need">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/commonwealth_education_costs_scholarship" target="_blank">Commonwealth Education Costs Scholarship</a></td>
+				<td><span class="hide_me"></span> <span class="">06 Aug 2014</span> <span class=""> </span></td>
+				<td><span class="">07 Jan 2015</span></td>
+			</tr>
+			<tr class="sc_open aboriginal_and_torres_strait_islander_applicants_non-aboriginal_and_torres_strait_islander_applicants_international_applicants north_sydney strathfield postgraduate education_and_arts_health_sciences_law_and_business_theology_and_philosophy commencing financial_need">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/dooleys_lidcombe_catholic_club_postgraduate_scholarships" target="_blank">DOOLEYS Lidcombe Catholic Club Postgraduate Bursary</a></td>
+				<td><span class="hide_me"></span> <span class="">31 Oct 2014</span> <span class=""> </span></td>
+				<td><span class="">08 Mar 2015</span></td>
+			</tr>
+			<tr class="sc_open aboriginal_and_torres_strait_islander_applicants_non-aboriginal_and_torres_strait_islander_applicants_international_applicants north_sydney strathfield undergraduate education_and_arts_health_sciences_law_and_business_theology_and_philosophy commencing_continuing financial_need">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/dooleys_lidcombe_catholic_club_undergraduate_scholarships" target="_blank">DOOLEYS Lidcombe Catholic Club Undergraduate Bursaries</a></td>
+				<td><span class="hide_me"></span> <span class="">31 Oct 2014</span> <span class=""> </span></td>
+				<td><span class="">08 Mar 2015</span></td>
+			</tr>
+			<tr class="sc_open aboriginal_and_torres_strait_islander_applicants_non-aboriginal_and_torres_strait_islander_applicants brisbane undergraduate education_and_arts_health_sciences_law_and_business_theology_and_philosophy commencing financial_need_rural_or_regional_socio-economic_barriers">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/edmund_rice_education_australia_and_st_josephs_college,_gregory_terrace_-_equity_scholarship" target="_blank">Edmund Rice Education Australia &amp; St Joseph's College, Gregory Terrace - Equity Scholarship</a></td>
+				<td><span class="hide_me"></span> <span class="">11 Nov 2014</span> <span class=""> </span></td>
+				<td><span class="">08 Mar 2015</span></td>
+			</tr>
+			<tr class="sc_open aboriginal_and_torres_strait_islander_applicants_non-aboriginal_and_torres_strait_islander_applicants brisbane undergraduate education_and_arts_health_sciences_law_and_business_theology_and_philosophy commencing community_engagement_financial_need_rural_or_regional_socio-economic_barriers">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/edmund_rice_education_australia_and_st_josephs_college,_gregory_terrace_-_student_leadership_scholarship" target="_blank">Edmund Rice Education Australia &amp; St Joseph's College, Gregory Terrace - Student Leadership Scholarship</a></td>
+				<td><span class="hide_me"></span> <span class="">11 Nov 2014</span> <span class=""> </span></td>
+				<td><span class="">08 Mar 2015</span></td>
+			</tr>
+			<tr class="sc_open aboriginal_and_torres_strait_islander_applicants_non-aboriginal_and_torres_strait_islander_applicants_international_applicants melbourne undergraduate health_sciences commencing financial_need_socio-economic_barriers">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/Emergency_Nursing_Advocacy_Bursary" target="_blank">Emergency Nursing Advocacy Bursary</a></td>
+				<td><span class="hide_me"></span> <span class="">31 Oct 2014</span> <span class=""> </span></td>
+				<td><span class="">11 Jan 2015</span></td>
+			</tr>
+			<tr class="sc_closed international_applicants canberra brisbane north_sydney melbourne strathfield ballarat campus_any postgraduate_undergraduate theology_and_philosophy continuing academic_merit">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/acu_fethullah_gulen_international_scholarship" target="_blank">Fethullah Gulen International Scholarship</a></td>
+				<td><span class="">Closed</span> <span class="hide_me">01 Jan 2011</span> <span class="hide_me"> <sup><a href="#disclaimer2">**</a></sup></span></td>
+				<td>Closed<span class="hide_me">01 Jan 2011</span></td>
+			</tr>
+			<tr class="sc_open aboriginal_and_torres_strait_islander_applicants_non-aboriginal_and_torres_strait_islander_applicants_international_applicants canberra postgraduate_undergraduate education_and_arts_health_sciences_law_and_business_theology_and_philosophy commencing_continuing academic_merit_community_engagement_financial_need_rural_or_regional">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/francis_carroll_scholarship" target="_blank">Francis Carroll Scholarship</a></td>
+				<td><span class="hide_me"></span> <span class="">31 Oct 2014</span> <span class=""> </span></td>
+				<td><span class="">08 Mar 2015</span></td>
+			</tr>
+			<tr class="sc_open aboriginal_and_torres_strait_islander_applicants_non-aboriginal_and_torres_strait_islander_applicants_international_applicants ballarat postgraduate_undergraduate education_and_arts_health_sciences commencing_continuing financial_need_placement">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/george_alexander_foundation_bursaries" target="_blank">George Alexander Foundation Bursaries</a></td>
+				<td><span class="hide_me"></span> <span class="">31 Oct 2014</span> <span class=""> </span></td>
+				<td><span class="">08 Mar 2015</span></td>
+			</tr>
+			<tr class="sc_open aboriginal_and_torres_strait_islander_applicants_non-aboriginal_and_torres_strait_islander_applicants ballarat undergraduate education_and_arts_health_sciences commencing academic_merit_community_engagement_financial_need_placement_rural_or_regional_socio-economic_barriers">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/george_alexander_foundation_scholarships" target="_blank">George Alexander Foundation Scholarships</a></td>
+				<td><span class="hide_me"></span> <span class="">31 Oct 2014</span> <span class=""> </span></td>
+				<td><span class="">08 Mar 2015</span></td>
+			</tr>
+			<tr class="sc_open aboriginal_and_torres_strait_islander_applicants_only_aboriginal_and_torres_strait_islander_applicants melbourne postgraduate_undergraduate health_sciences commencing_continuing community_engagement_financial_need_socio-economic_barriers">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/gill_family_aboriginal_and_torres_strait_islander_bursary" target="_blank">Gill Family Aboriginal and Torres Strait Islander Bursary</a></td>
+				<td><span class="hide_me"></span> <span class="">31 Oct 2014</span> <span class=""> </span></td>
+				<td><span class="">08 Mar 2015</span></td>
+			</tr>
+			<tr class="sc_open non-aboriginal_and_torres_strait_islander_applicants melbourne postgraduate_undergraduate health_sciences commencing_continuing community_engagement_financial_need_socio-economic_barriers">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/gill_family_bursary" target="_blank">Gill Family Bursary</a></td>
+				<td><span class="hide_me"></span> <span class="">31 Oct 2014</span> <span class=""> </span></td>
+				<td><span class="">08 Mar 2015</span></td>
+			</tr>
+			<tr class="sc_open aboriginal_and_torres_strait_islander_applicants_non-aboriginal_and_torres_strait_islander_applicants melbourne undergraduate health_sciences continuing academic_merit_community_engagement">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/gill_family_excellence_in_nursing_and_midwifery_scholarship" target="_blank">Gill Family Excellence in Nursing and Midwifery Scholarship</a></td>
+				<td><span class="hide_me"></span> <span class="">31 Oct 2014</span> <span class=""> </span></td>
+				<td><span class="">08 Mar 2015</span></td>
+			</tr>
+			<tr class="sc_closed aboriginal_and_torres_strait_islander_applicants_non-aboriginal_and_torres_strait_islander_applicants_international_applicants brisbane undergraduate education_and_arts_health_sciences_law_and_business_theology_and_philosophy commencing academic_merit_community_engagement_financial_need_rural_or_regional_socio-economic_barriers">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/gleeson_family_scholarship" target="_blank">Gleeson Family Scholarship</a></td>
+				<td><span class="">Closed</span> <span class="hide_me">01 Jan 2011</span> <span class="hide_me"> </span></td>
+				<td>Closed<span class="hide_me">01 Jan 2011</span></td>
+			</tr>
+			<tr class="sc_open aboriginal_and_torres_strait_islander_applicants_only campus_any postgraduate_undergraduate education_and_arts_health_sciences_law_and_business_theology_and_philosophy commencing_continuing financial_need_rural_or_regional">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/indigenous_access_scholarship" target="_blank">Indigenous Access Scholarship</a></td>
+				<td><span class="hide_me"></span> <span class="">06 Aug 2014</span> <span class=""> </span></td>
+				<td><span class="">07 Jan 2015</span></td>
+			</tr>
+			<tr class="sc_open aboriginal_and_torres_strait_islander_applicants_non-aboriginal_and_torres_strait_islander_applicants_international_applicants strathfield undergraduate education_and_arts_health_sciences_law_and_business_theology_and_philosophy commencing_continuing financial_need">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/john_f_slowey_memorial_bursary" target="_blank">John F Slowey Memorial Bursary</a></td>
+				<td><span class="hide_me"></span> <span class="">31 Oct 2014</span> <span class=""> </span></td>
+				<td><span class="">08 Mar 2015</span></td>
+			</tr>
+			<tr class="sc_open aboriginal_and_torres_strait_islander_applicants_non-aboriginal_and_torres_strait_islander_applicants_international_applicants strathfield undergraduate education_and_arts continuing academic_merit_community_engagement">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/john_f_slowey_memorial_scholarship" target="_blank">John F Slowey Memorial Scholarship</a></td>
+				<td><span class="hide_me"></span> <span class="">31 Oct 2014</span> <span class=""> </span></td>
+				<td><span class="">08 Mar 2015</span></td>
+			</tr>
+			<tr class="sc_open aboriginal_and_torres_strait_islander_applicants_non-aboriginal_and_torres_strait_islander_applicants canberra undergraduate health_sciences continuing academic_merit_community_engagement">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/laurie_daniels_scholarship" target="_blank">Laurie Daniels Scholarship</a></td>
+				<td><span class="hide_me"></span> <span class="">31 Oct 2014</span> <span class=""> </span></td>
+				<td><span class="">08 Mar 2015</span></td>
+			</tr>
+			<tr class="sc_open non-aboriginal_and_torres_strait_islander_applicants north_sydney undergraduate health_sciences continuing academic_merit_financial_need_placement">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/mary_curran_scholarship" target="_blank">Mary Curran Scholarship</a></td>
+				<td><span class="hide_me"></span> <span class="">31 Oct 2014</span> <span class=""> </span></td>
+				<td><span class="">08 Mar 2015</span></td>
+			</tr>
+			<tr class="sc_open aboriginal_and_torres_strait_islander_applicants_only brisbane undergraduate education_and_arts_health_sciences_law_and_business_theology_and_philosophy commencing_continuing academic_merit_community_engagement">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/mary_mackillop_scholarship" target="_blank">Mary MacKillop Scholarship</a></td>
+				<td><span class="hide_me"></span> <span class="">31 Oct 2014</span> <span class=""> </span></td>
+				<td><span class="">08 Mar 2015</span></td>
+			</tr>
+			<tr class="sc_closed aboriginal_and_torres_strait_islander_applicants_non-aboriginal_and_torres_strait_islander_applicants_international_applicants ballarat postgraduate_undergraduate theology_and_philosophy commencing_continuing academic_merit_community_engagement_financial_need_rural_or_regional">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/michael_myers_theology_scholarship" target="_blank">Michael Myers Theology Scholarship</a></td>
+				<td><span class="">Closed</span> <span class="hide_me">01 Jan 2011</span> <span class="hide_me"> </span></td>
+				<td>Closed<span class="hide_me">25 Aug 2014</span></td>
+			</tr>
+			<tr class="sc_open aboriginal_and_torres_strait_islander_applicants_only brisbane postgraduate_undergraduate education_and_arts_health_sciences_law_and_business_theology_and_philosophy commencing_continuing community_engagement_financial_need">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/nano_nagle_scholarship" target="_blank">Nano Nagle Scholarship</a></td>
+				<td><span class="hide_me"></span> <span class="">31 Oct 2014</span> <span class=""> </span></td>
+				<td><span class="">08 Mar 2015</span></td>
+			</tr>
+			<tr class="sc_open aboriginal_and_torres_strait_islander_applicants_non-aboriginal_and_torres_strait_islander_applicants_international_applicants brisbane melbourne strathfield undergraduate health_sciences continuing academic_merit_community_engagement">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/peter_w._sheehan_scholarship" target="_blank">Peter W. Sheehan Scholarship</a></td>
+				<td><span class="hide_me"></span> <span class="">03 Nov 2014</span> <span class=""> </span></td>
+				<td><span class="">08 Mar 2015</span></td>
+			</tr>
+			<tr class="sc_open aboriginal_and_torres_strait_islander_applicants_non-aboriginal_and_torres_strait_islander_applicants campus_any undergraduate education_and_arts_health_sciences_law_and_business_theology_and_philosophy continuing academic_merit_placement_travel">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/philip_malouf_perpetual_scholarship" target="_blank">Philip Malouf Perpetual Scholarship</a></td>
+				<td><span class="hide_me"></span> <span class="">31 Oct 2014</span> <span class=""> </span></td>
+				<td><span class="">08 Mar 2015</span></td>
+			</tr>
+			<tr class="sc_open aboriginal_and_torres_strait_islander_applicants_only campus_any postgraduate education_and_arts_health_sciences_law_and_business_theology_and_philosophy commencing_continuing community_engagement_financial_need">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/pratt_foundation_bursary" target="_blank">Pratt Foundation Bursary</a></td>
+				<td><span class="hide_me"></span> <span class="">31 Oct 2014</span> <span class=""> </span></td>
+				<td><span class="">08 Mar 2015</span></td>
+			</tr>
+			<tr class="sc_closed aboriginal_and_torres_strait_islander_applicants_non-aboriginal_and_torres_strait_islander_applicants_international_applicants brisbane postgraduate_undergraduate education_and_arts continuing academic_merit_placement">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/qiec_super_scholarship" target="_blank">QIEC Super Scholarship</a></td>
+				<td><span class="">Closed</span> <span class="hide_me">01 Jan 2011</span> <span class="hide_me"> </span></td>
+				<td>Closed<span class="hide_me">07 Sep 2014</span></td>
+			</tr>
+			<tr class="sc_open aboriginal_and_torres_strait_islander_applicants_non-aboriginal_and_torres_strait_islander_applicants_international_applicants strathfield undergraduate health_sciences continuing academic_merit_community_engagement">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/richard_charles_carroll_scholarship" target="_blank">Richard Charles Carroll Scholarship</a></td>
+				<td><span class="hide_me"></span> <span class="">31 Oct 2014</span> <span class=""> </span></td>
+				<td><span class="">08 Mar 2015</span></td>
+			</tr>
+			<tr class="sc_open aboriginal_and_torres_strait_islander_applicants_non-aboriginal_and_torres_strait_islander_applicants_international_applicants ballarat undergraduate health_sciences commencing financial_need_rural_or_regional_socio-economic_barriers">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/sister_assumption_neary_bursary" target="_blank">Sister Assumption Neary Bursary</a></td>
+				<td><span class="hide_me"></span> <span class="">31 Oct 2014</span> <span class=""> </span></td>
+				<td><span class="">08 Mar 2015</span></td>
+			</tr>
+			<tr class="sc_open aboriginal_and_torres_strait_islander_applicants_non-aboriginal_and_torres_strait_islander_applicants_international_applicants ballarat undergraduate health_sciences continuing academic_merit">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/sister_cecily_dunne_scholarship" target="_blank">Sister Cecily Dunne Scholarship</a></td>
+				<td><span class="hide_me"></span> <span class="">31 Oct 2014</span> <span class=""> </span></td>
+				<td><span class="">08 Mar 2015</span></td>
+			</tr>
+			<tr class="sc_open aboriginal_and_torres_strait_islander_applicants_non-aboriginal_and_torres_strait_islander_applicants_international_applicants ballarat undergraduate education_and_arts_health_sciences_law_and_business_theology_and_philosophy commencing_continuing community_engagement_rural_or_regional">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/sisters_of_mercy" target="_blank">Sisters of Mercy Scholarship</a></td>
+				<td><span class="hide_me"></span> <span class="">31 Oct 2014</span> <span class=""> </span></td>
+				<td><span class="">08 Mar 2015</span></td>
+			</tr>
+			<tr class="sc_open aboriginal_and_torres_strait_islander_applicants_non-aboriginal_and_torres_strait_islander_applicants_international_applicants canberra postgraduate_undergraduate health_sciences commencing_continuing academic_merit_placement_travel">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/australian_catholic_university_foundation_social_work_rural_placement_scholarship" target="_blank">Social Work Rural Placement Scholarship</a></td>
+				<td><span class="hide_me"></span> <span class="">31 Oct 2014</span> <span class=""> </span></td>
+				<td><span class="">08 Mar 2015</span></td>
+			</tr>
+			<tr class="sc_open aboriginal_and_torres_strait_islander_applicants_non-aboriginal_and_torres_strait_islander_applicants_international_applicants campus_any postgraduate_undergraduate education_and_arts_health_sciences_law_and_business_theology_and_philosophy commencing_continuing_alumni community_engagement">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/sophia_scholarship" target="_blank">Sophia Scholarship</a></td>
+				<td><span class="hide_me"></span> <span class="">31 Oct 2014</span> <span class=""> </span></td>
+				<td><span class="">08 Mar 2015</span></td>
+			</tr>
+			<tr class="sc_open aboriginal_and_torres_strait_islander_applicants_only north_sydney strathfield postgraduate_undergraduate education_and_arts_health_sciences_law_and_business_theology_and_philosophy commencing_continuing financial_need">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/st_vincent_de_paul_indigenous_student_broken_bay_sship" target="_blank">St Vincent de Paul Society-Broken Bay Central Council Aboriginal and Torres Strait Islander Scholarships</a></td>
+				<td><span class="hide_me"></span> <span class="">31 Oct 2014</span> <span class=""> </span></td>
+				<td><span class="">08 Mar 2015</span></td>
+			</tr>
+			<tr class="sc_open aboriginal_and_torres_strait_islander_applicants_only melbourne ballarat undergraduate health_sciences commencing_continuing academic_merit_community_engagement_financial_need">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/st_vincents_private_hospital_melb_atsi_nurs_sship" target="_blank">St Vincent's Private Hospital Melbourne Aboriginal and Torres Strait Islander Nursing Scholarship</a></td>
+				<td><span class="hide_me"></span> <span class="">31 Oct 2014</span> <span class=""> </span></td>
+				<td><span class="">08 Mar 2015</span></td>
+			</tr>
+			<tr class="sc_open aboriginal_and_torres_strait_islander_applicants_only strathfield postgraduate_undergraduate education_and_arts_health_sciences_law_and_business_theology_and_philosophy continuing financial_need">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/strathfield_campus_student_assoc_aboriginal_and_torres_strait_islander_assist_bursary" target="_blank">Strathfield Campus Student Association Aboriginal and Torres Strait Islander Assistance Bursary</a></td>
+				<td><span class="hide_me"></span> <span class="">31 Oct 2014</span> <span class=""> </span></td>
+				<td><span class="">08 Mar 2015</span></td>
+			</tr>
+			<tr class="sc_open aboriginal_and_torres_strait_islander_applicants_non-aboriginal_and_torres_strait_islander_applicants canberra undergraduate health_sciences commencing_continuing academic_merit_community_engagement_financial_need_rural_or_regional">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/sue_mitchell_nursing_scholarship" target="_blank">Sue Mitchell Nursing Scholarship</a></td>
+				<td><span class="hide_me"></span> <span class="">31 Oct 2014</span> <span class=""> </span></td>
+				<td><span class="">08 Mar 2015</span></td>
+			</tr>
+			<tr class="sc_open aboriginal_and_torres_strait_islander_applicants_non-aboriginal_and_torres_strait_islander_applicants north_sydney melbourne strathfield undergraduate law_and_business commencing academic_merit">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/thomas_more_academy_of_law_academic_excellence_scholarship" target="_blank">Thomas More Academy of Law Academic Excellence Scholarship</a></td>
+				<td><span class="hide_me"></span> <span class="">13 Oct 2014</span> <span class=""> </span></td>
+				<td><span class="">17 Dec 2014</span></td>
+			</tr>
+			<tr class="sc_open aboriginal_and_torres_strait_islander_applicants_only campus_any postgraduate education_and_arts_health_sciences_law_and_business_theology_and_philosophy commencing_continuing community_engagement_financial_need">
+				<td><a href="http://students.acu.edu.au/administration_and_enrolment/fees_and_scholarships/scholarships_and_bursaries/Scholarships_and_Bursaries_Browser/wexford_senate_bursary" target="_blank">Wexford Senate Bursary</a></td>
+				<td><span class="hide_me"></span> <span class="">11 Nov 2014</span> <span class=""> </span></td>
+				<td><span class="">08 Mar 2015</span></td>
+			</tr>
+		</tbody>
+	</table>
+
+</div>
+
+<script src="js/chosen.jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/prism.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/filterFairy.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/presetFormFields.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/page_scholarships.js" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" type="text/css" href="css/chosen.min.css" media="all" />
+<link rel="stylesheet" type="text/css" href="css/orientation_program-listing.css" media="all" />
+<!--  END:  #688289 -->
+<!-- END: #body -->
+
+                    </section>
+
+
+
+                </div>
+
+
+                <nav id="content-menu" class="gt_four_level" class="gt_four_level">
+                </nav>
+
+
+
+            </div>
+
+        </div>
+
+
+
+
+
+        <script type="text/javascript" src="js/bootstrap.min.js?v=0.1.1"></script>
+        <script type="text/javascript" src="js/responsive.js?v=0.0.30"></script>
+
+</body>
+</html>

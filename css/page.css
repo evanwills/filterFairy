@@ -1,0 +1,97 @@
+.orientation-event header , .orientation-notice header { background-color: #fff; }
+.orientation-event h1 , .orientation-event h2 , .orientation-notice header h1
+{
+	font-size: 114.2857% !important;
+	font-weight: bold !important;
+	margin: 0% !important;
+}
+.orientation-event article {
+	/* padding-bottom: 0.5em; */
+	margin-bottom: 1em;
+	border-bottom: 0.1em solid #e1e1e1;
+	position: relative;
+}
+.orientation-event header h1,
+#content .orientation-event header h1 {
+	margin-left: 9.5em !important;
+	border-bottom: none !important;
+	margin-top: 0.6em !important;
+}
+.orientation-event header h2 {
+	margin-top: -1.1em !important;
+}
+.orientation-notice header h2 , .orientation-notice p.location  { display: none; }
+.orientation-event header h1 a , .orientation-notice header h1 a { color: #00539f; }
+ .orientation-event p
+,.orientation-event div.summary {
+	margin-left: 11em;
+	margin-bottom: 1em;
+}
+ .orientation-notice p
+,.orientation-notice div.summary {
+	margin-bottom: 1em;
+}
+
+.orientation-event p.location {
+	margin-left: 15.4em;
+	text-indent: -4.5em;
+}
+.orientation-event .summary p , .orientation-notice .summary p { margin-left: 0; }
+.orientation-event .summary ul li {
+	list-style-type: disc !important;
+	margin-left: 1em !important;
+	padding-left: 0.5em !important;
+	margin-bottom: 0%;
+}
+.edit a {
+	position: absolute;
+	top: 1em;
+	left: 0%;
+}
+#filter-select .s-all { display: block !important; }
+.who-should-attend {
+	background-color: #ccc;
+	display: none;
+	line-height: 2em;
+	padding: 0.5em;
+}
+/*
+.who-should-attend:before {
+	content: "Admin view only:";
+	font-weight: bold;
+	left: -8.5em;
+	position: absolute;
+	top: 0;
+}
+*/
+.who-should-attend li {
+	border: 0.1em solid #aaa;
+	background-color: #eee;
+	display: inline;
+	padding: 0.2em 0.3em !important;
+	white-space: nowrap;
+}
+.who-should-attend li:first-letter {
+	font-weight: bold;
+}
+.orientation-event {
+	border-left-width: 0.4em;
+	border-left-style: solid;
+	padding-left: 0.5em !important;
+}
+.c-NAACED, .c-BEDPRI, .c-NACEDS, .c-GCEDST, .c-BEDECP, .c-MTCHPR, .c-GDEDSE, .c-MTCHS, .c-BINCED { border-left-color: #1CA429; }
+.c-BA, .c-BAABSW, .c-BABCOM, .c-BAECON, .c-BABGLS, .c-BINDEV, .c-NACLIB, .c-DIPLIB, .c-BCOM, .c-BABLAW, .c-BTHLAW, .c-BPSYSC, .c-BPSHON, .BAPSYC, .c-BSWKN, .c-MSWORK, .c-GDCLIN, .c-GCCOUN, .c-GDPSYC, .c-BTBAHM, .c-BTBAMH, .c-BTBATY, .c-BTBAVA, .c-NACTHL, .c-BTHEOL, .c-NACTHL, .c-BTHBGL, .c-BTHLAW, .c-BVAD, .c-DIPVAD { border-left-color: #218CFF; }
+.c-BEXSSC, .c-BEXHSC { border-left-color: #DD553A; }
+.f-assp { border-left-color: #00539F !important; }
+ul.noBullet , ul.noBullet li { padding-left: 0%; margin-left: 0% !important; list-style-type: none; }
+.filter-hide { display: none; }
+#oWeek-tabs { margin-top: 2em; }
+#oWeek-tabs li
+{
+	margin-left: 0%;
+	padding-top: 1.4em;
+	padding-left: 0.9em;
+	/* padding-left: 1.2em; */
+	text-align: left;
+}
+#oWeek-tabs li.tab-nav__two-line { padding-top: 0%; }

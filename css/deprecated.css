@@ -1,0 +1,140 @@
+/* Depricated styles */
+
+.hide { position: absolute; top: -9999px; left: -9999px } /* use .off-screen instead */
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	START IN-LINE DEFINITION LISTS
+
+	NOTE:	"inline-def-x" has been superseeded by "table-def Xx"
+		(note the space between first and second classes - Xx = X3, X5, 19 etc)
+		"table-def Xx" is more reliable and doesn't suffer from the issues
+		 associated with floating.
+
+	NOTE:	"inline-def" is listed below "inline-def-x"
+*/
+dl.inline-def,  dl.inline-def-4,  dl.inline-def-5,  dl.inline-def-6,  dl.inline-def-7,  dl.inline-def-8,  dl.inline-def-9,  dl.inline-def-10,  dl.inline-def-11,  dl.inline-def-13,  dl.inline-def-15,  dl.inline-def-17,  dl.inline-def-19,  dl.inline-def-30, #content_div_103790 dl.inline-def-11
+{
+float: left;
+width: 99.5%;
+}
+
+dl.inline-def dt,  dl.inline-def-4 dt,  dl.inline-def-5 dt,  dl.inline-def-6 dt,  dl.inline-def-7 dt,  dl.inline-def-8 dt,  dl.inline-def-9 dt,  dl.inline-def-10 dt,  dl.inline-def-11 dt,  dl.inline-def-13 dt,  dl.inline-def-15 dt,  dl.inline-def-17 dt,  dl.inline-def-19 dt,  dl.inline-def-30 dt, #content_div_103790 dl.inline-def-11 dt
+{
+	float: left;
+	font-weight: bold;
+	margin-top: 0%;
+	/* WIDTH needs to be set locally if not specified by "-#" */
+}
+dl.inline-def dd,  dl.inline-def-4 dd,  dl.inline-def-5 dd,  dl.inline-def-6 dd,  dl.inline-def-7 dd,  dl.inline-def-8 dd,  dl.inline-def-9 dd,  dl.inline-def-10 dd,  dl.inline-def-11 dd,  dl.inline-def-13 dd,  dl.inline-def-15 dd,  dl.inline-def-17 dd,  dl.inline-def-19 dd,  dl.inline-def-30 dd, #content_div_103790 dl.inline-def-11 dd
+{
+	margin-bottom: 0.5em;
+	padding-left: 0.5em;
+	/* MARGIN-LEFT needs to be set locally if not specified by "-#"
+	   based on width of preceeding DT */
+}
+
+dl.inline-def-4 dt { width:4em;}
+dl.inline-def-4 dd { margin-left:4em;}
+
+dl.inline-def-5 dt { width:5em;}
+dl.inline-def-5 dd { margin-left:5em;}
+
+dl.inline-def-6 dt { width:6em;}
+dl.inline-def-6 dd { margin-left:6em;}
+
+dl.inline-def-7 dt { width:7em;}
+dl.inline-def-7 dd { margin-left:7em;}
+
+dl.inline-def-8 dt { width:8em;}
+dl.inline-def-8 dd { margin-left:8em;}
+
+dl.inline-def-9 dt { width:9em;}
+dl.inline-def-9 dd { margin-left:9em;}
+
+dl.inline-def-10 dt { width:10em;}
+dl.inline-def-10 dd { margin-left:10em;}
+
+dl.inline-def-11 dt, #content_div_103790 dl.inline-def-11 dt { width:11em;}
+dl.inline-def-11 dd, #content_div_103790 dl.inline-def-11 dd { margin-left:11em;}
+
+dl.inline-def-13 dt { width:13em;}
+dl.inline-def-13 dd { margin-left:13em;}
+
+dl.inline-def-15 dt { width:15em;}
+dl.inline-def-15 dd { margin-left:15em;}
+
+dl.inline-def-17 dt { width:17em;}
+dl.inline-def-17 dd { margin-left:17em;}
+
+dl.inline-def-19 dt { width:19em;}
+dl.inline-def-19 dd { margin-left:19em;}
+
+dl.inline-def-30 dt { width:30em;}
+dl.inline-def-30 dd { margin-left:30em;}
+
+/*	END IN-LINE DEFINITION LISTS
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	START E-Cards Style
+*/
+Starts  E-cards  */
+ul#e-cards    {
+    float:    left;
+    width:    99%;
+    padding:    0%;
+    margin:    0%;
+    list-style-type:    none;
+}
+ul#e-cards li    {
+    list-style-type:    none;
+    float:        left;
+    width:        178px;
+    margin:        1em;
+    font-weight:    bold;
+    margin:        1em;
+    padding:    0%;
+}
+ul#e-cards li img    {
+    width:    150px;
+    height:    106px;
+    border:    0.1em solid #000;
+    margin:    0% 0% 0.3em 0%;
+    padding:    0%;
+    display:    block;
+}
+#e-cards a    {
+    display:    block;
+}
+/*	END E-Cards style
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+/*	
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Margins & Padding
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+/* 	
+.margin_right_em { margin-right:1em; }
+
+/*  Theology eJournal  */
+.bookreviews, #bookreviews {float:none;margin-bottom:3em;min-height:260px;_height:260px;}
+.bookreviews img, #bookreviews img {float:left;padding:5px;border:1px solid #000000;}
+.bookreviews ul, #bookreviews ul{margin:0 0 0 170px;padding:0;}
+.bookreviews ul li, #bookreviews ul li{list-style-type:none;}
+.ejournal_article, #ejournal_article {float:none;margin-bottom:3em;min-height:277px;_height:277px;}
+.ejournal_article img, #ejournal_article img {float:left;margin-right:10px;padding:5px;border:1px solid #000000;}
+.ejournal_article h3, #ejournal_article h3 {float:none;}
+.ejournal_article ul, #ejournal_article ul{margin:0;padding:0;}
+.ejournal_article ul li, #ejournal_article ul li{list-style-type:none;}
+.ejournal h4.category a, #ejournal h4.category a{position:relative;text-decoration:none; color:#000000;}
+.ejournal h4.category a:hover, #ejournal h4.category a:hover{position:relative;text-decoration:underline;}
+.ejournal h4.category span, #ejournal h4.category span{position:absolute;right:1%;font-size:80%;}
+/*	END Theology eJournal
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+/*	
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Special form
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+*/ 
+#form_email_170341 {margin-top:0px;}

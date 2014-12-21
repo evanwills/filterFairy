@@ -1,0 +1,400 @@
+#content table.search_header tr, #content table.search_header tbody, #content table.search_header td, #content table#search_form, #content table#search_form tr, #content table#search_form  td { border:none !important; } 
+
+img { display:inline !important; }
+
+/* Header */
+header { background-color: #00539f; }
+#mega-menu { color:#fff; }
+#mega-menu h3 { font-weight:bold; }
+#tools { width:8%; }
+#Services { width:10%; }
+#Student_Life { width:12%; }
+
+/* Site specific heading */
+
+h1.site-heading-students {
+    left: 5.12em;
+    top: 1.46em;
+    position:absolute;
+    color:#CCDDEC;
+    font-size: 310%;
+    font-weight:bold;
+}
+
+h1.site-heading-students a {
+    color:#CCDDEC;
+    font-size: 100%;
+    display:inline!important;
+    font-weight:bold;
+}
+
+header nav#global-portals ul { font-size:100%!important; font-weight:normal; }
+/*nav#global-portals ul { top:8em!important; } */
+
+#site-search input { width:110%; }
+
+
+/* 
+----------------
+Right 
+----------------
+*/
+/* library */
+#right h2 { color:#DC1A22; font-size: 130%; font-weight: bold; }
+#right ul { margin-bottom:2em; }
+#right li { list-style-type:none; padding-left:0; margin-left:0; color: #005395; font-weight:normal; }
+#right li a { font-size:140%; font-weight:normal; }
+#right p { margin-bottom:2em; }
+
+/* Students */
+#right .heading-bg h2 { color:#fff; font-weight:normal; font-size:200%; }
+#quicklinks-list {
+    list-style-position: outside;
+    margin-bottom: 1.2em;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    width: 100%;
+}
+
+.lower-box {
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 1em;
+    width: 100%;
+    padding:0;
+}
+.lower-box p.more-link-generic a { font-size:120%; display:inline; }
+
+
+.info-box { width: 100%; }
+.info-box .heading-bg { margin: -0.8em -1.1em 0.5em; }
+.info-box .heading-bg h2 { margin-top: 0.5em; }
+
+
+.heading-bg {
+    background-color: #00539F;
+    background-image: linear-gradient(to bottom, #00539F 0%, #005E91 100%);
+    margin: 0;
+    padding-bottom: 0.2em;
+    padding-left: 1em;
+    padding-right: 0;
+    padding-top: 0.1em;
+    background-repeat: repeat-x;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+#right #quicklinks-list ul, #right .lower-box ul {
+	margin: 0.5em 0.5em 1em 0.7em
+}
+#right #quicklinks-list li a, #right .lower-box li a {
+	font-size:120%;
+}
+
+#right span.glyphicon-chevron-right { font-size: 0.6em; opacity:0.6;
+filter:alpha(opacity=60); /* For IE8 and earlier */ }	
+
+#right a.btn span.glyphicon-chevron-right { font-size: 100%; opacity:1;
+filter:alpha(opacity=100); /* For IE8 and earlier */ }	
+
+#right p.text-right  { font-size:90%; margin-bottom:1em; }
+
+
+/*  AskACU  */
+#askacu {
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+#askacu fieldset {
+    padding-bottom: 10px;
+    padding-left: 10px;
+    width: 100%;
+    border: 1px solid #E1E1E1 !important;
+}
+#askacu legend {
+    color: #666666; 
+    font-size:100%;
+    margin: 0px; 
+    width:auto;
+    border:0;
+}
+#askacu input#searchstring { height:2em; float:left; width:75%; }
+#askacu .btn { margin-top:0; margin-left:0.3em; width:2.5em; }
+
+#right fieldset {
+    padding-bottom: 0.5em;
+    padding-left: 1em;
+    padding-right: 0;
+    padding-top: 0;
+}
+#right fieldset {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-bottom-color: #A4B8CB;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-image-outset: 0 0 0 0;
+    border-image-repeat: stretch stretch;
+    border-image-slice: 100% 100% 100% 100%;
+    border-image-source: none;
+    border-image-width: 1 1 1 1;
+    border-left-color-ltr-source: physical;
+    border-left-color-rtl-source: physical;
+    border-left-color-value: #A4B8CB;
+    border-left-style-ltr-source: physical;
+    border-left-style-rtl-source: physical;
+    border-left-style-value: solid;
+    border-left-width-ltr-source: physical;
+    border-left-width-rtl-source: physical;
+    border-left-width-value: 1px;
+    border-right-color-ltr-source: physical;
+    border-right-color-rtl-source: physical;
+    border-right-color-value: #A4B8CB;
+    border-right-style-ltr-source: physical;
+    border-right-style-rtl-source: physical;
+    border-right-style-value: solid;
+    border-right-width-ltr-source: physical;
+    border-right-width-rtl-source: physical;
+    border-right-width-value: 1px;
+    border-top-color: #A4B8CB;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-top-style: solid;
+    border-top-width: 1px;
+    margin-bottom: 1.2em;
+    margin-left: 0;
+    width: 100%;
+   clear:both;
+}
+
+
+.rounded-corners {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #E1E1E1;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-image-outset: 0 0 0 0;
+    border-image-repeat: stretch stretch;
+    border-image-slice: 100% 100% 100% 100%;
+    border-image-source: none;
+    border-image-width: 1 1 1 1;
+    border-left-color-ltr-source: physical;
+    border-left-color-rtl-source: physical;
+    border-left-style-ltr-source: physical;
+    border-left-style-rtl-source: physical;
+    border-left-style-value: solid;
+    border-left-width-ltr-source: physical;
+    border-left-width-rtl-source: physical;
+    border-left-width-value: 1px;
+    border-right-color-ltr-source: physical;
+    border-right-color-rtl-source: physical;
+    border-right-style-ltr-source: physical;
+    border-right-style-rtl-source: physical;
+    border-right-style-value: solid;
+    border-right-width-ltr-source: physical;
+    border-right-width-rtl-source: physical;
+    border-right-width-value: 1px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-top-style: solid;
+    border-top-width: 1px;
+}
+
+
+
+
+/* 
+--------------
+left
+--------------
+*/
+#content h2 { font-size: 160%; }
+#content-menu li a { font-size:110%; }
+
+/*  student feedback */
+.slide-out-div { height: 24em !important; }
+
+/* Content */
+section#content { margin-bottom:2em; }
+body .column-divider_gradient, body div.home#wrap-outer section#content {background:none !important; }
+
+/* General styles */
+a { color:#005395; }
+
+/* margins */
+.margin-r-30 { margin-right:30% !important; }
+
+.float_left {
+    float: left;
+}
+.lib_sub_guide {
+    float: left;
+    list-style-type: none;
+    width: 12em;
+}
+
+p#tiny_url, p#tiny-url {
+    color: #888888;
+    font-size: 90%;
+    font-weight: bold;
+    text-align: center;
+    clear: both;
+}
+p#tiny_url span, p#tiny-url span { color: #DC1A22; font-weight:normal; }
+
+/* News list (thumbnails) block */
+section#content ul.events-list article h2, section#content ul.news-list article header h1 a { color:#00539F !important; }
+
+
+/*
+----------------------------------------------
+Academic Skills custom styles
+----------------------------------------------
+*/
+p.apa-style
+{
+	margin-top: 1em;
+	margin-bottom: 1em;
+	margin-left: 2em !important;
+	text-indent: -2em !important;
+	line-height: 2em;
+}
+blockquote.apa-style { line-height: 2em; }
+
+p.chicago-bib
+{
+	text-indent: -2em;
+	margin-left: 2em;
+}
+p.chicago-footnote
+{
+	text-indent: 2em;
+	margin: 0%;
+}
+ol.chicago-footnote
+{
+	margin: 1em 0%;
+	padding: 0%;
+}
+ol.chicago-footnote li
+{
+	text-indent: 2em;
+	list-style-position: inside;
+	margin: 0%;
+}
+h4.chicago-net-foot { color: #000; }
+.referencing-intent { text-indent:-2em; margin-left:2em }
+
+
+/*added to deal with student home page mobile, remove once design changed*/
+@media screen and (max-width: 799px)
+{
+#tabs, #tabs2, #myCarousel{
+	display:none;
+}
+.bottom-lists, .bottom-lists2, .rounded-corners, #quicklinks-list{
+	border-radius: 0.5em 0.5em 0.5em 0.5em;
+	border-style: solid;
+	border-width: 0.1em;
+	font-size: 80%;
+	margin-top: 0.5em;
+	margin: 0.5em auto 0 auto;
+	padding: 0.8em 1em;
+	width: 98%;
+	background-color: #FBFBFB;
+	border-color: #E1E1E1;
+	display: block;
+}
+.heading-bg{
+	width:auto;
+	margin-left:-12px;
+	margin-bottom:0px;
+	margin-top:-2px;
+	padding: 0.1em 0px 0px 1em !important;
+}
+.bottom-lists h2, .bottom-lists2 h2, .heading-bg h2{
+    background-color: #00539F;
+    background-image: linear-gradient(to bottom, #00539F 0%, #005E91 100%);
+    margin: -10px -12px 0 -12px;
+    padding-bottom: 0.2em;
+    padding-left: 1em;
+    padding-right: 0;
+    padding-top: 0.1em;
+    background-repeat: repeat-x;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color:#FFF;
+    display:block !important;
+    font-size:30px !important;
+}
+.bottom-lists ul, .bottom-lists2 ul{
+	display:block;
+	margin-top:1em;
+}
+.bottom-lists li, .bottom-lists2 li, .rounded-corners li
+{
+	list-style-type: none;
+	margin-left: 0;
+	padding-left: 0;
+}
+.bottom-lists li a, .bottom-lists2 li a, .rounded-corners li a{
+	display:block;
+	padding:5px 10px;
+	font-size:110%;
+	background:#FFF;
+	margin:0.3em 0 0 0;
+}
+h1.site-heading-students{
+    left: 45% !important;
+    top: 0.2em !important;
+    position:absolute !important;
+    color:#CCDDEC !important;
+    font-size: 180% !important;
+    font-weight:bold !important;
+    
+}
+.lower-box ul, #quicklinks-list ul{
+	display:block !important;
+}
+.text-right{
+	position:relative;
+	display:block !important;
+	width: 98%;
+	min-height:30px;
+	margin:0 auto;
+}
+
+#administration_amp_enrolment ul.l2 li br {display:none;}
+
+
+}
+@media screen and (max-width: 400px)
+{
+/*  
+--------------------------------
+tiny-portrait - phones (480x320)  
+--------------------------------
+*/
+#administration_amp_enrolment ul.l2 li br {display:none;}
+h1.site-heading-students {
+    left: 12% !important;
+    top: 3.3em !important;
+    position:absolute !important;
+    color:#CCDDEC;
+    font-size: 160%;
+    font-weight:bold;
+}
+}
+

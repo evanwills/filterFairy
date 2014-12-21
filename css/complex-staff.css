@@ -1,0 +1,3074 @@
+/* complex styles (e.g. specific styles or id selectors or selectors to be used in combination) - inside */
+
+/* -----------------------------------
+ News & Events
+----------------------------------- */
+.m_release_item h2 a
+{
+  text-decoration: none;
+  font-size: 0.9em;
+}
+
+
+ ul.news-list  article h1 a:hover , ul.news-list .article h1 a:hover
+,ul.news-list  article p a.read:hover , ul.news-list .article p a.read:hover
+,ul.events-list  article h2 a:hover , ul.events-list .article h2 a:hover
+,ul.events-list  article p a.read:hover , ul.events-list .article p a.read:hover
+{
+	text-decoration: underline !important;
+}
+
+ ul.news-list  article p a.read , ul.news-list .article p a.read
+,ul.events-list  article p a.read , ul.events-list .article p a.read
+{
+	/* font-size: 80%;
+	text-transform: lowercase; */
+	margin-top: 0.5em;
+}
+ ul.news-list article a.read span , ul.news-list .article a.read span
+,ul.events-list  article a.read span , ul.events-list .article a.read span
+,ul.news-list.events  article a.read span , ul.news-list.events .article a.read span 
+{
+	position: absolute;
+	top: -1000em;
+	left: -1000em;
+}
+
+ul.events-list , ul.news-list
+{
+	margin-left: 0%;
+	padding-left: 0%;
+}
+
+ul.events-list li , ul.news-list li
+{
+	display: block;
+	list-style-type: none;
+	margin-left: 0%;
+	padding-left: 0%;
+}
+
+ ul.events-list  article h2 , ul.events-list .article h2
+,ul.news-list  article header h1 , ul.news-list .article header h1
+{
+	position: static;
+	font-size: 100%;
+	line-height: 100%;
+	margin-bottom: 0%;
+	border-bottom-style: none;
+	width: 100%;
+	background-color: transparent;
+}
+
+ ul.events-list  article a , ul.events-list .article a
+,ul.news-list  article a , ul.news-list .article a
+{
+	font-weight: 400;
+}
+
+ ul.events-list  article p , ul.events-list .article p
+,ul.news-list  article p , ul.news-list .article p
+{
+	/* font-size: 87.5%; */
+	line-height: 128.571%;
+}
+
+/*
+ ul.news-list  article h2 , ul.news-list .article h2
+,ul.news-list  article h3 , ul.news-list .article h3
+{
+	display: none;
+}
+ul.news-list  article , ul.news-list .article
+{
+	position: relative;
+	padding-left: 10.2em;
+	padding-right: 0%;
+	min-height: 5.65em;
+	margin-bottom: 2em;
+}
+
+ul.news-list  article a.thumb , ul.news-list .article a.thumb
+{
+	position: absolute;
+	top: 0%;
+	left: 0%;
+}
+
+ul.news-list  article img , ul.news-list .article img
+{
+	display: block;
+	width: 9.1em;
+	height: auto;
+}
+*/
+
+ul.news-list  article header , ul.news-list .article header
+{
+	background-color: transparent;
+}
+
+/*
+ul.news-list.events  article , ul.news-list.events .article
+{
+	padding-left: 6.8em;
+}
+*/
+
+ ul.news-list.events  article header h2 , ul.news-list.events .article header h2
+,ul.news-list.events  article header h3 , ul.news-list.events .article header h3
+{
+	color: #000000;
+	display: block;
+	font-size: inherit;
+	margin: 0 0 0.5em;
+	padding: 0;
+}
+
+/** -------------------------------------------
+ * START: Training and Development
+ */
+
+.T-and-D_wrapper
+{
+	margin-left: 0%;
+	padding-left: 0%;
+}
+/*
+.T-and-D_group
+{
+	position: relative;
+	padding-bottom: 2em;
+	z-index: 1;
+	background-color: 
+}
+*/
+.T-and-D_group
+{
+	border-radius: 0.4em;
+	margin-bottom: 0.5em;
+	padding: 0.5em !important;
+	position: relative;
+	z-index: 1;
+}
+.T-and-D_group.active
+{
+	padding-bottom: 2em;
+	border: 0.1em solid #DDDDDD;
+}
+
+.T-and-D_group.collapse
+{
+	border: 0.1em solid #EEE;
+	-webkit-box-shadow: -0.15em -0.15em 0.3em rgba( 238 , 238 , 255 , 0.7 ) inset , 0.05em 0.05em 0.1em rgba( 238 , 238 , 255 , 0.7 ) inset;
+	   -moz-box-shadow: -0.15em -0.15em 0.3em rgba( 238 , 238 , 255 , 0.7 ) inset , 0.05em 0.05em 0.1em rgba( 238 , 238 , 255 , 0.7 ) inset;
+		-ms-box-shadow: -0.15em -0.15em 0.3em rgba( 238 , 238 , 255 , 0.7 ) inset , 0.05em 0.05em 0.1em rgba( 238 , 238 , 255 , 0.7 ) inset;
+		 -o-box-shadow: -0.15em -0.15em 0.3em rgba( 238 , 238 , 255 , 0.7 ) inset , 0.05em 0.05em 0.1em rgba( 238 , 238 , 255 , 0.7 ) inset;
+			box-shadow: -0.15em -0.15em 0.3em rgba( 238 , 238 , 255 , 0.7 ) inset , 0.05em 0.05em 0.1em rgba( 238 , 238 , 255 , 0.7 ) inset;
+}
+
+.T-and-D_group, ul.T-and-D_listing li
+{
+	list-style: none;
+	padding-left: 0%;
+	margin-left: 0%;
+}
+.T-and-D_listing
+{
+	padding-left: 1em;
+	margin-left: 0%;
+	padding-bottom: 2em;
+}
+ul.T-and-D_listing li
+{
+	margin-top: 1em;
+}
+.T-and-D_listing p
+{
+	margin-bottom: 0.5em;
+}
+.collapse > .T-and-D_head a
+{
+	display: block;
+	position: relative;
+	z-index: 100;
+	background-color: #fff;
+}
+.collapse > .T-and-D_head a span
+{
+	background-color: #043B6E;
+	padding: 0% 0.3em 0.20em;
+	position: absolute;
+	top: 0.4em;
+	right: 0%;
+	font-size: 60%;
+	-webkit-border-radius: 0.3em;
+	-moz-border-radius: 0.3em;
+	-ms-border-radius: 0.3em;
+	-o-border-radius: 0.3em;
+	border-radius: 0.3em;
+	color: #fff;
+	text-decoration: none;
+	display: block;
+	/* transition: display 0.2s ease-in 1s , opacity 0.2s ease-in 1.2s; */
+	opacity: 1;
+}
+.collapse > .T-and-D_util-links a
+{
+	display: none;
+}
+ .collapse-default > ul
+,.T-and-D_head a span
+{
+	display: none;
+	opacity: 0;
+}
+.T-and-D_child_submit_training_event
+{
+	position: absolute;
+	bottom: 0.5em;
+	right: 0.5em;
+	font-weight: bold;
+	border: 0.1em solid #B4A06B;
+	padding: 0.55em 2.5em 0.6em 1.25em;
+	-webkit-border-radius: 0.5em;
+	-moz-border-radius: 0.5em;
+	-ms-border-radius: 0.5em;
+	-o-border-radius: 0.5em;
+	border-radius: 0.5em;
+	background-image: url('//www.acu.edu.au/__data/assets/image/0009/458253/Arrow_large-blue.png');
+	background-repeat: no-repeat;
+	background-position: 92.5% 50%;
+	background-size: auto 39%;
+	box-shadow: -0.2em -0.2em 0.5em rgba( 0 , 0 , 0 , 0.6 ) inset , -0.7em -0.7em 0.7em #B4A06B inset , 0.35em 0.35em 0.75em #B4A06B inset;
+}
+
+/*
+.T-and-D_child_all_training
+{
+	position: absolute;
+	bottom: 2.9em;
+	font-size: 90%;
+	left: 1.25em;
+	font-weight: bold;
+}
+*/
+.T-and-D_child_all_training
+{
+	position: absolute;
+	bottom: 0.5em;
+	font-size: 90%;
+	left: 0.5em;
+	font-weight: bold;
+}
+.T-and-D_util-links
+{
+	list-style: none;
+}
+.T-and-D_event_campus-list
+{
+	margin: 0%;
+}
+.T-and-D_event_meta { font-weight: bold; }
+.T-and-D_event_campus-list { margin: 0% !important; }
+
+/**
+ * END: Training and Development
+ * -------------------------------------------- */
+
+
+.hide-me { display:none; }
+
+/* -----------------------------------
+ askACU
+----------------------------------- */
+#askacu
+{
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+#askacu img
+{
+  border: none;
+}
+
+#askacu fieldset
+{
+  width: 200px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+
+#askacu legend
+{
+  color: #666;
+}
+
+#askacu form
+{
+  width: 200px;
+}
+
+#askacu #searchstring
+{
+  text-align: center;
+}
+
+#content_col #askacu
+{
+  display: none;
+}
+
+
+
+/* -----------------------------------
+ js Tooltip (pop-up)
+----------------------------------- */
+ .pop_sug
+,.pop_sug_wide
+{
+  position: absolute;
+  width: 200px;
+  background: url(./img/grey.jpg) repeat-x top left #FFFFFF;
+  background-color: rgb(255, 255, 160);
+  border: 1px solid #CCCCCC;
+  border-bottom: 1px solid #999999;
+  border-right: 1px solid #999999;
+  padding: 10px 5px 5px 5px;
+  z-index: 50;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  font-size: small;
+}
+
+.pop_sug_wide
+{
+  width: 580px;
+}
+
+
+
+/* -----------------------------------
+ pop-up general - Staff Site
+----------------------------------- */
+#pop_up
+{
+  width: 450px;
+  background: #FFF;
+  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+  border:4px #666666 solid;
+    filter:alpha(opacity=95);
+	-moz-opacity:0.95;
+	-khtml-opacity: 0.95;
+    opacity:0.95;
+}
+
+#pop_name
+{
+  display: block;
+  font-size: 1.5em;
+  line-height: 1.9em;
+ 	color:#766756;
+  font-weight: bold;
+  margin: 0;
+  border-top:4px #666666 solid;
+  border-bottom: thin solid #444;
+  background:#e8e8e8;
+  padding: 2px 2px 2px 8px;
+  cursor:move;
+}
+
+
+
+#pop_up_fake
+{
+  width: 80px;
+  height: 50px;
+  background: url(greyfade.jpg) repeat-x top left #FFFFFF;
+  border: thin solid #EDE6E0;
+  border-bottom: thin solid #444;
+  border-right: thin solid #444;
+}
+
+
+#pop_frame
+{
+  border: 0;
+}
+
+#thex
+{
+  float: right;
+  display: block;
+  width: 25px;
+  height: 10px;
+  margin: -2.5em 0.5em 0 0;
+  text-align: center;
+}
+
+
+#thex a
+{
+  border:1px solid #444444;
+	-moz-border-radius :11px;
+	 -webkit-border-radius :11px;
+	 background:#DC1A22;
+	 color:#FFFFFF;
+  padding:2px 4px 4px 4px;
+  font-weight: bold;
+  text-decoration: none;
+  font-family: verdana, arial, helvetica, sans-serif;
+  margin:-0.3em 2px 0 0;
+  display: block;
+}
+
+
+
+#thex a:hover
+{
+ background-color: #FF0000;
+	color: #FFF;
+}
+
+
+
+
+.up_thing
+{
+  text-decoration: none;
+  color: #464658;
+}
+
+.over_thing
+{
+  text-decoration: underline;
+  color: #dc1a22;
+}
+
+#blanker
+{
+  background: #000000;
+}
+
+
+/* ------------------------------------
+List items with image imgXXxYY is for lists with items that contain
+a standard sized image with every item plus some text. If item has no
+image, use class="no-image"
+For a sample, see: //www.acu.edu.au/8654
+------------------------------------ */
+.img72x84 li
+{
+  list-style: none;
+  padding-left: 77px;
+  min-height: 92px;
+}
+
+.img72x84 li img
+{
+  position: relative;
+  right: 77px;
+  margin-bottom: -77px;
+}
+
+.img70x70 li
+{
+  list-style: none;
+  padding-left: 81px;
+  min-height: 80px;
+}
+
+.img70x70 li img
+{
+  position: relative;
+  right: 81px;
+  margin-bottom: -70px;
+}
+
+.img77x77 li
+{
+  list-style: none;
+  padding-left: 88px;
+  min-height: 87px;
+}
+
+.img77x77 li img
+{
+  position: relative;
+  right: 88px;
+  margin-bottom: -77px;
+}
+
+.img100x130 li
+{
+  list-style: none;
+  padding-left: 110px;
+  min-height: 140px;
+}
+
+.img100x130 li img
+{
+  position: relative;
+  right: 110px;
+  margin-bottom: -130px;
+}
+
+.img100x142 li
+{
+  list-style: none;
+  padding-left: 110px;
+  min-height: 152px;
+}
+
+.img100x142 li img
+{
+  position: relative;
+  right: 110px;
+  margin-bottom: -142px;
+}
+
+.img110x108 li
+{
+  list-style: none;
+  padding-left: 120px;
+  min-height: 120px;
+}
+
+.img110x108 li img
+{
+  position: relative;
+  right: 120px;
+  margin-bottom: -108px;
+}
+
+.img110x150 li
+{
+  list-style: none;
+  padding-left: 120px;
+  min-height: 160px;
+}
+
+.img110x150 li img
+{
+  position: relative;
+  right: 120px;
+  margin-bottom: -150px;
+}
+
+.img150x150 li
+{
+  list-style: none;
+  padding-left: 160px;
+  min-height: 160px;
+}
+
+.img150x150 li img
+{
+  position: relative;
+  right: 160px;
+  margin-bottom: -150px;
+}
+
+.img150x200 li
+{
+  list-style: none;
+  padding-left: 160px;
+  min-height: 210px;
+}
+
+.img150x200 li img
+{
+  position: relative;
+  right: 160px;
+  margin-bottom: -200px;
+}
+
+.img200x200 li
+{
+  list-style: none;
+  padding-left: 210px;
+  min-height: 210px;
+}
+
+.img200x200 li img
+{
+  position: relative;
+  right: 210px;
+  margin-bottom: -200px;
+}
+
+ul.img72x84
+,ul.img70x70
+,ul.img77x77
+,ul.img100x130
+,ul.img100x142
+,ul.img110x108
+,ul.img110x150
+,ul.img150x150
+,ul.img150x200
+,ul.img200x200
+{
+  margin-left: 0%;
+  padding-left: 0%;
+}
+
+ .img72x84 li ul li
+,.img70x70 li ul li
+,.img77x77 li ul li
+,.img100x130 li ul li
+,.img100x142 li ul li
+,.img110x108 li ul li
+,.img110x150 li ul li
+,.img150x150 li ul li
+,.img150x200 li ul li
+,.img200x200 li ul li
+{
+  list-style-type: disc;
+  min-height: 0%;
+}
+
+ .img72x84 li.vcard
+,.img70x70 li.vcard
+,.img77x77 li.vcard
+,.img100x130 li.vcard
+,.img100x142 li.vcard
+,.img110x108 li.vcard
+,.img110x150 li.vcard
+,.img150x150 li.vcard
+,.img150x200 li.vcard
+,.img200x200 li.vcard
+{
+  list-style-type: none;
+}
+
+ .img72x84 li.no-image
+,.img70x70 li.no-image
+,.img77x77 li.no-image
+,.img100x130 li.no-image
+,.img100x142 li.no-image
+,.img110x108 li.no-image
+,.img110x150 li.no-image
+,.img150x150 li.no-image
+,.img150x200 li.no-image
+,.img200x200 li.no-image
+{
+  padding-left: 0%;
+  min-height: 0%;
+}
+
+.img72x84.long-bio li h3 /* see ICPS Staff (#7565) for usage */
+{
+  margin-top: -1em;
+}
+
+.img72x84.long-bio li h4
+{
+  font-style: italic;
+  font-weight: normal;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+
+/* END List items with image
+----------------------------------- */
+
+/* ----------------------------------- 
+ dl DEFINITION LISTS
+----------------------------------- */
+ dt
+,#content_div_103790 dt
+{
+  font-weight: 600;
+  color: #444242;
+  margin-top: 1em;
+}
+
+ /* .close dt
+,#content_div_103790 .close dt
+{
+  font-weight: 600;
+  color: #444242;
+  margin-top: 0.5em;
+}
+
+ */ .close dt
+,#content_div_103790 .close dt
+{
+  font-weight: 600;
+  color: #444242;
+  margin-top: 0.3em;
+}
+
+ dd
+,#content_div_103790 dd
+{
+  margin-left: 0;
+  font-size: 1.1em;
+}
+
+dd.normal_dd
+{
+  margin-left: 5em;
+}
+
+
+
+/* -----------------------------------
+ NEW Inline Definition List */
+ dl.table-def dt
+{
+  margin-bottom: -1.1em;
+  line-height: 1.1em;
+}
+
+dl.table-def dd
+{
+  padding-left: 0%;
+  line-height: 1.1em;
+  font-size: 1em;
+}
+
+dl.table-def sup
+{
+  font-size: 80%;
+  bottom: 0.4em;
+  vertical-align: bottom;
+  position: relative;
+}
+
+
+dl.table-def.X3 dt { width:3em; }
+dl.table-def.X3 dd { margin-left:3em; }
+
+dl.table-def.X4 dt { width:4em; }
+dl.table-def.X4 dd { margin-left:4em; }
+
+dl.table-def.X5 dt { width:5em; }
+dl.table-def.X5 dd { margin-left:5em; }
+
+dl.table-def.X6 dt { width:6em; }
+dl.table-def.X6 dd { margin-left:6em; }
+
+dl.table-def.X7 dt { width:7em; }
+dl.table-def.X7 dd { margin-left:7em; }
+
+dl.table-def.X8 dt { width:8em; }
+dl.table-def.X8 dd { margin-left:8em; }
+
+dl.table-def.X9 dt { width:9em; }
+dl.table-def.X9 dd { margin-left:9em; }
+
+dl.table-def.X10 dt { width:10em; }
+dl.table-def.X10 dd { margin-left:10em; }
+
+dl.table-def.X11 dt { width:11em; }
+dl.table-def.X11 dd { margin-left:11em; }
+
+dl.table-def.X12 dt { width:12em; }
+dl.table-def.X12 dd { margin-left:12em; }
+
+dl.table-def.X13 dt { width:13em; }
+dl.table-def.X13 dd { margin-left:13em; }
+
+dl.table-def.X15 dt { width:15em; }
+dl.table-def.X15 dd { margin-left:15em; }
+
+dl.table-def.X17 dt { width:17em; }
+dl.table-def.X17 dd { margin-left:17em; }
+
+dl.table-def.X19 dt { width:19em; }
+dl.table-def.X19 dd { margin-left:19em; }
+
+dl.table-def.X21 dt { width:21em; }
+dl.table-def.X21 dd { margin-left:21em; }
+
+dl.table-def.X23 dt { width:23em; }
+dl.table-def.X23 dd { margin-left:23em; }
+
+dl.table-def.X25 dt { width:25em; }
+dl.table-def.X25 dd { margin-left:25em; }
+
+dl.table-def.X27 dt { width:27em; }
+dl.table-def.X27 dd { margin-left:27em; }
+
+dl.table-def.X29 dt { width:29em; }
+dl.table-def.X29 dd { margin-left:29em; }
+
+dl.table-def.X30 dt { width:30em; }
+dl.table-def.X30 dd { margin-left:30em; }
+
+dl.table-def.X32 dt { width:32em; }
+dl.table-def.X32 dd { margin-left:32em; }
+
+
+dl.table-def dt.collapse-up { margin-top:0.2em; }
+ dl.table-def dt.full-width
+,dl.table-def dd.full-width { width:98%; margin-bottom:0%; margin-left:0%; }
+
+
+dl dd ul
+{
+  margin-left: 1em;
+  padding-left: 0%;
+}
+
+dl dd ol
+{/* MARGIN-LEFT may need to be increased for lists with 10+ items and again for 100+ items */ 
+  margin-left: 1.3em;
+  padding-left: 0%;
+}
+
+dl dt.right
+{
+  text-align: right;
+}
+
+dl dt.only
+{/* for use in Inline Definitions where a DT has no DD */ 
+  width: 99.5%;
+  margin-bottom: 1em;
+}
+
+/* .icon-25 is used on campus maps pages */ dl.table-def.icon-25 dd
+{
+  margin-top: -24px;
+  margin-bottom: 0.6em;
+}
+
+dl.table-def.icon-25 dd.mline
+{
+  margin-top: -29px;
+  margin-bottom: 0.6em;
+}
+
+/* ----------------------------------- 
+ Youtube video list for #304394, based on inline-def-6
+----------------------------------- */
+dl.yv_list
+{
+	height:200px;
+	overflow:auto;
+        width:236px;
+}
+dl.yv_list dt img
+{
+	width:80px;
+	height:60px;
+	padding:3px;
+	border: 1px solid #CCCCCC;
+        border-radius: 3px; -moz-border-radius: 5px;
+}
+dl.yv_list dd
+{
+	min-height:67px;
+	font-weight:600;
+}
+
+/* ----------------------------------- 
+ MicroFormat: vCard
+----------------------------------- */
+ .vcard li
+{
+  list-style-type: none;
+  min-height: 1em;
+}
+
+.education .vcard .family-name
+{
+  text-transform: uppercase;
+}
+
+.vcard .title
+{
+  font-weight: bold;/* 
+  font-style: italic;*/ 
+  margin-top: 0.2em;
+}
+
+.vcard .fn
+{
+  font-size: 110%;
+}
+
+.vcard a.fn
+{
+  display: block;
+}
+
+ .vcard .tel
+,.vcard .email
+,.vcard ul li.fn
+{
+  font-weight: bold;
+}
+
+.vcard .value
+{
+  font-weight: normal;
+}
+
+.vcard p
+{
+  margin: 0%;
+}
+
+ .vcard h4
+,.vcard h3
+{
+  margin: 0%;
+  padding: 0%;
+  background-color: #fff;
+  font-size: 1em;
+}
+
+ .vcard h3 a.fn
+,.vcard h3 a
+{
+  font-size: 1em;
+  display: inline;
+}
+
+li.vcard
+{
+  margin-top: 1em;
+  list-style-type: square;
+}
+
+ li.vcard li
+,li.vcard ul
+{
+  list-style-type: none;
+  padding-left: 0%;
+  margin-left: 0%;
+}
+
+
+
+/* ----------------------------------- 
+ STAFF LISTING
+----------------------------------- */
+ #staff_listing
+{
+  margin-left: 0;
+}
+
+#staff_listing dl
+{
+  padding: 1em;
+  width: 40%;
+  float: left;
+  margin-left: 0;
+  margin-right: 2em;
+  margin-bottom: 1em;
+  border: solid 1px #999;
+  border-left: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  min-height: 18em;
+}
+
+#staff_listing dl.staff_block
+{
+  margin-left: 0;
+  margin-right: 2em;
+}
+
+#staff_listing dt.block_name
+{
+  font-size: 1.4em;
+  color: #000;
+  margin-bottom: 0.1em;
+}
+
+#staff_listing dt
+{
+  margin-top: 0.5em;
+}
+
+#staff_listing dd.img_dd
+{
+  float: right;
+  margin-top: 0;
+}
+
+#staff_listing dd.position_title
+{
+  font-style: italic;
+  margin-top: 0;
+  font-size: 1.1em;
+}
+
+#staff_lists_non-dynamic dl
+{
+  float: left;
+  min-width: 24em;
+  min-height: 7em;
+  margin-right: 2em;
+  margin-top: 0;
+}
+
+
+
+/* ----------------------------------- 
+ Subsite logos
+----------------------------------- */
+ #h1_wrapper h2 a img.ILS_logo
+{
+  margin: -13px 0 -19px -20px;
+  background-color: #fff;
+}
+
+
+
+/* ----------------------------------- 
+ Staff directory - staff dept listings
+----------------------------------- */
+ .profile_box
+{
+  display: block;
+  width: 54em;
+  padding-left: 1em;
+}
+
+/* min-height:260px; margin-bottom:1em; border: dashed 1px #bbb; */ .profile_box h4
+{
+  margin-bottom: 0;
+  font-size: 1.4em;
+  padding-top: 0;
+}
+
+.profile_box h4 span
+{
+  font-size: 0.9em;
+  color: #aaa;
+  font-weight: 300;
+  margin-bottom: 0;
+}
+
+.profile_box h4 a
+{
+  text-decoration: none;
+  padding-bottom: 0;
+  padding-top: 0;
+}
+
+.profile_box h4 a:visited
+{
+  color: #444;
+}
+
+.profile_box h4 a:hover
+{
+  text-decoration: underline;
+}
+
+.profile_box .profile_sub-box
+{
+  float: left;
+  min-width: 53em;
+  padding-left: 10px;
+  padding-top: 0;
+  padding-right: 20px;
+  border: dashed 1px #bbb;
+  margin-bottom: 1em;
+}
+
+#staff_dir .profile_box dl
+{
+  float: left;
+  float: none;
+  padding: 0.1em 0 0.1em 0;
+}
+
+#staff_dir .profile_box dd
+{
+  font-size: 1em;
+  margin: 0;
+  padding: 0;
+  margin-left: 13em;
+}
+
+#staff_dir .profile_box dd span
+{
+  font-size: 1em;
+}
+
+#staff_dir .profile_box dd a
+{
+  text-decoration: none;
+}
+
+#staff_dir .profile_box dd a:hover
+{
+  text-decoration: underline;
+}
+
+#staff_dir .profile_box dt
+{
+  font-size: 1em;
+  margin: 0;
+  padding: 0;
+  float: left;
+}
+
+#staff_dir .profile_box dt.img
+{
+  border: 0;
+  float: right;
+  margin-top: -15px;
+  padding-left: 30px;
+  margin-bottom: 10px;
+  border: 0;
+  background-color: #fff;
+}
+
+a img
+{
+  border: 0;
+}
+
+#staff_dir .profile_box .title
+{
+  margin-top: 0;
+  padding-top: 0;
+  margin-bottom: 0em;
+  margin-left: 0;
+  font-style: italic;
+  font-size: 1.1em;
+  margin-top: 0;
+}
+
+.profile-box_width
+{
+  max-width: 48em;
+}
+
+.shade
+{
+  background-color: #ebebeb;
+}
+
+#staff_dir .profile_box.margin-top_0
+{
+  margin-top: -0.3em;
+}
+
+#staff_dir .profile_box .instructional
+{
+  color: #aaa;
+}
+
+/* Accommodation list */ #accommodation_list table
+{
+  font-size: 0.9em;
+  background-color: #fff;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#accommodation_list table thead th
+{
+  border-right: 1px solid #fff;
+  text-align: left;
+  padding: 4px;
+  height: 25px;
+  background-color: #e4dfd9;
+  font-weight: bold;
+  vertical-align: middle;
+}
+
+#accommodation_list table tbody tr
+{
+  background-color: #fff;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+#accommodation_list table tbody tr.even
+{
+  background-color: #EBEBEB;
+}
+
+#accommodation_list table tbody td
+{
+  color: #414141;
+  padding: 5px;
+  text-align: left;
+}
+
+#accommodation_list table tbody th
+{
+  text-align: left;
+  padding: 2px;
+}
+
+ #accommodation_list table tbody td a
+,#accommodation_list table tbody th a
+{
+  text-transform: capitalize;
+  text-decoration: none;
+  font-weight: normal;
+  display: block;
+  background: transparent url(//www.acu.edu.au/__data/assets/image/0003/108075/links_yellow.gif) no-repeat 0% 50%;
+  padding-left: 15px;
+}
+
+ #accommodation_list table tbody td a:hover
+,#accommodation_list table tbody th a:hover
+{
+  text-decoration: none;
+}
+
+#map p
+{
+  margin: 0;
+  font-size: 90%;
+}
+
+/* End of Accommodation list */
+
+/* ----------------------------------- 
+ top right box variants
+----------------------------------- */
+
+/* eLearning home */ #t_r_b_video img
+{
+  margin-left: -7px;
+}
+
+#t_r_b_video h3
+{
+  padding-top: 2.5em;*
+  margin: 0 0 0 6em;
+}
+
+#t_r_b_video h3 a
+{
+  color: #fff;
+  text-decoration: underline;
+}
+
+#t_r_b_video h3 a:hover
+{
+  text-decoration: none;
+}
+
+
+
+/* ----------------------------------- 
+ Remote Content Forms - Trevorg
+----------------------------------- */
+ ul.form_info li
+{
+  list-style-type: none;
+}
+
+
+
+/* ----------------------------------- 
+ other
+----------------------------------- */
+ #content_footer dd a
+{
+  text-decoration: none;
+}
+
+
+
+/* ----------------------------------- 
+ Scrolling forms
+----------------------------------- */
+ p.scroll_top
+{
+  background-color: rgb(238, 238, 238);
+  padding: 1em;
+  border: 1px solid #333;
+  border-bottom: 0;
+  margin-bottom: 0;*
+  height: 20px;
+}
+
+#scroll_form
+{
+  overflow: scroll;
+  border: 1px solid #333;
+  border-bottom: 1px solid #999;
+  border-top: 1px solid #999;
+  padding: 1em;
+  font-size: 0.9em;
+  height: 100px;
+}
+
+#scroll_form hr
+{
+  color: rgb(187, 187, 187);
+  height: 1px;
+}
+
+form.scroll_bottom
+{
+  background-color: rgb(238, 238, 238);
+  padding: 10px 0 5px 5px;
+  border: 1px solid #333;
+  border-top: 0;
+  margin-top: 0;
+  height: 20px;
+}
+
+input.buttons
+{
+  float: right;
+  margin-right: 10px;
+  margin-top: 0;
+}
+
+
+
+/* ----------------------------------- 
+ rotating image for IT home
+----------------------------------- */
+ #rotation_box
+{
+  margin-bottom: 1em;
+  border: 1px solid #000;
+  width: 160px;
+  height: 209px;
+  position: relative;
+  overflow: hidden;
+}
+
+#rotation_box h3 a
+{
+  font-size: 0.95em;
+  color: #fff;
+  margin: 0;
+  line-height: 1em;
+  text-decoration: none;
+}
+
+#rotation_box h3 a:visited
+{
+  color: #f6f5f5;
+}
+
+#rotation_box h3 a:hover
+{
+  color: #fff;
+  text-decoration: underline;
+}
+
+#rotation_box #feature_default
+{
+  position: absolute;
+  top: 166px;
+  left: 0px;
+  width: 155px;
+  height: 30px;
+  padding: 0 0 0 5px;
+}
+
+#rotation_box #next_but
+{
+  position: absolute;
+  top: 197px;
+  right: 0;
+  width: 30px;
+  height: 10px;
+  padding: 0 0 0 5px;
+  color: #FFF;
+  font-weight: bold;
+  font-size: 8px;
+}
+
+#rotation_box #prev_but
+{
+  position: absolute;
+  top: 197px;
+  left: 0;
+  width: 60px;
+  height: 10px;
+  padding: 0 0 0 5px;
+  color: #FFF;
+  font-weight: bold;
+  font-size: 8px;
+}
+
+#rotation_box #image_wrap_1
+{
+  position: absolute;
+}
+
+#rotation_box #image_wrap_2
+{
+  position: absolute;
+  left: 193px;
+}
+
+
+
+/* ----------------------------------- 
+ Announcement box - content
+----------------------------------- */
+ #announcement_box
+{
+  background-color: #e4dfd9;
+  border: 1px solid #000;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+#announcement_box img
+{
+  border: 0px solid rgb(0, 0, 0);
+  float: left;
+  margin: 0 1em 1em 0;
+}
+
+#announcement_box ul
+{
+  color: #464658;
+}
+
+#announcement_box li
+{
+  list-style-type: none;
+}
+
+.announcement_box
+{
+  background-color: #e4dfd9;
+  border: 1px solid #000;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+.announcement_box img
+{
+  border: 0px solid rgb(0, 0, 0);
+  float: left;
+  margin: 0 1em 1em 0;
+}
+
+.announcement_box ul
+{
+  color: #464658;
+}
+
+.announcement_box li
+{
+  list-style-type: none;
+}
+
+ #content_col #announcement_box h3
+,#content_col #announcement_box h4
+,#content_col .announcement_box h3
+,#content_col .announcement_box h4
+{
+  border: none;
+}
+
+ #content_col .announcement_box h3
+,#content_col #announcement_box h3
+{
+  color: #dc1a22;
+  font-size: 0.9em;
+  margin: 0;
+  margin-top: 0.5em;
+  padding: 0;
+  font-size: 1.3em;
+}
+
+ #content_col #announcement_box h4
+,#content_col .announcement_box h4
+{
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+  font-size: 1.1em;
+}
+
+
+
+/* ----------------------------------- 
+ Exhibition format
+----------------------------------- */
+ ul.exhibition
+{
+  margin: 0%;
+  padding: 0%;
+}
+
+ul.exhibition li
+{
+  margin: 1em 0% 0% 0%;
+  padding: 0.5em 0% 1em 0%;
+  border-bottom: 0.1em solid #000;
+  list-style-type: none;
+}
+
+ul.exhibition li a.edit
+{
+	font-size: 80%;
+	padding-left: 0.5em;
+	color: rgb(255, 0, 0);
+}
+
+p.exhibition
+{
+  position: relative;
+  width: 100%;
+  height: 1em;
+  margin: 1em 0%;
+}
+
+p.exhibition span.prev
+{
+  position: absolute;
+  top: 0%;
+  left: 0%;
+}
+
+p.exhibition span.next
+{
+  position: absolute;
+  top: 0%;
+  right: 0%;
+}
+
+ p.exhibition span.prev a
+,p.exhibition span.next a
+{
+  text-decoration: none;
+}
+
+ p.exhibition span.prev a:hover
+,p.exhibition span.next a:hover
+{
+  text-decoration: underline;
+}
+
+
+
+
+/* ------------------------------------ 
+ calendar event list
+------------------------------------ */
+dl.events.event-list
+{
+  margin: 0;
+  padding-bottom: 0.5em;
+  border-bottom: 0.1em dashed #acaba9;
+}
+dl.events.event-list dt
+{
+  font-weight:300;
+}
+
+ul.calendar.event-list
+{
+  margin: 1em 0%;
+  padding: 0%;
+  border-top: 0.1em dashed #acaba9;
+}
+
+ul.calendar.event-list li
+{
+  margin-left: 0;
+  list-style-type: none;
+  border-bottom: 0.1em dashed #acaba9;
+  padding: 0.4em 0% 0.4em 3em;
+  text-indent: -2.2em;
+}
+
+ul.calendar.event-list li span.date
+{
+}
+
+ul.calendar.event-list li a
+{
+  padding: 0% 1em;
+}
+
+ul.calendar.event-list li a.subscribe
+{
+  padding: 0%;
+  font-size: 82%;
+  font-weight: normal;
+  white-space: nowrap;
+  display: inline;
+}
+
+#right ul.calendar.event-list
+{
+  margin-right: -2em;
+  margin-left: 0em;
+}
+
+#right ul.calendar.event-list li
+{
+  padding-left: 3em;
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+}
+
+/* For calendar events with no description, it's not worth linking to the actual event so to maintain the aesthetic */
+ ul.calendar.event-list li span.event_title
+,ul.calendar.event-list li strong
+{
+	padding: 0% 1em;
+}
+
+ul.calendar.event-list li  a.edit { color: #f00; }
+
+/* - - - - - - - - - - - - - - - - - -
+  Calendar styles for opening hours of library and other facilities
+ - - - - - - - - - - - - - - - - - - */
+
+ul.opening-hours li span { display:block; }
+ul.opening-hours span.day
+{
+	width:7em;
+	margin-bottom:-1.2em;
+	font-weight:bold;
+	padding-right:1em;
+}
+ul.opening-hours.campus span.day { width:9em; }
+ ul.opening-hours span.hours
+,ul.opening-hours span.is-closed { padding-left: 7em; }
+ ul.opening-hours.campus span.hours
+,ul.opening-hours.campus span.is-closed { padding-left: 9em; }
+
+ .opening-hours span.is-closed
+,.opening-hours li.closed span.hours
+,.opening-hours span.closed span.hours { display: none; }
+
+ .opening-hours li.closed span.is-closed
+,.opening-hours span.closed span.is-closed { display: block; }
+
+/* ------------------------------------ 
+ Calendar styles
+------------------------------------ */
+.ical-pc { display: block; }
+.ical-mac { display: none; }
+
+ul.calendar.event-list li a.subscribe.ical-pc
+{
+  display: inline;
+}
+
+ul.calendar.event-list li a.subscribe.ical-mac
+{
+  display: none;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0)
+{
+  .ical-pc { display: none; }
+  .ical-mac { display: block; }
+
+  ul.calendar.event-list li a.subscribe.ical-mac
+  {
+    display: inline;
+  }
+
+  ul.calendar.event-list li a.subscribe.ical-pc
+  {
+    display: none;
+  }
+}
+
+#cal_list dl dt{background-color:#e4e0d8;}
+/* ====================================
+The following classes are for when you
+want columns but don't particularly
+care if they work or not.
+These won't work in IE versions older
+than 9 (IE 9 is still in beta)
+==================================== */
+.css3-columns { -moz-column-gap:2em; -webkit-column-gap:2em; column-gap:2em; }
+
+/* These are for variable width columns */
+.css3-columns.c2 { -moz-column-count:2; -webkit-column-count:2; column-count:2; }
+.css3-columns.c3 { -moz-column-count:3; -webkit-column-count:3; column-count:3; }
+
+/* These are for fixed width columns */
+.css3-columns.w10 { -moz-column-width:10em; -webkit-column-width:10em; column-width:10em; }
+.css3-columns.w12 { -moz-column-width:12em; -webkit-column-width:12em; column-width:12em; }
+.css3-columns.w14 { -moz-column-width:14em; -webkit-column-width:14em; column-width:14em; }
+.css3-columns.w16 { -moz-column-width:16em; -webkit-column-width:16em; column-width:16em; }
+.css3-columns.w18 { -moz-column-width:18em; -webkit-column-width:18em; column-width:18em; }
+.css3-columns.w20 { -moz-column-width:20em; -webkit-column-width:20em; column-width:20em; }
+
+/* These are for increasing the height of a box within a columns to make the boxes not break across columns. */
+.css3-columns .p1 { padding-bottom:1em; }
+.css3-columns .p2 { padding-bottom:2em; }
+.css3-columns .p3 { padding-bottom:3em; }
+.css3-columns .p4 { padding-bottom:4em; }
+.css3-columns .p5 { padding-bottom:5em; }
+.css3-columns .p6 { padding-bottom:6em; }
+.css3-columns .p7 { padding-bottom:7em; }
+.css3-columns .p8 { padding-bottom:8em; }
+.css3-columns .p9 { padding-bottom:9em; }
+.css3-columns .p10 { padding-bottom:10em; }
+
+/* ------------------------------------ 
+ admin toolbar like links
+------------------------------------ */
+ p.toolbar-button
+{
+  padding-bottom: 1em;
+  border-bottom: 0.1em solid #000;
+}
+
+p.toolbar-button a
+{
+  color: #003C92;
+  background-color: #7EADEC;
+  border: 1px solid #625E00;
+  font-weight: bold;
+  font-famil: Verdana, arial, hevetica, sans-serif;
+  padding: 0.3em 0.5em;
+  text-decoration: none;
+}
+
+
+
+/* ------------------------------------ 
+ Table Styles - Annual report
+------------------------------------ */
+ table.table_numbers p
+{
+  font-weight: normal;
+  margin-bottom: 3px;
+}
+
+ table.table_numbers td
+,table.table_numbers th
+{
+  padding-bottom: 0;
+  margin: 0;
+  border-bottom: 1px solid #E4DFD9;
+  text-align: left;
+}
+
+table.table_numbers_2
+{
+  margin-bottom: 1.5em;
+}
+
+table.table_numbers_2 p
+{
+  font-weight: normal;
+  margin-bottom: 3px;
+}
+
+table.table_numbers_2 td
+{
+  padding-bottom: 0;
+  margin: 0;
+  border-bottom: 1px solid #E4DFD9;
+  text-align: left;
+  color: #666;
+}
+
+table.table_numbers_2 th
+{
+  padding-bottom: 0;
+  margin: 0;
+  border-bottom: 1px solid #E4DFD9;
+  text-align: left;
+}
+
+td.normal p
+{
+  color: #333;
+}
+
+table.table_numbers_3
+{
+  margin-bottom: 1.5em;
+}
+
+table.table_numbers_3 p
+{
+  font-weight: normal;
+  margin-bottom: 3px;
+}
+
+table.table_numbers_3 td
+{
+  padding-bottom: 0;
+  margin: 0;
+  border-bottom: 1px solid #E4DFD9;
+  text-align: left;
+}
+
+table.table_numbers_3 th
+{
+  padding-bottom: 0;
+  margin: 0;
+  border-bottom: 1px solid #E4DFD9;
+  text-align: left;
+}
+
+ table.table_numbers_3 tr.border_b_strong
+,table.table_numbers_3 td.border_b_strong
+,table.table_numbers_3 th.border_b_strong
+{
+  border-bottom: 3px solid #E4DFD9;
+}
+
+th p strong
+{
+  text-align: left;
+  font-weight: 300;
+  color: #685556;
+}
+
+table_numbers.caption
+{
+  text-align: left;
+  font-weight: 600;
+  color: #685556;
+}
+
+
+ table.centre tbody tr td
+,table tbody.centre tr td
+,table tbody tr.centre td
+,table tbody tr td.centre
+{
+	text-align: center;
+}
+
+/* ----------------------------------- 
+ Campus - images - content
+----------------------------------- */
+ ul#campus-images
+{
+  float: left;
+  width: 99%;
+  padding: 0%;
+  margin: 0%;
+  list-style-type: none;
+}
+
+ul#campus-images li
+{
+  list-style-type: none;
+  float: left;
+  width: 43%;
+  margin: 1em;
+  font-weight: bold;
+  margin: 1em;
+  padding: 0%;
+}
+
+ul#campus-images li img
+{
+  width: 150px;
+  height: 100px;
+  border: 0.1em solid #000;
+  margin: 0% 0% 0.3em 0%;
+  padding: 0%;
+  display: block;
+}
+
+#campus-images a
+{
+  display: block;
+}
+
+
+
+/* ----------------------------------- 
+ highlight box - profile
+----------------------------------- */
+ .highlight_box_profile
+{
+  background-color: #e4dfd9;
+  padding: 1em;
+}
+
+.highlight_box_profile a img
+{
+  float: right;
+  margin: -13px -3px 5px 0;
+  width: 60px;
+  height: 60px;
+}
+
+#right .highlight_box_profile h2
+{
+  margin-top: -4px;
+}
+
+.highlight_box_profile h3 a
+{
+  font-size: 0.8em;
+  color: #000;
+}
+
+#right .highlight_box_profile p
+{
+  margin: 0;
+}
+
+#right .highlight_box_profile p.sub_name
+{
+  margin: 0 0 10px 0;
+  font-size: 0.85em;
+}
+
+.highlight_box_profile strong
+{
+  font-size: 0.9em;
+  color: #333;
+}
+
+#right .highlight_box_profile ul
+{
+  margin-left: 0;
+}
+
+#right .highlight_box_profile .tweet_feed
+{
+  background-repeat: no-repeat;
+  background-position: left 6%;
+  background-image: url(//www.acu.edu.au/__data/assets/image/0018/220158/Twitter.gif);
+  padding-left: 1.5em;
+}
+
+
+
+/* --------------------------------------------------------------- */
+/* ---------->>> global settings needed for thickbox <<< --------- */
+/* --------------------------------------------------------------- */
+
+// *
+{
+  padding: 0;
+  margin: 0;
+}
+
+
+
+/* -------------------------------------------------------------- */
+/* ---------->>> thickbox specific link and font settings <<< --- */
+/* -------------------------------------------------------------- */
+
+#TB_window {
+  font: 12px Arial, Helvetica, sans-serif;
+  color: #333333;
+}
+
+#TB_secondLine {
+  font: 10px Arial, Helvetica, sans-serif;
+  color:#666666;
+}
+
+#TB_window a:link {color: #666666;}
+#TB_window a:visited {color: #666666;}
+#TB_window a:hover {color: #000;}
+#TB_window a:active {color: #666666;}
+#TB_window a:focus{color: #666666;}
+
+
+
+/* -------------------------------------
+------------------------------------- */
+
+
+/* --------------------------------------------------------------- */
+/* ---------->>> thickbox settings <<< --------------------------- */
+/* --------------------------------------------------------------- */
+ #TB_overlay
+{
+  position: fixed;
+  z-index: 100;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+}
+
+.TB_overlayMacFFBGHack
+{
+  background: url(//www.acu.edu.au/__data/assets/image/0015/103821/macFFBgHack.png) repeat;
+}
+
+.TB_overlayBG
+{
+  background-color: #000;
+  filter: alpha(opacity=75);
+  -moz-opacity: 0.75;
+  opacity: 0.75;
+}
+
+* html #TB_overlay
+{/* ie6 hack */ 
+  position: absolute;
+  height: expression(document.body.scrollHeight > document.body.offsetHeight ? document.body.scrollHeight: document.body.offsetHeight + 'px');
+}
+
+#TB_window
+{
+  position: fixed;
+  background: #ffffff;
+  z-index: 102;
+  color: #000000;
+  display: none;
+  border: 4px solid #525252;
+  text-align: left;
+  top: 50%;
+  left: 50%;
+}
+
+* html #TB_window
+{/* ie6 hack */ 
+  position: absolute;
+  margin-top: expression(0 - parseInt(this.offsetHeight / 2) + (TBWindowMargin = document.documentElement && document.documentElement.scrollTop || document.body.scrollTop) + 'px');
+}
+
+#TB_window img#TB_Image
+{
+  display: block;
+  margin: 15px 0 0 15px;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #666;
+  border-left: 1px solid #666;
+}
+
+#TB_caption
+{
+  height: 25px;
+  padding: 7px 30px 10px 25px;
+  float: left;
+}
+
+#TB_closeWindow
+{
+  height: 25px;
+  padding: 11px 25px 10px 0;
+  float: right;
+}
+
+#TB_closeAjaxWindow
+{
+  padding: 7px 10px 5px 0;
+  margin-bottom: 1px;
+  text-align: right;
+  float: right;
+}
+
+#TB_ajaxWindowTitle
+{
+  float: left;
+  padding: 7px 0 5px 10px;
+  margin-bottom: 1px;
+}
+
+#TB_title
+{
+  background-color: #e8e8e8;
+  height: 27px;
+}
+
+#TB_ajaxContent
+{
+  clear: both;
+  padding: 2px 15px 15px 15px;
+  overflow: visible;
+  text-align: left;
+  line-height: 1.4em;
+}
+
+#TB_ajaxContent.TB_modal
+{
+  padding: 15px;
+}
+
+#TB_ajaxContent p
+{
+  padding: 5px 0px 5px 0px;
+}
+
+#TB_load
+{
+  position: fixed;
+  display: none;
+  height: 13px;
+  width: 208px;
+  z-index: 103;
+  top: 50%;
+  left: 50%;
+  margin: -6px 0 0 -104px;
+  /* height/2 0 0 -width/2 */
+}
+
+* html #TB_load
+{/* ie6 hack */ 
+  position: absolute;
+  margin-top: expression(0 - parseInt(this.offsetHeight / 2) + (TBWindowMargin = document.documentElement && document.documentElement.scrollTop || document.body.scrollTop) + 'px');
+}
+
+#TB_HideSelect
+{
+  z-index: 99;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  border: none;
+  filter: alpha(opacity=0);
+  -moz-opacity: 0;
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+}
+
+* html #TB_HideSelect
+{/* ie6 hack */ 
+  position: absolute;
+  height: expression(document.body.scrollHeight > document.body.offsetHeight ? document.body.scrollHeight: document.body.offsetHeight + 'px');
+}
+
+#TB_iframeContent
+{
+  clear: both;
+  border: none;
+  margin-bottom: -1px;
+  margin-top: 1px;_
+  margin-bottom: 1px;
+}
+
+
+
+/* -----------------------------------
+ committee paintlayout #239033
+----------------------------------- */
+ #committee_layout ul
+{
+  margin-top: 0;
+}
+
+#committee_layout p
+{
+  margin-bottom: 0;
+}
+
+
+
+/* -----------------------------------
+ styles for documentation
+----------------------------------- */
+ #main_container .documentation li a
+{
+  font-weight: bold;
+}
+
+#main_container .documentation li img
+{
+  margin: 0.5em 0%;
+  vertical-align: -0.25em;
+}
+
+#main_container .documentation img.inline
+{
+  margin: 0%;
+}
+
+#main_container .documentation blockquote.sample
+{
+  border: 0.05em solid rgb(0, 0, 0);
+  padding: 1em;
+  background-color: rgb(245, 245, 245);
+  margin-left: 0%;
+  width: 500px;
+}
+
+#main_container .documentation blockquote h4
+{
+  margin-top: 0;
+}
+
+#main_container p.note
+{
+  margin-left: 3.5em;
+  text-indent: -3.5em;
+}
+
+#main_container p.note-also
+{
+  margin-left: 6em;
+  text-indent: -6em;
+}
+
+.tip_msg_box
+{
+  -moz-border-radius-bottomleft: 8px;
+  -moz-border-radius-bottomright: 8px;
+  -moz-border-radius-topleft: 8px;
+  -moz-border-radius-topright: 8px;
+  background-position: 8px;
+  background-repeat: no-repeat;
+  border-style: solid;
+  border-width: 1px;
+  margin: 1em 0pt;
+  overflow: hidden;
+  padding: 0pt;
+  position: relative;
+  background-color: #FFFBC9;
+  background-image: url(//www.acu.edu.au/__data/assets/image/0018/114273/tip_information.png);
+  border-color: #F0DCA1;
+}
+
+ .tip_msg_msg
+,.alert_msg_msg
+{
+  min-height: 32px;
+  padding: 16px 12px 12px 64px;
+}
+
+ .tip_msg_msg h3
+,.alert_msg_msg h3
+{
+  margin: 0;
+}
+
+.alert_msg_box
+{
+  -moz-border-radius-bottomleft: 8px;
+  -moz-border-radius-bottomright: 8px;
+  -moz-border-radius-topleft: 8px;
+  -moz-border-radius-topright: 8px;
+  background-position: 8px;
+  background-repeat: no-repeat;
+  border-style: solid;
+  border-width: 1px;
+  margin: 1em 0pt;
+  overflow: hidden;
+  padding: 0pt;
+  position: relative;
+  background-color: #FFEAEA;
+  background-image: url(//www.acu.edu.au/__data/assets/image/0015/118212/alert.png);
+  border-color: #FF6C6C;
+}
+
+#main_container .flow_navi ul
+{
+  padding-bottom: 1em;
+  width: 90%;
+  margin-left: 0;
+}
+
+#main_container .flow_navi ul li
+{
+  background-image: url(//www.acu.edu.au/__data/assets/image/0003/118731/FlowIcon_Arrow.gif);
+  background-repeat: no-repeat;
+  background-position: 0px 50%;
+  display: inline;
+  line-height: 50px;
+  margin: 0.2em 1em 0.2em 0%;
+  padding-left: 27px;
+  list-style: none;
+  height: 50px;
+}
+
+#main_container .flow_navi ul li a
+{
+  text-decoration: none;
+  border: 0.05em solid rgb(0, 0, 0);
+  margin: 0;
+  padding: 1em;
+}
+
+#main_container .flow_navi ul li a:hover
+{
+  background: #D4D4D4;
+  text-decoration: none;
+}
+
+#main_container .flow_navi .hide_title
+{
+  display: none;
+}
+
+#main_container .flow_navi ul li.position_1
+{
+  background-position: 5000px 50%;
+  padding-left: 0px;
+}
+
+ /* highlight the current step */
+ #man_1 .man_1 a
+,#man_2 .man_2 a
+,#man_3 .man_3 a
+,#man_4 .man_4 a
+,#man_5 .man_5 a
+,#man_6 .man_6 a
+,#man_7 .man_7 a
+,#man_8 .man_8 a
+,#man_9 .man_9 a
+,#man_10 .man_10 a
+,#man_11 .man_11 a
+,#man_11 .man_11 a
+,#man_12 .man_12 a
+,#man_13 .man_13 a
+,#man_14 .man_14 a
+,#man_15 .man_15 a
+,#man_16 .man_16 a
+,#man_17 .man_17 a
+,#man_18 .man_18 a
+,#man_19 .man_19 a
+,#man_20 .man_20 a
+{
+  background: #808080;
+}
+
+
+
+/* ----------------------------------- 
+ logos in right hand column
+----------------------------------- */
+ #right .smallLogo
+{
+  position: relative;
+  top: 0.75em;
+  padding-right: 1em;
+}
+
+#right .mypcLogo
+{
+  position: relative;
+  top: 0.32em;
+  margin-left: 0.4em;
+}
+
+#right .logoList
+{
+  margin-left: 0;
+  font-weight: bold;
+  color: #000000;
+}
+
+/* -------------------
+action button
+--------------------*/
+#content_col #action-button ul { margin: 1em 0 1em 4em; }
+#content_col #action-button li  { display:inline-block }
+
+/* right column Action Button */
+a.button-right-col { 
+	background-color:#193869;
+	padding: 0.6em 0.5em 0.3em 0.8em;
+    font-size:1em;
+    margin-top:1em; 
+    float:left;
+    text-decoration:none!important;
+	-webkit-border-radius: 3px;
+	 -khtml-border-radius: 3px;
+	   -moz-border-radius: px;
+		-ms-border-radius: 3px;
+		 -o-border-radius: 3px;
+			border-radius: 4px;
+	  width:220px;
+    min-height:2em;
+	  color: #FFFFFF;
+    font-size:1.5em;
+	background:	-webkit-gradient(linear, 0% 0%, 0% 100%, from(#00539F), to(#193869));
+	background:	-webkit-linear-gradient(top, #00539F, #193869);
+	background:	 -khtml-linear-gradient(top, #00539F, #193869);
+	background:    -moz-linear-gradient(top, #00539F, #193869);
+	background:		-ms-linear-gradient(top, #00539F, #193869);
+	background:		 -o-linear-gradient(top, #00539F, #193869);
+	background:			linear-gradient(top, #00539F, #193869);
+  margin-left:-15px;
+  margin-right:-10px;
+  margin-bottom:1.2em;
+}
+
+a.button-right-col img { float:right; border-left: 1px solid #dcdcdc; padding:0.4em 0.4em 0.4em 0.5em; }
+a.button-right-col span { font-size:0.7em; line-height:0.7em; }
+a.button-right-col:hover { text-decoration:underline!important; }
+
+/* -------------------
+loading image
+--------------------*/
+#loadingImage{
+float:none;
+margin:0;
+padding:0;
+}
+
+/* -------------------
+Hide Button on #303136
+--------------------*/
+#image_0_choose_server_file_button{display:none;}
+#image_0_file_upload span, #image_0_file_upload p{display:none;}
+#image_0_use_editor_button {position:absolute; left:-9999px; top:-9999px;}
+
+.sq-backend-smallprint{display:none;}
+
+
+/* jQuery Countdown styles 1.5.8. */
+.hasCountdown {
+	border: 1px solid #ccc;
+	background-color: #eee;
+}
+.countdown_rtl {
+	direction: rtl;
+}
+.countdown_holding span {
+	background-color: #ccc;
+}
+.countdown_row {
+	clear: both;
+	width: 100%;
+	padding: 0px 2px;
+	text-align: center;
+}
+.countdown_show1 .countdown_section {
+	width: 98%;
+}
+.countdown_show2 .countdown_section {
+	width: 48%;
+}
+.countdown_show3 .countdown_section {
+	width: 32.5%;
+}
+.countdown_show4 .countdown_section {
+	width: 24.5%;
+}
+.countdown_show5 .countdown_section {
+	width: 19.5%;
+}
+.countdown_show6 .countdown_section {
+	width: 16.25%;
+}
+.countdown_show7 .countdown_section {
+	width: 14%;
+}
+.countdown_section {
+	display: block;
+	float: left;
+	font-size: 75%;
+	text-align: center;
+}
+.countdown_amount {
+	font-size: 200%;
+}
+.countdown_descr {
+	display: block;
+	width: 100%;
+}
+
+.new_icon {background-image:url('//www.acu.edu.au/__data/assets/image/0005/373262/new_icon.jpg'); 
+              background-repeat:no-repeat;
+              color:#fff; font-size:0.8em; padding:0 0.2em;}
+
+.empty_span{display:none !important;}
+
+/* =========================================
+ * CSS3 columns */
+.css3_cols_2
+{
+    -webkit-column-count: 2; -khtml-column-count: 2; -moz-column-count: 3; -ms-column-count: 2; -o-column-count: 2; column-count: 2;
+    -webkit-column-gap: 3em; -khtml-column-gap: 3em; -moz-column-gap: 3em; -ms-column-gap: 3em; -o-column-gap: 3em; column-gap: 3em;
+}
+.css3_cols_3
+{
+    -webkit-column-count: 3; -khtml-column-count: 3; -moz-column-count: 3; -ms-column-count: 3; -o-column-count: 3; column-count: 3;
+    -webkit-column-gap: 3em; -khtml-column-gap: 3em; -moz-column-gap: 3em; -ms-column-gap: 3em; -o-column-gap: 3em; column-gap: 3em;
+}
+
+
+/* 
+-------
+right column styles
+-------
+ */
+
+/* promo box with right side image - small */
+a.white:hover { color:#fff; }
+#right .promo-box { width:235px!important; margin-left:-15px; background-color:#00539F; color:#fff; padding:0 0 0 1em; }
+.promo-box-inside-box { height:86px; }
+#right .promo-box img { float:right; margin-left:7px; }
+#right .promo-box h2 { color:#fff; padding-top:0.5em; font-size:1.1em; }
+#right .promo-box .lead-content { width:248px; background-color:#EBEBEB; height:25px; margin:0; margin-left:-13px; padding:0; background-image:url(//www.acu.edu.au/__data/assets/image/0007/487321/grey-arrow.png); background-repeat:no-repeat; background-position:230px center; }
+#right .promo-box .lead-content p { padding: 0.3em 0 0 0.7em; margin-top:0; margin-left:0; width:100%; }
+#right .promo-box .lead-content p span { color:#333; font-weight:bold; }
+
+
+
+.no-gallery ul.bxslider , .no-gallery #pager { display: none; }
+
+
+
+/** ==================================================
+ * START: Scroll Box
+ *
+ * .scrollbox is copied (almost) verbatum from 
+ * http://kizu.ru/en/fun/shadowscroll/ > http://kizu.ru/demos/shadowscroll.html
+ * It adds a subtle gradient at the top and bottom of the scroll box.
+ * When the content is scrolled to the limit the shadow at that end
+ * is hidden.
+ */
+.scrollbox {
+	position: relative;
+	z-index: 1;
+	overflow-y: auto;
+	width: 100%;
+	background: #FFF no-repeat;
+	background-image:
+		-webkit-radial-gradient(50% 0, farthest-side, rgba(0,0,0,0.2), rgba(0,0,0,0)),
+		-webkit-radial-gradient(50% 100%,farthest-side, rgba(0,0,0,0.2), rgba(0,0,0,0));
+	background-image:
+		-moz-radial-gradient(50% 0, farthest-side, rgba(0,0,0,0.2), rgba(0,0,0,0)),
+		-moz-radial-gradient(50% 100%,farthest-side, rgba(0,0,0,0.2), rgba(0,0,0,0));
+	background-image:
+		radial-gradient(farthest-side at 50% 0, rgba(0,0,0,0.2), rgba(0,0,0,0)),
+		radial-gradient(farthest-side at 50% 100%, rgba(0,0,0,0.2), rgba(0,0,0,0));
+	background-position: 0 0, 0 100%;
+	background-size: 100% 1em;
+}
+.scrollbox:before , .scrollbox:after {
+	content: "";
+	position: relative;
+	z-index: -1;
+	display: block;
+	height: 2.143em;
+	margin: 0 0 -2.143em;
+	background: -webkit-linear-gradient(top,#FFF,#FFF 30%,rgba(255,255,255,0));
+	background:    -moz-linear-gradient(top,#FFF,#FFF 30%,rgba(255,255,255,0));
+	background:   linear-gradient(to bottom,#FFF,#FFF 30%,rgba(255,255,255,0));
+}
+.scrollbox:after {
+	margin: -2.143em 0 0;
+	background: -webkit-linear-gradient(top,rgba(255,255,255,0),#FFF 70%,#FFF);
+	background:    -moz-linear-gradient(top,rgba(255,255,255,0),#FFF 70%,#FFF);
+	background:   linear-gradient(to bottom,rgba(255,255,255,0),#FFF 70%,#FFF);
+}
+
+/**
+ * END: Scroll Box
+ * ==================================================
+ * START: tabs2
+ */
+
+#tabs2 {
+    clear: both;
+    margin-top: 3em;
+    position: relative;
+    width: 106.5%;
+    left: -1em;
+}
+
+#tabs2 > li > a {
+    padding-bottom: 9px;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-top: 9px;
+}
+#tabs2 .nav-tabs > li > a {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-bottom-color: rgba(0, 0, 0, 0);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-image-outset: 0 0 0 0;
+    border-image-repeat: stretch stretch;
+    border-image-slice: 100% 100% 100% 100%;
+    border-image-source: none;
+    border-image-width: 1 1 1 1;
+    border-left-color-ltr-source: physical;
+    border-left-color-rtl-source: physical;
+    border-left-color-value: rgba(0, 0, 0, 0);
+    border-left-style-ltr-source: physical;
+    border-left-style-rtl-source: physical;
+    border-left-style-value: solid;
+    border-left-width-ltr-source: physical;
+    border-left-width-rtl-source: physical;
+    border-left-width-value: 1px;
+    border-right-color-ltr-source: physical;
+    border-right-color-rtl-source: physical;
+    border-right-color-value: rgba(0, 0, 0, 0);
+    border-right-style-ltr-source: physical;
+    border-right-style-rtl-source: physical;
+    border-right-style-value: solid;
+    border-right-width-ltr-source: physical;
+    border-right-width-rtl-source: physical;
+    border-right-width-value: 1px;
+    border-top-color: rgba(0, 0, 0, 0);
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-top-style: solid;
+    border-top-width: 1px;
+    line-height: 1.42857;
+    margin-right: 2px;
+}
+#tabs2 .nav > li > a {
+    display: block;
+    padding: 1em 0.9em;
+    position: relative;
+    border: 0;
+/*
+	border-bottom: solid 1px #ddd;
+	font-weight: bold;
+	padding: 1em;
+*/
+}
+#tabs2 .nav > li > a:hover { background-color:#ddd; }
+
+#tabs2 .nav-tabs > li {
+    float: left;
+    margin-bottom: -1px;
+}
+#tabs2 .nav > li {
+    display: block;
+    position: relative;
+}
+#tabs2 .article {
+    padding: 0% 0.5em;
+}
+
+
+#tabs2 .tab-content {
+    padding-top: 20px !important;
+    clear:both !important;
+}
+#tabs2 .tab-content h2 {
+    padding-left: 0.4em;
+}
+#tabs2 .article h2 a, #tabs2 a.read { text-decoration:none; }
+#tabs2 .article h2 a:hover, #tabs2 a.read:hover  { text-decoration:underline; }
+
+
+li a.nthSyd {
+	width:3.5em;
+	text-align: center;
+	margin-top: -1.45em;
+} 
+li a.acu-bulletin {
+	margin-top: -1.45em;
+	width:4em;
+	text-align:center;
+}
+
+.nav-tabs {
+    padding-left:0;
+    border-bottom: 0.2em solid #ddd;
+    height: 3.5em;
+}
+.nav-tabs > li > a {
+    -moz-text-decoration-color: -moz-use-text-color;
+    -moz-text-decoration-line: underline;
+    -moz-text-decoration-style: solid;
+    color: #00539F;
+}
+.nav-tabs > li {
+    margin-bottom: -1px !important;
+}
+.nav-tabs li.active a {
+  border: solid 1px #ddd !important;
+  border-top-color: #E00034 !important;
+  border-radius: 0 !important;
+  border: solid 1px ##BFBFBF !important;
+  border-top: solid 3px #E00034 !important;
+  border-bottom: none !important;
+  color:#333;
+  font-weight: bold;
+  background-color: #fff;
+}
+.nav-tabs li.active a:hover
+{
+	background-color: #fff !important;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+/**
+ * END: tabs2
+ * ==================================================
+ */
+
+
+
+
+/** ------------------------
+ * START: stop-racism
+ * this is for a university wide campaign in 2014.
+ */
+.stop-racism {
+	border: 0.15em solid #D71921;
+	background-color: #000;
+	color: #fff;
+	padding: 0em;
+	text-transform: uppercase;
+	font-weight: bold;
+	text-align: center;
+	line-height: 1em;
+	font-size: 2em;
+	clear: both;
+}
+
+.stop-racism span {
+	color: #D71921;
+}
+.stop-racism span.new-line {
+	color: #fff;
+	white-space: nowrap;
+}
+#right .stop-racism {
+	margin-top: 2em;
+	font-size: 3em;
+	padding: 0.3em 0%;
+	word-spacing:0.1em;
+	/* letter-spacing: 0.051em; */
+}
+footer .small .stop-racism {
+	font-size: 300%;
+	width: 89%;
+	margin-left: 11%;
+	margin-bottom: 0.5em;
+}
+/**
+ * END: stop-racism
+ * ------------------------ */
+
+/**
+ * -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+ * START: TN3 Gallery CSS
+ */
+
+
+.tn3e-gallery {
+    position:relative;
+    width: 960px;
+    height: 550px;
+    background-color:#c5c5c5;
+    background-image: url('//www.acu.edu.au/__data/assets/image/0007/502189/TN3_grad.jpg');
+    background-position:center center;    
+    background-repeat:no-repeat;
+    line-height: normal;
+}
+.tn3e-gallery img {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    max-width: none !important;
+}    
+.tn3e-image {
+    position:absolute;
+    left: 20px;
+    top: 20px;
+    width: 920px;
+    height: 360px;
+    background-color: #000000;
+}
+/*
+.tn3e-full-image {
+    box-shadow: 0 0 5px rgba(40, 40, 40, 1);
+    -webkit-box-shadow: 0 0 5px rgba(40, 40, 40, 1); 
+    -moz-box-shadow: 0 0 5px rgba(40, 40, 40, 1); 
+
+} 
+*/   
+.tn3e-control-bar {
+    position:absolute;
+    background: url('//www.acu.edu.au/__data/assets/image/0006/502188/TN3_bg.png') repeat;
+    width:243px;
+    height:80px;
+}
+.tn3e-thumbs ul, .tn3e-thumbs li {
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style-type: none !important;
+}
+.tn3e-thumbs {
+    position:absolute;
+    width:920px;
+    height:80px;
+    bottom:20px;
+    left:20px;
+    background-image: url('//www.acu.edu.au/__data/assets/image/0018/502191/TN3_thumb_bg.png');    
+    background-repeat:repeat-x;
+    padding-top:2px;
+}
+.tn3e-thumb {
+    padding: 2px;
+    cursor:pointer;
+}
+.tn3e-thumb-selected {
+    cursor:default;
+}
+.tn3e-thumb img {
+    width: 114px;
+    height:72px;
+}    
+.tn3e-next {
+    position:absolute;
+    background-image:url('//www.acu.edu.au/__data/assets/image/0020/502193/TN3_tn3e.png');
+    background-position:-20px -3px;
+    width: 13px;
+    height: 17px;
+    right:33px;
+    bottom:126px;
+    cursor:pointer;
+}
+.tn3e-next:hover {
+    background-position:-20px -23px;
+}
+.tn3e-prev {
+    position:absolute;
+    background-image:url('//www.acu.edu.au/__data/assets/image/0020/502193/TN3_tn3e.png');
+    background-position:-2px -3px;
+    width: 13px;
+    height: 17px;
+    left:30px;
+    bottom:126px;
+    cursor:pointer;
+}
+.tn3e-prev:hover {
+    background-position:-2px -23px;
+}
+.tn3e-preloader {
+    position:absolute;
+    width: 22px;
+    height: 8px;
+    right:5px;
+    top:5px;
+}
+.tn3e-text {
+    position: absolute;
+    left: 64px;
+    bottom: 110px;
+    width: 832px;
+    height: 40px;
+    vertical-align:middle;
+    overflow: hidden;
+}
+.tn3e-image-title {
+    font-family: Tahoma, Helvetica, sans-serif;
+    color:#3f4146;
+    font-size:12px;
+    width:100%;
+    text-align:center;
+    font-weight:bold;
+}
+.tn3e-image-description {
+    font-family: Tahoma, Helvetica, sans-serif;
+    color:#3f4146;
+    width:100%;
+    text-align:center;
+    font-size:10px;
+}
+.tn3e-timer {
+    position:absolute;
+    width: 100%;
+    height: 4px;
+    bottom: 0px;
+    background: url('//www.acu.edu.au/__data/assets/image/0006/502188/TN3_bg.png') repeat;
+    background: rgba(0, 0, 0, 0.3);
+}
+.tn3e-play {
+    position:absolute;
+    background-image:url('//www.acu.edu.au/__data/assets/image/0020/502193/TN3_tn3e.png');
+    background-position:-2px -80px;
+    left:94px;
+    top:12px;
+    width:57px;
+    height:57px;
+    cursor:pointer;
+}
+.tn3e-play:hover {
+    background-position:-64px -80px;
+}
+.tn3e-play-active {
+    background-position:-2px -139px;
+}
+.tn3e-play-active:hover {
+    background-position:-64px -139px;
+}
+.tn3e-show-albums {
+    position:absolute;
+    background-image:url('//www.acu.edu.au/__data/assets/image/0020/502193/TN3_tn3e.png');
+    background-position:-35px -39px;
+    top:22px;
+    left:23px;
+    width:37px;
+    height:36px;
+    padding:0;
+    margin:0;
+    cursor:pointer;
+}
+.tn3e-show-albums:hover {
+    background-position:-76px -39px;
+}
+.tn3e-fullscreen {
+    position:absolute;
+    background-image:url('//www.acu.edu.au/__data/assets/image/0020/502193/TN3_tn3e.png');
+    background-position:-35px -1px;
+    top:22px;
+    right:23px;
+    width:37px;
+    height:36px;
+    cursor:pointer;
+}
+.tn3e-fullscreen:hover {
+    background-position:-76px -1px;
+}
+.tn3e-albums {
+    position:absolute;
+    width: 920px;
+    height: 510px;
+    left:20px;
+    top:20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color:#ffffff;
+    background-image:url('//www.acu.edu.au/__data/assets/image/0006/502188/TN3_bg.png');
+    background: rgba(0, 0, 0, 0.8); 
+}
+.tn3e-albums h4 {
+    position: absolute;
+    margin-top: 1.33em;
+    font-weight: bold;
+    left: 34px;
+    top: 10px;
+    font-size: 18px;
+    color: #c7c8c9;
+}
+.tn3e-inalbums {
+    position:absolute;
+    top: 80px;
+    width: 920px;
+    height: 350px;
+    padding: 20px;
+}
+.tn3e-album {
+    position:absolute;
+    width: 420px;
+    height: 66px;
+    background-color:#111111;
+    overflow: hidden;
+    cursor:pointer;
+    font-size: medium;
+}
+.tn3e-album-over {
+    background-color:#222;
+}
+.tn3e-album-selected {
+    background-color:#cdcdcd;
+    color:#111214;
+    cursor:default;
+}
+.tn3e-album-image {
+    height: 100%;
+    margin-right: 1em;
+    overflow:hidden;
+    float: left;
+}
+.tn3e-album-title {
+    font-size:13px;
+    font-weight:bold;
+    margin-top: 1em;
+}
+.tn3e-album-description {
+    font-size:0.6em;
+    height: 3em;
+    line-height: 1.6em;
+    overflow: hidden;
+}
+.tn3e-albums-next {
+    position:absolute;
+    background-image:url('//www.acu.edu.au/__data/assets/image/0020/502193/TN3_tn3e.png');
+    background-position:-217px -1px;
+    width: 97px;
+    height: 37px;
+    right:20px;
+    bottom:20px;
+    cursor:default;
+}
+.tn3e-albums-next-over {
+    background-position:-217px -40px;
+    cursor:pointer;
+}
+.tn3e-albums-prev {
+    position:absolute;
+    background-image:url('//www.acu.edu.au/__data/assets/image/0020/502193/TN3_tn3e.png');
+    background-position:-117px -1px;
+    width: 97px;
+    height: 37px;
+    left:20px;
+    bottom:20px;
+    cursor:default;
+}
+.tn3e-albums-prev-over {
+    background-position:-117px -40px;
+    cursor:pointer;
+}
+.tn3e-albums-close {
+    position:absolute;
+    background-image:url('//www.acu.edu.au/__data/assets/image/0020/502193/TN3_tn3e.png');
+    background-position:-125px -80px;
+    width: 27px;
+    height: 27px;
+    right:31px;
+    top:30px;
+    cursor:pointer;
+}
+.tn3e-albums-close:hover {
+    background-position:-155px -80px;
+}
+
+/* when javascript is disabled */
+.tn3.album, .tn3.album li {
+    float:left;
+    list-style-type: none;
+    margin:4px;
+}
+.tn3.album div, .tn3.album li h4, .tn3.album li div{
+    display:none;
+}
+
+/**
+ * END: TN3 Gallery CSS
+ * -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+ */
+
+/**
+ * START: PHOTOSET THUMB
+ * -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+ */
+
+ul.gallery_gallery
+{
+	float: left;
+	width: 98.5%;
+	margin: 0%;
+	padding: 0%;
+}
+ul.gallery_gallery li
+{
+	float: left;
+        min-height:188px;
+	display: block;
+	list-style-type: none;
+	padding: 0%;
+	margin: 0.3em 0.6em 0.3em 0%;
+}
+ul.gallery_gallery li img
+{
+	display:block !important;
+        border: 0.1em solid #000;
+	padding: 0.3em;
+}
+/**
+ * END: PHOTOSET THUMB
+ * -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+ */

@@ -1,0 +1,8043 @@
+/**
+ * Asset name: acu_2012__primary.css `
+ * Asset ID: #450671 `
+ * Asset URL: http://www.acu.edu.au/_designs/acu2012/acu_2012_primary_parse_css/acu_2012_primary.css `
+ *
+ * This style sheet is an agregation of all the style sheets need to
+ * format the ACU website as details by the 2012 design.
+ *
+ * ==================================================================
+ * START @media: RESET, BASIC & INTERFACE - print, screen, projection 
+ */
+ 
+@media print , screen , projection {
+
+
+
+/** -----------------------------------------------------------------
+ * Arrow_small-red.png 
+ */
+ .Arrow_small-red , nav#content-menu li.Nav_Selected ul li a , nav#content-menu ul.level2 li a , ul.arrow-links li , li.arrow-links , a.arrow-links , .web-tile p a.Arrow_small-red
+{
+	background-repeat: no-repeat;
+	background-image: url('//www.acu.edu.au/__data/assets/image/0006/458250/Arrow_small-red.png');
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAICAMAAAAGL8UJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjI1M0NBNjU0MjE5NDExRTJBMkI1RkYyQTVERDVEOTNFIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjI1M0NBNjU1MjE5NDExRTJBMkI1RkYyQTVERDVEOTNFIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MjUzQ0E2NTIyMTk0MTFFMkEyQjVGRjJBNURENUQ5M0UiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MjUzQ0E2NTMyMTk0MTFFMkEyQjVGRjJBNURENUQ5M0UiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5NoAj0AAAAIVBMVEXrZ4b57O/56e3gAzbviKDyq7zxorXraojxnbDgADT7+/v1F2ozAAAAK0lEQVR42mJgZOXi4mJgYeYAklwMnBxAkoudkw1GsoNEWDhBskwglQABBgAcrwE7PDeKZQAAAABJRU5ErkJggg==');
+}
+
+
+/** -----------------------------------------------------------------
+ * Arrow_small-grey  -- should be replaced by Bootstrap's use of Glyphicon chevron - class="glyphicon glyphicon-chevron-right" --
+
+ .Arrow_small-grey , section#promo li p.read , .web-tile p a.Arrow_small-grey , .business_ .web-tile.extended p a.Arrow_small-grey
+{
+	background-repeat: no-repeat;
+	background-image: url('//www.acu.edu.au/__data/assets/image/0007/458251/Arrow_small-grey.png');
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAKBAMAAACK4lk+AAAAA3NCSVQICAjb4U/gAAAAGFBMVEX///+hoaGhoaGhoaGhoaGhoaGhoaGhoaHU2AAhAAAACHRSTlMAETOImarM/yvcStwAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAWdEVYdENyZWF0aW9uIFRpbWUAMDgvMTYvMTLCLI8GAAAAHHRFWHRTb2Z0d2FyZQBBZG9iZSBGaXJld29ya3MgQ1M0BrLToAAAACJJREFUCJljYAABJgMgwVoCJBjTHYCkWDGUAHPBEmAlIAAAXbADueh9Ii4AAAAASUVORK5CYII=');
+}
+ */
+
+/** -----------------------------------------------------------------
+ * Arrow_small-grey_up 
+ */
+ .Arrow_small-grey_up , section#acu-tv nav#YouTube-scroll a#scroll-up span , .web-tile p a.Arrow_small-grey_up , .business_ .web-tile.extended p a.Arrow_small-grey_up
+{
+	background-repeat: no-repeat;
+	background-image: url('//www.acu.edu.au/__data/assets/image/0005/477518/Arrow_small-grey_up.png');
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAMBAMAAACdPPCPAAAAA3NCSVQICAjb4U/gAAAAHlBMVEX///+UlJSUlJSUlJSUlJSUlJSUlJSUlJSUlJSUlJQsjXYsAAAACnRSTlMAETNmmbvM3e7/InTbpwAAAAlwSFlzAAALEgAACxIB0t1+/AAAABZ0RVh0Q3JlYXRpb24gVGltZQAxMC8yMi8xMvWrLHgAAAAedEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzUuMasfSOsAAABPSURBVAiZY2BABoyhAlCW2MxEqFDmzGkCUKGZEEGmyplpM6crAFkaM6cJZs5sAgp1AqXEZs5QYOAAKQdqamBgBqsWm2nAwGACMoHRGckmADLJEzLJ8PJkAAAAAElFTkSuQmCC');
+}
+
+
+/** -----------------------------------------------------------------
+ * Arrow_small-grey_down 
+ */
+ .Arrow_small-grey_down , section#acu-tv nav#YouTube-scroll a#scroll-down span , .web-tile p a.Arrow_small-grey_down , .business_ .web-tile.extended p a.Arrow_small-grey_down
+{
+	background-repeat: no-repeat;
+	background-image: url('//www.acu.edu.au/__data/assets/image/0006/477519/Arrow_small-grey_down.png');
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAMBAMAAACdPPCPAAAAA3NCSVQICAjb4U/gAAAAHlBMVEX///+UlJSUlJSUlJSUlJSUlJSUlJSUlJSUlJSUlJQsjXYsAAAACnRSTlMAETNmmbvM3e7/InTbpwAAAAlwSFlzAAALEgAACxIB0t1+/AAAABZ0RVh0Q3JlYXRpb24gVGltZQAxMC8yMi8xMvWrLHgAAAAedEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzUuMasfSOsAAABXSURBVAiZY2BAABMQwejMwMA8MxHIEptpwMAxc5oAA2PmzAYGpk6goNjMGQoMDBozpwlmzmwCKmGqnJk2c7oCA1j1TLAuBpByoCYGiGAi1GzGUAEGZAAAvYcTIomCfk4AAAAASUVORK5CYII=');
+}
+
+
+/** -----------------------------------------------------------------
+ * Arrow_small-dark-grey 
+ */
+ .Arrow_small-dark-grey , .business_ .landing div#wrap-inner ul.feature_sub li h1 a /* ,.business_ aside#right article.web-tile ,.business_ aside#right article a */
+ , .business_ .web-tile p a , .business_ .web-tile.extended.alt h1 a
+{
+	background-repeat: no-repeat;
+	background-image: url('//www.acu.edu.au/__data/assets/image/0006/477294/Arrow_small-dark-grey.png');
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAOBAMAAAAPuiubAAAAA3NCSVQICAjb4U/gAAAAFVBMVEX///8kJCQkJCQkJCQkJCQkJCQkJCTX7yznAAAAB3RSTlMAIjOIme7/zlGgdwAAAAlwSFlzAAALEgAACxIB0t1+/AAAABZ0RVh0Q3JlYXRpb24gVGltZQAxMC8yMC8xMl+i5PMAAAAedEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzUuMasfSOsAAAAqSURBVAiZY2CAAAEQwRQCIpnTHECUWwqIZIFykuEkRAQsC1EJ0QUxAQwAAUkGGRf3n1YAAAAASUVORK5CYII=');
+}
+
+
+/** ---------------------------------------
+ * Arrow_small-white.png 
+ */
+ .Arrow_small-white , .landing div#wrap-inner ul.feature_sub li h1 a , .web-tile p a , aside#right p#media-enquiries a , nav#global-main ul li ul.l2 li ul li , aside#right article#right-col-buttons .blue li a , aside#right article#right-col-buttons p.blue a , aside#right article#right-col-buttons p#media-enquiries a , section#content article.blue-bg h1 a , .web-tiles.download h1 a
+{
+	background-repeat: no-repeat;
+	background-image: url('//www.acu.edu.au/__data/assets/image/0008/458252/Arrow_small-white.png');
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAOBAMAAAAPuiubAAAAA3NCSVQICAjb4U/gAAAAFVBMVEX///////////////////////////9nSIHRAAAAB3RSTlMAIjOIme7/zlGgdwAAAAlwSFlzAAALEgAACxIB0t1+/AAAABZ0RVh0Q3JlYXRpb24gVGltZQAwOC8xNy8xMnqQ6GMAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzQGstOgAAAAKklEQVQImWNggAABEMEUAiKZ0xxAlFsKiGSBcpLhJEQELAtRCdEFMQEMAAFJBhkX959WAAAAAElFTkSuQmCC');
+}
+
+
+/** ---------------------------------------
+ * Arrow_small-white_down.png 
+ */
+ .Arrow_small-white_down , .doc-library li h1 a , .web-tile p a.Arrow_small-white_down
+{
+	background-repeat: no-repeat;
+	background-image: url('//www.acu.edu.au/__data/assets/image/0004/468175/Arrow_small-white_down.png');
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAJAQMAAAA4g48qAAAAA3NCSVQICAjb4U/gAAAABlBMVEX///////9VfPVsAAAAAnRSTlP/AOW3MEoAAAAJcEhZcwAACusAAArrAYKLDVoAAAAedEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzUuMasfSOsAAAAWdEVYdENyZWF0aW9uIFRpbWUAMDgvMTcvMTJ6kOhjAAAAJElEQVQImWP4/4fh/BmG9haGwzwMD2QYPtgw/Khh+POH4f8fAKoXDQBaNwdWAAAAAElFTkSuQmCC');
+}
+
+
+/** ---------------------------------------
+ * Arrow_small-blue.png
+ * Original image URL: 
+ */
+ .Arrow_small-blue , .web-tile p a.Arrow_small-blue
+{
+	background-repeat: no-repeat;
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAKBAMAAACK4lk+AAAAA3NCSVQICAjb4U/gAAAAGFBMVEX///+hoaGhoaGhoaGhoaGhoaGhoaGhoaHU2AAhAAAACHRSTlMAETOImarM/yvcStwAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAWdEVYdENyZWF0aW9uIFRpbWUAMDgvMTYvMTLCLI8GAAAAHHRFWHRTb2Z0d2FyZQBBZG9iZSBGaXJld29ya3MgQ1M0BrLToAAAACJJREFUCJljYAABJgMgwVoCJBjTHYCkWDGUAHPBEmAlIAAAXbADueh9Ii4AAAAASUVORK5CYII=');
+}
+
+
+/** -----------------------------------------------------------------
+ * Arrow_large-blue 
+ */
+ .Arrow_large-blue , .blue-arrow , aside#right article#right-col-buttons li , aside#right article#right-col-buttons p , .web-tile p a.Arrow_large-blue
+{
+	background-repeat: no-repeat;
+	background-image: url('//www.acu.edu.au/__data/assets/image/0009/458253/Arrow_large-blue.png');
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAUBAMAAACkHKocAAAAA3NCSVQICAjb4U/gAAAAKlBMVEX///////8AU5////8AU5////9Rir0AU58AU59GgrmwyuGNstRRir0AU58vTLLLAAAADnRSTlMARERmZneIiJmqzN3u/3sPo8EAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAWdEVYdENyZWF0aW9uIFRpbWUAMDgvMTYvMTLCLI8GAAAAHHRFWHRTb2Z0d2FyZQBBZG9iZSBGaXJld29ya3MgQ1M0BrLToAAAAERJREFUCJljYIABJijt2wCmWO7eANNsd++CBRj3QgWk8QhcBwvk3r0JMeHuYbCBd+8EQLhHsXDZIFyg7qMQ+6UCGJAAAJ9WIx3MRn57AAAAAElFTkSuQmCC');
+}
+
+
+/** -----------------------------------------------------------------
+ * Arrow_small-blue 
+ */
+ .Arrow_small-blue
+{
+	background-repeat: no-repeat;
+	background-image: url('//www.acu.edu.au/__data/assets/image/0010/575407/arrow-blue-small.png');
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAMAAADXT/YiAAAASFBMVEX///8GV6EJWaI8e7b8/f7q8ff5+/1pmsfS4e5CgLjz9/p7ps1jlsTt8/gDVaDG2eoSX6alwt0haaufvtstcbDY5fDD1+gAU5/IB46eAAAAAXRSTlMAQObYZgAAADlJREFUCNdjYEAAMSYeXiiLUVxAGMIU5RQXZ2YFM9mYxcUFQQwOEXE+bhYgg59RXEgMqpediwEFAABXqAHn6LjEeAAAAABJRU5ErkJggg==');
+}
+
+
+
+
+
+
+
+/** -----------------------------------------------------------------
+ * line_grid_1x18.png
+ * Original image URL: 
+ */
+ .line_grid_1x18
+{
+	background-repeat: no-repeat;
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAASCAYAAACaV7S8AAAAGklEQVQI12NgmPA/hImBgYGBCILh/3/iFQMAOF0FVeU9NckAAAAASUVORK5CYII=');
+}
+
+
+/** -----------------------------------------------------------------
+ * rotation_position_hidden.png 
+ */
+ .rotation_position_hidden , .rotationRadio p.jshowoff-slidelinks a,.bx-controls a
+{
+	background-repeat: no-repeat;
+	background-image: url('//www.acu.edu.au/__data/assets/image/0004/458509/rotation_position-hidden_18x18.png');
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAMAAABhEH5lAAAAA3NCSVQICAjb4U/gAAAAjVBMVEX////39/fv7+/V1dXFxcVzc3P////39/fv7+/FxcWMjIx8fHxiYmL39/d8fHxaWlr39/e0tLSBgYH39/fv7+/V1dWZmZlzc3NaWlr39/fv7+/FxcVqamr39/empqaTk5Nzc3NiYmL////39/fv7+/o6Oje3t7V1dW0tLSwsLCmpqaZmZmTk5N8fHxqamqsiYvzAAAAL3RSTlMAERERERFEREREREREmZmZqqqqu7u7u7u7zMzMzO7u7u7u/////////////////ydWNy4AAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAWdEVYdENyZWF0aW9uIFRpbWUAMDgvMTcvMTJ6kOhjAAAAHHRFWHRTb2Z0d2FyZQBBZG9iZSBGaXJld29ya3MgQ1M0BrLToAAAAIVJREFUGJV10NcSgjAQQFGKFAtVUFER2IWoEfn/zzMJEJIZuY9nUtcwVjpEzTDU4U6Cc/m+CQI+6WkzyZ12IEJyswWdaQswW8Zl33cgQ3QZpS9UixlVRKOS0Qf1/tNDF74xadXE8VuikccflqtyFK+3rosU5vhJK5NrTDkLPyjZXYG3Nrwf3bIcBAzDyPcAAAAASUVORK5CYII=');
+}
+
+
+/** -----------------------------------------------------------------
+ * rotation_position_current.png 
+ */
+ .rotation_position_current , .rotationRadio p.jshowoff-slidelinks a.jshowoff-active,.bx-controls a.active
+{
+	background-repeat: no-repeat;
+	background-image: url('//www.acu.edu.au/__data/assets/image/0010/458506/rotation_position-current_18x18.png');
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAMAAABhEH5lAAAAA3NCSVQICAjb4U/gAAAAVFBMVEX///9AfbUQWJtAfbUUX6MATZRAfbUATZQwcq8AUpxAfbU8e7UATZQ8e7UATZRAfbUUX6MAT5cATZRAfbUwcq8YY6gQXaQMWqIAUqUAUpwAT5cATZQoBbxFAAAAHHRSTlMAERFERESZmaqqu7u7zMzu7u7u////////////TWHniAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABZ0RVh0Q3JlYXRpb24gVGltZQAwOC8xNy8xMnqQ6GMAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzQGstOgAAAAdklEQVQYlXXQ6xJAIBBA4YRIFyKxev/3tGRizXR+ftPsbMtYoVqMyzKKOkM1+HUH2Fc/VI+YAE/BJFMb5DZ1zwnwKVzzeiD1SBOlCQl+IR2/kBwVhyQpSaSGUnMtpuMnfW/P7SuWp0/y/E7zfIu2m2Ocu7Z0vBOophNZhDeJQQAAAABJRU5ErkJggg==');
+}
+
+
+/** -----------------------------------------------------------------
+ * rss_orange.png 
+ */
+ .rss_orange , aside#right article#right-col-buttons p#rss a
+{
+	background-repeat: no-repeat;
+	background-image: url('//www.acu.edu.au/__data/assets/image/0006/458511/rss_orange_18x18.png');
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAMAAABhEH5lAAAAA3NCSVQICAjb4U/gAAAAq1BMVEX////lhgDHUgD4iQD3hADuUADuTgD/////9/D/7uD57OD/6dD25ND/38Dy3MDx1r//06D/0KD8w5D/voD/uID/tVXmtIDir3DqqnD/nCr/lCD/kjD/lADelVD/jCD/iwD/hyD/hQDlhgD/fADlfwDqehDvegD/cwDvdwDndhDZewD/bQDldQDYeBDScxDVdAD/ZgDlbQDMcwDWawDMagD/WQDSZAD/UgD/TAD92b8/AAAAOXRSTlMAERHMzMzM//////////////////////////////////////////////////////////////////9SptMcAAAACXBIWXMAAAsSAAALEgHS3X78AAAAHHRFWHRTb2Z0d2FyZQBBZG9iZSBGaXJld29ya3MgQ1M0BrLToAAAABZ0RVh0Q3JlYXRpb24gVGltZQAwOC8xNy8xMnqQ6GMAAAC+SURBVBiVbdBbD8FAEIZh2vJtS50tdao1GNRh1aH+/y+zq0Iv+iaTSZ5kbqZSKanqxoXcqiEvGhaKPEMUpelhFc/yIrIUA63Raf29zCn0ASEvf2KzJx2geVaW2FCi7rejmjQgTsqUGNIKgTxvVRfNoyFtiUIBMd9RCElEORH1gTkthNjk9KDr8zqF2FMPY6KHJZaB5D4kL9FmtpSxD59ZBMwBmDNLeuAPmEN8RluqZTr5pbOaIaf+KlR3yh74Bo7JHcUpvZHmAAAAAElFTkSuQmCC');
+}
+
+
+
+
+
+/** -----------------------------------------------------------------
+ * search_magnifying-glass_dark.png 
+ */
+ .search_magnifying-glass_dark
+{
+	background-repeat: no-repeat;
+	background-image: url('//www.acu.edu.au/__data/assets/image/0004/458590/search_magnifying-glass_dark_17x17.png');
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARBAMAAADJQ1rJAAAAA3NCSVQICAjb4U/gAAAAKlBMVEX///8kJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQtf+7XAAAADnRSTlMAESJEZneImaq7zN3u/2jyhBYAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzQGstOgAAAAFnRFWHRDcmVhdGlvbiBUaW1lADA4LzE3LzEyepDoYwAAAGlJREFUCJljYEACHnuXKYAZknfv3r0CZq296Rx91wHIYAGSjGsPAllc14GEzFUgwXsZSLDfALEuAAm2myhiXDdg6iB6L4HMm3vTOefuLQEgS+IuCCwECZqvnaZ+9xbMFbV3YSy2a0iOAwBiqiUl32vyugAAAABJRU5ErkJggg==');
+}
+
+
+/** -----------------------------------------------------------------
+ * speech-bubbles_grey.png 
+ */
+ .speech-bubbles_grey , aside#right article#in-the-media.web-tile li
+{
+	background-repeat: no-repeat;
+	background-image: url('//www.acu.edu.au/__data/assets/image/0012/458589/speech-bubbles_grey_18x18.png');
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASBAMAAACk4JNkAAAAA3NCSVQICAjb4U/gAAAAIVBMVEX////W1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tZaL3T5AAAAC3RSTlMAEURVZneZqrvM/0QLfRgAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzQGstOgAAAAFnRFWHRDcmVhdGlvbiBUaW1lADA4LzE3LzEyepDoYwAAAElJREFUCJljYIADllUg4ABkcYFZC4hlAfVAWIuAohBT3EHyUiuVlJS7QCyuqTA9nFIwFiPCHITNDEJKSlmLYC5ig7MYkuAsRgYAQxk4QK/sbQMAAAAASUVORK5CYII=');
+}
+
+
+
+
+
+/** -----------------------------------------------------------------
+ * calendar-top 
+ */
+ ul.events-list article hgroup h1
+{
+	background-repeat: no-repeat;
+	background-image: url('//www.acu.edu.au/__data/assets/image/0008/458504/calendar-top_79x28.png');
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAE8AAAAcCAMAAAAX8BLtAAABIFBMVEXt7e3dCTrhDD7ZBDbYBDXaBTbaBjfcBznbBzj9/f3+/v7wiaG+vr7tco7a2trHx8fOzs7U1NTW1tbDw8PAwMDMzMzCwsLX19fS0tLZ2dnQ0NDJycm/v7/FxcXKysrfNl29vb3GxsbsZYTbDz7p6enPz8/dAzbdJlDfAzbgDD7mM1zfBDbhKFPbBDbdBjj4zdfbHEnmMFrdBDbfDj/9+vv++/zhG0n8/PziE0PhQWfgDT7oQmjmM13b29vgGEb5+fngAzb7+/viEkLeQmbjH03mMVrao6/jHEvmfJXZcIjutsPgNV36+vrYpLDqsr/jHUvpSm74+PjdCDnYAzTgDD3XAjTeCTvfCzzgCz3fCju3t7fVATLWATPWAjPgADT///+4gBOOAAAAAXRSTlMAQObYZgAAASJJREFUSMet1UdSw0AQheEmYwUnWXJCNs45hyoW3IESBpsH+P7HANdY2jBTmqb09e5fvG0TKTXQYPUYVue5YzF6HKTTaTB67F65XAajx+4Vi0UweuxePp8Ho58dVZDL5cDoAr2ooFQqgdEFulRBpVIBowu0U0E2mwWjC3Q42R3+guu6YHSB9iqo1WpgdIE+VFCtVsHoAr2rIJPJgNEFupALRvB9H6NAs4cokOubcBwHZl+zh+hOarrYwPM8bBZTrR6he6mlbaBQKMCwl1o9QrdSXdt4ePw9w+5q9QjdSE2G67YFq70eTrR6hK7kVmbqxFxp9hBdy7W2zVlq1ty2NHuIXhV648FxMO5p9zN6U5nXn+pzRhfoO1n0lSz6TJb6H/3PDwj/k0TJTtB6AAAAAElFTkSuQmCC');
+}
+
+
+/** -----------------------------------------------------------------
+ * faculty_landing_feature-background-gradient_700x1.png 
+ */
+ .landing ul.faculty_main li article div
+{
+	background-repeat: repeat-y;
+	background-image: url('//www.acu.edu.au/__data/assets/image/0005/458537/faculty_landing_feature-background-gradient_700x1.png');
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAABBAMAAADOX2DyAAAAA3NCSVQICAjb4U/gAAAAJ1BMVEX///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAilU6eAAAADXRSTlMAESIzRFVmd4iZqrvMR+pJ2gAAAAlwSFlzAAALEgAACxIB0t1+/AAAABZ0RVh0Q3JlYXRpb24gVGltZQAwOS8wMy8xMm7lXTAAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzQGstOgAAAAM0lEQVQYlWM4Q3+wZzc+sHoVDrBy5UwM0IECyhEgDQ5SQ2HABQGcjRFACQUIYgIBBrIBAHNBqrnVZM9HAAAAAElFTkSuQmCC');
+}
+
+
+/** -----------------------------------------------------------------
+ * promo_lower_background_260x1.png 
+ */
+ section#promo li.promo-bottom article div ,  .web-tile.extended.mini div
+{
+	background-repeat: repeat-y;
+	background-image: url('//www.acu.edu.au/__data/assets/image/0011/451757/promo-bottom_background_261x1.png');
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQUAAAABCAYAAADXcLszAAAATklEQVQ4y+2NQQrAIAwEx4/2T/2q1tqKGi9bEOm1pzowbCAh69h2Y7H4FptmA5qyyiKzvIAEnEAEDhkAP+Wzi7pPwC3z8Luqtw39vOSv6RkfJ/HsIQg+AAAAAElFTkSuQmCC');
+}
+
+
+/** -----------------------------------------------------------------
+ * grey-background_30_1x1.png 
+ */
+ .grey-background_30
+{
+	background-image: url('//www.acu.edu.au/__data/assets/image/0005/459779/grey-background_30_1x1.png');
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQI12NgYGDwAQAAUQBNbrgEdAAAAABJRU5ErkJggg==');
+}
+
+
+/** -----------------------------------------------------------------
+ * grey-background_40_1x1.png 
+ */
+ .grey-background_40
+{
+	background-image: url('//www.acu.edu.au/__data/assets/image/0006/459780/grey-background_40_1x1.png');
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQI12NgYGBIAwAAawBnwq0NKAAAAABJRU5ErkJggg==');
+}
+
+
+/** -----------------------------------------------------------------
+ * grey-background_50_1x1.png 
+ */
+ .grey-background_50
+{
+	background-image: url('//www.acu.edu.au/__data/assets/image/0011/459776/grey-background_50_1x1.png');
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQI12NgYGCoBwAAhACAxkwJbwAAAABJRU5ErkJggg==');
+}
+
+
+/** -----------------------------------------------------------------
+ * grey-background_60_1x1.png 
+ */
+ .grey-background_60
+{
+	background-image: url('//www.acu.edu.au/__data/assets/image/0012/459777/grey-background_60_1x1.png');
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQI12NgYGCYCQAAngCauPYSkQAAAABJRU5ErkJggg==');
+}
+
+
+/** -----------------------------------------------------------------
+ * grey-background_70_1x1.png 
+ */
+ .grey-background_70
+{
+	background-image: url('//www.acu.edu.au/__data/assets/image/0004/459778/grey-background_70_1x1.png');
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQI12NgYGDYDAAAuAC0TCbBxgAAAABJRU5ErkJggg==');
+}
+
+
+/** -----------------------------------------------------------------
+ * grey-background_80_1x1.png 
+ */
+ .grey-background_80
+{
+	background-image: url('//www.acu.edu.au/__data/assets/image/0007/459781/grey-background_80_1x1.png');
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQI12NgYGA4AwAA0QDN0A/sMwAAAABJRU5ErkJggg==');
+}
+
+.rotationRadio .jshowoff-slidelinks,.bx-controls
+{
+	background-image: url('//www.acu.edu.au/__data/assets/image/0004/558643/bx-controls_1x1.png');
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA9JREFUeNpiYGBgcAAIMAAARQBB9gb4AAAAAABJRU5ErkJggg==');
+}
+
+.circle_bg
+{
+	background-image: url('//www.acu.edu.au/__data/assets/image/0004/492952/bluecircle-web_25x25.png');
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZBAMAAAA2x5hQAAAAA3NCSVQICAjb4U/gAAAAKlBMVEX///8Ao+sAo+sAo+sAo+sAo+sAo+sAo+sAo+sAo+sAo+sAo+sAo+sAo+umZJT1AAAADnRSTlMAESIzRFVmiJm7zN3u/41Zb4QAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAedEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzUuMasfSOsAAACESURBVBiVY2BgYGCKWHNnRRADBDBm3wWC24kQnuVdMLhpAOKw7IXw7m4B8byhnLu3HYC65sJ4dycyMLDBOXevMTBII3i3BRhiEby7AQy9SLwGhrVIvAUMZ5F4BxiQOHcvoMmh6kM1E9U+VLeguhPVD6j+Q/M7arighRkDo/vs29MdQSwAm3LUp5VsRDQAAAAASUVORK5CYII=');
+	background-repeat: no-repeat;
+}
+
+.calendar-icon_87x75
+{
+	background-image: url('//www.acu.edu.au/__data/assets/image/0007/567394/calendar-icon_71x75.png');
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFcAAABLCAYAAAAF3BuMAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAB50RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNS4xqx9I6wAADxNJREFUeJztnH+IHdd1xz/nzrz3Vr+l3ZVXlqpfrIVLJNlUfxjvpiHUtmRDVSdVAzX9o1JLWgyBQvNfcCHQFkpLITR/lJC/YhfbTWgdx7JMUrdIFGFCiGQZQhsLqW4rKhtcrdJKsvTem3tO/7gzs/Pmzds3++O5sbQHlp0f9917zplzz/meO+eOmBmrNBqKhzUQkSV3/vrrb9j3/+EUrbjBbz7zDI888ujSO1sh+tGPfmh/+51v0+kkPHXkMEePPr1knoYZ5lDlLoe+991XMIE7dPnW8y+Ocqja9K0X/obu7TYmju9+77WRjjVS5SZqmHnE4KPkziiHqk23b9zCJMxIMz/SsUaqXO89oMQI7Z8T3+5NEQXvwDFaLzVa5SYfYS7CqxHJSIeqTdkDNwM1N9KxRuwWYpwmeGIEHeVQtcl3FZwgpqiMdjYNVW77O3+/IAeGx4ujoRGKRyNP5CN+ev0Gf/KPJ/E4jASRDtde/LatawgmEaKCRV2cjtqiHR5PJMZHbeX3X30J1RbOFBPlJ9/4hu2ZnKKZeMwJHiNCMDNUwGXSS4LQAMBLG2ENsLBfkWFw4r93Ti+sXAExcOZQARPFqXJpapK/2LUbcx3MmjgSvn7hIq1uGwcoDod+TPYcRuzELb506BcRC+fg+Mql/2B67meo6yLEiAZ9qSgmLsiW85nxHP6PX7m8oHKXbzYqOAQvCZHFIXxJgkuUhA7SjVASvDOEBLUIJx6H4iNB/KgDnQvWJ2CugyZdIDMKh0WKiqIWE4kDgsWKBN7MLT3oLdujR2J4hAhJE44EgMavf5520iXRLmYe31Xcp2dpOMVbYDhORm+3zkAFvAnxp38F74WuV8yD913Gjn6OiIjYJLg10fAwVCFa5tjLZd7MkChEX8MTieBNWPO5XyXuOBLtkiSKmbHm2S+GrCZ1ZF6WyX0N8higECmt3/sd1LfBd+gkXRIvjP3Gr2HaBVFMI4LtenAOlgmDl69cEVDDOYcS482Imi1am7bSsXZqIW283qY1sRUxiAyw4LdGTZEY4IgUmlvHUQ+JOcyDaUJjwxb8WAhUTgQvYJFDWZ5LgBVQriMEMzMLWQ+K67aZuvxTtu/ajU86eC88OvMZ9M3TeNfIf5kw+sTCo4gaog3cP53hkdlHoZOg2mHnjl9g279fQjpGpIB0iRVQoekpQIWl0bLRgjMHooiBd4bTCO+gOb6Z1l99jX+bmKDRitl1/h1uPPcc7nY3t4wYwY86cxMDizBRItdi7Z//KVcOHaTdbjN9/X9of+nL+J9dwyyNGZrgJMbwaGp7S0ULy1auYsQWhQhrHhNBNMKcBxyyZTOStOHGTZQGzhQfeZw1EeuO3DE4i/HSwTmHKGAO3bCWuNFCr19LAVm4jijmQuYWIJhHif7/oJhDUAlDW7o8GRQLoNj1uXTyByShQkgg6H4MTgFUEgSHKWE8Ubh5k4Sb822y6+lJlk0qEi6kigdFI3BJwPTDaHiG1mgMa3JXk5nH0UREsRRCWjPB1bDLoS3++PBnl8/hJ5qC48gyURNFLMasyzeH/HK0y0J3AVlqf8EHR4g5NPI4hs/oVeUOIWdZPFGULmaC8wKSDP/tqJn75JPDREEtLPhkwdpWwOfe66ROcRoHBeeL66nCh9Cq5Q6hsKiewbNMXcNdAtRUbpbalq/dG+TAPIbDJCG8vHC15K+lXOccqvPT4N5RbCAR6TGuKmOroiVZbnmwe4GKxuXcClruKgWFZqSqPecDf7OYATJrDQUV95ZrKMpbV/5FuYWsw7pP7m6kxRhVLQ2Vn1Q5wN3NVI4ti4k1tZMIM+PEiRPMzs7W5+wuoMyoRIS33nqL559/fuXQQp2O6k6VYe3q3i+2W8w0XUqcyJBRcey61jvUcjMXUIRfV69e5dSpU/n1bMC9e/dy+PBhzIxLly5x+vTpHsFEhIMHDzIzMwPAuXPnOH/+fJ/QMzMzHDx4EIAzZ85w8eLFXNCs7eHDh9m7dy8iwptvvsl7773XM5ZzjmPHjjExMYGZ8corr3Dt2rU+fk6cOEGz2cTMeOGFF7hz506PTM1mkxMnTvQEcxGp5RZrW25RsKzzLKhlA2cDVg2etR3GVFnRZfBe7i/rs9iuGBMGWVpVUlAlUxWtOBQrCpZ1XlZEccByEMyOh7UpM21mfTAo4yG7n10rT91ysjNIYYuFmCtmucVBs/9FxQ5ac6ijqHIfRaYHWWn5IRWVXW63FGxaJVfVbFqx9LfsW4uMly06ux9FUd/THcRw0Z0UFV2+X6Sy4srWVPXQyzJUKbw8C4rXyrIPo1pQrGipZsb4+DhPPfVUn69bu3ZtzsTU1BRPPvlkLnTWbuPGjXmb6elpJiYmepgWEcbHx/M+Dxw4wJ49e3oUBLB169a8zUMPPcS+ffvy86zdhg0b8mszMzN0Op0eJQHE8bwKHnvsMbz3PTEmk73ok1dUuUWhRISxsTF27dpVOTWKghWFq6LNmzezefPmBdtMTk4yOTm5YJupqakFeQbYvn17373y/127di04zkLusIoWlURkpKp0u92+AZxzuSWoKkmS9FiumRHHMVEUCvC892kZfb8QWT9JkvRN96yfzMfarZuohn6isLKNYLB2PcRhrG63W2lxzWYzl6PdbvdAz2KbQfFiIVq05QJ88MEHnDp1qm+AvXv38sQTTyAiXLp0iTNnzvT04Zxj//79zM7OYmZcuHCBc+fO9UX82dnZHOeePXuWixcv9gXSDOdicOsPvkzyg3/GW4I5IRKjY46J779KvP9TmBmvvfYac3NzfTwfP36cVqsFwMsvv0y73e5T7PHjx5e0xLrkDK3KmhbKXsrBoIybi/8X+n12nFstoYpR8ZgL5anejNiSvKa+DN8G9VvmocoFLEbJQ5VbFT2LMKvs6IdNlzLOLR4vBM7LEXseYaQrdc6HaksfSlQtirFUvGF+chBMG2RUdRW8qAyteF7Gs+V2gxgtW08Z+A+yrjL+nefBgVoolxPCZhEBLMlrDorRf1DCsBjrrLu+UMtyq/Bj2ZKHgfTy+kTOQCkCL4RAqngzA204ElUiS/c3AFiESv/bg3JmV5UGF+Ur/1/IxZSp9sbqouIynFtW8Pr16/Pz+++/nyNHjpQUYTnOBZienmZ8fLxvVlTh3PLDu++++9Ijz5pnn6X5hWPBHaTFcogQ7Z6HX7Ozs5U4N0MuAI8//nhPQlOelYOyxkE0VLlVVjU2Nsbu3bt72pQtqwrnltutBM4ViWj80sPEaZGGpIUbltcaBCri3EG0c+fOoUE1oxWx3PJUyf6SpL8wogrn5owZmDicgyhtI3fa0GmjgJiFghYTpNWCVgsxSHxSKUgR52Ztyg+v0WiQn966AT7b6EIoTxLBrV8HOBChk3Rx6QY/E/LjZrPZp48VSSLKoFpEuHr1Km+88UafW8jWc0WEy5cvc/r06ULpZfh/4MCnmJn5ZUSU23/9TW597euAppsEQ1XL+q/+EWO/exxzytmzZ3n33Xf7AtKRI0fytPj06dP5em4xaTl27BgTk5OIwfUv/Bb2k38JNV7SBQQx2PCv7xBvWI+Z8fKLL+WuI6Myzq1ykwN1N6xB1erWQgseGfVZW14KHwVrMoeZ4vAgFnYsmqU7fDQUutAr0CBrKWePRZgoRsjY1GOmaFqdqAQLLiIKCEZQFazLtCJoocx8+XwQpMkCgUt1LOmOyflSeFDXDHsONMJMiIjwkqGHBLHBAgx6uNlMy6N89tBsDHOtsM9M4oCJJd1diaL0Bqvs92X8XheGwRLqFspp6KDpkScWomHfGSA+bI4K5VaK2B2iguWoQMMyFxSDDK5TK0O47DgbN7f20ACjQ5QW0Il5ECXGwGXtJLf0KssdhI8Xolo4t/zUygJXCT+Pjx1eNAB7F4UIHk6ILCZxkIgPG7LRwtapYOPl1/hl2FbFb69LmhcxwVAnmAimgvpsh2X4rMWgpALq+dgyDQ1oVWuYk5OTHD16tK/t2NhYztiOHTt4+umnQQV1SYBIGrFhw5rAuEHjmc8zPvMI3jlQjzOwOCbeuTMoD3j44Yd54IEHegQWEbZs2ZKPe+jQIfbv39/Hz8aNG8HAxNjwl3+G3fwo3eaf7rB3QrR2bf6gMuxeDODlNx5VxrVk5VZNg2azWbk+WqR169axbt26cD+1QitYiCBEO3ZiO3biIA08is/apF6wDhYuJiJlCv5WsIMHcCJEhL1zjYKPlTRwTm3bFo4MVDJue6m4fDqMFoVzs/PF4tzMR6p2e9Zzy1g4pygiiqIwjvdDca5P21Tj3NTibt3Mca4J+B6caynO7QzFuYuhkePc4v3iei7A22+/zblz5/L72RgzMzMcOHAAEVnFucVBM6p6OTmIofKqW7m/VZxbGrQOXCv/vupB1uXpnsS5RcGLx4NWmqoe5CrOrVBIlWtYqOSpat/FKs5NqRLnlhgrrvk++OCDbN++vc/fbtq0Kb+2inOH4NxB7VaqtuETi3OhX8HlmoRIHB7BidGIG2FNoNtBbt8GJHx5zgSHQasJzTUgoL5L4vt9b5TiXOivW8gZL+Dchaxo3vfOtwlKq3AphYNB33msG8xgiZb7/vvvz9ctOMnXa6f37OaJw08CkLz6Ojf+8Cv5p6SytdrmF3+bjV99DsNx/p0LnP/x28DCODerzy1SEed+3FTX/9byueWnVfQ/2RZYMYep4Amf4zLzqCTBWiUs1DjSb3al6wbZpxTLGWD52s8brRgUGwTgM4tOnMMiAxdWELIO1UVE5lCiVIlKghHTBIkwDJFGT3SvgmeDeFpK9F4KLWecJRU/Z+fOufABK7P8s4PhEQTgrs4wkjQTCm8iunQwUgX5pMcdVPnQKuEWW224HBo0a+tQbeVWWYtq2C7vNCyKZ9vkw2ekDDEDcTgNr3FiJF04V9RAov7i6D4GByhxMZnSSlLVAtEgWlQhXtZhhnNFBDQCEkxgbO0aIETm1mc+i/zdS/lrHpUIZ0a8bQrBIaLs2zfNtm3b+sbZtGlTfl4H536ctJg9eLWhmKoyNzfHlStXerM2SRALSODWjZvcuvG/GRvI/dvDS4fCR3gA3H/+F/O1G9YXNOfm5vKKxEGW++GHH9YScCVpGE9lql2fKyKcPHmSkydPLovBu4FWbG1hlZZOq8odIf0f4Zd0Ja917NsAAAAASUVORK5CYII=');
+	background-repeat: no-repeat;
+}
+
+section#content blockquote
+{
+	background-image: url('//www.acu.edu.au/__data/assets/image/0007/480634/bg_quote.png');
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAbCAMAAADBLsarAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkZBMkQ2NDRBMjQ5RTExRTJBNjQ1RTg5QTUwNUJBQTBBIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkZBMkQ2NDRCMjQ5RTExRTJBNjQ1RTg5QTUwNUJBQTBBIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RkEyRDY0NDgyNDlFMTFFMkE2NDVFODlBNTA1QkFBMEEiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RkEyRDY0NDkyNDlFMTFFMkE2NDVFODlBNTA1QkFBMEEiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6FH/ErAAAAMFBMVEURs/Du+v6Z3/lmzvUzvvLd9P276fuq5PpExPPM7/wiufF31PZVyfSI2fgAru////+9BLY8AAAAEHRSTlP///////////////////8A4CNdGQAAAPZJREFUeNqEk9u2hiAIhNE8ZYHv/7a/2MHB1l6bu6aPcTCi9n8RPsRjees4WsZtImwQJimGySQi5Caxhy5IAmZTocSJeBVqmj6uqImHcw5FDsjs1DbsgKgtZZxLlQBRxkG04+ysCkRpSQ/KeD9DwSxOR9zMHY4wbc3rkPGrTRRjo0ywXbdNRmZ0VTyqqhKRyYNhZn/P6lSQLnB6GJa3an4Hv4r4w1zREwrbl9EYhtEuukZ/i+/R3yrK7KvUyCjjfmhlzi9zrBkzCnUwDo3GlRQbkJ6tnDZ9k2eXbtXYH08G6VAF5NlVVvsTvqM/e1/g7z/4R/0EGAC/oTEz417ZoAAAAABJRU5ErkJggg==');
+}
+
+
+body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6  { font-family: "proxima-nova", Verdana, Geneva, Arial, sans-serif !important; }
+
+
+div#wrap-inner
+{
+	width: 74.468%;
+}
+
+section#content
+{
+
+	width: 65.714%;
+
+}
+
+
+
+aside#right
+{
+	width: 31.4285714%;
+	margin-top: 3.5em;
+}
+
+
+
+
+body.hide-content-menu_ #content
+{
+	width: 74.468%;
+}
+
+body.hide-content-menu_ aside#right
+{
+	width: 23.404%;
+}
+
+
+
+p#tiny-url
+{
+
+	margin: 0% 25.532%;
+}
+
+.landing.feature p#tiny-url , body.hide-right-col_ p#tiny-url
+{
+	margin: 0% 0% 0% 25.532%;
+}
+
+.newsroom_ .landing.standard_page p#tiny-url , body.hide-content-menu_ p#tiny-url
+{
+	margin: 0% 25.532% 0% 0%;
+}
+
+
+
+/**
+ * END: interface_general (#450811)
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+ */
+ 
+
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: interface_header (#459508)
+ * Last updated by: Evan Wills
+ * Last updated: 01 Nov 2012 9:30am 
+ */
+
+header #h_wrap
+{
+/**
+ * Setting max width for various blocks:
+ *
+ * font-size: 16px = 100% = 58.75em
+ * 14px = 87.5% = 67.143em
+ * 12px = 75% = 78.333em 
+ */
+	height: 13.15em;
+}
+
+header nav#global-primary
+{
+	padding: 0.3em 1.2em 0 1.2em;
+	position: absolute;
+	top: 0%;
+	right: 0%;
+	-webkit-border-bottom-left-radius: 0.7em;
+	-khtml-border-bottom-left-radius: 0.7em;
+	-moz-border-bottom-left-radius: 0.7em;
+	-ms-border-bottom-left-radius: 0.7em;
+	-o-border-bottom-left-radius: 0.7em;
+	border-bottom-left-radius: 0.7em;
+	-webkit-border-bottom-right-radius: 0.7em;
+	-khtml-border-bottom-right-radius: 0.7em;
+	-moz-border-bottom-right-radius: 0.7em;
+	-ms-border-bottom-right-radius: 0.7em;
+	-o-border-bottom-right-radius: 0.7em;
+	border-bottom-right-radius: 0.7em;
+}
+
+header nav#global-primary li:before
+{
+	content: "|";
+	padding-left: 0.25em;
+	padding-right: 0.5em;
+	font-weight: normal;
+	color: #fff;
+}
+
+header nav#global-primary ul li a
+{
+	font-size: 85%;
+}
+
+header form#site-search-form
+{
+	position: absolute;
+	top: 29%;
+	right: 0%;
+	width: 23.404%;
+	font-size: 75%;
+}
+
+header form#site-search-form .search-and-submit
+{
+	position: absolute;
+	right: 0%;
+}
+
+header nav#global-portals ul
+{
+	position: absolute;
+	right: 0em;
+	top: 7.5em;
+	font-size: 86.667%;
+	width: 25em;
+	text-align: right;
+}
+
+header nav#global-primary ul li , header nav#global-portals ul li
+{
+	font-size: 91%;
+	margin-left: 0%;
+	padding-left: 0%;
+}
+
+header nav li
+{
+	display: inline;
+	font-weight: bold;
+	font-size: 85%;
+}
+
+header nav#global-portals li:before
+{
+	content: "|";
+	padding-left: 0.4em;
+	padding-right: 0.8em;
+	font-weight: normal;
+}
+
+header nav#global-portals li.first:before, header nav#global-primary li.first:before
+{
+	 content: '';
+	/* padding: 0%; */
+}
+
+
+/**
+ * END: interface_header (#459508)
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+ */
+ 
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: interface_left-menu (#452989)
+ * Last updated by: Evan Wills
+ * Last updated: 29 Oct 2012 4:33pm 
+ */
+ ul#menu_dynamic , .gt_four_level ul#menu_static, .carousel-control
+{
+	display: none;
+}
+.carousel-indicators .active, .carousel-indicators li { width:16px; height:16px; margin-right:0.4em; }
+.carousel-indicators li { background-color:#fff; }
+.carousel-indicators .active { width:17px; height:17px; margin-bottom:1px; }
+
+.gt_four_level ul#menu_dynamic
+{
+	display: block;
+}
+
+nav#content-menu
+{
+	border-width: 0.1em;
+	border-style: solid;
+	float: left;
+	margin-top: 1.5%;
+	-webkit-border-radius: 0.5em;
+	-khtml-border-radius: 0.5em;
+	-moz-border-radius: 0.5em;
+	-ms-border-radius: 0.5em;
+	-o-border-radius: 0.5em;
+	border-radius: 0.5em;
+	width: 23.4042553%; /* font-size: 80%; */
+
+}
+
+nav#content-menu ul#menu_dynamic , nav#content-menu ul#menu_static
+{
+	margin: 0.8em 1em;
+}
+
+nav#content-menu li
+{
+	list-style-type: none;
+	font-size: 85.714%;
+}
+
+nav#content-menu li li
+{
+	font-size: 100%;
+}
+
+nav#content-menu ul.level1
+{
+	font-weight: 600;
+}
+
+nav#content-menu ul.level2
+{
+	margin-top: 0.4em;
+	font-weight: normal;
+	margin-left: 0%;
+}
+
+nav#content-menu ul li
+{
+	margin: 0.2em 0% 0.4em;
+}
+
+nav#content-menu ul.level2 li
+{
+	padding-left: 1em;
+	text-indent: -1em;
+}
+
+nav#content-menu .level2 li:before
+{
+	font-weight: bold;
+	padding-right: 0.2em;
+}
+
+nav#content-menu li.Nav_Selected a
+{
+	font-weight: 600;
+}
+
+nav#content-menu li.Nav_Selected ul li a
+{
+	font-weight: 400;
+}
+
+nav#content-menu ul.level2 li a
+{
+	background-position: center left;
+	background-repeat: no-repeat;
+	padding-left: 1em;
+	font-weight: 400;
+}
+
+li.Nav_Selected ul
+{
+	margin-left: 0.5em;
+}
+
+li.Nav_Selected li
+{
+	font-weight: normal;
+}
+
+
+/**
+ * END: interface_left-menu (#452989)
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+ */
+ 
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: interface_mega-menu (#479580)
+ * Last updated by: Robin Shi
+ * Last updated: 06 Feb 2013 12:21pm 
+ */
+ nav#global-main
+{
+	position: absolute;
+	top: 9.95em /* 139px */;
+	left: 0%;
+	right: 0%;
+	width: 100%;
+	z-index: 100;
+}
+
+nav#global-main div
+{
+	width: 100% !important;
+	max-width: 67.143em;
+	margin: 0% auto;
+}
+
+nav#global-main ul
+{
+	width: 100%;
+	display: table;
+	position: relative;
+}
+
+nav#global-main ul:hover
+{
+	z-index: 1;
+}
+
+nav#global-main ul li
+{
+	display: table-cell;
+	list-style-type: none;
+	padding: 0%;
+	text-align: center;
+	font-weight: normal;
+	margin-left: 0%;
+	padding-left: 0%;
+}
+
+nav#global-main ul li h2 a {
+        font-weight:600;
+}
+
+nav#global-main ul li#about_acu
+{
+	width: 13%;
+}
+
+nav#global-main ul li#study_at_acu
+{
+	width: 15.5%;
+}
+
+nav#global-main ul li#international
+{
+	width: 17%;
+}
+
+nav#global-main ul li#research
+{
+	width: 12.6%;
+}
+
+nav#global-main ul li#alumni_and_community
+{
+	width: 21.8%;
+}
+
+nav#global-main ul li#connect_with_acu
+{
+	width: 20.1%;
+}
+
+nav#global-main ul li:hover h2 a
+{
+	border-top-width: 0.1em;
+	border-top-style: solid;
+	border-left-width: 0.1em;
+	border-left-style: solid;
+	border-right-width: 0.1em;
+	border-right-style: solid;
+}
+
+nav#global-main a
+{
+	font-weight: 400;
+}
+
+nav#global-main h2
+{
+	font-weight: 600;
+	text-transform: uppercase;
+	line-height: 100%;
+	margin-top:0;
+	margin-bottom:0;
+	font-size:100%
+}
+
+nav#global-main h2 a
+{
+	padding: 1.25em 0em 1.3em;
+	display: block;
+	font-weight: 600;
+	font-size: 86.7%;
+	border-top-width: 0.1em;
+	border-top-style: solid;
+	border-left-width: 0.1em;
+	border-left-style: solid;
+	border-right-width: 0.1em;
+	border-right-style: solid;
+}
+
+nav#global-main ul li ul.l2
+{
+	display: none;
+	position: absolute;
+	top: 3.25em;
+	left: 0%;
+	right: 0%;
+	text-align: left;
+	height: 24em;
+	/*max-width: 81%;*/
+	padding-right: 19%;
+}
+
+nav#global-main ul li:hover ul.l2
+{
+	display: block;
+}
+
+nav#global-main ul li ul.l2 li , nav#global-main ul li ul.l2 li ul , nav#global-main ul li ul.l2 li ul li
+{
+	float: none;
+	position: static;
+	display: block;
+	width: auto;
+	height: auto;
+	font-size: 100%;
+	margin-left: 0%;
+	padding-left: 0%;
+}
+
+nav#global-main ul li ul.l2 li
+{
+	width: 30%;
+	padding: 0.5em 1.3% 0.5em 4%;
+	text-align: left;
+	float: left;
+	border: none;
+        line-height:1.6em;
+}
+
+nav#global-main ul li ul.l2 li.first
+{
+	padding-left: 0%;
+}
+
+nav#global-main ul li ul.l2 li h3
+{
+	margin: 1.5em 0% 0.2em;
+	font-size: 96%;
+}
+
+nav#global-main ul li ul.l2 li h3 a
+{
+	font-weight: bold !important;
+        font-size:110%;
+}
+nav#global-main ul#mega-menu li ul li a { font-weight:500; }
+
+nav#global-main ul li ul.l2 li ul
+{
+	max-height: 15em;
+}
+
+nav#global-main ul li ul.l2 li ul + h3
+{
+	margin-top: 1.8em;
+}
+
+nav#global-main ul li ul.l2 li ul li
+{
+	float: none;
+	padding: 0% 0% 0% 1em;
+	margin-bottom: 0em;
+	text-indent: 0%;
+	width: 100%;
+	font-size: 90%;
+	background-position: 0 0.45em !important;
+	background-size: 0.5em !important;
+}
+
+nav#global-main ul li ul.l2 li ul.headings-only li
+{
+	padding-left: 0%;
+	background-image: none;
+}
+
+nav#global-main ul li ul.l2 li ul.headings-only li h3
+{
+	font-size: 118.7%;
+}
+
+nav#global-main ul li ul.l2 li.menu-promo
+{
+	position: absolute;
+	padding: 3% 3.2% 3.2%;
+	right: 0%;
+	top: 0%;
+	bottom: -0.5em;
+	vertical-align: bottom;
+	width: 24.5%;
+	overflow: hidden;
+	font-size: 86.67%;
+}
+
+nav#global-main ul li ul.l2 li.menu-promo article
+{
+	overflow: hidden;
+}
+
+nav#global-main ul li ul.l2 li.menu-promo img
+{
+	width: 100%;
+	height: auto;
+        margin-bottom:0.8em;
+}
+
+nav#global-main ul li ul.l2 li.menu-promo header
+
+{
+	background-color: transparent;
+}
+
+nav#global-main ul li ul.l2 li.menu-promo h1
+{
+	font-size: 140%;
+	font-weight: 600;
+	margin: 0% 0% 0.4em 0% !important;
+}
+
+nav#global-main ul li ul.l2 li.menu-promo h1 a
+{
+	font-weight: 600;
+	color: #fff;
+}
+
+nav#global-main ul li ul.l2 li.menu-promo p
+{
+	font-size: 110%;
+	font-weight: 600;
+        line-height: 1.3em;
+}
+
+nav#global-main ul li ul.l2 li.menu-promo p.read
+{
+	margin-top: 0.5em;
+	font-weight: bold;
+	color: #C1ECFC;
+}
+
+nav#global-main ul li:hover ul.l2.with-js , nav#global-main ul li.li-js ul.l2.with-js
+{
+	display: none;
+}
+
+nav#global-main ul li.js-hover ul.l2.with-js
+{
+	display: block;
+}
+
+
+/**
+ * END: interface_mega-menu (#479580)
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+ */
+ 
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: interface_footer (#459512)
+ * Last updated by: Evan Wills
+ * Last updated: 13 Feb 2013 10:43am 
+ */
+ footer
+{
+/**
+ * To keep footer fonts at 12px equivelant
+ * font-size: 16px > 12px = 75%
+ * 14px > 12px = 85.714%
+ * 12px > 12px = 100% 
+ */
+ 
+	font-size: 90% !important;
+}
+
+footer li
+{
+	margin: 0%;
+	padding: 0%;
+}
+
+footer a
+{
+	text-decoration: none;
+}
+
+footer nav li
+{
+	display: inline;
+	font-size: 110%;
+}
+
+
+
+footer
+{
+	clear: both;
+}
+
+footer #f_wrap
+{
+	max-width: 74em;
+	margin: 0% auto;
+	position: relative;
+	padding: 2.2em 0% 1em 0%;
+        color:#fff;
+}
+
+footer nav#global-footer-main ul
+{
+	display: block;
+	float: left;
+	width: 100%;
+	padding-bottom: 2em;
+	font-size: 100%;
+}
+
+footer nav#global-footer-main ul li
+{
+	display: block;
+	float: left;
+        font-size:100%;
+        width:25%;
+	padding-left: 5.5%;
+        line-height:1.7em;
+}
+
+footer nav#global-footer-main ul li.first
+{
+	padding-left: 0%;
+}
+
+footer nav#global-footer-main ul li h2
+{
+	margin-bottom: 0.5em;
+	font-size: 130%;
+}
+
+footer nav#global-footer-main ul li:before
+{
+	display: none;
+}
+
+footer nav#global-footer-main ul li ul li
+{
+	float: none;
+	width: 100%;
+	padding: 0% 0% 0.5em 0%;
+        font-size:100%;
+        font-weight:normal;
+}
+#global-footer-useful a { font-weight:normal; }
+
+footer #f_wrap small 
+{
+	position: absolute;
+	right: 0%;
+	bottom: 0%;
+	text-align: right;
+	font-size: 85%;
+	margin-bottom: 1.35em;
+}
+
+footer .small {
+	bottom: 2.5em;
+	font-size: 80%;
+	position: absolute;
+	right: 0;
+	text-align: right;
+	width: 50%;
+}
+footer .small p {
+	margin-bottom: 0 !important;
+	margin-top:0 !important;
+} 
+footer #f_wrap small p
+{
+	font-size: 100%;
+}
+footer .small img {
+	bottom: 4em;
+	height: auto;
+	position: absolute;
+	right: 0;
+	width: 100%;
+}
+footer .small img.span_two-col {
+    width: 89%;
+}
+/**
+ * END: interface_footer (#459512)
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+ */
+ 
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: interface_right-col (#459504)
+ * Last updated by: Evan Wills
+ * Last updated: 06 Jun 2013 3:18pm 
+ */
+ .page-name_2_lines_ aside#right
+{
+	padding-top: 2.7em;
+}
+
+.page-name_3_lines_ aside#right
+{
+	padding-top: 5.3em;
+}
+
+.page-name_4_lines_ aside#right
+{
+	padding-top: 7.7em;
+}
+
+.page-name_5_lines_ aside#right
+{
+	padding-top: 10.3em;
+}
+
+aside#right article
+{
+	margin-bottom: 2em;
+}
+
+aside#right article header
+{
+	background-color: transparent;
+}
+
+aside#right article header h1
+{
+	font-weight: 700;
+	font-size: 150%;
+	margin-bottom: 0.3em;
+}
+
+/* .international_ aside#right article#web-tile_bottom
+{
+	display: none;
+}
+*/
+
+aside#right article.sharethis
+{
+	background-color: #fbfbfb;
+	padding: 0.5em 1em 0.1em;
+	-webkit-border-radius: 0.5em;
+	-khtml-border-radius: 0.5em;
+	-moz-border-radius: 0.5em;
+	-ms-border-radius: 0.5em;
+	-o-border-radius: 0.5em;
+	border-radius: 0.5em;
+	-webkit-box-shadow: -0.02em 0.02em 0.1em rgba( 0 , 0 , 0 , 0.7 );
+	-khtml-box-shadow: -0.02em 0.02em 0.1em rgba( 0 , 0 , 0 , 0.7 );
+	-moz-box-shadow: -0.02em 0.02em 0.1em rgba( 0 , 0 , 0 , 0.7 );
+	-ms-box-shadow: -0.02em 0.02em 0.1em rgba( 0 , 0 , 0 , 0.7 );
+	-o-box-shadow: -0.02em 0.02em 0.1em rgba( 0 , 0 , 0 , 0.7 );
+	box-shadow: -0.02em 0.02em 0.1em rgba( 0 , 0 , 0 , 0.7 );
+}
+
+aside#right article.sharethis header h1
+{
+	background-color: #fbfbfb;
+
+	color: #00539F;
+	margin-bottom: 0%;
+	font-weight: 400;
+	font-size: 75%;
+}
+
+aside#right article.sharethis header
+{
+	background-color: #fff;
+	color: #000;
+}
+
+aside#right article.sharethis p
+{
+	padding: 0%;
+}
+
+aside#right div#centre-logo img
+{
+	width: 100%;
+	height: auto;
+	margin-bottom: 1em;
+}
+
+aside#right article#translated-info ul
+{
+	margin-left: none;
+}
+
+aside#right article#translated-info ul li
+{
+	display: inline;
+	list-style-type: none;
+	border-left: 0.1em solid #000;
+	padding-left: 0.5em;
+	margin-left: 0.5em;
+}
+
+aside#right article#translated-info ul li.pos1
+{
+	border-left: none;
+	padding-left: 0%;
+	margin-left: 0%;
+}
+
+aside#right article#right-col-buttons li , aside#right article#right-col-buttons p
+{
+	display: block;
+	list-style-type: none;
+	margin: 0% 0% 1.5em 0%;
+	padding: 0% 2.2em 0% 0%;
+	border: 0.1em solid #DBDBDB;
+	-webkit-border-radius: 0.4em;
+	-khtml-border-radius: 0.4em;
+	-moz-border-radius: 0.4em;
+	-ms-border-radius: 0.4em;
+	-o-border-radius: 0.4em;
+	border-radius: 0.4em;
+	-webkit-box-shadow: 0.1em -0.1em 0.3em rgba( 30 , 30 , 0 , 0.7);
+	-khtml-box-shadow: 0.1em -0.1em 0.3em rgba( 30 , 30 , 0 , 0.7);
+	-moz-box-shadow: 0.1em -0.1em 0.3em rgba( 30 , 30 , 0 , 0.7);
+	-ie-box-shadow: 0.1em -0.1em 0.3em rgba( 30 , 30 , 0 , 0.7);
+	-o-box-shadow: 0.1em -0.1em 0.3em rgba( 30 , 30 , 0 , 0.7);
+	box-shadow: 0.1em -0.1em 0.3em rgba( 30 , 30 , 0 , 0.7);
+	background-position: 94% 50%;
+	background-size: 0.6em 0.9em;
+}
+
+aside#right article#right-col-buttons li a , aside#right article#right-col-buttons p a
+{
+	border-right: 0.1em solid #DBDBDB;
+	padding: 0.7em 1.2em;
+	color: #00539F;
+	font-weight: 700;
+	font-size: 90%;
+	display: block;
+}
+
+aside#right article#right-col-buttons.blue li , aside#right article#right-col-buttons .blue li , aside#right article#right-col-buttons.blue p , aside#right article#right-col-buttons .blue p , aside#right article#right-col-buttons li.blue , aside#right article#right-col-buttons p.blue
+{
+	padding: 0%;
+	border: none;
+	-webkit-border-radius: 0%;
+	-khtml-border-radius: 0%;
+	-moz-border-radius: 0%;
+	-ms-border-radius: 0%;
+	-o-border-radius: 0%;
+	border-radius: 0%;
+	-webkit-box-shadow: none;
+	-khtml-box-shadow: none;
+	-moz-box-shadow: none;
+	-ie-box-shadow: none;
+	-o-box-shadow: none;
+	box-shadow: none;
+	background: none;
+	background-color: #00539F;
+}
+
+aside#right article#right-col-buttons .blue li a , aside#right article#right-col-buttons p.blue a
+{
+	color: #FFFFFF;
+	padding: 0.7em 2.2em 0.8em 1em;
+	background-position: 94.5% 50%;
+}
+
+
+/**
+ * END: interface_right-col (#459504)
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+ */
+ } 
+/**
+ * END @media: RESET, BASIC & INTERFACE - print, screen, projection
+ * ================================================================== 
+ */
+ @media print ,  screen ,  projection
+{
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: content_depricated (#450820)
+ * Last updated by: Evan Wills
+ * Last updated: 10 Sep 2012 11:00am 
+ */
+ 
+/**
+ * END: content_depricated (#450820)
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+ */
+ 
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: content_basic (#450824)
+ * Last updated by: Paul Hudson
+ * Last updated: 15 Nov 2012 5:45pm 
+ */
+h1
+{
+	font-size: 175%;
+	font-weight: 700;
+	line-height: 115%;
+	font-family: "proxima-nova", Gotham Bold, Verdana, Geneva, Arial, sans-serif;
+	margin-top: -0.25em;
+}
+h1.content-heading
+{
+	margin: -0.25em 0 1em 0%;
+	padding-bottom: 0.33em;
+	border-bottom-width: 0.05em;
+	border-bottom-style: solid;
+	width: 152.174%;
+}
+
+body.hide-right-col_.hide-content-menu_ h1.content-heading , body.hide-right-col_ h1.content-heading { width: 100%; }
+
+body.hide-content-menu_ h1.content-heading { width: 134.2%; }
+
+#content h2
+{
+	font-size: 1.4em;
+	font-weight: 400;
+	line-height: 1em;
+	font-family: "proxima-nova", Gotham Light, Verdana, Geneva, Arial, sans-serif;
+	margin-bottom: 0.4em;
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 1em;
+}
+
+#content h3
+{
+	font-size: 1.25em;
+	font-weight: 600;
+	line-height: 1.2em;
+	font-family: "proxima-nova", Gotham Book, Verdana, Geneva, Arial, sans-serif;
+	margin-bottom: 0.8em;
+}
+
+#content h4
+{
+	font-size: 1.25em;
+	font-weight: 400;
+	line-height: 1.2em;
+	font-family: "proxima-nova", Gotham Medium, Verdana, Geneva, Arial, sans-serif;
+	margin-bottom: 0.5em;
+}
+
+#content h5
+{
+	font-size: 1.125em;
+	font-weight: 600;
+	line-height: 1.33333em;
+	font-family: "proxima-nova", Gotham Book, Verdana, Geneva, Arial, sans-serif;
+}
+
+#content h6
+{
+	font-size: 1.125em;
+	font-weight: 400;
+	line-height: 1.333em;
+	font-family: "proxima-nova", Gotham Medium, Verdana, Geneva, Arial, sans-serif;
+}
+
+p.highlight
+{
+	font-size: 1.25em;
+	font-weight: 400;
+	line-height: 1.2em;
+	font-family: "proxima-nova", Gotham light, Verdana, Geneva, Arial, sans-serif;
+	margin-bottom: 0.65em;
+}
+
+ a.read span
+,.off-screen
+{
+	position: absolute;
+	top: -1000em;
+	left: -1000em;
+}
+
+.hide_me
+{
+	display: none;
+}
+
+/* ---------------------------------------------- Margin & Padding styles ---------------------------------------------- */
+ .padding-none
+{
+	padding: 0;
+}
+
+.padding-top_none
+{
+	padding-top: 0;
+}
+
+.padding-bottom_1 ,  .padding_bottom_1
+{
+	padding-bottom: 1em;
+}
+
+.padding-bottom_0-7,.padding_bottom_0-7 ,  .padding-bottom_07
+{
+	margin-bottom: 0.7em;
+}
+
+.padding-bottom_0 ,  .padding_bottom_0
+{
+	padding-bottom: 0;
+}
+
+.padding-left_0 ,  .padding_left_0
+{
+	padding-left: 0;
+}
+
+.padding-left_0-7 ,  .padding_left_0-7
+{
+	padding-left: 0.7em;
+}
+
+.padding-left_1 ,  .padding_left_1
+{
+	padding-left: 1em;
+}
+
+.padding-left_1-2 ,  .padding_left_1-2
+{
+	padding-left: 1.2em;
+}
+
+.padding-left_1-5 ,  .padding_left_1-5
+{
+	padding-left: 1.5em;
+}
+
+.margin-top_0 ,  .margin_top_0
+{
+	margin-top: 0 !important;
+}
+
+.margin-top_0-5 ,  .margin_top_0-5 ,  .margin-top_0_5em
+{
+	margin-top: 0.5em !important;
+}
+.margin-top_06 { margin-top:0.6em !important; }
+.margin-top_1 ,  .margin_top_1 ,  .margin-top_1em
+{
+	margin-top: 1em !important;
+}
+
+.margin-top_1-5 ,  .margin_top_1-5 ,  .margin-top_1_5em
+{
+	margin-top: 1.5em !important;
+}
+
+.margin-top_2 ,  .margin_top_2 ,  .margin_top_2em
+{
+	margin-top: 2em !important;
+}
+
+.margin-top_2-5 ,  .margin_top_2-5 ,  .margin-top_2_5em
+{
+	margin-top: 2.5em !important;
+}
+
+.margin-top_3 ,  .margin_top_3 ,  .margin-top_3em
+{
+	margin-top: 3em !important;
+}
+
+.margin-top_6 ,  .margin_top_6
+{
+	margin-top: 6em !important;
+}
+
+.margin-top_5 ,  .margin_top_5
+{
+	margin-top: 5em !important;
+}
+
+.margin-top_-1-75 ,  .margin-top_-1_75
+{
+	margin-top: -1.75em;
+}
+
+.margin-left_0 ,  .margin_left_0
+{
+	margin-left: 0 !important;
+}
+
+.margin-left_0-3 ,  .margin_left_0-3
+{
+	margin-left: 0.3em !important;
+}
+
+.margin-left_0-7 ,  .margin_left_0-7 ,  .margin-left_07 ,  .margin_left_07
+{
+	margin-left: 0.7em !important;
+}
+
+.margin-left_1 ,  .margin_left_1
+{
+	margin-left: 1em !important;
+}
+
+.margin-left_2 ,  .margin_left_2
+{
+	margin-left: 2em !important;
+}
+
+.margin_right_percentage
+{
+	margin-right: 10% !important;
+}
+
+.margin-right_0-3 ,  .margin_right_0-3 ,  .margin_right_03
+{
+	margin-right: 0.3em !important;
+}
+
+.margin-right_0-7 ,  .margin_right_0-7 ,  .margin_right_0_7
+{
+	margin-right: 0.7em !important;
+}
+
+.margin-right_1 ,  .margin_right_1em
+{
+	margin-right: 1em !important;
+}
+
+.margin-right_2 ,  .margin_right_2
+{
+	margin-right: 2em !important;
+}
+
+.margin-right_3 ,  .margin_right_3
+{
+	margin-right: 3em !important;
+}
+
+.margin-right_4 ,  .margin_right_4
+{
+	margin-right: 4em !important;
+}
+
+.margin-right_5 ,  .margin_right_5
+{
+	margin-right: 5em !important;
+}
+
+.margin-right_-1-5 ,  .margin_right_-1_5 ,  .margin_right-1_5
+{
+	margin-right: -1.5em !important;
+}
+
+.margin-bottom_0 ,  .margin_bottom_0
+{
+	margin-bottom: 0 !important;
+}
+
+.margin-bottom_m ,  .margin_bottom_m
+{
+	margin-bottom: 0.5em !important;
+}
+
+.margin-bottom_1 ,  .margin_bottom_1
+{
+	margin-bottom: 1em !important;
+}
+
+.margin-bottom_2 ,  .margin_bottom_2
+{
+	margin-bottom: 2em !important;
+}
+
+.margin-bottom_3 ,  .margin_bottom_3
+{
+	margin-bottom: 3em !important;
+}
+
+.width-3
+{
+	width: 3em;
+}
+
+
+
+/* ---------------------------------------------- Treated Content Selector styles ---------------------------------------------- */
+ section#content blockquote
+{
+	padding-left: 2.6em;
+	margin: 1em 0;
+	font-size: 1.2em;
+	line-height: 1.4em;
+	background-repeat: no-repeat;
+	background-position: top left;
+	display: block;
+	min-height: 2em;
+}
+
+section#content q.external
+{
+	padding-left: 1em;
+	margin: 1em 1em;
+	font-size: 1.2em;
+	line-height: 1.4em;
+	background-repeat: no-repeat;
+	background-position: top left;
+	border-left: 3px solid #00AEEF;
+	font-family: Georgia, Verdana, Geneva, Arial, sans-serif;
+}
+
+.normal
+{
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* primarily to make text within headings not bold or italic */
+ .clear_float ,  .clear ,  .clearFloatSafe
+{
+	clear: both;
+}
+
+
+/**
+ * END: content_basic (#450824)
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+ */
+ 
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: content_images (#465559)
+ * Last updated by: Evan Wills
+ * Last updated: 13 May 2013 12:20pm 
+ */
+ 
+/**
+ * Most of this section is ugly and looks like (and is) code bloat
+ * but it allows us to force image formats and provide for six
+ * different aspect ratios. This in turn allows us to ensure that the
+ * mobile version of the website looks good.
+ * Possible aspect ratios are:
+ * 2:1
+ * 5:3
+ * 3:2 (default)
+ * 4:3
+ * 5:4 
+ */
+ #content img
+{
+	display: none;
+}
+
+
+/*
+#content p.image-left ,  #content div.image-left ,  #content img.image-left , #content p.image-right ,  #content div.image-right ,  #content img.image-right , #content p.image-centre , #content div.image-centre , #content img.image-centre , #content p.tall ,  #content div.tall ,  #content img.tall , #content p.TALL ,  #content div.TALL ,  #content img.TALL , #content p.wide ,  #content div.wide ,  #content img.wide , #content p.banner , #content div.banner , #content img.banner , #content p.block , #content div.block , #content img.block , #content p.block , #content div.block , #content img.block , #content p.half , #content div.half , #content img.half , #content p.third , #content div.third , #content img.third , #content p.quarter , #content div.quarter , #content img.quarter
+{
+	margin-bottom: 0.3em;
+	display: none;
+}
+*/
+
+
+#content p.image-left ,  #content div.image-left ,  #content img.image-left
+{
+	float: left;
+	margin-right: 1.904%;
+}
+
+#content p.image-right ,  #content div.image-right ,  #content img.image-right
+{
+	float: right;
+	margin-left: 1.904%;
+}
+
+#content p.image-centre ,  #content div.image-centre ,  #content img.image-centre
+{
+	margin: 0 auto 0.3em;
+}
+
+#content p.image-left.quarter ,  #content div.image-left.quarter ,  #content img.image-left.quarter , #content p.image-right.quarter ,  #content div.image-right.quarter ,  #content img.image-right.quarter , #content p.image-centre.quarter ,  #content div.image-centre.quarter ,  #content img.image-centre.quarter
+{
+	display: block;
+	width: 22.857%;
+	height: auto;
+}
+
+#content p.image-left.tall ,  #content div.image-left.tall ,  #content img.image-left.tall , #content p.image-right.tall ,  #content div.image-right.tall ,  #content img.image-right.tall , #content p.image-centre.tall ,  #content div.image-centre.tall ,  #content img.image-centre.tall #content p.image-left.third ,  #content div.image-left.third ,  #content img.image-left.third , #content p.image-right.third ,  #content div.image-right.third ,  #content img.image-right.third , #content p.image-centre.third ,  #content div.image-centre.third ,  #content img.image-centre.third
+{
+	display: block;
+	width: 31.429%;
+	height: auto;
+}
+
+#content p.image-left.TALL ,  #content div.image-left.TALL ,  #content img.image-left.TALL , #content p.image-right.TALL ,  #content div.image-right.TALL ,  #content img.image-right.TALL , #content p.image-centre.TALL ,  #content div.image-centre.TALL ,  #content img.image-centre.TALL , #content p.image-left.wide ,  #content div.image-left.wide ,  #content img.image-left.wide , #content p.image-right.wide ,  #content div.image-right.wide ,  #content img.image-right.wide , #content p.image-centre.wide ,  #content div.image-centre.wide ,  #content img.image-centre.wide , #content p.image-left.half ,  #content div.image-left.half ,  #content img.image-left.half , #content p.image-right.half ,  #content div.image-right.half ,  #content img.image-right.half , #content p.image-centre.half ,  #content div.image-centre.half ,  #content img.image-centre.half
+{
+	display: block;
+	width: 47.826%;
+	height: auto;
+}
+
+#content p.image-left.banner ,  #content div.image-left.banner , #content p.image-left.banner img ,  #content div.image-left.banner ,  #content img.image-left.banner , #content p.image-right.banner ,  #content div.image-right.bannerdow , #content p.image-right.banner img ,  #content div.image-right.banner ,  #content img.image-right.banner , #content p.image-centre.banner ,  #content div.image-centre.banner , #content p.image-centre.banner img , #content div.image-centre.banner ,  #content img.image-centre.banner , #content p.image-left.block ,  #content div.image-left.block , #content p.image-left.block img ,  #content div.image-left.block ,  #content img.image-left.block , #content p.image-right.block ,  #content div.image-right.block , #content p.image-right.block img ,  #content div.image-right.block ,  #content img.image-right.block , #content p.image-centre.block ,  #content div.image-centre.block , #content p.image-centre.block img , #content div.image-centre.block ,  #content img.image-centre.block , #content p.image-left.full img ,  #content div.image-left.full img ,  #content img.image-left.full , #content p.image-right.full img ,  #content div.image-right.full img ,  #content img.image-right.full , #content p.image-centre.full img ,  #content div.image-centre.full img ,  #content img.image-centre.full , #content p.image-left.banner img ,  #content p.image-right.banner img ,  #content p.image-centre.banner img , #content p.image-left.block img ,  #content p.image-right.block img ,  #content p.image-centre.block img , #content p.image-left.TALL img ,  #content p.image-right.TALL img ,  #content p.image-centre.TALL img , #content p.image-left.tall img ,  #content p.image-right.tall img ,  #content p.image-centre.tall img , #content p.image-left.wide img ,  #content p.image-right.wide img ,  #content p.image-centre.wide img , #content p.image-left.full img ,  #content p.image-right.full img ,  #content p.image-centre.full img , #content p.image-left.half img ,  #content p.image-right.half img ,  #content p.image-centre.half img , #content p.image-left.third img ,  #content p.image-right.third img ,  #content p.image-centre.third img , #content p.image-left.quarter img ,  #content p.image-right.quarter img ,  #content p.image-centre.quarter img
+{
+	display: block;
+	width: 100%;
+	height: auto;
+	float: none;
+	margin-left: 0%;
+	margin-right: 0%;
+}
+
+.web-services-img img , .web-services-img , #content .web-services-img , #content img.web-services-img , img#sq_security_key
+{
+	display: block !important;
+}
+
+#map img
+{
+	display: inline-block !important;
+}
+
+#content p.image-left span ,  #content div.image-left span , #content p.image-right span ,  #content div.image-right span
+{
+	font-size: 81.25%;
+	line-height: 1.143em;
+	display: block;
+	padding-top: 0.5em;
+	font-style: italic;
+	color: #808080;
+}
+
+.image-left img , .image-right img , .image-centre img
+{
+	display: none;
+	margin-bottom: 0em;
+}
+.image-left img { margin-right:1em; }
+
+#content ul.thumbnail_design li
+{
+	width: 10em;
+	height: 10em;
+	float: left;
+	margin-right: 3em;
+
+}
+
+a.button2
+{
+	background:    -moz-linear-gradient(center top , #FFFFFF, #EEEEEE) repeat scroll 0 0 transparent;
+	border: 1px solid #BFBFBF;
+	border-radius: 3px 3px 3px 3px;
+	float: left;
+	font-size: 1em;
+	font-weight: bold;
+	margin-top: 1em;
+	min-height: 2em;
+	padding: 0.6em 1em 0.3em;
+	text-decoration: none !important;
+	width: 100%;
+}
+
+
+/**
+ * END: content_images (#465559)
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+ */
+ 
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: content_lists (#453742)
+ * Last updated by: Evan Wills
+ * Last updated: 02 Sep 2013 11:43am 
+ */
+ li
+{
+	margin: 0% 0% 0.5em 1.5em;
+	padding: 0% 0% 0% 0.5em;
+	display: list-item;
+}
+
+ul li
+{
+	list-style-type: disc;
+}
+
+ul li ul li
+{
+	list-style-type: square;
+}
+
+ul li ul li ul li
+{
+	list-style-type: circle;
+}
+
+ol li
+{
+	list-style-type: decimal;
+}
+
+ol li ol li
+{
+	list-style-type: lower-alpha;
+}
+
+ol li ol li ol li
+{
+	list-style-type: lower-roman;
+}
+
+ul.stripe li , ol.stripe li
+{
+	list-style-position: inside;
+	margin-left: 0em;
+	margin-bottom: 0%;
+	padding: 0.25em 0% 0.25em 0.75em;
+}
+
+ul.stripe li:nth-of-type(2n+1) , ol.stripe li:nth-of-type(2n+1)
+{
+	background-color: #ebebeb;
+}
+
+dl dt
+{
+	font-weight: bold;
+}
+
+dl dt
+{
+	font-weight: bold;
+}
+
+dl.table-def dt
+{
+	margin-bottom: -1.5em;
+}
+
+dl.table-def dd
+{
+	margin-bottom: 0.5em;
+}
+
+dl.table-def.close dd
+{
+	margin-bottom: 0%;
+}
+
+dl.table-def.X3 dt
+{
+	width: 3em;
+}
+
+dl.table-def.X3 dd
+{
+	padding-left: 3.5em;
+}
+
+dl.table-def.X4 dt
+{
+	width: 4em;
+}
+
+dl.table-def.X4 dd
+{
+	padding-left: 4.5em;
+}
+
+dl.table-def.X5 dt
+{
+	width: 5em;
+}
+
+dl.table-def.X5 dd
+{
+	padding-left: 5.5em;
+}
+
+dl.table-def.X6 dt
+{
+	width: 6em;
+}
+
+dl.table-def.X6 dd
+{
+	padding-left: 6.5em;
+}
+
+dl.table-def.X7 dt
+{
+	width: 7em;
+}
+
+dl.table-def.X7 dd
+{
+	padding-left: 7.5em;
+}
+
+dl.table-def.X8 dt
+{
+	width: 8em;
+}
+
+dl.table-def.X8 dd
+{
+	padding-left: 8.5em;
+}
+
+dl.table-def.X9 dt
+{
+	width: 9em;
+}
+
+dl.table-def.X9 dd
+{
+	padding-left: 9.5em;
+}
+
+dl.table-def.X10 dt
+{
+	width: 10em;
+}
+
+dl.table-def.X10 dd
+{
+	padding-left: 10.5em;
+}
+
+dl.table-def.X11 dt
+{
+	width: 11em;
+}
+
+dl.table-def.X11 dd
+{
+	padding-left: 11.5em;
+}
+
+dl.table-def.X12 dt
+{
+	width: 12em;
+}
+
+dl.table-def.X12 dd
+{
+	padding-left: 12.5em;
+}
+
+dl.table-def.X13 dt
+{
+	width: 13em;
+}
+
+dl.table-def.X13 dd
+{
+	padding-left: 13.5em;
+}
+
+dl.table-def.X14 dt
+{
+	width: 14em;
+}
+
+dl.table-def.X14 dd
+{
+	padding-left: 14.5em;
+}
+
+dl.table-def.X15 dt
+{
+	width: 15em;
+}
+
+dl.table-def.X15 dd
+{
+	padding-left: 15.5em;
+}
+
+dl.table-def.X16 dt
+{
+	width: 16em;
+}
+
+dl.table-def.X16 dd
+{
+	padding-left: 16.5em;
+}
+
+dl.table-def.X17 dt
+{
+	width: 17em;
+}
+
+dl.table-def.X17 dd
+{
+	padding-left: 17.5em;
+}
+
+dl.table-def.X18 dt
+{
+	width: 18em;
+}
+
+dl.table-def.X18 dd
+{
+	padding-left: 18.5em;
+}
+
+dl.table-def.X19 dt
+{
+	width: 19em;
+}
+
+dl.table-def.X19 dd
+{
+	padding-left: 19.5em;
+}
+
+dl.table-def.X20 dt
+{
+	width: 20em;
+}
+
+dl.table-def.X20 dd
+{
+	padding-left: 20.5em;
+}
+
+dl.table-def.X21 dt
+{
+	width: 21em;
+}
+
+dl.table-def.X21 dd
+{
+	padding-left: 21.5em;
+}
+
+dl.table-def.X22 dt
+{
+	width: 22em;
+}
+
+dl.table-def.X22 dd
+{
+	padding-left: 22.5em;
+}
+
+dl.table-def.X23 dt
+{
+	width: 23em;
+}
+
+dl.table-def.X23 dd
+{
+	padding-left: 23.5em;
+}
+
+dl.table-def.X24 dt
+{
+	width: 24em;
+}
+
+dl.table-def.X24 dd
+{
+	padding-left: 24.5em;
+}
+
+dl.table-def.X25 dt
+{
+	width: 25em;
+}
+
+dl.table-def.X25 dd
+{
+	padding-left: 25.5em;
+}
+
+dl.table-def.X26 dt
+{
+	width: 26em;
+}
+
+dl.table-def.X26 dd
+{
+	padding-left: 26.5em;
+}
+
+dl.table-def.X27 dt
+{
+	width: 27em;
+}
+
+dl.table-def.X27 dd
+{
+	padding-left: 27.5em;
+}
+
+dl.table-def.X28 dt
+{
+	width: 28em;
+}
+
+dl.table-def.X28 dd
+{
+	padding-left: 28.5em;
+}
+
+dl.table-def.X29 dt
+{
+	width: 29em;
+}
+
+dl.table-def.X29 dd
+{
+	padding-left: 29.5em;
+}
+
+dl.table-def.X30 dt
+{
+	width: 30em;
+}
+
+dl.table-def.X30 dd
+{
+	padding-left: 30.5em;
+}
+
+dl.table-def.X31 dt
+{
+	width: 31em;
+}
+
+dl.table-def.X31 dd
+{
+	padding-left: 31.5em;
+}
+
+dl.table-def.X32 dt
+{
+	width: 32em;
+}
+
+dl.table-def.X32 dd
+{
+	padding-left: 32.5em;
+}
+
+dl.table-def.X33 dt
+{
+	width: 33em;
+}
+
+dl.table-def.X33 dd
+{
+	padding-left: 33.5em;
+}
+
+dl.table-def.X34 dt
+{
+	width: 34em;
+}
+
+dl.table-def.X34 dd
+{
+	padding-left: 34.5em;
+}
+
+dl.table-def.X35 dt
+{
+	width: 35em;
+}
+
+dl.table-def.X35 dd
+{
+	padding-left: 35.5em;
+}
+
+dl.table-def.X36 dt
+{
+	width: 36em;
+}
+
+dl.table-def.X36 dd
+{
+	padding-left: 36.5em;
+}
+
+dl.table-def.stripe dd:nth-of-type(2n+1) , dl.table-def.stripe dt:nth-of-type(2n+1)
+{
+	background-color: #ebebeb;
+}
+
+dl.table-def.stripe dt
+{
+	padding-top: 0.5em;
+	padding-left: 0.25em;
+	margin-bottom: -2em;
+}
+
+dl.table-def.stripe dd
+{
+	padding-top: 0.5em;
+	margin-right: -0.25em;
+}
+
+dl.table-def.close.stripe dt , dl.table-def.stripe.close dt
+{
+	margin-bottom: -1.75em;
+	padding-top: 0.25em;
+}
+
+dl.table-def.close.stripe dd , dl.table-def.stripe.close dd
+{
+	padding-top: 0.25em;
+}
+
+dl.table-def dt.fullwidth ,  dl.table-def.close dt.fullwidth , dl.table-def dt.full-width ,  dl.table-def.close dt.full-width , dl.table-def dt.full_width ,  dl.table-def.close dt.full_width
+{
+	width: 100%;
+	margin-bottom: 0%;
+}
+
+dl.table-def dd.fullwidth ,  dl.table-def.close dd.fullwidth , dl.table-def dd.full-width ,  dl.table-def.close dd.full-width , dl.table-def dd.full_width ,  dl.table-def.close dd.full_width
+{
+	padding-left: 0%;
+}
+
+#content ul.noBullet li ,  #right ul.noBullet li , #content ul li.noBullet ,  #right ul li.noBullet , #content ol ul.noBullet li ,  #right ol ul.noBullet li , #content ol ul li.noBullet ,  #right ol ul li.noBullet , #content div.noBullet ul li ,  #right div.noBullet ul li , #content div.noBullet ul ,  #right div.noBullet ul , #content dd.noBullet ul li ,  #right dd.noBullet ul li
+{
+	list-style-type: none;
+	list-style-image: none;
+	margin-left: 0%;
+	padding-left: 0%;
+}
+
+ul.events-links li
+{
+	list-style-type: none;
+	margin-left: 0;
+	padding-left: 2em;
+}
+
+
+/**
+ * END: content_lists (#453742)
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+ */
+ 
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: content_tables (#450833)
+ * Last updated by: Evan Wills
+ * Last updated: 15 May 2013 12:41pm 
+ */
+table
+{
+	border-spacing: 0px;
+	border-collapse: collapse;
+	border:none;
+}
+.border table
+,table.border 
+,.border table th
+,table.border th
+,.border table td
+,table.border td
+,table
+,table th
+,table td
+{
+	border-width: 0.1em;
+	border-style: solid;
+	border-color: #000;
+}
+
+table td , table th
+{
+	padding: 0.3em 0.5em;
+	border-spacing: 0px;
+	border-collapse: collapse;
+}
+
+table thead th
+{
+	font-weight: bold;
+	text-align: center;
+}
+
+table tbody th
+{
+	font-weight: bold;
+	text-align: left;
+}
+
+table tbody tr.num td , table tbody td.num
+{
+	text-align: right;
+}
+
+table.stripe tbody tr:nth-of-type(2n+1)
+{
+	background-color: #ebebeb;
+}
+
+ div#noborder table , div#noborder td , div#noborder th
+,div#noBorder table , div#noBorder td, div#noBorder th
+,.noborder table , .noborder td, .noborder th
+,.noBorder table , .noBorder td, .noBorder th
+,table.noborder , table.noborder td , table.noborder th
+,table.noBorder , table.noBorder td , table.noBorder th
+,#frmJobSearch table , #frmJobSearch td , #frmJobSearch th
+{
+	border: none !important;
+}
+
+
+/**
+ * END: content_tables (#450833)
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+ */
+ 
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: content_forms (#450837)
+ * Last updated by: Victoria Whittleton
+ * Last updated: 07 Aug 2013 9:40am 
+ */
+ form .search-and-submit
+{
+	display: block;
+	width: 13em;
+	position: relative;
+}
+
+form .search-and-submit input
+{
+	border: none;
+	padding: 0.7em;
+	display: block;
+
+	position: absolute;
+	right: 2.6em;
+	width: 13em;
+}
+
+form .search-and-submit input.submit
+{
+	background-color: #00aced;
+	background-position: 50% 40%;
+	background-size: 60%;
+	-webkit-border-top-right-radius: 0.3em;
+	-khtml-border-top-right-radius: 0.3em;
+	-moz-border-top-right-radius: 0.3em;
+	-ms-border-top-right-radius: 0.3em;
+	-o-border-top-right-radius: 0.3em;
+	border-top-right-radius: 0.3em;
+	-webkit-border-bottom-right-radius: 0.3em;
+	-khtml-border-bottom-right-radius: 0.3em;
+	-moz-border-bottom-right-radius: 0.3em;
+	-ms-border-bottom-right-radius: 0.3em;
+	-o-border-bottom-right-radius: 0.3em;
+	border-bottom-right-radius: 0.3em;
+	top: 0%;
+	text-indent: -1000em;
+	right: 0%;
+	width: 2.6em;
+}
+
+.re-gecko form .search-and-submit input.t-search
+{
+	padding: 0.77em 0.5em;
+}
+
+.os-mac.re-gecko form .search-and-submit input.t-search
+{
+	padding: 0.78em 0.5em;
+}
+
+/* Conference forms */
+ li.form_info
+{
+	list-style-type: none;
+}
+
+form#step2 dl dt
+{
+	margin-bottom: 1em;
+}
+
+/* custom forms */
+ .custom_form .required_text
+{
+	font-style: italic;
+	font-weight: 400;
+	font-size: 0.9em;
+}
+
+.custom_form .input_box , .custom_form .input_required
+{
+	text-align: left;
+	vertical-align: top;
+	background-color: #ffffa0;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 12px;
+	color: #000000;
+	font-weight: normal;
+	border: 1px solid;
+	border: 1px solid black;
+	border-bottom-color: #CCCCCC;
+	border-right-color: #CCCCCC;
+}
+
+.custom_form .input_box_plain
+{
+	text-align: left;
+	vertical-align: top;
+	background-color: rgb(255, 255, 255);
+	font-family: verdana, arial, helvetica, sans-serif;
+	color: #000000;
+	font-weight: normal;
+	border: 1px solid;
+	border: 1px solid #000000;
+	border-bottom-color: #CCCCCC;
+	border-right-color: #CCCCCC;
+}
+
+.custom_form form dl.table-def dd ul li , .custom_form form dl.table-def dd ul
+{
+	padding-left: 0%;
+	margin-left: 0%;
+	list-style-type: none;
+}
+
+.custom_form form dl.table-def dd
+{
+	margin-bottom: 0.5em;
+}
+
+.custom_form form dl.table-def dd.checkbox-list ul li , .custom_form form dl.table-def dd.full-width.checkbox-list ul li , .custom_form form dl.table-def dd.radio-list ul li , .custom_form form dl.table-def dd.full-width.radio-list ul li
+{
+	text-indent: -2em;
+	margin-left: 2em;
+	padding-bottom: 0.3em;
+}
+
+.custom_form form dl.noBullet ul li
+{
+	list-style-type: none;
+}
+
+.custom_form div.form-errors p , .custom_form div.form-errors ul li , .custom_form p.form-errors
+{
+	font-weight: bold;
+	padding: 0.5em 1em;
+	font-size: 110%;
+	text-indent: 0%;
+}
+
+.custom_form div.form-errors a
+{
+	color: #fb0;
+}
+
+.custom_form div.form-errors ul
+{
+	margin-left: 0%;
+	padding-left: 0%;
+}
+
+.custom_form div.form-errors ul li
+{
+	margin-left: 0%;
+}
+
+.custom_form fieldset.h2-legend
+{
+	margin-bottom: 2em;
+}
+
+.custom_form fieldset.h2-legend legend
+{
+	color: #E01A22;
+	font-size: 1.3em;
+	white-space: normal;
+	font-weight: bold;
+}
+
+.custom_form fieldset.h2-legend fieldset legend
+{
+	color: #000;
+	font-size: 100%;
+	white-space: normal;
+	font-weight: normal;
+}
+
+.standard_page #content form .search-and-submit
+{
+	left: 2.75em;
+}
+
+.standard_page #content form .search-and-submit input.t-search
+{
+	border-top: 0.1em solid #00ACED;
+	border-bottom: 0.1em solid #00ACED;
+	border-left: 0.1em solid #00ACED;
+	padding-bottom: 0.65em;
+}
+
+/* CSS for student payment form on the ICPS site at 513057 */
+ .institute_of_child_protection_studies_.workshop_and_seminar_payments_ #firstform dl.table-def.X11 dt
+{
+	width: 15em;
+}
+
+.institute_of_child_protection_studies_.workshop_and_seminar_payments_ #firstform dl.table-def.X11 dd
+{
+	margin-left: 15em;
+}
+
+.institute_of_child_protection_studies_.workshop_and_seminar_payments_ #firstform dl.table-def.X11 dd input#payforother_other
+{
+	margin-bottom: 1em;
+}
+
+
+.institute_of_child_protection_studies_.workshop_and_seminar_payments_ #firstform dl.table-def.X11 dt input#submit
+{
+	margin-top: 2em;
+	margin-left: 28em;
+}
+
+div#wrap-outer.remote_content form h2
+{
+	display: none;
+}
+div#wrap-outer
+{
+	max-width: 67.143em;
+	margin: 0% auto;
+	padding: 0.5em 0%;
+	position: relative;
+}
+
+.faculty-name
+{
+	font-size: 150%;
+	font-weight: bold;
+	margin-top: 0.3em;
+	padding: 0.5em 1em;
+}
+ .faculty-name
+,.faculties_institutes_and_centres_ .landing.feature .faculty-name
+/* ,.faculties_institutes_and_centres_ .landing.school .faculty-name */
+,.faculties_institutes_and_centres_ .landing.centre .faculty-name
+
+{
+	display: none;
+}
+ .faculties_institutes_and_centres_.law_and_business_ .faculty-name
+,.faculties_institutes_and_centres_.education_and_arts_ .faculty-name
+,.faculties_institutes_and_centres_.health_sciences_ .faculty-name
+,.faculties_institutes_and_centres_.theology_and_philosophy_ .faculty-name
+{
+	display: block;
+}
+div#wrap-inner
+{
+	float: right;
+	padding-top: 1.5em;
+	padding-bottom: 2em;
+}
+
+section#content
+{
+	float: left;
+	padding: 0% 0% 2em;
+	position: relative;
+}
+
+/* CSS for the course search on the what can i study page id 459311 */
+
+.level1 .active
+{
+	background: #FFF;
+	border-bottom: 0;
+}
+
+.level1 .active a
+{
+	font-weight: bold;
+	color: #dc1a22;
+	font-size: 105%;
+}
+
+#search_form_beta
+{
+	position: relative;
+	border-radius: 5px 5px 5px 5px;
+	background: #FFF;
+	width: 730px;
+	padding: 5px;
+	border: 1px solid #EFEFEF;
+}
+
+.searchinput
+{
+	width: 530px;
+	height: 36px;
+	border: solid 1px rgb(255, 207, 160);
+	font-size: 18px;
+	color: rgb(153, 153, 153);
+	padding-left: 10px;
+	border-radius: 5px 5px 5px 5px;
+	box-shodow: 1px 1px 5px rgb(196, 202, 210) inset;
+}
+
+.searchbutton
+{
+	height: 36px;
+	margin: -2px 0 0 10px;
+	border-radius: 5px 5px 5px 5px;
+	border: solid 1px rgb(255, 207, 160);
+	font-size: 18px;
+}
+
+#search_advanced
+{
+	padding: 10px;
+}
+
+#search_advanced .alabel
+{
+	display: block;
+	width: 44%;
+	margin: 3px 0;
+	padding: 5px 10px;
+	font-size: 18px;
+	height: 36px;
+	border: 0;
+	float: left;
+}
+
+#search_advanced .alabel span
+{
+	color: #999;
+	font-weight: normal;
+	font-size: 13px;
+}
+
+.searchselect
+{
+	width: 98%;
+}
+
+#search_advanced p
+{
+	display: block;
+	width: 99%;
+	padding: 10px;
+	clear: left;
+}
+
+
+
+/* END AUTOSUGGEST */
+ /*courses dot css */
+ form#quick_form
+{
+	clear: both;
+	font-size: 0.9em;
+}
+
+form.tab-wrap-outer
+{
+	margin-bottom: 1em;
+	padding-bottom: 0.5em;
+	width: 40.5em;
+}
+
+.tab-wrap-outer
+{
+	background-color: #EBEBEB;
+	border: 1px solid #BFBFBF;
+	border-radius: 5px 5px 5px 5px;
+	float: left;
+	padding: 1.2em;
+}
+
+#course-content input.searchbox
+{
+	border: 1px solid #BFBFBF;
+	color: #999999;
+	font-size: 1.2em;
+	font-weight: normal;
+	height: 1.7em;
+	margin-right: 0;
+	padding-left: 0.4em;
+	width: 22em;
+}
+
+#search_advanced
+{
+	padding: 10px;
+}
+
+#course-content
+{
+	font-size: 0.9em;
+}
+
+#search_advanced .alabel
+{
+	border: 0 none;
+	display: block;
+	float: left;
+	font-size: 18px;
+	height: 36px;
+	margin: 3px 0;
+	padding: 5px 10px;
+	width: 44%;
+}
+
+.searchselect
+{
+	width: 98%;
+}
+
+#search_advanced p
+{
+	clear: left;
+	display: block;
+	padding: 10px;
+	width: 99%;
+}
+
+p
+{
+	margin-top: 0;
+}
+
+input#go
+{
+	background-color: #DD0033;
+	border: 1px solid #DD0033;
+	border-radius: 0 4px 4px 0;
+	color: #FFFFFF;
+	font-size: 1em;
+	font-weight: bold;
+	height: 2.35em;
+	margin-left: -4px;
+	width: 6em;
+}
+
+button.search { height: 35px; }
+
+#quick_form a
+{
+	cursor: pointer;
+}
+
+.tool-links
+{
+	float: right;
+	font-weight: bold;
+	margin-top: 0.8em;
+	text-decoration: none !important;
+}
+
+/* END courses dot css */
+ 
+/**
+ * END: content_forms (#450837)
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+ */
+ 
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: content_complex (#450828)
+ * Last updated by: Evan Wills
+ * Last updated: 02 Sep 2013 10:58am 
+ */
+ 
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: content_modules_story-listing (#000000) 
+ */
+ section ul.events-list,section ul.events-list li
+{
+	list-style-type: none;
+	margin: 0%;
+	padding: 0%;
+}
+
+section ul.events-list li
+{
+	list-style-type: none;
+	margin: 0%;
+	padding: 0%;
+}
+
+section ul.events-list li article
+{
+	min-height: 5.5em;
+	padding-left: 7.3em;
+	position: relative;
+	margin-bottom: 2em;
+}
+
+section#content ul.events-list article hgroup h1
+{
+	font-size: 86.667%;
+	width: 5.6em;
+	height: 6.5em;
+	text-align: center;
+	position: absolute;
+	top: 0.2em;
+	left: 1.4em;
+	padding: 0%;
+	-webkit-border-radius: 0.5em;
+	-khtml-border-radius: 0.5em;
+	-moz-border-radius: 0.5em;
+	-ms-border-radius: 0.5em;
+	-o-border-radius: 0.5em;
+	border-radius: 0.5em;
+	-webkit-box-shadow: 0em 0.25em 0.1em rgba( 50 , 50 , 0 , 0.7);
+	-khtml-box-shadow: 0em 0.25em 0.1em rgba( 50 , 50 , 0 , 0.7);
+	-moz-box-shadow: 0em 0.25em 0.1em rgba( 50 , 50 , 0 , 0.7);
+	-ms-box-shadow: 0em 0.25em 0.1em rgba( 50 , 50 , 0 , 0.7);
+	-o-box-shadow: 0em 0.25em 0.1em rgba( 50 , 50 , 0 , 0.7);
+	box-shadow: 0em 0.25em 0.1em rgba( 50 , 50 , 0 , 0.7);
+	text-transform: uppercase;
+	background-position: -0.1em 0%;
+	background-size: 104% auto;
+}
+
+.events_ section#content ul.events-list article hgroup h1
+{
+	background-position: -0.5em 0%;
+}
+
+section#content ul.events-list article hgroup h1 a
+{
+	position: absolute;
+	display: block;
+	top: 0%;
+	right: 0%;
+	bottom: 0%;
+	left: 0%;
+	color: #000;
+}
+
+section#content ul.events-list article hgroup h1 span.day
+{
+	font-size: 190%;
+	border: none;
+	position: absolute;
+	top: 1.4em;
+	right: 0%;
+	left: 0%;
+}
+
+section#content ul.events-list article hgroup h1 span.month
+{
+	position: absolute;
+	left: 0%;
+	bottom: 1.1em;
+	right: 0%;
+	font-size: 90%;
+	margin: 0%;
+	padding: 0%;
+	line-height: 100%;
+}
+
+section#content ul.events-list article h2
+{
+	font-size: 110%;
+	position: relative;
+	bottom: 0.1em;
+	margin-bottom: 0%;
+}
+ .please-show-if- span.from
+,.please-show-if- span.to
+{
+	display: none;
+}
+ .please-show-if-january span.from , .please-show-if-january span.to
+,.please-show-if-february span.from , .please-show-if-february span.to
+,.please-show-if-march span.from , .please-show-if-march span.to
+,.please-show-if-april span.from , .please-show-if-april span.to
+,.please-show-if-may span.from , .please-show-if-may span.to
+,.please-show-if-june span.from , .please-show-if-june span.to
+,.please-show-if-july span.from , .please-show-if-july span.to
+,.please-show-if-august span.from , .please-show-if-august span.to
+,.please-show-if-september span.from , .please-show-if-september span.to
+,.please-show-if-october span.from , .please-show-if-october span.to
+,.please-show-if-november span.from , .please-show-if-november span.to
+,.please-show-if-december span.from , .please-show-if-december span.to
+{
+	display: inline;
+}
+
+section#content ul.news-list article h1 a:hover,section#content ul.news-list article p a.read:hover,section#content ul.events-list article h2 a:hover,section#content ul.events-list article p a.read:hover
+{
+	text-decoration: underline !important;
+}
+
+section#content ul.news-list article p a.read,section#content ul.events-list article p a.read
+{
+	margin-top: 0.5em;
+}
+
+section#content ul.events-list li,section#content ul.news-list li
+{
+	display: block;
+	list-style-type: none;
+	margin-left: 0%;
+	padding-left: 0%;
+}
+
+section#content ul.events-list article h2,section#content ul.news-list article header h1
+{
+	position: static;
+	font-size: 100%;
+	line-height: 100%;
+	margin-bottom: 0%;
+	border-bottom-style: none;
+	width: 100%;
+	background-color: transparent;
+}
+
+section#content ul.events-list article a,section#content ul.news-list article a
+{
+	font-weight: bold;
+        color:#DD0033;
+}
+section#content ul.news-list.events article header h2 { font-weight:600; }
+
+section#content ul.events-list article p,section#content ul.news-list article p
+{
+	font-size: 100%;
+	line-height: 128.571%;
+}
+
+section#content ul.news-list article h2,section#content ul.news-list article h3
+{
+	display: none;
+}
+
+section#content ul.news-list article
+{
+	position: relative;
+	padding-left: 10.2em;
+	padding-right: 0%;
+	min-height: 5.65em;
+	margin-bottom: 2em;
+}
+
+section#content ul.news-list article a.thumb
+{
+	position: absolute;
+	top: 0%;
+	left: 0%;
+}
+
+section#content ul.news-list article img
+{
+	display: block;
+	width: 9.1em;
+	height: auto;
+}
+
+section#content ul.news-list article header
+{
+	background-color: transparent;
+}
+
+section#content ul.news-list.events article
+{
+	padding-left: 6.8em;
+}
+
+section#content ul.news-list.events article header h2 , section#content ul.news-list.events article header h3
+{
+	color: #000000;
+	display: block;
+	font-size: inherit;
+	margin: 0 0 0.5em;
+	padding: 0;
+}
+
+
+/**
+ * END: content_modules_story-listing (#000000)
+ * = = = = = = = = = = = = = = = = = = = = = = = = 
+ */
+ 
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: content_modules_buttons (#000000) 
+ */
+ div.article div p.read.button,article div p.read.button
+{
+	margin: 2.8em 0% 0% 0%;
+}
+
+div.article div p.read.button a,article div p.read.button a
+{
+	font-size: 90%;
+	font-weight: bold;
+	color: #fff;
+	padding: 1em 1.5em;
+	-webkit-border-radius: 0.4em;
+	-khtml-border-radius: 0.4em;
+	-moz-border-radius: 0.4em;
+	-ms-border-radius: 0.4em;
+	-o-border-radius: 0.4em;
+	border-radius: 0.4em;
+	-webkit-text-shadow: 0em -0.1em 0.1em rgba( 0 , 0 , 0 , 0.7);
+	-khtml-text-shadow: 0em -0.1em 0.1em rgba( 0 , 0 , 0 , 0.7);
+	-moz-text-shadow: 0em -0.1em 0.1em rgba( 0 , 0 , 0 , 0.7);
+	-ms-text-shadow: 0em -0.1em 0.1em rgba( 0 , 0 , 0 , 0.7);
+	-o-text-shadow: 0em -0.1em 0.1em rgba( 0 , 0 , 0 , 0.7);
+	text-shadow: 0em -0.1em 0.1em rgba( 0 , 0 , 0 , 0.7);
+	-webkit-box-shadow: -0.01em 0.1em 0.1em rgba(255, 255, 255, 0.5) inset;
+	-khtml-box-shadow: -0.01em 0.1em 0.1em rgba(255, 255, 255, 0.5) inset;
+	-moz-box-shadow: -0.01em 0.1em 0.1em rgba(255, 255, 255, 0.5) inset;
+	-ms-box-shadow: -0.01em 0.1em 0.1em rgba(255, 255, 255, 0.5) inset;
+	-o-box-shadow: -0.01em 0.1em 0.1em rgba(255, 255, 255, 0.5) inset;
+	box-shadow: -0.01em 0.1em 0.1em rgba(255, 255, 255, 0.5) inset;
+	/* border-width: 0.1em; border-style: solid; border-top-color: ; border-right-color: ; border-bottom-color: ; border-left-color: ; */
+
+}
+
+div.article div p.read.button a span,article div p.read.button a span
+{
+	position: absolute;
+	top: -1000em;
+	left: -1000em;
+}
+article div p.read.button a span.glyphicon {
+    left: 0;
+    position: relative;
+    top: 0.15em;
+    }
+
+/* ----------------------------------- ACU2012 design buttons ----------------------------------- */
+ a.button3
+{
+	border-width: 0.1em;
+	border-style: solid;
+	padding: 0.6em 5em 0.3em 1em;
+	font-size: 1em;
+	font-weight: bold;
+	margin-top: 1em;
+	margin-bottom: 1.5em;
+	float: left;
+	text-decoration: none!important;
+	-webkit-border-radius: 0.25em;
+	-khtml-border-radius: 0.25em;
+	-moz-border-radius: 0.25em;
+	-ms-border-radius: 0.25em;
+	-o-border-radius: 0.25em;
+	border-radius: 0.25em;
+	width: auto;
+	min-height: 1.8em;
+	display: block;
+	clear: both;/* for ie7/8 background-image:url('img/button1-gradient-bg.gif'); background-repeat:repeat-x; */
+ 
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffffff), to(#EEEEEE));
+	background: -webkit-linear-gradient(top, #ffffff, #EEEEEE);
+	background:  -khtml-linear-gradient(top, #ffffff, #EEEEEE);
+	background:    -moz-linear-gradient(top, #ffffff, #EEEEEE);
+	background:     -ms-linear-gradient(top, #ffffff, #EEEEEE);
+	background:     -o-linear-gradient(top, #ffffff, #EEEEEE);
+	background: linear-gradient(top, #ffffff, #EEEEEE);
+	position: relative;
+}
+
+a.button3 img
+{
+	border-left-width: 0.1em;
+	border-left-style: solid;
+	float: right;
+	padding: 0.4em 0.4em 0.4em 1.3em;
+	position: absolute;
+	right: 1em;
+	top: 0.45em;
+}
+
+/* blue action buttons */
+ a.button-blue-thin
+{
+	position: relative;/* background-image: url('//www.acu.edu.au/__data/assets/image/0005/489533/blue-button.png); background-repeat: repeat-x; */
+ 
+	background-color: #005e91;/* for IE9 + older */
+ 
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #00539F), color-stop(100%, #193869)) repeat scroll 0 0 transparent;/* Chrome,Safari4+ */
+ 
+	background: -webkit-linear-gradient(top, #00539F 0%, #193869 100%);/* Chrome10+,Safari5.1+ */
+ 
+	background:    -moz-linear-gradient(center top, #00539F, #193869) repeat scroll 0 0 transparent;
+	background:     -ms-linear-gradient(top, #00539F 0%, #193869 100%);/* IE10+ */
+ 
+	background:     -o-linear-gradient(top, #00539F 0%, #193869 100%);/* Opera 11.10+ */
+ 
+	background: linear-gradient(center top, #00539F, #193869);
+	border: 1px solid #BFBFBF;
+	border-radius: 5px 5px 5px 5px;
+	float: left;
+	font-weight: bold;
+	margin-top: 0;
+	margin-bottom: 1em;
+	padding: 0.2em 3.6em 0.2em 1em;
+	text-decoration: none!important;
+	color: #FFFFFF;
+	font-size: 1em;
+	width: auto;
+}
+
+a.button-blue-thin:visited
+{
+	color: #fff!important;
+}
+
+a.button-blue-thin:visited
+{
+	color: #fff!important;
+}
+
+a.button-blue-thin:hover
+{
+	text-decoration: underline!important;
+}
+
+.button-blue-thin img
+{
+	display: inline!important;
+	position: absolute;
+	top: 0.5em;
+	right: 1em;
+	border-left: 1px solid #DCDCDC;
+	padding: 0 0.2em 0 0.8em;
+}
+
+/* Standard height blue buttons */
+ a.standard
+{
+	padding: 0.9em 3.6em 1.1em 1em!important;
+}
+
+a.standard img
+{
+	padding: 0.6em 0.2em 0.4em 0.8em!important;
+}
+
+/* Large blue buttons */
+ a.large
+{
+	font-size: 1.4em!important;
+	padding: 0.9em 3.6em 1.1em 1em!important;
+}
+
+a.large span
+{
+	font-size: 0.8em;
+	font-weight: normal;
+}
+
+a.large img
+{
+	padding: 1.8em 0.2em 1.5em 1em!important;
+}
+
+
+
+.blue-arrow
+{
+	background-position: 93.5% 49%;
+	background-size: 0.85em 1.3em;
+}
+
+.international_ .blue-arrow
+{
+	background-position: 92.5% 49%;
+	background-size: 0.55em 0.8em;
+}
+
+
+/**
+ * END: content_modules_buttons (#000000)
+ * = = = = = = = = = = = = = = = = = = = = = = = = 
+ */
+
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: content_modules_myCarousel (#000000) 
+ */
+
+#myCarousel img{
+	height:333px !important;
+	width:941px !important;
+	display: block !important;
+}
+ section#content #myCarousel article div
+,section#main-rotation #myCarousel article div {
+	position: absolute;
+	bottom: 0%;
+	left: 0%;
+	color: #fff;
+	padding: 0 33em 1em 1.2em;
+	/* background: #000; Old browsers */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba( 0, 0, 0, 0.8 )), color-stop(85%, rgba( 0, 0, 0, 0 ))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient( left, rgba( 0, 0, 0, 0.8 ) 35%, rgba( 0, 0, 0, 0 ) 55% ); /* Chrome10+,Safari5.1+ */
+	background:  -khtml-linear-gradient( left, rgba( 0, 0, 0, 0.8 ) 35%, rgba( 0, 0, 0, 0 ) 55% ); /* FF3.6+ */
+	background:    -moz-linear-gradient( left, rgba( 0, 0, 0, 0.8 ) 35%, rgba( 0, 0, 0, 0 ) 55% ); /* FF3.6+ */
+	background:     -ms-linear-gradient( left, rgba( 0, 0, 0, 0.8 ) 35%, rgba( 0, 0, 0, 0 ) 55% ); /* IE10+ */
+	background:      -o-linear-gradient( left, rgba( 0, 0, 0, 0.8 ) 35%, rgba( 0, 0, 0, 0 ) 55%); /* Opera 11.10+ */
+	background:	    linear-gradient(to right, rgba( 0, 0, 0, 0.8 ) 35%, rgba( 0, 0, 0, 0 ) 55%); /* W3C */
+-ms-filter:"progid:DXImageTransform.Microsoft.Gradient(GradientType=1, StartColorStr='#CC000000', EndColorStr='#00000000')";
+filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=1, StartColorStr=#CC000000, EndColorStr=#00000000); /* IE6-9 */
+}
+ section#content #myCarousel article div h1 a
+,section#main-rotation #myCarousel article div h1 a {
+	color: #fff;
+	font-weight: normal;
+        font-size: 120%;
+}
+ section#content #myCarousel article div h1
+,section#main-rotation #myCarousel article div h1 {
+	font-size: 135%;
+	letter-spacing: 0.02em;
+	margin-bottom: 0%;
+	position: relative;
+	background-color: transparent;
+	position: static;
+	margin-left: 0%;
+	padding-left: 0%;
+        padding-top: 1em;
+}
+ section#content #myCarousel article div p
+,section#main-rotation #myCarousel article div p {
+	margin: 0.2em 0%;
+	font-size: 100%;
+	line-height: 1.1em;
+}
+ section#content #myCarousel article div p.read
+,section#main-rotation #myCarousel article div p.read {
+	margin: 1.5em 0% 1em 0%;
+}
+ section#content #myCarousel article div p a
+,section#main-rotation #myCarousel article div p a {
+	font-size: 90%;
+	font-weight: bold;
+	background-color: #d10031;
+	color: #fff;
+	padding: 1em 1.5em;
+	-webkit-border-radius: 0.4em;
+	-khtml-border-radius: 0.4em;
+	-moz-border-radius: 0.4em;
+	-ms-border-radius: 0.4em;
+	-o-border-radius: 0.4em;
+	border-radius: 0.4em;
+	-webkit-text-shadow: 0em -0.1em 0.1em rgba( 0, 0, 0, 0.7);
+	-khtml-text-shadow: 0em -0.1em 0.1em rgba( 0, 0, 0, 0.7);
+	-moz-text-shadow: 0em -0.1em 0.1em rgba( 0, 0, 0, 0.7);
+	-ms-text-shadow: 0em -0.1em 0.1em rgba( 0, 0, 0, 0.7);
+	-o-text-shadow: 0em -0.1em 0.1em rgba( 0, 0, 0, 0.7);
+	text-shadow: 0em -0.1em 0.1em rgba( 0, 0, 0, 0.7);
+	-webkit-box-shadow: -0.01em 0.1em 0.1em rgba(255, 255, 255, 0.5) inset;
+	-khtml-box-shadow: -0.01em 0.1em 0.1em rgba(255, 255, 255, 0.5) inset;
+	-moz-box-shadow: -0.01em 0.1em 0.1em rgba(255, 255, 255, 0.5) inset;
+	-ms-box-shadow: -0.01em 0.1em 0.1em rgba(255, 255, 255, 0.5) inset;
+	-o-box-shadow: -0.01em 0.1em 0.1em rgba(255, 255, 255, 0.5) inset;
+	box-shadow: -0.01em 0.1em 0.1em rgba(255, 255, 255, 0.5) inset;
+/*
+	border-width: 0.1em;
+	border-style: solid;
+	border-top-color: ;
+	border-right-color: ;
+	border-bottom-color: ;
+	border-left-color: ;
+*/
+}
+
+/*
+
+nav#content-fixed-content
+{
+	background-color: rgba(0, 0, 0, 0.7);
+	bottom: 2.5em;
+	padding: 1em;
+	right: 2.5%;
+	top: 2.5em;
+	z-index: 52;
+	border-radius: 0.3em;
+}
+nav#content-fixed-content form,
+body.os-mac nav#content-fixed-content form
+{
+	padding-bottom: 1.25em;
+	position: relative;
+	width:100%;
+	min-height:120px;
+}
+nav#content-fixed-content form label
+{
+	font-size: 140%;
+	padding-top: 0.2em;
+}
+
+
+nav#content-fixed-content .course-button
+{
+	position: absolute;
+	top: 0.8em;
+	right: 1.7em;
+/*
+	background-color: #474949;
+	color: #fff;
+	background-color: #fff;
+* /
+	background: #fff;
+	background: linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 0.05) 2%, rgba(255, 255, 255, 0.06) 26%, rgba(4, 4, 4, 0.1) 96%, rgba(0, 0, 0, 0.14) 97%, rgba(255, 255, 255, 0.25) 100%) repeat scroll 0 0 #fff;
+	color: #333;
+	padding: 0.15em 1em 0% 1em;
+	font-weight: bold;
+	-webkit-border-radius: 0.25em;
+	-khtml-border-radius: 0.25em;
+	-moz-border-radius: 0.25em;
+	-ms-border-radius: 0.25em;
+	-o-border-radius: 0.25em;
+	border-radius: 0.25em;
+	box-shadow: 0.1em 0.1em 0.1em rgba( 0 , 0 , 0 , 0.5 );
+}
+nav#content-fixed-content .returning
+{
+	position: absolute;
+	bottom: 0.7em;
+	right: 1.3em;
+	text-decoration: underline;
+	font-size: 92.857%;
+}
+nav#content-fixed-content .returning:hover
+{
+	text-decoration: none;
+}
+*/
+/**
+ * END: content_modules_myCarousel (#000000)
+ * = = = = = = = = = = = = = = = = = = = = = = = = 
+ */
+
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: content_modules_fixed-content (#000000) 
+ */
+ nav#content-fixed-content
+{
+	position: absolute;
+	right: 3.5%;
+	bottom: 14.9%;
+	width: 34.9%;
+}
+
+
+
+nav#content-fixed-content form
+{
+	padding: 0.5em 5.55% 2em 6.75%;
+	width: 87.7%;
+	background-color: #00539f;
+	/* height: 4em; */
+}
+
+.os-mac nav#content-fixed-content form
+{
+	padding-bottom: 1.5em;
+}
+
+nav#content-fixed-content form label
+{
+	display: block;
+	color: #fff;
+	margin: 0% 0% 0.5em;
+	font-weight: 600;
+	font-size: 125% !important;
+}
+
+#content-fixed-content form .search-and-submit
+{
+	width: 100%;
+}
+
+
+
+.re-gecko #main-rotation nav#content-fixed-content form input.t-search
+{
+	padding: 0.78em 0.5em;
+}
+
+nav#content-fixed-content form input.submit
+{
+	left: 86%;
+}
+
+.os-mac nav#content-fixed-content form input.submit
+{
+	left: auto;
+	right: 0%;
+}
+
+.os-mac nav#content-fixed-content form input.t-search
+{
+	width: 20em;
+}
+
+.os-mac.re-gecko nav#content-fixed-content form input.t-search
+{
+	padding: 0.63em 0.5em;
+	width: 20.3em;
+}
+
+nav#content-fixed-content form a
+{
+	color: #fff;
+	margin-top: 0.3em;
+	padding-top: 0%;
+	font-size: 80%;
+	font-weight: 400;
+}
+
+nav#content-fixed-content li
+{
+	background-color: #fff;
+	margin: 0.75em 0% 0%;/* padding: 0% 3.43em 0% 0%; */
+ 
+	padding: 0%;
+	display: block;
+	list-style-type: none;
+}
+
+
+
+/* nav#content-fixed-content li a { color: #00539f; font-size: 95%; border-right: 0.1em solid #dbdbdb; padding: 1.1em 1.2em 1.1em 1.3em; font-weight: 700; } */
+ nav#content-fixed-content li a
+{
+	color: #00539f;
+	font-size: 95%;
+	padding: 1.1em 5em 1.1em 1.3em;
+	font-weight: 700;
+	display: block;
+	position: relative;
+	-webkit-border-radius: 0.4em 0.4em 0.4em 0.4em;
+	-khtml-border-radius: 0.4em 0.4em 0.4em 0.4em;
+	-moz-border-radius: 0.4em 0.4em 0.4em 0.4em;
+	-ms-border-radius: 0.4em 0.4em 0.4em 0.4em;
+	-o-border-radius: 0.4em 0.4em 0.4em 0.4em;
+	border-radius: 0.4em 0.4em 0.4em 0.4em;/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+ 
+	background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIwLjA1Ii8+CiAgICA8c3RvcCBvZmZzZXQ9IjIlIiBzdG9wLWNvbG9yPSIjMDAwMDAwIiBzdG9wLW9wYWNpdHk9IjAuMDUiLz4KICAgIDxzdG9wIG9mZnNldD0iMjYlIiBzdG9wLWNvbG9yPSIjZmZmZmZmIiBzdG9wLW9wYWNpdHk9IjAuMDYiLz4KICAgIDxzdG9wIG9mZnNldD0iOTYlIiBzdG9wLWNvbG9yPSIjMDQwNDA0IiBzdG9wLW9wYWNpdHk9IjAuMSIvPgogICAgPHN0b3Agb2Zmc2V0PSI5NyUiIHN0b3AtY29sb3I9IiMwMDAwMDAiIHN0b3Atb3BhY2l0eT0iMC4xNCIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZmZmZmZmIiBzdG9wLW9wYWNpdHk9IjAuMjUiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==');
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.05)), color-stop(2%,rgba(0,0,0,0.05)), color-stop(26%,rgba(255,255,255,0.06)), color-stop(96%,rgba(4,4,4,0.1)), color-stop(97%,rgba(0,0,0,0.14)), color-stop(100%,rgba(255,255,255,0.25)));/* Chrome,Safari4+ */
+ 
+	background: -webkit-linear-gradient(top, rgba(255,255,255,0.05) 0%,rgba(0,0,0,0.05) 2%,rgba(255,255,255,0.06) 26%,rgba(4,4,4,0.1) 96%,rgba(0,0,0,0.14) 97%,rgba(255,255,255,0.25) 100%);/* Chrome10+,Safari5.1+ */
+ 
+	background:    -moz-linear-gradient(top, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0.05) 2%, rgba(255,255,255,0.06) 26%, rgba(4,4,4,0.1) 96%, rgba(0,0,0,0.14) 97%, rgba(255,255,255,0.25) 100%);/* FF3.6+ */
+ 
+	background:     -ms-linear-gradient(top, rgba(255,255,255,0.05) 0%,rgba(0,0,0,0.05) 2%,rgba(255,255,255,0.06) 26%,rgba(4,4,4,0.1) 96%,rgba(0,0,0,0.14) 97%,rgba(255,255,255,0.25) 100%);/* IE10+ */
+ 
+	background:     -o-linear-gradient(top, rgba(255,255,255,0.05) 0%,rgba(0,0,0,0.05) 2%,rgba(255,255,255,0.06) 26%,rgba(4,4,4,0.1) 96%,rgba(0,0,0,0.14) 97%,rgba(255,255,255,0.25) 100%);/* Opera 11.10+ */
+ 
+	background: linear-gradient(to bottom, rgba(255,255,255,0.05) 0%,rgba(0,0,0,0.05) 2%,rgba(255,255,255,0.06) 26%,rgba(4,4,4,0.1) 96%,rgba(0,0,0,0.14) 97%,rgba(255,255,255,0.25) 100%);/* W3C */
+
+}  */
+
+nav#content-fixed-content li a:after
+{
+	border-left: 0.1em solid #DBDBDB;
+	content: ' ';
+	position: absolute;
+	top: 0%;
+	right: 3.6em;
+	bottom: 0%;
+}
+
+#autosug
+{
+	z-index: 10000;
+}
+
+#landing-form a.btn-default {
+	color:#333; float:right; font-size:0.8em; padding:0.3em 0; width:7em;
+}
+#landing-form a.btn-default:hover { background-color: #BFBFBF !important; color: #333; }
+/**
+ * END: content_modules_fixed-content (#000000)
+ * = = = = = = = = = = = = = = = = = = = = = = = = 
+ */
+ 
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: content_modules_odds-and-sods (#000000) 
+ */
+ #askacu fieldset
+{
+	padding-bottom: 10px;
+	padding-left: 10px;
+	width: 200px;
+}
+
+body.career_match_ #content-menu
+{
+	display: none;
+}
+
+body.connect_with_acu_ ul.connect_social li
+{
+	height: 2.8em;
+}
+
+body.connect_with_acu_ ul.connect_social li a
+{
+	background-repeat: no-repeat;
+	height: 1.5em;
+	width: 4em;
+	padding: 0.8em 1.4em 0.6em 3em;
+}
+
+body.connect_with_acu_ ul.connect_social li.fb a
+{
+	background-position: 0em 0.1em;
+}
+
+body.connect_with_acu_ ul.connect_social li.youtube a
+{
+	background-position: 0em -2.6em;
+}
+
+body.connect_with_acu_ ul.connect_social li.twitter a
+{
+	background-position: 0em -5.25em;
+}
+
+body.connect_with_acu_ ul.connect_social li.linkedin a
+{
+	background-position: 0em -7.95em;
+}
+
+body.connect_with_acu_ ul.connect_social li
+{
+	line-height: 2.3em;
+}
+
+
+/**
+ * END: content_modules_odds-and-sods (#000000)
+ * = = = = = = = = = = = = = = = = = = = = = = = = 
+ */
+ 
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: content_modules_staff-dir (#000000) 
+ */
+ /* STAFF DIRECTORY (P.H. 22/10/2012) */
+ .rounded-corners
+{
+	float: left;
+	border-radius: 0.5em 0.5em 0.5em 0.5em;
+	border-style: solid;
+	border-width: 0.1em;
+	font-size: 80%;
+	margin-top: 1.5em;
+	margin-right: 2em;
+	padding: 0.8em 1em;
+	width: 15.5em;
+	background-color: #FBFBFB;
+	border-color: #E1E1E1;
+	display: block;
+}
+
+.rounded-corners li
+{
+	list-style-type: none;
+	margin-left: 0;
+	padding-left: 0;
+}
+
+div#staff_dir
+{
+	padding: 0 !important;
+}
+
+input#submit
+{
+	cursor: pointer;
+	border-radius: 0.5em 0.5em 0.5em 0.5em;
+	font-size: 110%;
+	padding: 0.3em!important;
+	font-weight: 400;
+	//margin-left: -2.5em;
+}
+
+input#submit_extension
+{
+	cursor: pointer;
+	border-radius: 0.5em 0.5em 0.5em 0.5em;
+	font-size: 110%;
+	padding: 0.3em!important;
+	font-weight: 400;
+	margin-top: 0.6em;
+}
+
+#form2 dt
+{
+	margin-bottom: 0.1em;
+}
+
+#staff_dir dt
+{
+	font-size: 0.8em;
+}
+
+#staff_dir p
+{
+	font-size: 1em;
+	margin-top: 1em;
+}
+
+input#first_name
+{
+	margin-right: 0;
+	border: 1px solid #E1E1E1;
+	display: block;
+	height: 1.7em;
+	line-height: 1.7em;
+	padding: 0.2em;
+	font-size: 140%;
+	width: 9em;
+}
+
+input#surname
+{
+	margin-left: 0;
+	border: 1px solid #E1E1E1;
+	display: block;
+	height: 1.8em;
+	padding: 0.2em;
+	line-height: 1.7em;
+	margin-top: -0.2em;
+	font-size: 110%;
+	width: 9em;
+}
+
+input#phone
+{
+	border: 1px solid #E1E1E1;
+	display: block;
+	height: 1.8em;
+	padding: 0.2em;
+	line-height: 1.7em;
+	margin-top: 0.5em;
+	font-size: 110%;
+}
+
+input#submit_department
+{
+	cursor: pointer;
+	border-radius: 0.5em 0.5em 0.5em 0.5em;
+	font-size: 110%;
+	padding: 0.3em!important;
+	font-weight: 400;
+	margin-left: 0;
+}
+
+#form3 dd
+{
+	margin-left: 0;
+}
+
+/* business card pages */
+ .shade
+{
+	background-color: #E1E1E1;
+}
+
+
+.profile_box
+{
+	font-size: 80%;
+	border: 1px solid #E1E1E1 !important;
+	float: left;
+}
+
+img.round_corner
+{
+	display: block!important;
+}
+
+/* ----------------------------------- staff dept listings ----------------------------------- */
+ #staff_dir h2.heading
+{
+	width: 26em;
+}
+
+.profile_box
+{
+	display: block;
+	width: 54em;
+	padding-left: 0;
+	border: none!important;
+	font-size: 1em;
+}
+
+.profile_sub-box
+{
+	border: 1px solid #E1E1E1 !important;
+}
+
+.profile_sub-nested
+{
+	border: none!important;
+}
+
+#staff_dir table td,#staff_dir table tr,#staff_dir table
+{
+	border: none!important;
+}
+
+/* min-height:260px; margin-bottom:1em; border: dashed 1px #bbb; */
+ .profile_box h4
+{
+	margin-bottom: 0;
+	font-size: 1.4em;
+	padding-top: 0;
+}
+
+.profile_box h4 span
+{
+	font-size: 0.9em;
+	color: #aaa;
+	font-weight: 300;
+	margin-bottom: 0;
+}
+
+.profile_box h4 a
+{
+	text-decoration: none;
+	padding-bottom: 0;
+	padding-top: 0;
+}
+
+.profile_box h4 a:visited
+{
+	color: #444;
+}
+
+.profile_box h4 a:hover
+{
+	text-decoration: underline;
+}
+
+.profile_sub-box
+{
+	float: left;
+	min-width: 47em;
+	padding-left: 1em;
+	padding-top: 0;
+	padding-right: 20px;
+	border: dashed 1px #E1E1E1;
+	margin-bottom: 1em;
+	border-radius: 0.5em 0.5em 0.5em 0.5em;
+	border-style: solid;
+	border-width: 0.1em;
+	border-color: #E1E1E1;
+}
+
+#staff_dir .profile_box dl
+{
+	float: left;
+	float: none;
+	padding: 0.1em 0 0.1em 0;
+}
+
+#staff_dir .profile_box dd
+{
+	font-size: 1em;
+	margin: 0;
+	padding: 0;
+	margin-left: 13em;
+}
+
+#staff_dir .profile_box dd span
+{
+	font-size: 1em;
+}
+
+#staff_dir .profile_box dd a
+{
+	text-decoration: none;
+}
+
+#staff_dir .profile_box dd a:hover
+{
+	text-decoration: underline;
+}
+
+#staff_dir .profile_box dt
+{
+	font-size: 1em;
+	margin: 0;
+	padding: 0;
+	float: left;
+}
+
+#staff_dir .profile_box h3 a
+{
+	font-size: 1.4em;
+}
+
+#staff_dir .profile_box dd.title
+{
+	font-weight: bold;
+	margin: -0.75em 0 1em 0;
+	font-size: 1.1em;
+}
+
+#staff_dir .profile_box dt.img
+{
+	border: 0;
+	float: right;
+	margin-top: -15px;
+	padding-left: 30px;
+	margin-bottom: 10px;
+	border: 0;
+	background-color: #fff;
+}
+
+#staff_dir .profile_box dt.img img
+{
+	display: block;
+}
+
+
+/**
+ * END: content_modules_staff-dir (#000000)
+ * = = = = = = = = = = = = = = = = = = = = = = = = 
+ */
+ 
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: content_modules_external_prettyphoto (#000000) 
+ */
+ 
+/** ------------------------------------------------------------------------
+ * Prettyphoto CSS
+ * ------------------------------------------------------------------------- 
+ */
+ div.light_rounded .pp_top .pp_left
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0004/303286/sprite.png') -88px -53px no-repeat;
+}
+
+div.light_rounded .pp_top .pp_middle
+{
+	background: #fff;
+}
+
+div.light_rounded .pp_top .pp_right
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0004/303286/sprite.png') -110px -53px no-repeat;
+}
+
+div.light_rounded .pp_content .ppt
+{
+	color: #000;
+}
+
+div.light_rounded .pp_content_container .pp_left,div.light_rounded .pp_content_container .pp_right
+{
+	background: #fff;
+}
+
+div.light_rounded .pp_content
+{
+	background-color: #fff;
+}
+
+div.light_rounded .pp_next:hover
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0018/303282/btnNext.png') center right no-repeat;
+	cursor: pointer;
+}
+
+div.light_rounded .pp_previous:hover
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0019/303283/btnPrevious.png') center left no-repeat;
+	cursor: pointer;
+}
+
+div.light_rounded .pp_expand
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0004/303286/sprite.png') -31px -26px no-repeat;
+	cursor: pointer;
+}
+
+div.light_rounded .pp_expand:hover
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0004/303286/sprite.png') -31px -47px no-repeat;
+	cursor: pointer;
+}
+
+div.light_rounded .pp_contract
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0004/303286/sprite.png') 0 -26px no-repeat;
+	cursor: pointer;
+}
+
+div.light_rounded .pp_contract:hover
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0004/303286/sprite.png') 0 -47px no-repeat;
+	cursor: pointer;
+}
+
+div.light_rounded .pp_close
+{
+	width: 75px;
+	height: 22px;
+	background: url('//www.acu.edu.au/__data/assets/image/0004/303286/sprite.png') -1px -1px no-repeat;
+	cursor: pointer;
+}
+
+div.light_rounded #pp_full_res .pp_inline
+{
+	color: #000;
+}
+
+div.light_rounded .pp_gallery a.pp_arrow_previous,div.light_rounded .pp_gallery a.pp_arrow_next
+{
+	margin-top: 12px !important;
+}
+
+div.light_rounded .pp_nav .pp_play
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0004/303286/sprite.png') -1px -100px no-repeat;
+	height: 15px;
+	width: 14px;
+}
+
+div.light_rounded .pp_nav .pp_pause
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0004/303286/sprite.png') -24px -100px no-repeat;
+	height: 15px;
+	width: 14px;
+}
+
+div.light_rounded .pp_arrow_previous
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0004/303286/sprite.png') 0 -71px no-repeat;
+}
+
+div.light_rounded .pp_arrow_previous.disabled
+{
+	background-position: 0 -87px;
+	cursor: default;
+}
+
+div.light_rounded .pp_arrow_next
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0004/303286/sprite.png') -22px -71px no-repeat;
+}
+
+div.light_rounded .pp_arrow_next.disabled
+{
+	background-position: -22px -87px;
+	cursor: default;
+}
+
+div.light_rounded .pp_bottom .pp_left
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0004/303286/sprite.png') -88px -80px no-repeat;
+}
+
+div.light_rounded .pp_bottom .pp_middle
+{
+	background: #fff;
+}
+
+div.light_rounded .pp_bottom .pp_right
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0004/303286/sprite.png') -110px -80px no-repeat;
+}
+
+div.light_rounded .pp_loaderIcon
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0003/303285/loader.gif') center center no-repeat;
+}
+
+div.dark_rounded .pp_top .pp_left
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0005/303269/sprite.png') -88px -53px no-repeat;
+}
+
+div.dark_rounded .pp_top .pp_middle
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0005/303278/contentPattern.png') top left repeat;
+}
+
+div.dark_rounded .pp_top .pp_right
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0005/303269/sprite.png') -110px -53px no-repeat;
+}
+
+div.dark_rounded .pp_content_container .pp_left
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0005/303278/contentPattern.png') top left repeat-y;
+}
+
+div.dark_rounded .pp_content_container .pp_right
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0005/303278/contentPattern.png') top right repeat-y;
+}
+
+div.dark_rounded .pp_content
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0005/303278/contentPattern.png') top left repeat;
+}
+
+div.dark_rounded .pp_next:hover
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0004/303268/btnNext.png') center right no-repeat;
+	cursor: pointer;
+}
+
+div.dark_rounded .pp_previous:hover
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0004/303277/btnPrevious.png') center left no-repeat;
+	cursor: pointer;
+}
+
+div.dark_rounded .pp_expand
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0005/303269/sprite.png') -31px -26px no-repeat;
+	cursor: pointer;
+}
+
+div.dark_rounded .pp_expand:hover
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0005/303269/sprite.png') -31px -47px no-repeat;
+	cursor: pointer;
+}
+
+div.dark_rounded .pp_contract
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0005/303269/sprite.png') 0 -26px no-repeat;
+	cursor: pointer;
+}
+
+div.dark_rounded .pp_contract:hover
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0005/303269/sprite.png') 0 -47px no-repeat;
+	cursor: pointer;
+}
+
+div.dark_rounded .pp_close
+{
+	width: 75px;
+	height: 22px;
+	background: url('//www.acu.edu.au/__data/assets/image/0005/303269/sprite.png') -1px -1px no-repeat;
+	cursor: pointer;
+}
+
+div.dark_rounded .currentTextHolder
+{
+	color: #c4c4c4;
+}
+
+div.dark_rounded .pp_description
+{
+	color: #fff;
+}
+
+div.dark_rounded #pp_full_res .pp_inline
+{
+	color: #fff;
+}
+
+div.dark_rounded .pp_gallery a.pp_arrow_previous,div.dark_rounded .pp_gallery a.pp_arrow_next
+{
+	margin-top: 12px !important;
+}
+
+div.dark_rounded .pp_nav .pp_play
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0005/303269/sprite.png') -1px -100px no-repeat;
+	height: 15px;
+	width: 14px;
+}
+
+div.dark_rounded .pp_nav .pp_pause
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0005/303269/sprite.png') -24px -100px no-repeat;
+	height: 15px;
+	width: 14px;
+}
+
+div.dark_rounded .pp_arrow_previous
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0005/303269/sprite.png') 0 -71px no-repeat;
+}
+
+div.dark_rounded .pp_arrow_previous.disabled
+{
+	background-position: 0 -87px;
+	cursor: default;
+}
+
+div.dark_rounded .pp_arrow_next
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0005/303269/sprite.png') -22px -71px no-repeat;
+}
+
+div.dark_rounded .pp_arrow_next.disabled
+{
+	background-position: -22px -87px;
+	cursor: default;
+}
+
+div.dark_rounded .pp_bottom .pp_left
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0005/303269/sprite.png') -88px -80px no-repeat;
+}
+
+div.dark_rounded .pp_bottom .pp_middle
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0005/303278/contentPattern.png') top left repeat;
+}
+
+div.dark_rounded .pp_bottom .pp_right
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0005/303269/sprite.png') -110px -80px no-repeat;
+}
+
+div.dark_rounded .pp_loaderIcon
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0015/303270/loader.gif') center center no-repeat;
+}
+
+div.dark_square .pp_left,div.dark_square .pp_middle,div.dark_square .pp_right,div.dark_square .pp_content
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0005/303287/contentPattern.png') top left repeat;
+}
+
+div.dark_square .currentTextHolder
+{
+	color: #c4c4c4;
+}
+
+div.dark_square .pp_description
+{
+	color: #fff;
+}
+
+div.dark_square .pp_loaderIcon
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0017/303263/loader.gif') center center no-repeat;
+}
+
+div.dark_square .pp_content_container .pp_left
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0005/303278/contentPattern.png') top left repeat-y;
+}
+
+div.dark_square .pp_content_container .pp_right
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0005/303278/contentPattern.png') top right repeat-y;
+}
+
+div.dark_square .pp_expand
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0007/303289/sprite.png') -31px -26px no-repeat;
+	cursor: pointer;
+}
+
+div.dark_square .pp_expand:hover
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0007/303289/sprite.png') -31px -47px no-repeat;
+	cursor: pointer;
+}
+
+div.dark_square .pp_contract
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0007/303289/sprite.png') 0 -26px no-repeat;
+	cursor: pointer;
+}
+
+div.dark_square .pp_contract:hover
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0007/303289/sprite.png') 0 -47px no-repeat;
+	cursor: pointer;
+}
+
+div.dark_square .pp_close
+{
+	width: 75px;
+	height: 22px;
+	background: url('//www.acu.edu.au/__data/assets/image/0007/303289/sprite.png') -1px -1px no-repeat;
+	cursor: pointer;
+}
+
+div.dark_square #pp_full_res .pp_inline
+{
+	color: #fff;
+}
+
+div.dark_square .pp_gallery a.pp_arrow_previous,div.dark_square .pp_gallery a.pp_arrow_next
+{
+	margin-top: 12px !important;
+}
+
+div.dark_square .pp_nav .pp_play
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0007/303289/sprite.png') -1px -100px no-repeat;
+	height: 15px;
+	width: 14px;
+}
+
+div.dark_square .pp_nav .pp_pause
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0007/303289/sprite.png') -24px -100px no-repeat;
+	height: 15px;
+	width: 14px;
+}
+
+div.dark_square .pp_arrow_previous
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0007/303289/sprite.png') 0 -71px no-repeat;
+}
+
+div.dark_square .pp_arrow_previous.disabled
+{
+	background-position: 0 -87px;
+	cursor: default;
+}
+
+div.dark_square .pp_arrow_next
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0007/303289/sprite.png') -22px -71px no-repeat;
+}
+
+div.dark_square .pp_arrow_next.disabled
+{
+	background-position: -22px -87px;
+	cursor: default;
+}
+
+div.dark_square .pp_next:hover
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0018/303264/btnNext.png') center right no-repeat;
+	cursor: pointer;
+}
+
+div.dark_square .pp_previous:hover
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0006/303288/btnPrevious.png') center left no-repeat;
+	cursor: pointer;
+}
+
+div.light_square .pp_left,div.light_square .pp_middle,div.light_square .pp_right,div.light_square .pp_content
+{
+	background: #fff;
+}
+
+div.light_square .pp_content .ppt
+{
+	color: #000;
+}
+
+div.light_square .pp_expand
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0013/303313/sprite.png') -31px -26px no-repeat;
+	cursor: pointer;
+}
+
+div.light_square .pp_expand:hover
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0013/303313/sprite.png') -31px -47px no-repeat;
+	cursor: pointer;
+}
+
+div.light_square .pp_contract
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0013/303313/sprite.png') 0 -26px no-repeat;
+	cursor: pointer;
+}
+
+div.light_square .pp_contract:hover
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0013/303313/sprite.png') 0 -47px no-repeat;
+	cursor: pointer;
+}
+
+div.light_square .pp_close
+{
+	width: 75px;
+	height: 22px;
+	background: url('//www.acu.edu.au/__data/assets/image/0013/303313/sprite.png') -1px -1px no-repeat;
+	cursor: pointer;
+}
+
+div.light_square #pp_full_res .pp_inline
+{
+	color: #000;
+}
+
+div.light_square .pp_gallery a.pp_arrow_previous,div.light_square .pp_gallery a.pp_arrow_next
+{
+	margin-top: 12px !important;
+}
+
+div.light_square .pp_nav .pp_play
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0013/303313/sprite.png') -1px -100px no-repeat;
+	height: 15px;
+	width: 14px;
+}
+
+div.light_square .pp_nav .pp_pause
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0013/303313/sprite.png') -24px -100px no-repeat;
+	height: 15px;
+	width: 14px;
+}
+
+div.light_square .pp_arrow_previous
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0013/303313/sprite.png') 0 -71px no-repeat;
+}
+
+div.light_square .pp_arrow_previous.disabled
+{
+	background-position: 0 -87px;
+	cursor: default;
+}
+
+div.light_square .pp_arrow_next
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0013/303313/sprite.png') -22px -71px no-repeat;
+}
+
+div.light_square .pp_arrow_next.disabled
+{
+	background-position: -22px -87px;
+	cursor: default;
+}
+
+div.light_square .pp_next:hover
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0018/303309/btnNext.png') center right no-repeat;
+	cursor: pointer;
+}
+
+div.light_square .pp_previous:hover
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0010/303310/btnPrevious.png') center left no-repeat;
+	cursor: pointer;
+}
+
+div.facebook .pp_top .pp_left
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0019/303256/sprite.png') -88px -53px no-repeat;
+}
+
+div.facebook .pp_top .pp_middle
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0014/303314/contentPatternTop.png') top left repeat-x;
+}
+
+div.facebook .pp_top .pp_right
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0019/303256/sprite.png') -110px -53px no-repeat;
+}
+
+div.facebook .pp_content .ppt
+{
+	color: #000;
+}
+
+div.facebook .pp_content_container .pp_left
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0016/303316/contentPatternLeft.png') top left repeat-y;
+}
+
+div.facebook .pp_content_container .pp_right
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0015/303315/contentPatternRight.png') top right repeat-y;
+}
+
+div.facebook .pp_content
+{
+	background: #fff;
+}
+
+div.facebook .pp_expand
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0019/303256/sprite.png') -31px -26px no-repeat;
+	cursor: pointer;
+}
+
+div.facebook .pp_expand:hover
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0019/303256/sprite.png') -31px -47px no-repeat;
+	cursor: pointer;
+}
+
+div.facebook .pp_contract
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0019/303256/sprite.png') 0 -26px no-repeat;
+	cursor: pointer;
+}
+
+div.facebook .pp_contract:hover
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0019/303256/sprite.png') 0 -47px no-repeat;
+	cursor: pointer;
+}
+
+div.facebook .pp_close
+{
+	width: 22px;
+	height: 22px;
+	background: url('//www.acu.edu.au/__data/assets/image/0019/303256/sprite.png') -1px -1px no-repeat;
+	cursor: pointer;
+}
+
+div.facebook #pp_full_res .pp_inline
+{
+	color: #000;
+}
+
+div.facebook .pp_loaderIcon
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0019/303274/loader.gif') center center no-repeat;
+}
+
+div.facebook .pp_arrow_previous
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0019/303256/sprite.png') 0 -71px no-repeat;
+	height: 22px;
+	margin-top: 0;
+	width: 22px;
+}
+
+div.facebook .pp_arrow_previous.disabled
+{
+	background-position: 0 -96px;
+	cursor: default;
+}
+
+div.facebook .pp_arrow_next
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0019/303256/sprite.png') -32px -71px no-repeat;
+	height: 22px;
+	margin-top: 0;
+	width: 22px;
+}
+
+div.facebook .pp_arrow_next.disabled
+{
+	background-position: -32px -96px;
+	cursor: default;
+}
+
+div.facebook .pp_nav
+{
+	margin-top: 0;
+}
+
+div.facebook .pp_nav p
+{
+	font-size: 15px;
+	padding: 0 3px 0 4px;
+}
+
+div.facebook .pp_nav .pp_play
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0019/303256/sprite.png') -1px -123px no-repeat;
+	height: 22px;
+	width: 22px;
+}
+
+div.facebook .pp_nav .pp_pause
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0019/303256/sprite.png') -32px -123px no-repeat;
+	height: 22px;
+	width: 22px;
+}
+
+div.facebook .pp_next:hover
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0017/303254/btnNext.png') center right no-repeat;
+	cursor: pointer;
+}
+
+div.facebook .pp_previous:hover
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0018/303273/btnPrevious.png') center left no-repeat;
+	cursor: pointer;
+}
+
+div.facebook .pp_bottom .pp_left
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0019/303256/sprite.png') -88px -80px no-repeat;
+}
+
+div.facebook .pp_bottom .pp_middle
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0020/303275/contentPatternBottom.png') top left repeat-x;
+}
+
+div.facebook .pp_bottom .pp_right
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0019/303256/sprite.png') -110px -80px no-repeat;
+}
+
+div.pp_pic_holder a:focus
+{
+	outline: none;
+}
+
+div.pp_overlay
+{
+	background: #000;
+	display: none;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 9500;
+}
+
+div.pp_pic_holder
+{
+	display: none;
+	position: absolute;
+	width: 100px;
+	z-index: 10000;
+}
+
+.pp_top
+{
+	height: 20px;
+	position: relative;
+}
+
+* html .pp_top
+{
+	padding: 0 20px;
+}
+
+.pp_top .pp_left
+{
+	height: 20px;
+	left: 0;
+	position: absolute;
+	width: 20px;
+}
+
+.pp_top .pp_middle
+{
+	height: 20px;
+	left: 20px;
+	position: absolute;
+	right: 20px;
+}
+
+* html .pp_top .pp_middle
+{
+	left: 0;
+	position: static;
+}
+
+.pp_top .pp_right
+{
+	height: 20px;
+	left: auto;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 20px;
+}
+
+.pp_content
+{
+	height: 40px;
+}
+
+.pp_fade
+{
+	display: none;
+}
+
+.pp_content_container
+{
+	position: relative;
+	text-align: left;
+	width: 100%;
+}
+
+.pp_content_container .pp_left
+{
+	padding-left: 20px;
+}
+
+.pp_content_container .pp_right
+{
+	padding-right: 20px;
+}
+
+.pp_content_container .pp_details
+{
+	float: left;
+	margin: 10px 0 2px 0;
+}
+
+.pp_description
+{
+	display: none;
+	margin: 0 0 5px 0;
+}
+
+.pp_nav
+{
+	clear: left;
+	float: left;
+	margin: 3px 0 0 0;
+}
+
+.pp_nav p
+{
+	float: left;
+	margin: 2px 4px;
+}
+
+.pp_nav .pp_play,.pp_nav .pp_pause
+{
+	float: left;
+	margin-right: 4px;
+	text-indent: -10000px;
+}
+
+a.pp_arrow_previous,a.pp_arrow_next
+{
+	display: block;
+	float: left;
+	height: 15px;
+	margin-top: 3px;
+	overflow: hidden;
+	text-indent: -10000px;
+	width: 14px;
+}
+
+.pp_hoverContainer
+{
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 2000;
+}
+
+.pp_gallery
+{
+	left: 50%;
+	margin-top: -50px;
+	position: absolute;
+	z-index: 10000;
+}
+
+.pp_gallery ul
+{
+	float: left;
+	height: 35px;
+	margin: 0 0 0 5px;
+	overflow: hidden;
+	padding: 0;
+	position: relative;
+}
+
+.pp_gallery ul a
+{
+	border: 1px #000 solid;
+	border: 1px rgba(0, 0, 0, 0.5) solid;
+	display: block;
+	float: left;
+	height: 33px;
+	overflow: hidden;
+}
+
+.pp_gallery ul a:hover,.pp_gallery li.selected a
+{
+	border-color: #fff;
+}
+
+.pp_gallery ul a img
+{
+	border: 0;
+}
+
+.pp_gallery li
+{
+	display: block;
+	float: left;
+	margin: 0 5px 0 0;
+}
+
+.pp_gallery li.default a
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0018/303318/default_thumbnail.gif') 0 0 no-repeat;
+	display: block;
+	height: 33px;
+	width: 50px;
+}
+
+.pp_gallery li.default a img
+{
+	display: none;
+}
+
+.pp_gallery .pp_arrow_previous,.pp_gallery .pp_arrow_next
+{
+	margin-top: 7px !important;
+}
+
+a.pp_next
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0018/303282/btnNext.png') 10000px 10000px no-repeat;
+	display: block;
+	float: right;
+	height: 100%;
+	text-indent: -10000px;
+	width: 49%;
+}
+
+a.pp_previous
+{
+	background: url('//www.acu.edu.au/__data/assets/image/0018/303282/btnNext.png') 10000px 10000px no-repeat;
+	display: block;
+	float: left;
+	height: 100%;
+	text-indent: -10000px;
+	width: 49%;
+}
+
+a.pp_expand,a.pp_contract
+{
+	cursor: pointer;
+	display: none;
+	height: 20px;
+	position: absolute;
+	right: 30px;
+	text-indent: -10000px;
+	top: 10px;
+	width: 20px;
+	z-index: 20000;
+}
+
+a.pp_close
+{
+	display: block;
+	float: right;
+	line-height: 22px;
+	text-indent: -10000px;
+}
+
+.pp_bottom
+{
+	height: 20px;
+	position: relative;
+}
+
+* html .pp_bottom
+{
+	padding: 0 20px;
+}
+
+.pp_bottom .pp_left
+{
+	height: 20px;
+	left: 0;
+	position: absolute;
+	width: 20px;
+}
+
+.pp_bottom .pp_middle
+{
+	height: 20px;
+	left: 20px;
+	position: absolute;
+	right: 20px;
+}
+
+* html .pp_bottom .pp_middle
+{
+	left: 0;
+	position: static;
+}
+
+.pp_bottom .pp_right
+{
+	height: 20px;
+	left: auto;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 20px;
+}
+
+.pp_loaderIcon
+{
+	display: block;
+	height: 24px;
+	left: 50%;
+	margin: -12px 0 0 -12px;
+	position: absolute;
+	top: 50%;
+	width: 24px;
+}
+
+#pp_full_res
+{
+	line-height: 1 !important;
+}
+
+#pp_full_res .pp_inline
+{
+	text-align: left;
+}
+
+#pp_full_res .pp_inline p
+{
+	margin: 0 0 15px 0;
+}
+
+div.ppt
+{
+	color: #fff;
+	display: none;
+	font-size: 17px;
+	margin: 0 0 5px 15px;
+	z-index: 9999;
+}
+
+.clearfix:after
+{
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+.clearfix
+{
+	display: inline-block;
+}
+
+* html .clearfix
+{
+	height: 1%;
+}
+
+.clearfix
+{
+	display: block;
+}
+
+/* ---------------THUMBNAIL CSS------------------------------ */
+ ul.gallery
+{
+	list-style: none;
+	margin: 0 0 10px 0;
+}
+
+ul.gallery li
+{
+	display: block;
+	float: left;
+	margin: 0 5px 20px;0;
+	height: 60px;
+}
+
+ul.gallery li img
+{
+	overflow: hidden;
+	display: block;
+	margin: 0 auto;
+}
+
+ul.gallery a
+{
+	padding: 2px 0;
+	display: block;
+	border: 1px #d9d2d3 solid;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	line-height: 0;
+	width: 60px;
+	overflow: hidden;
+}
+
+ul.gallery a:hover
+{
+	border: 2px #999 solid;
+}
+
+/* ------------------------------------------------------------------------ Gallery ------------------------------------------------------------------------- */
+ .gallery a
+{
+	background: none !important;
+	border: 1px #000 solid;
+	display: block;
+	padding: 2px !important;
+	width: 60px;
+}
+
+.gallery a:hover
+{
+	border-color: #1799A9;
+}
+
+/* ------------------------------------------------------------------------ Clearfix ------------------------------------------------------------------------- */
+ .clearfix:after
+{
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+/* Hides from IE-mac \*/
+ * html .clearfix
+{
+	height: 1%;
+}
+
+.clearfix
+{
+	display: block;
+}
+
+/* End hide from IE-mac */
+ .clearfix:after
+{
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+.clearfix
+{
+	display: inline-block;
+}
+
+/* Hides from IE-mac \*/
+ * html .clearfix
+{
+	height: 1%;
+}
+
+.clearfix
+{
+	display: block;
+}
+
+.clearfix:after
+{
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+.clearfix
+{
+	display: inline-block;
+}
+
+/* Hides from IE-mac \*/
+ * html .clearfix
+{
+	height: 1%;
+}
+
+.clearfix
+{
+	display: block;
+}
+
+
+/**
+ * END: content_modules_external_prettyphoto (#000000)
+ * = = = = = = = = = = = = = = = = = = = = = = = = 
+ */
+ 
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: content_modules_pixel-perfect (#000000) 
+ */
+ /* End hide from IE-mac */
+ /* ------------------------------------------------------------------------ End of Prettyphoto CSS ------------------------------------------------------------------------- */
+ /* START: pixel perfect */
+ p#design-overlay
+{
+	position: absolute;
+	top: 0%;
+	right: 0%;
+	bottom: 0%;
+	left: 0%;
+	height: 100em;
+}
+
+p#design-overlay span
+{
+	display: block;
+	height: 100%;
+	margin: 0% auto;
+	background-repeat: no-repeat;
+	background-position: -230px 0em;
+	background-size: 148.93617% auto;
+	width: 67.143em;
+	max-width: 100%;
+	opacity: 0.6;
+	filter: Alpha(Opacity=50);
+}
+
+
+/**
+ * END: content_modules_pixel-perfect (#000000)
+ * = = = = = = = = = = = = = = = = = = = = = = = = 
+ */
+ 
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: content_modules_random (#000000) 
+ */
+ /* END: css_head_basic */
+ h2.clear_float,h3.clear_float
+{
+	clear: left;
+}
+
+div.news-nav.top
+{
+	border-bottom: 0.1em solid #E1E1E1;
+	padding-bottom: 0.1em;
+	margin-bottom: 2em;
+}
+
+div.news-nav.bottom
+{
+	padding: 1.2em 0% 0% 0%;
+	border-top: 0.1em solid #E1E1E1;
+	margin-top: 1em;
+}
+
+div.news-nav p label
+{
+}
+
+div.news-nav p.nav
+{
+	color: #aaa;
+}
+
+div.news-nav p span.previous
+{
+	padding-right: 1.5em;
+}
+
+div.news-nav p span.list
+{
+}
+
+div.news-nav p span.next
+{
+	padding-left: 1.5em;
+}
+
+div.news-nav p span a
+{
+}
+
+
+/**
+ * END: content_modules_random (#000000)
+ * = = = = = = = = = = = = = = = = = = = = = = = = 
+ */
+ 
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: content_modules_career-hub (#000000) 
+ */
+ /* For career hub template */
+ #jobDetails img
+{
+	display: inline !important;
+}
+
+#jobTitle
+{
+	width: 100% !important;
+	padding-top: 0.5em;
+}
+
+#pageupContent table
+{
+	margin-bottom: 0.5em !important;
+}
+
+#customTemplate div#location,#customTemplate div#openingDate,#customTemplate div#closingDate,#customTemplate div#departmentTitle
+{
+	margin-left: 11em;
+}
+
+#pageupContent .info
+{
+	BORDER-RIGHT: #f5d945 1px solid;
+	PADDING-RIGHT: 10px;
+	BACKGROUND-POSITION: left top;
+	BORDER-TOP: #f5d945 1px solid;
+	PADDING-LEFT: 10px;
+	BACKGROUND-IMAGE: '//careers.acu.edu.au/aw/images/watermark_info.gif');
+	MARGIN-BOTTOM: 10px;
+	MARGIN-TOP: 10px;
+	MARGIN-RIGHT: 4px;
+	PADDING-BOTTOM: 10px;
+	BORDER-LEFT: #f5d945 1px solid;
+	PADDING-TOP: 10px;
+	BORDER-BOTTOM: #f5d945 1px solid;
+	BACKGROUND-REPEAT: no-repeat;
+	BACKGROUND-COLOR: #fff9db;
+}
+
+
+/**
+ * END: content_modules_career-hub (#000000)
+ * = = = = = = = = = = = = = = = = = = = = = = = = 
+ */
+ 
+/**
+ * END: content_modules_web-tiles (#0000000)
+ * = = = = = = = = = = = = = = = = = = = = = = 
+ */
+ 
+/**
+ * = = = = = = = = = = = = = = = = = = = = =
+ * START: content_modules_rollover (#000000) 
+ */
+ .rollover
+{
+	background-color: #FCFCFC;
+	border: 0.2em solid #7F8080;
+	-webkit-border-radius: 0.5em;
+	-khtml-border-radius: 0.5em;
+	-moz-border-radius: 0.5em;
+	-ms-border-radius: 0.5em;
+	-o-border-radius: 0.5em;
+	border-radius: 0.5em;
+	bottom: auto;
+	-webkit-box-shadow: 0.4em 0.4em 0.4em #333333;
+	-khtml-box-shadow: 0.4em 0.4em 0.4em #333333;
+	-moz-box-shadow: 0.4em 0.4em 0.4em #333333;
+	-ms-box-shadow: 0.4em 0.4em 0.4em #333333;
+	-o-box-shadow: 0.4em 0.4em 0.4em #333333;
+	box-shadow: 0.4em 0.4em 0.4em #333333;
+	color: #333333;
+	opacity: 0;
+	position: absolute;
+	top: -3.25em;
+	right: auto;
+	left: -111111em;
+	height: auto;
+	width: 20em;
+	max-height: 22.5em;
+	min-height: 5.5em;
+	padding: 1em 1em 1.5em;
+}
+
+li:hover .rollover
+{/* left: 10em; */
+ 
+	left: auto;
+	right: 10em;/* top: 0%; */
+ 
+	margin: 0%;
+	opacity: 1;
+	-webkit-transition: opacity 0.3s ease-in-out 0s;
+	-khtml-transition: opacity 0.3s ease-in-out 0s;
+	-moz-transition: opacity 0.3s ease-in-out 0s;
+	-ms-transition: opacity 0.3s ease-in-out 0s;
+	-o-transition: opacity 0.3s ease-in-out 0s;
+	transition: opacity 0.3s ease-in-out 0s;
+	z-index: 1300;
+	display: block;
+}
+
+.rollover:before
+{/*background-image: url('//www.acu.edu.au/__data/assets/image/0008/445274/course-popup-arrow_19x21.png');*/
+ 
+	background-image: url('//www.acu.edu.au/__data/assets/image/0007/492532/course-popup-arrowz_forward_19x21.png');
+	background-position: 0 4px;
+	background-repeat: no-repeat;
+	top: 3em;
+	content: " ";
+	display: block;
+	height: 27px;/* left: -19px; */
+ 
+	top: 3.25em;
+	position: absolute;
+	width: 29px;
+	left: auto;
+	right: -29px;
+}
+
+.rollover h2 , .rollover h3
+{
+	border-bottom: 0.1em solid #BFBFBF;
+	font-size: 105%;
+	margin-bottom: 0.5em;
+	margin-top: 0 !important;
+	padding-bottom: 0.3em;
+}
+
+.rollover p span
+{
+	display: block;
+	margin-top: 0.5em;
+}
+
+li:hover .rollover.right
+{
+	left: auto;
+	right: -22em;
+}
+
+li:hover .rollover.left
+{
+	left: -22em;
+	right: auto;
+}
+
+.level .rollover ,  .rollover.level
+{
+	top: 0%;
+}
+
+.level .rollover:before ,  .rollover.level:before
+{
+	top: 3.25em;
+}
+
+li:hover .rollover.right.bottom
+{
+	top: auto;
+	bottom: -3.25em;
+}
+
+.rollover.right:before
+{
+	right: auto;
+	background-image: url('//www.acu.edu.au/__data/assets/image/0008/445274/course-popup-arrow_19x21.png');
+	height: 27px;
+	left: -19px;
+	width: 29px;
+}
+
+.rollover.right.bottom:before
+{
+	top: auto;
+	bottom: 3em;
+}
+
+
+/**
+ * END: content_modules_rollover (#000000)
+ * = = = = = = = = = = = = = = = = = = = = = = = = 
+ */
+ #popup-content
+{
+	position: absolute;
+	left: -1000em;
+	top: -1000em;
+}
+
+
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: content_modules_onOffScreen (#00000)
+ * onOffScreen for JS & CSS friendly popup.
+ * The below styles are all for classes added by
+ * onOffScreen() jQuery function call 
+ */
+ .onOffScreen-wrap
+{
+	position: fixed;
+}
+
+.onOffScreen-wrap.offScreen
+{
+	top: -1000em;
+	left: -1000em;
+	transition: background-color 0.2s ease-in-out;
+}
+
+.onOffScreen-wrap.onScreen
+{
+	top: 0%;
+	right: 0%;
+	bottom: -45em;
+	left: 0%;
+	background-color: rgba( 0 , 0 , 0 , 0.7 );
+	width: 100%;
+	z-index: 10000;
+}
+
+.onOffScreen-blanker
+{
+	position: absolute;
+	top: 0%;
+	right: 0%;
+	bottom: 0%;
+	left: 0%;
+}
+
+.onOffScreen
+{
+	-webkit-box-shadow: 1em 1em 1em rgba( 0 , 0 , 0 , 0.7 );
+	-khtml-box-shadow: 1em 1em 1em rgba( 0 , 0 , 0 , 0.7 );
+	-moz-box-shadow: 1em 1em 1em rgba( 0 , 0 , 0 , 0.7 );
+	-ms-box-shadow: 1em 1em 1em rgba( 0 , 0 , 0 , 0.7 );
+	-o-box-shadow: 1em 1em 1em rgba( 0 , 0 , 0 , 0.7 );
+	box-shadow: 1em 1em 1em rgba( 0 , 0 , 0 , 0.7 );
+	opacity: 0;
+	transition: opacity 0.2s ease-in-out 0.2s;
+}
+
+.onScreen .onOffScreen
+{
+	opacity: 1;
+}
+
+a.onOffScreen-close
+{
+	padding: 0.3em 3.2em 0.3em 1.7em;
+	border-radius: 1.5em;
+	box-shadow: inset 0.1em 0.1em 0.3em rgba( 0 , 0 , 0 , 0.3 ) , inset -0.2em -0.2em 0.4em rgba( 0 , 0 , 0 , 0.7 );
+	position: absolute;
+	top: 0.5em;
+	right: 0.5em;
+	color: #777;
+	background-color: #eee;
+	text-transform: uppercase;
+	font-size: 71.4286%;
+}
+
+a.onOffScreen-close:after
+{
+	content: 'X';
+	font-weight: bold;
+	font-size: 140%;
+
+	position: absolute;
+	right: 0.15em;
+	bottom: 0.25em;
+	-webkit-border-radius: 50%;
+	-khtml-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-ms-border-radius: 50%;
+	-o-border-radius: 50%;
+	border-radius: 50%;
+	border: 0.2em solid #ccc;
+	background-color: #fff;
+	display: block;
+	width: 1.25em;
+	height: 1.25em;
+	text-align: center;
+	line-height: 1.45em;
+}
+
+
+/**
+ * END: content_modules_onOffScreen (#00000)
+ * = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: matrix asset info 
+ */
+ .status-archived:before ,  .status-under_construction:before
+{
+	content: "(( ";
+	font-weight: normal;
+	padding-right: 0.5em;
+}
+
+.status-under_construction:after
+{
+	content: " [under construction] ))";
+	font-weight: normal;
+	padding-left: 0.5em;
+}
+
+.status-archived:after
+{
+	content: " [archived] ))";
+	font-weight: normal;
+	padding-left: 0.5em;
+}
+
+.status-under_construction
+{
+	color: #aaf !important;
+	font-style: italic;
+}
+
+.status-archived
+{
+	color: #999 !important;
+	font-style: italic;
+}
+
+.asset-details.status-live , .asset-details.status-under_construction , .asset-details.status-safe_editing , .asset-details.status-archived , .asset-details.status-safe_edit_approved_to_go_live
+{
+	display: block;
+	margin-top: -1.3em;
+	width: 30em;
+	padding: 0.3em;
+	color: #000;
+	line-height: 1em;
+}
+
+.asset-details.status-live
+{
+	background-color: #cfc;
+}
+
+.asset-details.status-under_construction
+{
+	background-color: #ccf;
+}
+
+.asset-details.status-safe_editing
+{
+	background-color: #afa;
+}
+
+.asset-details.status-safe_edit_approved_to_go_live
+{
+	background-color: #3e3;
+}
+
+.asset-details.status-archived
+{
+	background-color: #ddd;
+}
+
+.asset-details span.asset-details
+{
+	color: #666;
+	font-weight: normal;
+	font-size: 80%;
+	text-decoration: none;
+}
+
+.asset-details.pdf_file ,  .asset-details.ms_word_document ,  .asset-details.image
+{
+	border-right: 1em solid #fc0;
+}
+
+/* ----- Future Students Landing Page Design Also Applied to the Careers Advisers Home Page ----- */
+ section#content ul.fs_box li
+{
+	margin: 0 2.6% 2.6% 0;
+	float: left;
+	width: 31.58%;
+	background-color: #00539F;
+}
+
+section#content ul.fs_box li.fspos3 , section#content ul.fs_box li.fspos6
+{
+	margin-right: 0;
+}
+
+section#content article.blue-bg
+{
+	margin: 0;
+	background-color: #00539F;
+	color: #00539F;
+}
+
+article.blue-bg div.circle_bg
+{
+	background-position: right;
+	margin-right: 0.3em;
+}
+
+section#content article.blue-bg h1.future_students
+{
+	color: #fff;
+	font-size: 90%;
+	line-height: 1.1em;
+	margin: 0;
+	padding: 0.95em 1em;
+	border: none;
+}
+
+section#content article.blue-bg h1.future_students a
+{
+	color: #fff;
+	background-position: 90% center;
+	display: block;
+	padding-right: 4em;
+	border: none;
+	font-weight: normal;
+}
+
+section#content article.blue-bg a img
+{
+	width: 100%;
+	height: auto;
+}
+
+/* Publications (337381) Page Css */
+ section#content ul.publication-thumbs li
+{
+	min-height: 169px;
+	margin-bottom: 1.2em;
+}
+
+section#content article.publications-art
+{
+	border-bottom: solid;
+}
+
+section#content article h1.publications-heading
+{
+	font-size: 100%;
+	border: none;
+}
+
+/* ----------------------------------- Exhibition format ----------------------------------- */
+ ul.exhibition
+{
+	margin: 0%;
+	padding: 0%;
+}
+
+ul.exhibition li
+{
+	margin: 1em 0% 0% 0%;
+	padding: 0.5em 0% 1em 0%;
+	border-bottom: 0.1em solid #000;
+	list-style-type: none;
+}
+
+ul.exhibition li a.edit
+{
+	font-size: 80%;
+	padding-left: 0.5em;
+	color: rgb(255, 0, 0);
+}
+
+p.exhibition
+{
+	position: relative;
+	width: 100%;
+	height: 1em;
+	margin: 1em 0%;
+}
+
+p.exhibition span.prev
+{
+	position: absolute;
+	top: 0%;
+	left: 0%;
+}
+
+p.exhibition span.next
+{
+	position: absolute;
+	top: 0%;
+	right: 0%;
+}
+
+p.exhibition span.prev a , p.exhibition span.next a
+{
+	text-decoration: none;
+}
+
+
+p.exhibition span.prev a:hover , p.exhibition span.next a:hover
+{
+	text-decoration: underline;
+}
+
+
+/**
+ * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ * START: has-cols 
+ * .has-cols provides a simple way of implementing columns via floats
+ *
+ * It requires an additional class to specify the number of columns
+ *	e.g. <ul class="has-cols c3"> for an unordered list to have three
+ *		 columns
+ * Columns are specifically identified with the is-col class on any
+ * child element
+ *	e.g. <li class="is-col">
+ *
+ * .has-cols provides for customisations for when a page has
+ *	-	both content menu column and right column
+ *			3 column design
+ *			standard width content column - 540px
+ *	-	content menu column  or no right column
+ *			2 column design
+ *			usually landing page or payment form pages - 700px
+ *	-	no content menu column AND no right column
+ *			1 column design
+ *			(can't think of any examples) - 940px
+ *
+ * NOTE:	for IE8 and IE7, your .is-col elements need to have an
+ *			additional pos[X] class applied to them to fix possible
+ *			issues with link text spanning a varying number of lines
+ *			(where [X] is number of the column
+ *			e.g.	<li class="is-col pos1">blah</li>
+ *					<li class="is-col pos2">blah</li>
+ *					<li class="is-col pos3">blah</li>
+ *					<li class="is-col pos4">blah</li>
+ *					<li class="is-col pos5">blah</li>
+ *					<li class="is-col pos6">blah</li>
+ *
+ * NOTE ALSO: There is an issue with IE7 where clear is broken an so
+ *			  although the element with a clear set on it is cleared
+ *			  subsequent siblings are not cleared properly.
+ */
+.has-cols
+{
+	position: relative;
+	display: block;
+	list-style-type: none;
+	padding-left: 0;
+	float: left;
+	margin-left: -3.5714%;
+	width: 103.7037%;
+}
+.has-cols .is-col
+{
+	float: left;
+	list-style: none;
+	padding-left: 0;
+	display: block;
+	margin-left: 3.5714%;
+}
+.has-cols.c2 .is-col	{ width: 46.4286%; /* 260px */ }
+.has-cols.c3 .is-col	{ width: 29.7619%; /* 166.667px */ }
+.has-cols.c4 .is-col	{ width: 21.4286%; /* 120px */ }
+.has-cols.c5 .is-col	{ width: 16.4286%; /* 92px */ }
+
+.has-cols.c2 .is-col:nth-child( 2n + 1 ),
+.has-cols.c3 .is-col:nth-child( 3n + 1 ),
+.has-cols.c4 .is-col:nth-child( 4n + 1 ),
+.has-cols.c5 .is-col:nth-child( 5n + 1 )
+{
+    clear: left;
+}
+
+.hide-right-col_ .has-cols , .hide-content-menu_ .has-cols
+{
+	margin-left: -2.7778%;
+	width: 102.8571%;
+}
+.hide-right-col_ .has-cols .is-col , .hide-content-menu_ .has-cols .is-col
+{
+	margin-left: 2.7778%;
+}
+ .hide-right-col_ .has-cols.c2 .is-col , .hid-content-menu_ .has-cols.c2 .is-col , .hide-content-menu_.hide-right-col_ .has-cols.c2 .is-col
+,.hide-right-col_ .has-cols.c3 .has-cols.c2 .is-col , .hid-content-menu_ .has-cols.c3 .has-cols.c2 .is-col , .hide-content-menu_.hide-right-col_ .has-cols.c3 .has-cols.c2 .is-col
+,.hide-right-col_ .has-cols.c4 .has-cols.c2 .is-col , .hid-content-menu_ .has-cols.c4 .has-cols.c2 .is-col , .hide-content-menu_.hide-right-col_ .has-cols.c4 .has-cols.c2 .is-col 
+,.hide-right-col_ .has-cols.c5 .has-cols.c2 .is-col , .hid-content-menu_ .has-cols.c5 .has-cols.c2 .is-col , .hide-content-menu_.hide-right-col_ .has-cols.c5 .has-cols.c2 .is-col{ width: 47.2222%; /* 340px */ }
+
+ .hide-right-col_ .has-cols.c3 .is-col , .hid-content-menu_ .has-cols.c3 .is-col , .hide-content-menu_.hide-right-col_ .has-cols.c3 .is-col 
+,.hide-right-col_ .has-cols.c2 .has-cols.c3 .is-col , .hid-content-menu_ .has-cols.c2 .has-cols.c3 .is-col , .hide-content-menu_.hide-right-col_ .has-cols.c2 .has-cols.c3 .is-col
+,.hide-right-col_ .has-cols.c4 .has-cols.c3 .is-col , .hid-content-menu_ .has-cols.c4 .has-cols.c3 .is-col , .hide-content-menu_.hide-right-col_ .has-cols.c4 .has-cols.c3 .is-col
+,.hide-right-col_ .has-cols.c5 .has-cols.c3 .is-col , .hid-content-menu_ .has-cols.c5 .has-cols.c3 .is-col , .hide-content-menu_.hide-right-col_ .has-cols.c5 .has-cols.c3 .is-col { width: 30.5556%; /* 220px */ }
+
+ .hide-right-col_ .has-cols.c4 .is-col , .hid-content-menu_ .has-cols.c4 .is-col , .hide-content-menu_.hide-right-col_ .has-cols.c4 .is-col
+,.hide-right-col_ .has-cols.c2 .has-cols.c4 .is-col , .hid-content-menu_ .has-cols.c2 .has-cols.c4 .is-col , .hide-content-menu_.hide-right-col_ .has-cols.c2 .has-cols.c4 .is-col
+,.hide-right-col_ .has-cols.c3 .has-cols.c4 .is-col , .hid-content-menu_ .has-cols.c3 .has-cols.c4 .is-col , .hide-content-menu_.hide-right-col_ .has-cols.c3 .has-cols.c4 .is-col
+,.hide-right-col_ .has-cols.c5 .has-cols.c4 .is-col , .hid-content-menu_ .has-cols.c5 .has-cols.c4 .is-col , .hide-content-menu_.hide-right-col_ .has-cols.c5 .has-cols.c4 .is-col { width: 22.2222%; /* 160px */ }
+
+ .hide-right-col_ .has-cols.c5 .is-col , .hid-content-menu_ .has-cols.c5 .is-col , .hide-content-menu_.hide-right-col_ .has-cols.c5 .is-col
+,.hide-right-col_ .has-cols.c2 .has-cols.c5 .is-col , .hid-content-menu_ .has-cols.c2 .has-cols.c5 .is-col , .hide-content-menu_.hide-right-col_ .has-cols.c2 .has-cols.c5 .is-col
+,.hide-right-col_ .has-cols.c3 .has-cols.c5 .is-col , .hid-content-menu_ .has-cols.c3 .has-cols.c5 .is-col , .hide-content-menu_.hide-right-col_ .has-cols.c3 .has-cols.c5 .is-col
+,.hide-right-col_ .has-cols.c4 .has-cols.c5 .is-col , .hid-content-menu_ .has-cols.c4 .has-cols.c5 .is-col , .hide-content-menu_.hide-right-col_ .has-cols.c4 .has-cols.c5 .is-col { width: 17.2222%; /* 124px */ }
+
+.hide-content-menu_.hide-right-col_ .has-cols
+{
+	margin-left: -2.0833%;
+	width: 102.1277%;
+}
+.hide-content-menu_.hide-right-col_ .has-cols .is-col
+{
+	margin-left: 2.0833%;
+}
+
+
+/**
+ * END: has-cols
+ * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ * START: web-tile object definition
+ *
+ * Depends on arrow classes to provide background arrow image on link
+ *
+ * .web-tile is a simple object with a full width image and a full
+ * width link below that inlcudes a greater than arrow on the right
+ *
+ * <article class="web-tile">
+ * <a href="[destination URL]">
+ * <img src="[image URL]" light="[image light]" />
+ * </a>
+ * <p>
+ * <a href="[destination URL]" class="Arrow_small-white">
+ * [link text]
+ * </a>
+ * </p>
+ * </article>
+ *
+ * The following arrows and icon classes are available:
+ * (they should be pretty self explanitory)
+ * - Arrow_small-red
+ * - Arrow_small-grey
+ * - Arrow_small-grey_up
+ * - Arrow_small-grey_down
+ * - Arrow_small-white
+ * - Arrow_small-white_down
+ * - Arrow_small-blue
+ * - blue-calendar
+ * - blue-form
+ * - 
+ */
+ .web-tile
+{
+	display: block;
+	width: 100%;
+	margin-top: 0%;
+	margin-right: 0%;
+	margin-bottom: 1.25em;
+	margin-left: 0%;
+	padding: 0%;
+	position: relative;
+}
+
+.web-tile img
+{
+	width: 100%;
+	height: auto;
+	display: block !important;
+}
+
+.web-tile p
+{
+	margin: 0%;
+	font-size: 85.7142857%;
+	font-weight: 600;
+	line-height: 1.1em;
+}
+
+.web-tile p a
+{
+	display: block;
+	padding: 0.95em 2em 0.95em 1em;
+	background-position: 95% 50% !important;
+	color: #fff;
+}
+
+.web-tile .rollover p
+{
+	display: block !important;
+	color: #000 !important;
+}
+
+.web-tile.extended .circle_bg
+{
+	padding: 0.3em 0% !important;
+	background-position: 96.5% 50%;
+}
+
+.web-tile .circle_bg a.Arrow_small-white
+{
+	background-position: 93.5% 50% !important;
+}
+
+
+/**
+ * .web-tile.extended expands on .web-tile and includes a heading
+ * and summary paragraph and is intended for the following HTML
+ * It allows for an accessible read more link
+ *
+ * <article class="web-tile extended [mini|maxi]">
+ * <a href="[destination URL]" class="thumb">
+ * <img src="[image URL]" light="[image light]" />
+ * </a>
+ * <div>
+ * <h1>
+ * <a href="[destination URL]">
+ * [link text]
+ * </a>
+ * </h1>
+ * <p>[web tile summary]</p>
+ * <p class="read arrow">
+ * <a href="[destination URL]" class="Arrow_small-white">
+ * Read more
+ * <span class="a">about [link text]</span>
+ * </a>
+ * </p>
+ * </div>
+ * </article>
+ *
+ * NOTE: the <DIV> in the above code is optional. 
+ */
+ .web-tile.extended
+{
+	margin-bottom: 1.25em;
+}
+
+.web-tile.extended h1 a
+{
+	color: #fff;
+}
+
+.web-tile.extended p
+{
+	font-size: 90%;
+	line-height: 1.3em;
+	color: #fff;
+	padding: 0%;
+	font-weight: normal;
+	background-color: transparent !important;
+}
+
+.web-tile.extended p.read
+{
+	background-color: #ebebeb !important;
+	font-weight: bold;
+	position: absolute;
+	right: 0%;
+	bottom: 0%;
+	left: 0%;
+	text-transform: uppercase;
+}
+
+.web-tile.extended p.read a
+{
+	padding: 0.4em 2em 0.4em 1em;
+	background-position: 95% 50%;
+	color: #5475AD !important;
+}
+
+.web-tile.extended div
+{
+	font-size: 87.5%;
+	line-height: 128.571%;
+}
+
+.web-tile.extended h1
+{
+	padding: 0% !important;
+	width: auto !important;
+	border-bottom: none !important;
+}
+
+.web-tile.extended.no-read-more
+{
+	padding-bottom: 0.4em;
+}
+
+.web-tile.extended.no-read-more p.read
+{
+	display: none;
+}
+
+
+/**
+ * .web-tile.extended.light has the same look and feel as .web-tile but
+ * using the .web-tile.extended HTML structure 
+ */
+ .web-tile.extended.light h1
+{
+	font-size: 100% !important;
+}
+
+.web-tile.extended.light h1 a
+{
+	display: block;
+	padding: 0.85em 2em 0.85em 1em;
+	background-position: 95% 50%;
+}
+
+.web-tile.extended.light p
+{
+	display: none;
+}
+
+
+/**
+ * .web-tile.extended.maxi has is similar to .web-tile but includes a
+ * heading, and summary and a grey link at the bottom, instead of the
+ * section default background color 
+ */
+ .web-tile.extended.maxi
+{
+	margin-bottom: 1.5em;
+	padding-bottom: 1.8em;
+	position: relative;
+}
+
+.web-tile.extended.maxi img
+{/*top: 0.2em; */
+ 
+	position: relative;
+}
+
+.web-tile.extended.maxi div
+{
+	padding: 1em 1em 0.75em;
+	margin-top: 0.2em;
+}
+
+.web-tile.extended.maxi h1
+{
+	font-size: 140% !important;
+	margin-bottom: 0.5em !important;
+}
+
+.web-tile.extended.maxi h1 a
+{
+	font-weight: 400;
+}
+
+
+/**
+ * .web-tile.extended.mini has all the same features of
+ * web-tile.extended.maxi but puts the a small tile image on the right
+ * of the block with the heading and summary beside it on the left.
+ * It occupies about half the vertical space of a basic .web-tile and
+ * a third of the vertical space of .web-tile.extended.maxi 
+ */
+ .web-tile.extended.mini
+{
+	padding-bottom: 2.5em;
+	height: 4.5em;
+}
+
+.web-tile.extended.mini img
+{
+	position: absolute;
+	top: 0%;
+	right: 0%;
+	bottom: 0%;
+	width: 7.08em;
+	height: 5.3em;
+}
+
+.web-tile.extended.mini div
+{
+	position: absolute;
+	top: 0%;
+	right: 0%;
+	bottom: 0%;
+	left: 0%;
+	padding: 0.8em 5.5em 0em 1em;
+	background-position: 45% 0;
+}
+
+.web-tile.extended.mini h1
+{
+	font-size: 100% !important;
+	margin-bottom: 0.2em !important;
+}
+
+.web-tile.extended.mini h1 a
+{
+	font-weight: 600;
+}
+
+
+.rotation-feature_main { display: none; }
+
+/**
+ * END: web-tile object definition
+ * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ */
+ 
+/**
+ * START: Gallery http://www.acu.edu.au/connect_with_acu
+ * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ */
+ .photo_gallery_ ul.gallery_gallery
+{
+	float: left;
+	width: 98.5%;
+	margin: 0%;
+	padding: 0%;
+}
+
+.photo_gallery_ ul.gallery_gallery li
+{
+	float: left;
+	display: block;
+	list-style-type: none;
+	padding: 0%;
+	margin: 0.3em 0.6em 0.3em 0%;
+}
+
+.photo_gallery_ ul.gallery_gallery li img
+{
+	display: block !important;
+	border: 0.1em solid #000;
+	padding: 0.3em;
+}
+
+section#acu-tv
+{
+	background-color: #000;
+	height: 27.3em;
+	position: relative;/* opacity: 0.5; */
+
+}
+
+section#acu-tv header h1
+{
+	color: #fff;
+	padding: 0.9em 1.2em 0.7em;
+	font-size: 85%;
+	border-bottom-style: none !important;
+}
+
+section#acu-tv div#program
+{
+	position: absolute;
+	top: 3.6em;
+	right: 0.7em;
+	bottom: 3.3em;
+	width: 9.9em;
+	padding: 0%;
+	overflow: hidden;
+}
+
+section#acu-tv div#program div div.prog_item
+{
+	margin-bottom: 0.65em;
+}
+
+section#acu-tv div#program div div.prog_item article header , section#acu-tv div#program div div.prog_item article p
+{
+	display: none;
+}
+
+section#acu-tv div#program div div.prog_item article
+{
+	position: relative;
+}
+
+section#acu-tv div#program div div.prog_item article img
+{
+	height: 6.25em;
+	width: 100%;
+	display: block;
+}
+
+section#acu-tv div#program div div.prog_item article:hover p
+{
+	display: block;
+}
+
+section#acu-tv div#program div div.prog_item article p a
+{
+	background-color: rgba( 0, 0, 0, 0.7 );
+	color: #fff;
+	position: absolute;
+	top: 0%;
+	right: 0%;
+	bottom: 0%;
+	left: 0%;
+	margin: 0%;
+	line-height: 1.2em;
+	padding: 0.5em;
+	text-decoration: none;
+	overflow: hidden;
+}
+
+section#acu-tv li.pos4 , section#acu-tv li.pos5 , section#acu-tv li.pos6 , section#acu-tv li.pos7 , section#acu-tv li.pos8 , section#acu-tv li.pos9
+{
+	display: none;
+}
+
+section#acu-tv div#program div div.prog_item article:hover p a
+{
+	display: block;
+}
+
+section#acu-tv div#program div div.prog_item article a.thumb
+{
+	display: block;
+	width: 100%;
+	overflow: hide;
+}
+
+section#acu-tv div#program div#_rolling_items
+{
+	position: absolute;
+	height: 9999em;
+	width: 100%;
+}
+
+section#acu-tv div#program div#_rolling_items div
+{
+	width: 100%;
+}
+
+section#acu-tv article#YouTube-video iframe
+{
+	width: 38em;
+	height: 20.2em;
+	position: relative;
+	left: 0.7em;
+	top: 0;
+}
+
+section#acu-tv article#YouTube-video div#video-caption
+{
+	bottom: 0.7em;
+	left: 0.9em;
+	font-size: 90%;
+	position: absolute;
+	width: 65%;
+	height: 2.6em;
+}
+
+section#acu-tv article#YouTube-video div#video-caption p
+{
+	margin-bottom: 0%;
+	line-height: 1.25em;
+}
+
+section#acu-tv p.view-all a
+{
+	position: absolute;
+	bottom: 1em;
+	right: 17.35em;
+	padding: 0.6em 1.5em;
+	background: #900;/* Old browsers */
+ 
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #c00), color-stop(100%, #500));/* Chrome,Safari4+ */
+ 
+	background: -webkit-linear-gradient(top, #c00 0%, #500 100%);/* Chrome10+,Safari5.1+ */
+ 
+	background:  -khtml-linear-gradient(top, #c00 0%, #500 100%);/* FF3.6+ */
+ 
+	background:    -moz-linear-gradient(top, #c00 0%, #500 100%);/* FF3.6+ */
+ 
+	background:     -ms-linear-gradient(top, #c00 0%, #500 100%);/* IE10+ */
+ 
+	background:     -o-linear-gradient(top, #c00 0%, #500 100%);/* Opera 11.10+ */
+ 
+	background: linear-gradient(to bottom, #c00 0%, #500 100%);/* W3C */
+ /* filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c00', endColorstr='#500',GradientType=0 ); /* IE6-9 */
+ 
+	-webkit-border-radius: 0.3em;
+	-khtml-border-radius: 0.3em;
+	-moz-border-radius: 0.3em;
+	-ms-border-radius: 0.3em;
+	-o-border-radius: 0.3em;
+	border-radius: 0.3em;
+	color: #fff;
+	font-size: 65%;
+	text-transform: uppercase;
+	-webkit-box-shadow: inset 0.1em 0.1em 0.01em rgba( 255, 255, 255, 0.3 ), inset -0.1em -0.1em 0.05em rgba( 0, 0, 0, 0.5 );
+	-khtml-box-shadow: inset 0.1em 0.1em 0.01em rgba( 255, 255, 255, 0.3 ), inset -0.1em -0.1em 0.05em rgba( 0, 0, 0, 0.5 );
+	-moz-box-shadow: inset 0.1em 0.1em 0.01em rgba( 255, 255, 255, 0.3 ), inset -0.1em -0.1em 0.05em rgba( 0, 0, 0, 0.5 );
+	-ms-box-shadow: inset 0.1em 0.1em 0.01em rgba( 255, 255, 255, 0.3 ), inset -0.1em -0.1em 0.05em rgba( 0, 0, 0, 0.5 );
+	-o-box-shadow: inset 0.1em 0.1em 0.01em rgba( 255, 255, 255, 0.3 ), inset -0.1em -0.1em 0.05em rgba( 0, 0, 0, 0.5 );
+	box-shadow: inset 0.1em 0.1em 0.01em rgba( 255, 255, 255, 0.3 ), inset -0.1em -0.1em 0.05em rgba( 0, 0, 0, 0.5 );
+}
+
+section#acu-tv nav#YouTube-scroll
+{
+	position: absolute;
+	bottom: 0.45em;
+	right: 0.7em;
+	width: 9.9em;
+	height: 2.5em;
+	z-index: 1em;
+}
+
+section#acu-tv nav#YouTube-scroll a
+{
+	background: #333 50%;/* Old browsers */
+ 
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #555), color-stop(100%, #111)) 50%;/* Chrome,Safari4+ */
+ 
+	background: -webkit-linear-gradient(top, #555 0%, #111 100%) 50%;/* Chrome10+,Safari5.1+ */
+ 
+	background:  -khtml-linear-gradient(top, #555 0%, #111 100%) 50%;/* FF3.6+ */
+ 
+	background:    -moz-linear-gradient(top, #555 0%, #111 100%) 50%;/* FF3.6+ */
+ 
+	background:     -ms-linear-gradient(top, #555 0%, #111 100%) 50%;/* IE10+ */
+ 
+	background:     -o-linear-gradient(top, #555 0%, #111 100%) 50%;/* Opera 11.10+ */
+ 
+	background: linear-gradient(to bottom, #555 0%, #111 100% 50%);/* W3C */
+ /* filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#555', endColorstr='#111',GradientType=0 ); /* IE6-9 */
+ 
+	padding: 0.6em 0%;
+	-webkit-border-radius: 0.3em;
+	-khtml-border-radius: 0.3em;
+	-moz-border-radius: 0.3em;
+	-ms-border-radius: 0.3em;
+	-o-border-radius: 0.3em;
+	border-radius: 0.3em;
+	color: #fff;
+	font-size: 65%;
+	text-transform: uppercase;
+	-webkit-box-shadow: inset 0.1em 0.1em 0.01em rgba( 255, 255, 255, 0.3 ), inset -0.1em -0.1em 0.05em rgba( 0, 0, 0, 0.5 );
+	-khtml-box-shadow: inset 0.1em 0.1em 0.01em rgba( 255, 255, 255, 0.3 ), inset -0.1em -0.1em 0.05em rgba( 0, 0, 0, 0.5 );
+	-moz-box-shadow: inset 0.1em 0.1em 0.01em rgba( 255, 255, 255, 0.3 ), inset -0.1em -0.1em 0.05em rgba( 0, 0, 0, 0.5 );
+	-ms-box-shadow: inset 0.1em 0.1em 0.01em rgba( 255, 255, 255, 0.3 ), inset -0.1em -0.1em 0.05em rgba( 0, 0, 0, 0.5 );
+	-o-box-shadow: inset 0.1em 0.1em 0.01em rgba( 255, 255, 255, 0.3 ), inset -0.1em -0.1em 0.05em rgba( 0, 0, 0, 0.5 );
+	box-shadow: inset 0.1em 0.1em 0.01em rgba( 255, 255, 255, 0.3 ), inset -0.1em -0.1em 0.05em rgba( 0, 0, 0, 0.5 );
+	display: block;
+	text-align: center;
+	position: absolute;
+	top: 0em;
+	width: 7.1em;
+	text-indent: -1000em;
+}
+
+section#acu-tv nav#YouTube-scroll a span
+{
+	display: block;
+	width: 100%;
+	height: 100%;
+	background-position: 50%;
+}
+
+section#acu-tv nav#YouTube-scroll a#scroll-up
+{
+	right: 0%;
+	cursor: pointer;
+}
+
+section#acu-tv nav#YouTube-scroll a#scroll-down
+{
+	left: 0%;
+	cursor: pointer;
+}
+
+section#acu-tv nav#YouTube-scroll p.view-all a
+{
+	font-size: 75%;
+}
+
+section#acu-tv nav#YouTube-scroll a.only
+{
+	left: 0%;
+	right: 0%;
+	z-index: 100;
+}
+
+section#acu-tv nav#YouTube-scroll a.disabled
+{
+	cursor: default !important;
+}
+
+section#acu-tv nav#YouTube-scroll a.disabled span
+{
+	background-image: none !important;
+}
+
+
+/**
+ * END: Gallery http://www.acu.edu.au/connect_with_acu
+ * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ */
+ /* Version: 3.4.1 Timestamp: Thu Jun 27 18:02:10 PDT 2013 */
+
+/**
+ * END: Select2 Plugin http://www.acu.edu.au/connect_with_acu
+ * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ */
+ 
+/**
+ * END: content_complex (#450828)
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+ */
+ 
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: content_modules_newsroom (#481163)
+ * Last updated by: Evan Wills
+ * Last updated: 22 Mar 2013 9:42am 
+ */
+ newsroom_ #wrap-outer.content.news_item nav#content-menu , newsroom_ #wrap-outer.content.news_item section#content h1 , newsroom_ #wrap-outer.content.news_item div#wrap-inner aside#right
+{
+	display: block;
+}
+
+p.news-publish
+{
+	margin: -1.6em 0 0.2em;
+}
+
+
+/**
+ * END: content_modules_newsroom (#481163)
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+ */
+ } 
+/**
+ * END: CONTENT - print screen projection
+ * ==================================================================
+ * START: CONTENT - screen, projection 
+ */
+ @media screen ,  projection
+{
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: content_modules_tabs (#453451)
+ * Last updated by: Evan Wills
+ * Last updated: 22 Mar 2013 9:42am 
+ */
+
+
+/* 
+------------------
+Should these be deleted as now replace by Bootstrap??  
+*/
+section#content.tabs-here ul.ui-tabs-nav ,section#content .tabs-here ul.ui-tabs-nav { 
+	width: 100%;
+}
+
+section#content.tabs-here ul.ui-tabs-nav li , section#content .tabs-here ul.ui-tabs-nav li
+{
+	min-width: 7em;
+	margin-right: 0.2em;
+	margin-bottom: -0.1em;
+}
+
+
+section#content.tabs-here ul.ui-tabs-nav li a , section#content .tabs-here ul.ui-tabs-nav li a , .tabs-here section p.view-all a
+{
+	font-weight: 400;
+        color: #00539F;
+}
+
+.tabs-here section p.view-all
+{
+	position: absolute;
+	top: 3em;
+	right: 0em;
+	font-size: 90%;
+}
+
+.tabs-here section p.view-all a:hover span { text-decoration:underline; }
+p.view-all span {
+   float:left;
+   padding-right:0.4em;
+}
+
+section#content.tabs-here section , section#content .tabs-here section
+{
+	border: none;
+	padding-top: 1.5em;
+	padding-left: 0em;
+	padding-right: 0%;
+}
+
+.tabs-here section article
+{
+	clear: left;
+	padding: 0% 0% 1em 1em;
+}
+
+.tabs-here section h1
+{
+	position: absolute;
+	top: -1000em;
+	left: -1000em;
+}
+
+.tabs-here section article h1
+{
+	position: static;
+}
+
+.tabs-here section article p , .tabs-here section article p:first-of-type
+{
+	font-size: 90%;
+	line-height: 1.3em;
+	margin-bottom: 0.7em;
+}
+
+
+/* Bootstrap tab styles ACU overides */
+
+.nav-tabs {
+    border-bottom:0.1em solid #BFBFBF;
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus
+{
+	border:0.1em solid #BFBFBF;
+        border-bottom:0;
+        border-top:0.3em solid #E00034;
+        border-radius:0;
+        font-weight:bold;
+        text-decoration:none;
+}
+.nav-tabs > li > a {
+	color:#00539F;
+        text-decoration:underline;
+}
+.nav-tabs > li > a:hover { text-decoration:none; }
+
+#right .btn { width:100%; }
+
+/**
+ * END: content_modules_tabs (#453451)
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+ */
+ 
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: content_modules_footer_feedback_slideout (#----)
+ * Last updated by: ----
+ * Last updated: ----
+ */
+
+.slide-out-div {
+	padding: 20px;
+	width: 290px;
+	background: #ccc;
+	border: 1px solid #29216d;
+	font-family: Verdana, Arial, Myriad Pro, sans-serif;
+}
+
+/**
+ * END: content_modules_footer_feedback_slideout (#----)
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+ */
+ 
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: content_modules_external_jQuery-ui-tabs-custom (#453281)
+ * Last updated by: Robin Shi
+ * Last updated: 19 Jun 2013 10:15am 
+ */
+ /*! * jQuery UI CSS Framework 1.8.21 * * Copyright 2012, AUTHORS.txt (http: //jqueryui.com/about) * Dual licensed under the MIT or GPL Version 2 licenses. * http: //jquery.org/license * * http: //docs.jquery.com/UI/Theming/API */
+ /* Layout helpers ----------------------------------*/
+ .ui-helper-hidden
+{
+	display: none;
+}
+
+.ui-helper-hidden-accessible
+{
+	position: absolute !important;
+	clip: rect(1px 1px 1px 1px);
+	clip: rect(1px,1px,1px,1px);
+}
+
+.ui-helper-reset
+{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	line-height: 1.3;
+	text-decoration: none;
+	font-size: 100%;
+	list-style: none;
+}
+
+.ui-helper-clearfix:before , .ui-helper-clearfix:after
+{
+	content: "";
+	display: table;
+}
+
+.ui-helper-clearfix:after
+{
+	clear: both;
+}
+
+.ui-helper-clearfix
+{
+	zoom: 1;
+}
+
+.ui-helper-zfix
+{
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	position: absolute;
+	opacity: 0;
+	filter: Alpha(Opacity=0);
+}
+
+/* Interaction Cues ----------------------------------*/
+ .ui-state-disabled
+{
+	cursor: default !important;
+}
+
+/* Icons ----------------------------------*/
+ /* states and images */
+ .ui-icon
+{
+	display: block;
+	text-indent: -99999px;
+	overflow: hidden;
+	background-repeat: no-repeat;
+}
+
+/* Misc visuals ----------------------------------*/
+ /* Overlays */
+ .ui-widget-overlay
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/*! * jQuery UI CSS Framework 1.8.21 * * Copyright 2012, AUTHORS.txt (http: //jqueryui.com/about) * Dual licensed under the MIT or GPL Version 2 licenses. * http: //jquery.org/license * * http: //docs.jquery.com/UI/Theming/API * * To view and modify this theme, visit http: //jqueryui.com/themeroller/?ffDefault=Trebuchet%20MS,%20Tahoma,%20Verdana,%20Arial,%20sans-serif&fwDefault=bold&fsDefault=1.1em&cornerRadius=4px&bgColorHeader=f6a828&bgTextureHeader=12_gloss_wave.png&bgImgOpacityHeader=35&borderColorHeader=e78f08&fcHeader=ffffff&iconColorHeader=ffffff&bgColorContent=eeeeee&bgTextureContent=03_highlight_soft.png&bgImgOpacityContent=100&borderColorContent=dddddd&fcContent=333333&iconColorContent=222222&bgColorDefault=f6f6f6&bgTextureDefault=02_glass.png&bgImgOpacityDefault=100&borderColorDefault=cccccc&fcDefault=1c94c4&iconColorDefault=ef8c08&bgColorHover=fdf5ce&bgTextureHover=02_glass.png&bgImgOpacityHover=100&borderColorHover=fbcb09&fcHover=c77405&iconColorHover=ef8c08&bgColorActive=ffffff&bgTextureActive=02_glass.png&bgImgOpacityActive=65&borderColorActive=fbd850&fcActive=eb8f00&iconColorActive=ef8c08&bgColorHighlight=ffe45c&bgTextureHighlight=03_highlight_soft.png&bgImgOpacityHighlight=75&borderColorHighlight=fed22f&fcHighlight=363636&iconColorHighlight=228ef1&bgColorError=b81900&bgTextureError=08_diagonals_thick.png&bgImgOpacityError=18&borderColorError=cd0a0a&fcError=ffffff&iconColorError=ffd27a&bgColorOverlay=666666&bgTextureOverlay=08_diagonals_thick.png&bgImgOpacityOverlay=20&opacityOverlay=50&bgColorShadow=000000&bgTextureShadow=01_flat.png&bgImgOpacityShadow=10&opacityShadow=20&thicknessShadow=5px&offsetTopShadow=-5px&offsetLeftShadow=-5px&cornerRadiusShadow=5px */
+ /* Component containers ----------------------------------*/
+ .ui-widget
+{
+	font-size: 1.1em;
+}
+
+.ui-widget .ui-widget
+{
+	font-size: 1em;
+}
+
+.ui-widget input , .ui-widget select , .ui-widget textarea , .ui-widget button
+{
+}
+
+.ui-widget-content
+{
+}
+
+.ui-widget-content a
+{
+	color: #003C92;
+	text-decoration: none!important;
+}
+
+.ui-widget-header
+{
+	border: 0;
+}
+
+.ui-widget-header a
+{
+	color: #ffffff;
+}
+
+/* Interaction states ----------------------------------*/
+ .ui-state-default , .ui-widget-content .ui-state-default , .ui-widget-header .ui-state-default
+{
+	border: 0.1em solid #cccccc;
+	background: #f6f6f6 50% 50% repeat-x;
+	font-weight: bold;
+	color: #1c94c4;
+	position: relative;
+}
+
+.ui-state-default a , .ui-state-default a:link , .ui-state-default a:visited
+{
+	color: #1c94c4;
+	text-decoration: none;
+	position: absolute;
+	right: 0%;
+	bottom: 0%;
+	left: 0%;
+	display: block;
+	text-align: center;
+}
+
+.ui-state-hover , .ui-widget-content .ui-state-hover , .ui-widget-header .ui-state-hover , .ui-state-focus , .ui-widget-content .ui-state-focus , .ui-widget-header .ui-state-focus
+{
+	border: 0.1em solid #fbcb09;
+	background: #fdf5ce 50% 50% repeat-x;
+	font-weight: bold;
+	color: #c77405;
+}
+
+.ui-state-hover a , .ui-state-hover a:hover
+{
+	color: #c77405;
+	text-decoration: none;
+}
+
+.ui-state-active , .ui-widget-content .ui-state-active , .ui-widget-header .ui-state-active
+{
+	border: 0.1em solid #fbd850;
+	background: #ffffff 50% 50% repeat-x;
+	font-weight: bold;
+	color: #eb8f00;
+}
+
+.ui-state-active a , .ui-state-active a: link , .ui-state-active a: visited
+{
+	color: #eb8f00;
+	text-decoration: none;
+}
+
+.ui-widget : active
+{
+	outline: none;
+}
+
+/* Interaction Cues ----------------------------------*/
+ .ui-state-default , .ui-widget-content .ui-state-default , .ui-widget-header .ui-state-default
+{
+	border: 0.1em solid #cccccc;
+	background-color: #fff;
+	font-weight: bold;
+	color: #1c94c4;
+}
+
+.ui-state-highlight a , .ui-widget-content .ui-state-highlight a,.ui-widget-header .ui-state-highlight a
+{
+	color: #363636;
+}
+
+.ui-state-error , .ui-widget-content .ui-state-error , .ui-widget-header .ui-state-error
+{
+	border: 0.1em solid #cd0a0a;
+	background: #b81900 50% 50% repeat;
+	color: #ffffff;
+}
+
+.ui-state-error a , .ui-widget-content .ui-state-error a , .ui-widget-header .ui-state-error a
+{
+	color: #ffffff;
+}
+
+.ui-state-error-text , .ui-widget-content .ui-state-error-text , .ui-widget-header .ui-state-error-text
+{
+	color: #ffffff;
+}
+
+.ui-priority-primary , .ui-widget-content .ui-priority-primary , .ui-widget-header .ui-priority-primary
+{
+	font-weight: bold;
+}
+
+.ui-priority-secondary , .ui-widget-content .ui-priority-secondary , .ui-widget-header .ui-priority-secondary
+{
+	opacity: 0.7;
+	filter: Alpha(Opacity=70);
+	font-weight: normal;
+}
+
+.ui-state-disabled , .ui-widget-content .ui-state-disabled , .ui-widget-header .ui-state-disabled
+{
+	opacity: 0.35;
+	filter: Alpha(Opacity=35);
+	background-image: none;
+}
+
+/* Icons ----------------------------------*/
+ /* states and images */
+ .ui-icon
+{
+	width: 16px;
+	height: 16px;
+}
+
+/* positioning */
+ .ui-icon-carat-1-n
+{
+	background-position: 0 0;
+}
+
+.ui-icon-carat-1-ne
+{
+	background-position: -16px 0;
+}
+
+.ui-icon-carat-1-e
+{
+	background-position: -32px 0;
+}
+
+.ui-icon-carat-1-se
+{
+	background-position: -48px 0;
+}
+
+.ui-icon-carat-1-s
+{
+	background-position: -64px 0;
+}
+
+.ui-icon-carat-1-sw
+{
+	background-position: -80px 0;
+}
+
+.ui-icon-carat-1-w
+{
+	background-position: -96px 0;
+}
+
+.ui-icon-carat-1-nw
+{
+	background-position: -112px 0;
+}
+
+.ui-icon-carat-2-n-s
+{
+	background-position: -128px 0;
+}
+
+.ui-icon-carat-2-e-w
+{
+	background-position: -144px 0;
+}
+
+.ui-icon-triangle-1-n
+{
+	background-position: 0 -16px;
+}
+
+.ui-icon-triangle-1-ne
+{
+	background-position: -16px -16px;
+}
+
+.ui-icon-triangle-1-e
+{
+	background-position: -32px -16px;
+}
+
+.ui-icon-triangle-1-se
+{
+	background-position: -48px -16px;
+}
+
+.ui-icon-triangle-1-s
+{
+	background-position: -64px -16px;
+}
+
+.ui-icon-triangle-1-sw
+{
+	background-position: -80px -16px;
+}
+
+.ui-icon-triangle-1-w
+{
+	background-position: -96px -16px;
+}
+
+.ui-icon-triangle-1-nw
+{
+	background-position: -112px -16px;
+}
+
+.ui-icon-triangle-2-n-s
+{
+	background-position: -128px -16px;
+}
+
+.ui-icon-triangle-2-e-w
+{
+	background-position: -144px -16px;
+}
+
+.ui-icon-arrow-1-n
+{
+	background-position: 0 -32px;
+}
+
+.ui-icon-arrow-1-ne
+{
+	background-position: -16px -32px;
+}
+
+.ui-icon-arrow-1-e
+{
+	background-position: -32px -32px;
+}
+
+.ui-icon-arrow-1-se
+{
+	background-position: -48px -32px;
+}
+
+.ui-icon-arrow-1-s
+{
+	background-position: -64px -32px;
+}
+
+.ui-icon-arrow-1-sw
+{
+	background-position: -80px -32px;
+}
+
+.ui-icon-arrow-1-w
+{
+	background-position: -96px -32px;
+}
+
+.ui-icon-arrow-1-nw
+{
+	background-position: -112px -32px;
+}
+
+.ui-icon-arrow-2-n-s
+{
+	background-position: -128px -32px;
+}
+
+.ui-icon-arrow-2-ne-sw
+{
+	background-position: -144px -32px;
+}
+
+.ui-icon-arrow-2-e-w
+{
+	background-position: -160px -32px;
+}
+
+.ui-icon-arrow-2-se-nw
+{
+	background-position: -176px -32px;
+}
+
+.ui-icon-arrowstop-1-n
+{
+	background-position: -192px -32px;
+}
+
+.ui-icon-arrowstop-1-e
+{
+	background-position: -208px -32px;
+}
+
+.ui-icon-arrowstop-1-s
+{
+	background-position: -224px -32px;
+}
+
+.ui-icon-arrowstop-1-w
+{
+	background-position: -240px -32px;
+}
+
+.ui-icon-arrowthick-1-n
+{
+	background-position: 0 -48px;
+}
+
+.ui-icon-arrowthick-1-ne
+{
+	background-position: -16px -48px;
+}
+
+.ui-icon-arrowthick-1-e
+{
+	background-position: -32px -48px;
+}
+
+.ui-icon-arrowthick-1-se
+{
+	background-position: -48px -48px;
+}
+
+.ui-icon-arrowthick-1-s
+{
+	background-position: -64px -48px;
+}
+
+.ui-icon-arrowthick-1-sw
+{
+	background-position: -80px -48px;
+}
+
+.ui-icon-arrowthick-1-w
+{
+	background-position: -96px -48px;
+}
+
+.ui-icon-arrowthick-1-nw
+{
+	background-position: -112px -48px;
+}
+
+.ui-icon-arrowthick-2-n-s
+{
+
+	background-position: -128px -48px;
+}
+
+.ui-icon-arrowthick-2-ne-sw
+{
+	background-position: -144px -48px;
+}
+
+.ui-icon-arrowthick-2-e-w
+{
+	background-position: -160px -48px;
+}
+
+.ui-icon-arrowthick-2-se-nw
+{
+	background-position: -176px -48px;
+}
+
+.ui-icon-arrowthickstop-1-n
+{
+	background-position: -192px -48px;
+}
+
+.ui-icon-arrowthickstop-1-e
+{
+	background-position: -208px -48px;
+}
+
+.ui-icon-arrowthickstop-1-s
+{
+	background-position: -224px -48px;
+}
+
+.ui-icon-arrowthickstop-1-w
+{
+	background-position: -240px -48px;
+}
+
+.ui-icon-arrowreturnthick-1-w
+{
+	background-position: 0 -64px;
+}
+
+.ui-icon-arrowreturnthick-1-n
+{
+	background-position: -16px -64px;
+}
+
+.ui-icon-arrowreturnthick-1-e
+{
+	background-position: -32px -64px;
+}
+
+.ui-icon-arrowreturnthick-1-s
+{
+	background-position: -48px -64px;
+}
+
+.ui-icon-arrowreturn-1-w
+{
+	background-position: -64px -64px;
+}
+
+.ui-icon-arrowreturn-1-n
+{
+	background-position: -80px -64px;
+}
+
+.ui-icon-arrowreturn-1-e
+{
+	background-position: -96px -64px;
+}
+
+.ui-icon-arrowreturn-1-s
+{
+	background-position: -112px -64px;
+}
+
+.ui-icon-arrowrefresh-1-w
+{
+	background-position: -128px -64px;
+}
+
+.ui-icon-arrowrefresh-1-n
+{
+	background-position: -144px -64px;
+}
+
+.ui-icon-arrowrefresh-1-e
+{
+	background-position: -160px -64px;
+}
+
+.ui-icon-arrowrefresh-1-s
+{
+	background-position: -176px -64px;
+}
+
+.ui-icon-arrow-4
+{
+	background-position: 0 -80px;
+}
+
+.ui-icon-arrow-4-diag
+{
+	background-position: -16px -80px;
+}
+
+.ui-icon-extlink
+{
+	background-position: -32px -80px;
+}
+
+.ui-icon-newwin
+{
+	background-position: -48px -80px;
+}
+
+.ui-icon-refresh
+{
+	background-position: -64px -80px;
+}
+
+.ui-icon-shuffle
+{
+	background-position: -80px -80px;
+}
+
+.ui-icon-transfer-e-w
+{
+	background-position: -96px -80px;
+}
+
+.ui-icon-transferthick-e-w
+{
+	background-position: -112px -80px;
+}
+
+.ui-icon-folder-collapsed
+{
+	background-position: 0 -96px;
+}
+
+.ui-icon-folder-open
+{
+	background-position: -16px -96px;
+}
+
+.ui-icon-document
+{
+	background-position: -32px -96px;
+}
+
+.ui-icon-document-b
+{
+	background-position: -48px -96px;
+}
+
+.ui-icon-note
+{
+	background-position: -64px -96px;
+}
+
+.ui-icon-mail-closed
+{
+	background-position: -80px -96px;
+}
+
+.ui-icon-mail-open
+{
+	background-position: -96px -96px;
+}
+
+.ui-icon-suitcase
+{
+	background-position: -112px -96px;
+}
+
+.ui-icon-comment
+{
+	background-position: -128px -96px;
+}
+
+.ui-icon-person
+{
+	background-position: -144px -96px;
+}
+
+.ui-icon-print
+{
+	background-position: -160px -96px;
+}
+
+.ui-icon-trash
+{
+	background-position: -176px -96px;
+}
+
+.ui-icon-locked
+{
+	background-position: -192px -96px;
+}
+
+.ui-icon-unlocked
+{
+	background-position: -208px -96px;
+}
+
+.ui-icon-bookmark
+{
+	background-position: -224px -96px;
+}
+
+.ui-icon-tag
+{
+	background-position: -240px -96px;
+}
+
+.ui-icon-home
+{
+	background-position: 0 -112px;
+}
+
+.ui-icon-flag
+{
+	background-position: -16px -112px;
+}
+
+.ui-icon-calendar
+{
+	background-position: -32px -112px;
+}
+
+.ui-icon-cart
+{
+	background-position: -48px -112px;
+}
+
+.ui-icon-pencil
+{
+	background-position: -64px -112px;
+}
+
+.ui-icon-clock
+{
+	background-position: -80px -112px;
+}
+
+.ui-icon-disk
+{
+	background-position: -96px -112px;
+}
+
+.ui-icon-calculator
+{
+	background-position: -112px -112px;
+}
+
+.ui-icon-zoomin
+{
+	background-position: -128px -112px;
+}
+
+.ui-icon-zoomout
+{
+	background-position: -144px -112px;
+}
+
+.ui-icon-search
+{
+	background-position: -160px -112px;
+}
+
+.ui-icon-wrench
+{
+	background-position: -176px -112px;
+}
+
+.ui-icon-gear
+{
+	background-position: -192px -112px;
+}
+
+.ui-icon-heart
+{
+	background-position: -208px -112px;
+}
+
+.ui-icon-star
+{
+	background-position: -224px -112px;
+}
+
+.ui-icon-link
+{
+	background-position: -240px -112px;
+}
+
+.ui-icon-cancel
+{
+	background-position: 0 -128px;
+}
+
+.ui-icon-plus
+{
+	background-position: -16px -128px;
+}
+
+.ui-icon-plusthick
+{
+	background-position: -32px -128px;
+}
+
+.ui-icon-minus
+{
+	background-position: -48px -128px;
+}
+
+.ui-icon-minusthick
+{
+	background-position: -64px -128px;
+}
+
+.ui-icon-close
+{
+	background-position: -80px -128px;
+}
+
+.ui-icon-closethick
+{
+	background-position: -96px -128px;
+}
+
+.ui-icon-key
+{
+	background-position: -112px -128px;
+}
+
+.ui-icon-lightbulb
+{
+	background-position: -128px -128px;
+}
+
+.ui-icon-scissors
+{
+	background-position: -144px -128px;
+}
+
+.ui-icon-clipboard
+{
+	background-position: -160px -128px;
+}
+
+.ui-icon-copy
+{
+	background-position: -176px -128px;
+}
+
+.ui-icon-contact
+{
+	background-position: -192px -128px;
+}
+
+.ui-icon-image
+{
+	background-position: -208px -128px;
+}
+
+.ui-icon-video
+{
+	background-position: -224px -128px;
+}
+
+.ui-icon-script
+{
+	background-position: -240px -128px;
+}
+
+.ui-icon-alert
+{
+	background-position: 0 -144px;
+}
+
+.ui-icon-info
+{
+	background-position: -16px -144px;
+}
+
+.ui-icon-notice
+{
+	background-position: -32px -144px;
+}
+
+.ui-icon-help
+{
+	background-position: -48px -144px;
+}
+
+.ui-icon-check
+{
+	background-position: -64px -144px;
+}
+
+.ui-icon-bullet
+{
+	background-position: -80px -144px;
+}
+
+.ui-icon-radio-off
+{
+	background-position: -96px -144px;
+}
+
+.ui-icon-radio-on
+{
+	background-position: -112px -144px;
+}
+
+.ui-icon-pin-w
+{
+	background-position: -128px -144px;
+}
+
+.ui-icon-pin-s
+{
+	background-position: -144px -144px;
+}
+
+.ui-icon-play
+{
+	background-position: 0 -160px;
+}
+
+.ui-icon-pause
+{
+	background-position: -16px -160px;
+}
+
+.ui-icon-seek-next
+{
+	background-position: -32px -160px;
+}
+
+.ui-icon-seek-prev
+{
+	background-position: -48px -160px;
+}
+
+.ui-icon-seek-end
+{
+	background-position: -64px -160px;
+}
+
+.ui-icon-seek-start
+{
+	background-position: -80px -160px;
+}
+
+/* ui-icon-seek-first is deprecated, use ui-icon-seek-start instead */
+ .ui-icon-seek-first
+{
+	background-position: -80px -160px;
+}
+
+.ui-icon-stop
+{
+	background-position: -96px -160px;
+}
+
+.ui-icon-eject
+{
+	background-position: -112px -160px;
+}
+
+.ui-icon-volume-off
+{
+	background-position: -128px -160px;
+}
+
+.ui-icon-volume-on
+{
+	background-position: -144px -160px;
+}
+
+.ui-icon-power
+{
+	background-position: 0 -176px;
+}
+
+.ui-icon-signal-diag
+{
+	background-position: -16px -176px;
+}
+
+.ui-icon-signal
+{
+	background-position: -32px -176px;
+}
+
+.ui-icon-battery-0
+{
+	background-position: -48px -176px;
+}
+
+.ui-icon-battery-1
+{
+	background-position: -64px -176px;
+}
+
+.ui-icon-battery-2
+{
+	background-position: -80px -176px;
+}
+
+.ui-icon-battery-3
+{
+	background-position: -96px -176px;
+}
+
+.ui-icon-circle-plus
+{
+	background-position: 0 -192px;
+}
+
+.ui-icon-circle-minus
+{
+	background-position: -16px -192px;
+}
+
+.ui-icon-circle-close
+{
+	background-position: -32px -192px;
+}
+
+.ui-icon-circle-triangle-e
+{
+	background-position: -48px -192px;
+}
+
+.ui-icon-circle-triangle-s
+{
+	background-position: -64px -192px;
+}
+
+.ui-icon-circle-triangle-w
+{
+	background-position: -80px -192px;
+}
+
+.ui-icon-circle-triangle-n
+{
+	background-position: -96px -192px;
+}
+
+.ui-icon-circle-arrow-e
+{
+	background-position: -112px -192px;
+}
+
+.ui-icon-circle-arrow-s
+{
+	background-position: -128px -192px;
+}
+
+.ui-icon-circle-arrow-w
+{
+	background-position: -144px -192px;
+}
+
+.ui-icon-circle-arrow-n
+{
+	background-position: -160px -192px;
+}
+
+.ui-icon-circle-zoomin
+{
+	background-position: -176px -192px;
+}
+
+.ui-icon-circle-zoomout
+{
+	background-position: -192px -192px;
+}
+
+.ui-icon-circle-check
+{
+	background-position: -208px -192px;
+}
+
+.ui-icon-circlesmall-plus
+{
+	background-position: 0 -208px;
+}
+
+.ui-icon-circlesmall-minus
+{
+	background-position: -16px -208px;
+}
+
+.ui-icon-circlesmall-close
+{
+	background-position: -32px -208px;
+}
+
+.ui-icon-squaresmall-plus
+{
+	background-position: -48px -208px;
+}
+
+.ui-icon-squaresmall-minus
+{
+	background-position: -64px -208px;
+}
+
+.ui-icon-squaresmall-close
+{
+	background-position: -80px -208px;
+}
+
+.ui-icon-grip-dotted-vertical
+{
+	background-position: 0 -224px;
+}
+
+.ui-icon-grip-dotted-horizontal
+{
+	background-position: -16px -224px;
+}
+
+.ui-icon-grip-solid-vertical
+{
+	background-position: -32px -224px;
+}
+
+.ui-icon-grip-solid-horizontal
+{
+	background-position: -48px -224px;
+}
+
+.ui-icon-gripsmall-diagonal-se
+{
+	background-position: -64px -224px;
+}
+
+.ui-icon-grip-diagonal-se
+{
+	background-position: -80px -224px;
+}
+
+/* Misc visuals ----------------------------------*/
+ /* Overlays */
+ .ui-widget-overlay
+{
+	background: #666666 50% 50% repeat;
+	opacity: 0.50;
+	filter: Alpha(Opacity=50);
+}
+
+.ui-widget-shadow
+{
+	margin: -5px 0 0 -5px;
+	padding: 5px;
+	background: #000000 50% 50% repeat-x;
+	opacity: 0.20;
+	filter: Alpha(Opacity=20);
+	-moz-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+/*! * jQuery UI Accordion 1.8.21 * * Copyright 2012, AUTHORS.txt (http: //jqueryui.com/about) * Dual licensed under the MIT or GPL Version 2 licenses. * http: //jquery.org/license * * http: //docs.jquery.com/UI/Accordion#theming */
+ /* IE/Win - Fix animation bug - #4615 */
+ .ui-accordion
+{
+	width: 100%;
+}
+
+.ui-accordion .ui-accordion-header
+{
+	cursor: pointer;
+	position: relative;
+	margin-top: 1px;
+	zoom: 1;
+}
+
+.ui-accordion .ui-accordion-li-fix
+{
+	display: inline;
+}
+
+.ui-accordion .ui-accordion-header-active
+{
+	border-bottom: 0 !important;
+}
+
+.ui-accordion .ui-accordion-header a
+{
+	display: block;
+	font-size: 1em;
+	padding: .5em .5em .5em .7em;
+}
+
+.ui-accordion-icons .ui-accordion-header a
+{
+	padding-left: 2.2em;
+}
+
+.ui-accordion .ui-accordion-header .ui-icon
+{
+	position: absolute;
+	left: .5em;
+	top: 50%;
+	margin-top: -8px;
+}
+
+.ui-accordion .ui-accordion-content
+{
+	padding: 1em 2.2em;
+	border-top: 0;
+	margin-top: -2px;
+	position: relative;
+	top: 1px;
+	margin-bottom: 2px;
+	overflow: auto;
+	display: none;
+	zoom: 1;
+}
+
+.ui-accordion .ui-accordion-content-active
+{
+	display: block;
+}
+
+/*! * jQuery UI Tabs 1.8.21 * * Copyright 2012, AUTHORS.txt (http: //jqueryui.com/about) * Dual licensed under the MIT or GPL Version 2 licenses. * http: //jquery.org/license * * http: //docs.jquery.com/UI/Tabs#theming */
+ .ui-tabs
+{
+	position: relative;
+	padding: 0.2em;
+	zoom: 1;
+}
+
+/* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
+ .ui-tabs .ui-tabs-nav
+{
+	margin: 0 0% 1em 0%;
+	padding: 0.2em 0.2em 0 0em;
+	border-bottom: 0.1em solid #bfbfbf;
+	float: left;
+}
+
+.ui-tabs .ui-tabs-nav li
+{
+	list-style: none;
+	float: left;
+	position: relative;
+	top: 0.11em;
+	border: 0.1em solid #bfbfbf;
+	padding: 0.2em 0.2em 0 0.2em;
+	margin: 0 0.2em 0 0px;
+	white-space: nowrap;
+	font-size: 1em;
+	color: #333;
+	text-align: center;
+	min-height: 2.7em;
+}
+
+.ui-tabs .ui-tabs-nav li a
+{
+	float: left;
+	padding: 0.5em 0.8em 0.7em;
+	text-decoration: none;
+	color: #333;
+	font-weight: normal;
+}
+
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected
+{
+	margin-bottom: 0;
+	padding-bottom: 0.1em;
+	border-top: 0.3em solid #e00034;
+	min-height: 2.4em;
+	border-bottom: 0.3em solid #fff;
+}
+
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected a , .ui-tabs .ui-tabs-nav li.ui-state-disabled a , .ui-tabs .ui-tabs-nav li.ui-state-processing a
+{
+	cursor: text;
+	font-weight: bold;
+}
+
+.ui-tabs .ui-tabs-nav li a , .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a
+{
+	cursor: pointer;
+	outline: none;
+}
+
+/* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
+ .ui-tabs .ui-tabs-panel
+{
+	display: block;
+	border-width: 0;
+	padding: 1em 1.4em;
+	background-color: #fff;
+	padding: 0.3em 0.5em;
+	margin-left: 3px;
+	border: 0.1em solid #bfbfbf;
+	border-bottom: 0;
+	border-top: 0;
+}
+
+.ui-tabs .ui-tabs-hide, .visible-sm
+{
+	display: none !important;
+}
+
+/* Hack for FED ----------------------------------*/
+ .tab-wrap_edu .ui-tabs-nav li
+{
+	min-width: 10em;
+	white-space: normal;
+}
+
+.tab-wrap_edu .ui-tabs-nav
+{
+	float: none;S
+}
+
+.tab-wrap_edu .ui-tabs-panel
+{
+	border-style: none;
+}
+
+.tab-wrap_edu .ui-state-default a , .tab-wrap_edu .ui-state-default a:link , .tab-wrap_edu .ui-state-default a:visited
+{
+	top: -4px;
+}
+
+
+/**
+ * END: content_modules_external_jQuery-ui-tabs-custom (#453281)
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+ */
+ } 
+/**
+ * END: CONTENT - print screen projection
+ * ==================================================================
+ * START: general - hacks
+ * (This is for getting around (theoretically) compliant browser
+ * issues - e.g. web-kit handling of input[type=search]) 
+ */
+ 
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: general_hacks (#470103)
+ * Last updated by: Evan Wills
+ * Last updated: 05 Jun 2013 9:41am 
+ */
+ 
+/**
+ * END: general_hacks (#470103)
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+ */
+ 
+/**
+ * END: general - hacks
+ * ================================================================== 
+ */
+ 
+/**
+ * START: PRINT STYLES
+ * ==================================================================
+ * START @media: Interface - print only
+ * (page visual structure) 
+ */
+ @media print
+{
+/**
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * START: interface_print (#450816)
+ * Last updated by: Paul Hudson
+ * Last updated: 25 Oct 2012 5:59pm 
+ */
+ /* PRINT STYLES */
+ nav#global-primary ul, header #site-search, nav#global-portals, nav#global-main, #content-menu, #right, #global-footer-social, #global-footer-main, #global-footer-useful, nav#breadcrumbs, #content-fixed-content, p.read.button a { 
+	display: none!important;
+}
+
+img.print-logo
+{
+	display: block;
+	position: absolute;
+	top: 2pt;
+	left: 2pt;
+	width: 121pt;
+	height: 47pt;
+}
+
+#f_wrap
+{
+	background-color: #fff;
+}
+
+#f_wrap p
+{
+	color: #000;
+}
+
+section#content
+{
+	width: auto;
+	margin-left: -6cm;
+}
+
+header , html , body
+{
+	background-color: #fff!important;
+}
+
+header
+{
+	height: 50pt;
+}
+
+@page :left
+{
+	margin: 0.5cm;
+}
+
+/* for Firefox */
+ body
+{
+	margin-right: 1cm;
+}
+
+@page :right
+{
+	margin: 0.8cm;
+}
+
+section#content h1
+{
+	font-size: 26pt;
+	border-bottom: none;
+	color: #000!important;
+}
+
+h2
+{
+	font-size: 14pt;
+}
+
+aside h2
+{
+	font-size: 18pt;
+}
+
+ article h1 a.arrow-white-small
+,h1 a
+,a img.thumb
+,a img
+,li a
+,p a[href^="http://"]:after
+,p a[href^="https://"]:after
+{
+	content: " (" attr(href) ")";
+	font-size: 80%;
+	font: 12pt Arial, Myriad Pro, san-serif;
+	color: #000;
+}
+
+li a , p a
+{
+	word-wrap: break-word;
+}
+
+body
+{
+	font: 12pt Arial, Myriad Pro, san-serif;
+	line-height: 1.3;
+}
+
+ 
+
+/**
+ * END: interface_print (#450816)
+ * = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+ */
+ } 
+/**
+ * END: Interface - print
+ * ==================================================================
+ * START: @media: Interface - media queries screen, projection 
+ */
+ 
+/**
+ * END: @media: Interface - media queries screen, projection
+ * ==================================================================
+ * START: PARSE FILE ASSOCIATED IMAGES 
+ */
+
+} 
+/**
+ * END: PARSE FILE ASSOCIATED IMAGES
+ * ==================================================================
+ * 
+ */
+
+
+/*  
+* ACU Customised Styles (including Bootstrap overides ) 
+---------------------------------------------------------------------
+*/
+
+
+ /*  2013 call to action buttons  */
+.btn {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    -moz-user-select: none;
+   /*  border-bottom-color: hsla(0, 0%, 0%, 0);  */
+    border-color: #000 !important;
+ 
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-image-outset: 0 0 0 0;
+    border-image-repeat: stretch stretch;
+    border-image-slice: 100% 100% 100% 100%;
+    border-image-source: none;
+    border-image-width: 1 1 1 1;
+    border-left-color-ltr-source: physical;
+    border-left-color-rtl-source: physical;
+    border-left-color-value: #000;
+    border-left-style-ltr-source: physical;
+    border-left-style-rtl-source: physical;
+    border-left-style-value: solid;
+    border-left-width-ltr-source: physical;
+    border-left-width-rtl-source: physical;
+    border-left-width-value: 1px;
+    border-right-color-ltr-source: physical;
+    border-right-color-rtl-source: physical;
+    border-right-color-value: #000;
+    border-right-style-ltr-source: physical;
+    border-right-style-rtl-source: physical;
+    border-right-style-value: solid;
+    border-right-width-ltr-source: physical;
+    border-right-width-rtl-source: physical;
+    border-right-width-value: 1px;
+    border-top-color: #000;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-top-style: solid;
+    border-top-width: 1px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857;
+    margin-bottom: 1em;
+    margin-top: 0.7em;
+    padding-bottom: 6px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 6px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    font-size: 0.9em;
+    font-weight:bold;
+}
+
+.btn-secondary {
+    background-color: #00529E
+    border-left-color-ltr-source: physical;
+    border-left-color-rtl-source: physical;
+    border-color-value: #00529E;
+    color: #FFFFFF !important;
+    
+}
+
+.btn-primary {
+    background-color: #e00034 !important;
+    border-color: #b7002a !important;
+    color: #ffffff!important;
+	
+    background-color: #e00034 !important;
+    background-image: url(images/fallback-gradient.png); 
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#2F2727), to(#b7002a));
+    background-image: -webkit-linear-gradient(top, #e00034, #b7002a); 
+    background-image:    -moz-linear-gradient(top, #e00034, #b7002a) !important;
+    background-image:     -ms-linear-gradient(top, #e00034, #b7002a);
+    background-image:      -o-linear-gradient(top, #e00034, #b7002a);
+
+}
+
+.btn-default {
+    background-color: hsl(0, 0%, 100%);
+    border-left-color-ltr-source: physical;
+    border-left-color-rtl-source: physical;
+    border-right-color-ltr-source: physical;
+    border-right-color-rtl-source: physical;
+    border:1px solid #BFBFBF;
+    color: #333333;
+}
+
+a.btn { text-decoration:none!important; }
+a.btn-secondary:hover, a.btn-primary:hover { background-color: #E00034 !important; }
+a.btn-default:hover { background-color: #BFBFBF; color: #333; }
+
+.pre-footer-strip { height:21px; background-color:#005E91; }
+
+
+.visible-lg { display: inline-block !important; }
+.visible-lg-block { display: block !important; }
+
+
+/* Generic styles */
+.float-right { float: right !important; }
+.slide-out-div{
+	width:290px;
+	/* min-height:500px; to allow students.css to override */
+	z-index:1020;
+	border-radius: 0em 0.5em 0.5em 0em;
+	border-style: solid;
+	border-width: 0.1em;
+	background-color: #FBFBFB;
+	border-color: #E1E1E1;
+}
+.slide-out-div a.handle{
+	display:block;
+	position:absolute;
+	top:6px;
+	right:0px;
+	width:40px;
+	height:120px;
+	margin-right:-40px;
+	background-image: url('//students.acu.edu.au/__data/assets/image/0006/409434/contact_tab.gif');
+	border-radius: 0em 0.5em 0.5em 0em;
+}
+
+
+
+.closed{
+	position:absolute;
+	top:260px;
+	left:-290px;
+		-webkit-transform: translate3d(#,0,0);
+		-webkit-transition-property:left; 
+		-webkit-transition-duration: 0.3s; 
+		-webkit-transition-timing-function: ease-out;
+		transform: translate3d(#,0,0);
+		transition-property:left; 
+		transition-duration: 0.3s; 
+		transition-timing-function: ease-out;
+		-moz-transition-property:left; 
+		-moz-transition-duration: 0.3s; 
+		-moz-transition-timing-function: ease-out;
+	
+}
+.opened{
+	position:absolute;
+	top:260px;
+	left:0px;
+		-webkit-transform: translate3d(#,0,0);
+		-webkit-transition-property:left; 
+		-webkit-transition-duration: 0.3s; 
+		-webkit-transition-timing-function: ease-in;
+		transform: translate3d(#,0,0);
+		transition-property:left; 
+		transition-duration: 0.3s; 
+		transition-timing-function: ease-in;
+		-moz-transition-property:left; 
+		-moz-transition-duration: 0.3s; 
+		-moz-transition-timing-function: ease-in;
+}

@@ -1,0 +1,272 @@
+/*  form styles  */
+
+form { margin-bottom:0.5em; }
+#content_col form input,#content_col form textarea{
+font: 0.8em/1.3 segoe UI,Lucida Grande,Lucida Sans Unicode,Verdana,Arial,sans-serif;
+}
+
+.required_text {font-style:italic;font-weight:400;font-size:0.9em;}
+
+.input_box, .input_required {
+    text-align: left;
+    vertical-align: top;
+    background-color: #ffffa0;
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-size: 12px;
+    color: #000000;
+    font-weight: normal;
+    border: 1px solid;
+    border: 1px solid black;
+    border-bottom-color:#CCCCCC;
+    border-right-color:#CCCCCC;
+}
+.input_box_plain {
+    text-align: left;
+    vertical-align: top;
+    background-color: rgb(255, 255, 255);
+    font-family: verdana, arial, helvetica, sans-serif;
+    color: #000000;
+    font-weight: normal;
+    border:1px solid;
+    border:1px solid #000000;
+    border-bottom-color:#CCCCCC;
+    border-right-color:#CCCCCC;
+}
+
+ form dl.table-def dd ul li
+,form dl.table-def dd ul
+{
+  padding-left: 0%;
+  margin-left: 0%;
+  list-style-type: none;
+}
+ form dl.table-def dd.checkbox-list ul li
+,form dl.table-def dd.full-width.checkbox-list ul li
+,form dl.table-def dd.radio-list ul li
+,form dl.table-def dd.full-width.radio-list ul li
+{
+	text-indent:-2em;
+	margin-left: 2em;
+	padding-bottom: 0.3em;
+}
+form dl.noBullet ul li
+{
+  list-style-type: none;
+}
+
+div.form-errors p, div.form-errors ul li, p.form-errors {
+    font-weight: bold;
+    background-color: #f00;
+    color: #fff;
+    padding: 0.5em 1em;
+    font-size: 110%;
+    text-indent: 0%;
+}
+div.form-errors a {
+    color:    #fb0;
+}
+div.form-errors ul {
+    margin-left: 0%;
+    padding-left: 0%;
+}
+div.form-errors ul li{
+    margin-left: 0%;
+}
+
+fieldset.h2-legend
+{
+    margin-bottom: 2em;
+}
+fieldset.h2-legend legend
+{
+    color:#E01A22;
+    font-size:1.3em;
+    white-space:normal;
+    font-weight:bold; 
+}
+fieldset.h2-legend fieldset legend
+{
+    color:#000;
+    font-size:100%;
+    white-space:normal;
+    font-weight:normal; 
+}
+
+fieldset.fakeform {
+    border-color: #BFBFBF;
+    border-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+    border-style: solid;
+    border-width: 1px;
+    color: #333;
+    width: auto !important;
+    padding:0 0 1em 1em;
+}
+fieldset.fakeform legend { font-size:1.5em; margin-bottom:0.5em; }
+
+/*
+- - - - - - - - - - - - - -
+Funnelback nested searches
+- - - - - - - - - - - - - -
+*/
+#search_form_section form {margin-bottom:0.4em; float:none; }
+#search_form_section fieldset input#query {border: 1px solid #7f9db9; background-color:#fff; margin-top:0.5em; }
+
+/*
+- - - - - - - - - - - - - -
+Funnelback  - results section
+- - - - - - - - - - - - - -
+*/
+div.tier_header {background-color: #ffedb8; padding:0.3em; font-weight: bold; margin-bottom:0; }
+	div.result {
+	    margin-bottom: 1em;
+	    margin-left: 0em;
+	}
+	
+	div.search_summary {
+	    font-family: sans-serif;
+	    font-size: 1em;
+	    color: #4f4f4f;
+	    margin-bottom: 1em;
+	}
+	
+	table.result_summary {
+	    border: none;
+	    border-spacing: 0em 0em;
+	}
+	
+div.result_summary {padding: 0.20em 2em 0.20em 0em; font-size:0.9em; }
+div.result a {font-size:0.9em; }
+	span.summary_label {
+	    color: #660000;
+	    font-weight: bold;
+	}
+	
+	span.result_rank {
+	    color: #000000;
+	    font-weight: bold;
+	}
+	
+	span.result_title {
+	    color: #000000;
+	    font-size: 1.0em;
+	}
+	
+	span.small {
+	    font-size: 0.85em;
+	}
+	
+	span.result_info {
+	    color: green;
+	    font-size: 0.8em;
+	    display: block;
+        }
+	
+	/* The page footer */
+	
+	div.result_page_links {
+	    margin-bottom: 1.5em;
+	}
+	
+	div#copyright {
+	    text-align: right;
+	}
+	/* RSS button */
+	
+	#rss-button {
+		font: 6pt verdana, arial, sans-serif;
+	}
+	
+	a.rss {
+		color:#fff;
+		text-decoration:none;
+		border: #999 solid 1px;
+		padding: 1px;
+	}
+	span.rss-left {
+		padding-left: 2px;
+		background-color: #f60;
+		font-weight: bold;
+	}
+	
+	span.rss-right {
+		color: #000;
+		background-color: #eee;
+		padding-left: 3px;
+		padding-right:3px;
+	}
+
+/*
+- - - - - - - - - - - - - -
+Content col search boxes
+- - - - - - - - - - - - - -
+*/
+#searchbox_content_col { margin-top: 10px; margin-bottom: 5px; }
+#searchbox_content_col img { border:none; }
+#searchbox_content_col fieldset { padding-bottom:10px; padding-left:10px; }
+#searchbox_content_col legend { color:#666; }
+#askacu_content_col #searchstring { text-align:center; }
+
+/*
+-------------------------------------
+CSS for survey competitions
+-------------------------------------
+*/
+#hidden-valid-doc
+{
+	border: 0.2em solid #c00;
+	margin: 1em 0.3em 3em 0.3em ;
+	padding:1.5em 1.5em 0.5em 1.5em;
+	border-bottom: 2em solid #c00;
+	position: relative;
+	-webkit-border-radius:1em;
+	-khtml-border-radius:1em;
+	-moz-border-radius:1em;
+	-ms-border-radius:1em;
+	-o-border-radius:1em;
+	border-radius:1em;
+	-webkit-box-shadow:	0.3em 0.3em 0.5em rgba( 150 , 0 , 0 , 0.8 );
+	-khtml-box-shadow: 0.3em 0.3em 0.5em rgba( 150 , 0 , 0 , 0.8 );
+	-moz-box-shadow: 0.3em 0.3em 0.5em rgba( 150 , 0 , 0 , 0.8 );
+	-ms-box-shadow: 0.3em 0.3em 0.5em rgba( 150 , 0 , 0 , 0.8 ); 
+	-o-box-shadow: 0.3em 0.3em 0.5em rgba( 150 , 0 , 0 , 0.8 );
+	box-shadow: 0.3em 0.3em 0.5em rgba( 150 , 0 , 0 , 0.8 );
+}
+#hidden-valid-doc .this-box { position: absolute; bottom:-2.6em; color: #fff; }
+#hidden-valid-doc h2 { margin-bottom: 1em; }
+#hidden-valid-doc code { display:block; padding: 0.5em; font-size: 120%; margin-bottom: 1em; border: 0.1em dashed #555; background-color: #eee; }
+#hidden-valid-doc p#click { text-indent: -4.7em; padding-left:4.7em; margin-bottom: 0.3em; }
+#hidden-valid-doc pre { border:0.1em solid #666; padding:1em !important; margin:2em 0% 0.5em 0%; background-color:#eee; white-space: pre-wrap; }
+#hidden-valid-doc code.hl,pre.hl { font-size:100%; padding:0.7em 0%; }
+#hidden-valid-doc .hl .el { color:#808; }
+#hidden-valid-doc .hl .at { color:#088; }
+#hidden-valid-doc .hl .va { color:#aa0; }
+#hidden-valid-doc .hl .imp { font-weight:bold; }
+#hidden-valid-doc .hl .co { color:#888;  background-color:#f5f5f5; }
+#hidden-valid-doc .hl .co .el { color:#e9e; }
+#hidden-valid-doc .hl .co .at { color:#6cc; }
+#hidden-valid-doc .hl .co .va { color:#dd5; }
+#hidden-valid-doc .hl .cd { color:#5dd; }
+#hidden-valid-doc .hl .cdc { color:#55d; }
+.review { color:#BB0000; font-weight:bold; text-decoration:blink; text-transform:uppercase; }
+
+/*
+-------------------------------------
+specific forms - one-off hacks
+-------------------------------------
+*/
+#content_div_188589 table li { list-style-type:none; }
+/*
+-------------------------------------
+php-list subscribe form
+-------------------------------------
+*/
+#eNews_subscribe ul.list li.list{list-style-type:none;}
+.poweredphplist{display:none;}
+
+/*
+----------------------------------------
+hide bullet point on lists within forms
+----------------------------------------
+*/
+#content_col form dl dd ul li  { list-style-type:none; } 
