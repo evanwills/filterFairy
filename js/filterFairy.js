@@ -7,6 +7,7 @@ if( typeof console !== 'object' ) {
 		this.warn = function() { };
 		this.error = function() { };
 		this.info = function() { };
+//		this.debug = function() { };
 	};
 	var console = new Console();
 };
@@ -14,10 +15,122 @@ if( typeof console !== 'object' ) {
 
 /**
  * @function filterFairy() uses form fields to dynamically filter a
- *	     group of items
+ *			group of items
  *
- * @param string filterWrapper a selector for a tag that wraps both
- *	  filter fields and filter items
+ * @param string filterWrapper a CSS selector to match the tag that
+ *		  will wrap a single filter block (usually an ID or some
+ *		  other unique selector)
+ *
+ * Default action when instantiated:
+ *	-	Finds all form fields inside the filterWrapper (excluding
+ *		submit and buttons fields)
+ *
+ *	-	Finds all items wrapped by an element with the class
+ *		'filter-this'
+ *		NOTE:	if the filter this element is a
+ *			-	<UL> or <OL> then the filter able items will be <LI>s
+ *			-	<TABLE> then the filterable items will be <TR>s
+ *			-	<SECTION> or <ASIDE> then the filterable items will
+ *				be <ARTICLE>s
+ *			-	otherwise filterable items will be any element will
+ *				the classs 'filter-item'
+ *
+ *	-	Filter fields are exclusive, meaning that each field limits
+ *		items that can be filtered by the next field
+ *
+ *	-	Filter fields are processed in the order that they are changed.
+ *		e.g. field A is changed. Items not matching field a are hidden
+ *			field B is changed. Items are cleared. Then field A is
+ *				processed, followed by field B
+ *			field C is changed. Items are cleared. Then field A is
+ *				processed, followed by field B, followed by field C
+ *			field B is changed again. Items are cleared. Then field A
+ *				is processed, followed by field C, followed by field B
+ *
+ * Modifying filter behav
+ *
+ * <div id="filter-wrapper">
+ *	 <select id="my-select-field">
+ *		<option value="option1" data-my="one">Option one</option>
+ *		<option value="option2" data-my="two">Option two</option>
+ *		<option value="option3" data-my="three">Option three</option>
+ *	 </select>
+ *
+ *	 <label><input type="radio" id="anotherRadioField1" name="anotherRadioField" value="option-1" /> Option 1</label>
+ *	 <label><input type="radio" id="anotherRadioField2" name="anotherRadioField" value="option-2" /> Option 2</label>
+ *	 <label><input type="radio" id="anotherRadioField3" name="anotherRadioField" value="option-3" /> Option 3</label>
+ *
+ * <!--
+ *  ! data-inclusive attribute allows you to make filters inclusive
+ *  !	  i.e.  items with classes match the values of the filter will
+ *  !		be shown regardless of whether they may have been
+ *  !		filtered out earlier
+ *  !		CHECKBOXES with data-inclusive="exclusive" cause matching
+ *  !		items (who have not yet been excluded) to be excluded
+ *  !		only if the checkbox is checked. Items not matching the
+ *  !		checkbox filter will always be shown.
+ *  -->
+ *	<label><input type="checkbox" id="checkboxfield" name="checkboxfield" data-cbfield="oi" value="hey-you" /> Hey you</label>
+ *
+ *	<ul class="filter-this">
+ *		<li class="option1">filter this one</li>
+ *		<li class="option2 see">filter this one instead</li>
+ *		<li class="option1 option3 hey-you">filter this one</li>
+ *		<li class="option2 hey-you">filter this one</li>
+ *		<li class="option1 ay bee">filter this one</li>
+ *		<li class="option1 hey-you">filter this one</li>
+ *	</ul>
+ * </div>
+ *
+ * @usage basic
+ *
+ * <script type="text/javascript">
+ *	 new $.filterFairy( '#filter-wrapper');
+ * </script>
+ *
+ *	  This will create the filters based on form fields and items with .filter-this wrappers
+ *	 standard filterable item wrappers are
+ *		ul.filter-this, ol.filter-this (<LI> for filter items)
+ *		table.filter-this (<TR> for filter items)
+ *		section.filter-this, aside.filter-this (<ARTICLE> for filter item)
+ *	  or	.filter-this (.filter-item for filter item)
+ * 	  the values from input (not button or submit), select and/or textarea are used as filters
+ *
+ *	  If you have a GET variable named anotherRadioField with a value of "ay", "bee" or "cee" the appropriate radio button will be checked automatically
+ *
+ *
+ * @usage hiding all when no filter
+ *	If you want nothing shown when the filter doesn't match
+ *	anything or is blank:
+ *
+ * <script type="text/javascript">
+ *		var filter = $.filterFairy('#filter-wrapper');
+ *		filter.setHideAllOnEmptyFilter(true);
+ * </script>
+ *
+ *
+ * @usage inclusive filters
+ *	  By default, filters are exclusive, meaning that when an item
+ *	  is excluded by a filter, it cannot be included again.
+ *	  If you want a filter to be inclusive i.e. if an item is
+ *	  matched it will be shown regardless of preceeding filters,
+ *	  add the data attribute 'data-inclusive="inclusive"' e.g.
+ *
+ *	<select id="my-select-field" data-inclusive="inclusive">
+ *
+ *	  NOTE:	inclusive filters are processed after exclusive
+ *		filters so matched items will always be shown.
+ *
+ *	  Checkbox fields have the additional functionality that if
+ *	  you want to hide items that are matched by the checkbox
+ *	  when the checkbox is NOT checked and show them when it is
+ *	  checked, use 'data-inclusive="exclusive" e.g.
+ *	<input type="checkbox" id="checkboxfield" name="checkboxfield" data-cbfield="oi" value="hey-you" data-inclusive="exclusive" />
+ *
+ * data attributes:
+ *		inclusive [ checkbox , true , first ]
+ *		inverse [ true , false ]
+ *		notfilter [ true , false ]
  */
 $.FilterFairy = function( filterWrapper ) {
 
@@ -60,17 +173,9 @@ $.FilterFairy = function( filterWrapper ) {
 	var fields;
 
 	/**
-	 * @var array _get two dimensional array where each top level item
-	 *	contains an array where the first item is the get variable
-	 *	name and the second is the get variable value
+	 * @var GetGet get object managing accessing get variable info
 	 */
-	var _get = [];
-
-	/**
-	 * @var array string getString the GET part of a URL split up into
-	 *	individual GET variable key/value pairs
-	 */
-	var getString = window.location.search.substring(1);
+	var get;
 
 	/**
 	 * @function applyFilter when any of the filter fields
@@ -83,6 +188,8 @@ $.FilterFairy = function( filterWrapper ) {
 	 * inclusive filters
 	 */
 	var applyFilter
+
+	var tmp;
 
 // END:   declaring variables
 // ==================================================================
@@ -475,12 +582,6 @@ $.FilterFairy = function( filterWrapper ) {
 				var _useFilter;
 
 				/**
-				 * @function _preset() presets the filter field
-				 *	based on the value of a GET variable
-				 */
-				var _preset;
-
-				/**
 				 * @var function _getFilterValues() returns an array
 				 *	of filterField values of the selected/checked
 				 *	item (or an empty array in the case of checkboxes
@@ -500,6 +601,7 @@ $.FilterFairy = function( filterWrapper ) {
 				 *	   FALSE otherwise
 				 */
 				var _testItem;
+
 				/**
 				 * @var bolean goodToGo whether or not the selector
 				 *	provided is a usable filter field
@@ -552,7 +654,6 @@ $.FilterFairy = function( filterWrapper ) {
 				 */
 				var UsableFilterField;
 
-
 				if( _validateType($(this).prop('id')) === 'string' ) {
 					var _id = $(this).prop('id');
 				};
@@ -592,11 +693,12 @@ $.FilterFairy = function( filterWrapper ) {
 				};
 
 				if( ( _id === '' || _fieldType === 'radio' ) && $(this).prop('name') ) {
+
 					// there was no ID or this is a usable radio field
-					_selector = filterWrapper + ' ' + filterFieldTypes[i] + '[name="' + _name + '"]';
+					_selector = filterWrapper + ' ' + _filterFieldTypes[i] + '[name="' + _name + '"]';
+
 					if( _fieldType === 'radio' && $.inArray( _selector , filterFieldSelectors ) > -1 ) {
-						// we've aready got this radio field
-						return true;
+						return;
 					} else {
 						_matchingSelectors.push(_name);
 						$(_selector).each(function() {
@@ -654,17 +756,9 @@ $.FilterFairy = function( filterWrapper ) {
 					return false;
 				};
 
+
 				if( _fieldType === 'checkbox' ) {
 
-					// checkbox fields need a custom function for presetting
-					_preset = function( attrValue , attrName , isData , tryValue ) {
-						if( ( isData === true && $(_selector).data(attrName) === attrValue ) || ( isData === false && $(_selector).attr(attrName) === attrValue ) || (tryValue === true && $(_selector).val() === attrValue ) ) {
-							// Yay! it matched make the checkbox checked
-							$(_selector).attr( 'checked' , 'checked' );
-							return true;
-						};
-						return false;
-					};
 
 					if( inclusiveCheckbox ) {
 
@@ -741,12 +835,6 @@ $.FilterFairy = function( filterWrapper ) {
 						return _getValAsList( _selector );
 					};
 
-					_preset = function( attrValue , attrName , isData , tryValue ) {
-						// since a text[area] field only has text. presetting it is just about
-						// adding text
-						$(_selector).val(attrValue ) ;
-					};
-
 					_testItem  = function ( itemClasses ) {
 
 						/**
@@ -787,40 +875,6 @@ $.FilterFairy = function( filterWrapper ) {
 					_getFilterValues = function() {
 						// give'm the list of filter strings as an array
 						return _getValAsList( _selectorSelected );
-					}
-
-					_preset = function( attrValue , attrName , isData , tryValue ) {
-
-						if( isData !== false ) {
-							// check the if this has a data attribute that matches the value
-							$( _selectorSub ).each(function(){
-								if( $(this).data(attrName) === attrValue ) {
-									// Yay! it matched make the checkbox checked
-									$(this).attr( _chooser , _chooser );
-									return true;
-								}
-							});
-						} else if ( tryValue === true ) {
-							// check if it has a normal attribute that matches the value
-							$( _selectorSub ).each(function(){
-
-								if( $(this).val() === attrValue ) {
-									// Yay! it matched make the checkbox checked{
-									$(this).attr( _chooser , _chooser );
-									return true;
-								};
-							});
-						} else {
-							// check if it has a normal attribute that matches the value
-							$( _selectorSub ).each(function(){
-								if( $(this).attr(attrName) === attrValue ) {
-									// Yay! it matched make the checkbox checked{
-									$(this).attr( _chooser , _chooser );
-									return true;
-								}
-							});
-						};
-						return false;
 					};
 
 					_testItem  = function ( itemClasses ) {
@@ -846,7 +900,9 @@ $.FilterFairy = function( filterWrapper ) {
 					goodToGo = true;
 				};
 
+
 				if( goodToGo === true ) {
+
 					// create the object for this filter field
 					var UsableFilterField = function() {
 						/**
@@ -892,7 +948,7 @@ $.FilterFairy = function( filterWrapper ) {
 							var output = _getFilterValues();
 							return output.length;
 						};
-						this.preset = _preset;
+
 						this.attrType = null;
 
 						/**
@@ -925,21 +981,6 @@ $.FilterFairy = function( filterWrapper ) {
 						this.isExclusive = function() { return exclusiveField; };
 
 						/**
-						 * @method setGetName() sets the name of the GET variable used to
-						 *		   preset this filterField's value
-						 *
-						 * @param {string}
-						 */
-						this.setGetName = _setGetName;
-
-						/**
-						 * @method getGetName() returns the name of the GET variable used to
-						 *		   preset this filter field
-						 * @returns {string} the GET varialbe name used to preset this field
-						 */
-						this.getGetName = function() { return _getName; };
-
-						/**
 						 * @method triggerChange() causes this field to trigger change
 						 */
 						this.triggerChange = function() { $(thisField).trigger('change'); };
@@ -950,19 +991,24 @@ $.FilterFairy = function( filterWrapper ) {
 						 *                   with priority
 						 */
 						this.hasPriority = function() { return priority; };
+
 					};
 
 					// add the object to the list of filter fields
 					filterFieldsRepo.push( new UsableFilterField() );
 					goodToGo = false;
+
 				} else {
 					// bummer
-					// console.log('Supplied filterField (' + _Selector + ') did not return a valid form field type. ' + _fieldType + ' was returned. Was expecting, select; input or textarea');
+					console.warning('Supplied filterField (' + _Selector + ') did not return a valid form field type. ' + _fieldType + ' was returned. Was expecting, select; input or textarea');
 					return;
 				};
 
+
 			});
+
 		};
+
 		if( filterFieldsRepo.length === 0 ) {
 			console.error('"' + filterWrapper + '" did not contain any form fields. i.e. can\'t find any thing to use as a filter.' );
 			return false;
@@ -1047,16 +1093,45 @@ $.FilterFairy = function( filterWrapper ) {
 	};
 
 
-
-/**
- * @function _setPushState() updates the page's URL so that it can be
- *	     bookmarked and be in the browser history
- *
- * @return boolean TRUE if the push state was updated FALSE otherwise
- */
+	/**
+	 * @function _setPushState() updates the page's URL so that it can be
+	 *	     bookmarked and be in the browser history
+	 *
+	 * @return boolean TRUE if the push state was updated FALSE otherwise
+	 */
 	function _setPushState() {
 // console.log(window.location);
 	};
+
+	function GetGet() {
+		/**
+		 * @var array string getString the GET part of a URL split up into
+		 *	individual GET variable key/value pairs
+		 */
+		var getString = window.location.search.substring(1);
+		var getName = [];
+		var getValue = [];
+		if( getString !== '' ) {
+			// split the GET into its individual key/value pairs
+			getString = getString.split('&');
+			for( var i = 0 ; i < getString.length ; i += 1 ) {
+				// add the key/value pairs
+				getString[i] = getString[i].split('=');
+				getName.push( getString[i][0] );
+				getValue.push( getString[i][1] );
+			}
+		}
+		this.getGET = function(varName) {
+			var index = $.inArray( varName , getName );
+			if( index > -1 ) {
+				return getValue[index];
+			} else {
+				return undefined;
+			}
+		}
+	}
+
+
 
 // END:   declaring functions
 // ==================================================================
@@ -1064,6 +1139,7 @@ $.FilterFairy = function( filterWrapper ) {
 
 
 	filterableItems = _getFilterableItems();
+
 	filterFields = _getFilterFields();
 
 	// did anything go wrong?
@@ -1072,71 +1148,11 @@ $.FilterFairy = function( filterWrapper ) {
 		return false;
 	};
 
+	get = new GetGet();
 
 // END:   checking if it's worth continuing
 // ==================================================================
 // START: declaring property functions
-
-
-
-
-	/**
-	 * @function presetFilter() takes the filter ID and the data
-	 *           attribute name/get variable and searches through the
-	 *           select field to find the option with the matching data
-	 *           key/value pair. If found, that option is preselected
-	 *
-	 * @param string selector the CSS selector for the select field to be
-	 *        used as the filter
-	 *
-	 * @param string attrName the data attribute name used and get
-	 *        variable used to store the value to be matched
-	 *
-	 * @param string getName the data attribute name used and get variable
-	 *        used to store the value to be matched
-	 *
-	 * @param string isDataAttr the data attribute name used and get
-	 *        variable used to store the value to be matched
-	 *
-	 * @return boolean TRUE if filter was preset. FALSE otherwise
-	 */
-	this.presetFilter = function( selector , attrName , getName , isDataAttr ) {
-
-		var tryValue = false;
-		if( _validateType(selector) !== 'string' ) {
-			console.error( 'presetFilter\'s first paramater must be a string' );
-			return;
-		};
-		if( _validateType(attrName) !== 'string' ) {
-			attrName = selector;
-			tryValue = true;
-		};
-		if( _validateType(getName) !== 'string' ) {
-			getName = attrName;
-		};
-		if( _validateType(isDataAttr) !== 'boolean' ) {
-			isDataAttr = true;
-		};
-		/**
-		 * @var array fields list of filterField objects
-		 */
-		var field = filterFields.getField(selector);
-
-		if( fields !== false ) {
-			// loop through the GET variables
-			for( var j = 0 ; j < _get.length ; j += 1 ) {
-				// check the key to see if it matches
-				if( _get[j][0] == getName ) {
-					// asign the value
-					field.preset( _get[j][1] , attrName , isDataAttr , tryValue );
-					field.setGetName(getName);
-					field.triggerChange();
-					return true;
-				};
-			};
-		};
-		return false;
-	};
 
 
 	/**
@@ -1171,6 +1187,20 @@ $.FilterFairy = function( filterWrapper ) {
 	 */
 	this.showAll = function() {
 		filterableItems.showAll();
+	}
+
+	/**
+	 * returns a filterField object for use outside FilterFairy.
+	 * @param   {string} fieldSelector selector string that can be used
+	 *                                 to identify filterField object
+	 * @returns {Boolean,filterField} filterField object if matched by
+	 *                                fieldSelector or FALSE otherwise
+	 */
+	this.getFormField = function( fieldSelector ) {
+		if( _validateType(fieldSelector) === 'string' ) {
+			return filterFields.getField(fieldSelector);
+		}
+		return false;
 	}
 
 	/**
@@ -1468,14 +1498,5 @@ $.FilterFairy = function( filterWrapper ) {
 	} else {
 		// there were no filter fields so complain
 		console.error('There are no filter fields to use');
-	};
-	if( getString !== '' ) {
-		// split the GET into its individual key/value pairs
-		getString = getString.split('&');
-		for( var i = 0 ; i < getString.length ; i += 1 ) {
-			// add the key/value pairs
-			_get.push( getString[i].split('=') );
-		};
-	};
-
+	}
 };
