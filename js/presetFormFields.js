@@ -14,9 +14,11 @@ if( typeof console !== 'object' ) {
 
 
 $.PresetFormFields = function() {
-
 	var getObj;
 	var compareAttr;
+	var badSelector = true;
+	var reg = /[^a-z0-9_-]+/i;
+	var isRaw = null;
 
 	/**
 	 * @function _validateType() takes a variable tries to get its type.
@@ -167,11 +169,17 @@ $.PresetFormFields = function() {
 		}
 
 		if( $(fieldSelector).length === 0 ) {
-			if( $('#'+fieldSelector).length > 0 ) {
-				fieldSelector = '#'+fieldSelector;
-			} else if ( $('.'+fieldSelector).length > 0 ) {
-				fieldSelector = '.'+fieldSelector;
-			} else {
+			isRaw = reg.exec(fieldSelector);
+			if( isRaw === null ) {
+				if( $('#'+fieldSelector).length > 0 ) {
+					fieldSelector = '#'+fieldSelector;
+					badSelector = false;
+				} else if ( $('.'+fieldSelector).length > 0 ) {
+					fieldSelector = '.'+fieldSelector;
+					badSelector = false;
+				}
+			}
+			if( badSelector === true ) {
 				console.warn('Could not find any HTML form fields with '+fieldSelector);
 				return false;
 			}
@@ -240,5 +248,4 @@ $.PresetFormFields = function() {
 		});
 		return isDone;
 	};
-
 };
