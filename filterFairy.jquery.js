@@ -170,8 +170,9 @@ $.FilterFairy = function( filterWrapper ) {
 	/**
 	 * @var array fields list of filterFields
 	 */
-	var fields;
+	var fields = [];
 
+	var items = [];
 	/**
 	 * @var GetGet get object managing accessing get variable info
 	 */
@@ -423,19 +424,14 @@ $.FilterFairy = function( filterWrapper ) {
 						 * @function showItem() makes the the item visible if it was hidden
 						 */
 						this.showItem = function() {
-							if( $(item).hasClass('filter-hide') ) {
-								$(item).removeClass('filter-hide').addClass('filter-show');
-
-							};
+							$(item).removeClass('filter-hide').addClass('filter-show');
 						};
 
 						/**
 						 * @function hideItem() hides the item if it was visible
 						 */
 						this.hideItem = function() {
-							if( $(item).hasClass('filter-show') ) {
-								$(item).removeClass('filter-show').addClass('filter-hide');
-							};
+							$(item).removeClass('filter-show').addClass('filter-hide');
 						};
 
 						/**
@@ -462,6 +458,9 @@ $.FilterFairy = function( filterWrapper ) {
 		};
 
 		var FilterableItems = function () {
+			this.itemCount = function() {
+				return filterableItemsArray.length;
+			}
 			this.getAll = function() {
 				return filterableItemsArray;
 			};
@@ -508,333 +507,275 @@ $.FilterFairy = function( filterWrapper ) {
 		 */
 		var filterFieldSelectors = [];
 
-		for( var i = 0 ; i < 3 ; i += 1 ) {
+		$( filterWrapper + ' *' ).each( function() {
 
-			$( filterWrapper + ' ' + _filterFieldTypes[i] ).each(function() {
+			/**
+			 * @var string fieldType HTML element the filter form field is
+			 */
+			var fieldType = $(this).prop('tagName').toLowerCase();
 
-				if( $(this).data('nofilter') || $(this).data('notfilter') ) {
-					// we shouldn't use this field as a filter.
+			/**
+			 * @var object thisField javascript object for the field.
+			 */
+			var thisField;
+
+			/**
+			 * @var string _selector the selector that can be used to act on the
+			 *	form field
+			 */
+			var _selector = '';
+
+			/**
+			 * @var array _matchingSelectors possible selectors that can be used
+			 *	to match when presetting a field from URL
+			 */
+			var _matchingSelectors = [];
+
+			/**
+			 * @var string id the ID of the form field
+			 */
+			var _id = ''
+
+			/**
+			 * @var string _name the value of the name attribute of a field
+			 */
+			var _name = '';
+
+			/**
+			 * @var boolean exclusiveField whether or not this field is exclusive
+			 *	or not.
+			 *	i.e.	if not exclusive, matching items should be shown
+			 *		regardles of whether they might have already been
+			 *		filtered out.
+			 */
+			var exclusiveField = true;
+
+			/**
+			 * @var boolean inclusiveCheckbox inclusive checkboxes need to be handled
+			 *		handled slightly differently since their value is unchanging but
+			 *		their state can change. The state of an inclusive checkbox should
+			 *		only effect items that it matches and are already visible. To do
+			 *		this inclusive checkboxes are processed with the exclusive filter
+			 *		fields but must have an internal state to differentiate them from
+			 *		exclusive checkboxes.
+			 */
+			var inclusiveCheckbox = false;
+
+			/**
+			 * @var boolean priority whether or not an inclusive field should be
+			 *		processed before or after exclusive fields
+			 */
+			var priority = false;
+
+			/**
+			 * @var funcion _useFilter() used to test whether the
+			 *	object matches the selector provided
+			 */
+			var _useFilter;
+
+			/**
+			 * @var function _getFilterValues() returns an array
+			 *	of filterField values of the selected/checked
+			 *	item (or an empty array in the case of checkboxes
+			 *	if the box isn't checked
+			 */
+			var _getFilterValues;
+
+			/**
+			 * @function _testItem() checks whether any items in the supplied
+			 *	array match any of the values in this filterField's list of
+			 *	values
+			 *
+			 * @param array itemClasses list of classes supplied by the
+			 *	  filterable item being processed
+			 *
+			 * @return boolean TRUE if a class matched one of the filter's values
+			 *	   FALSE otherwise
+			 */
+			var _testItem;
+
+			/**
+			 * @var bolean goodToGo whether or not the selector
+			 *	provided is a usable filter field
+			 */
+			var goodToGo = false;
+
+			/**
+			 * @var string _chooser the string used to check
+			 *	whether a select/radio/checkbox field is selected
+			 */
+			var _chooser = 'checked';
+
+			/**
+			 * @var string getName
+			 */
+			var _getName = '';
+
+			/**
+			 * @function _setGetName()
+			 */
+			var _setGetName;
+
+			/**
+			 * @function inverseResult() returns the opposite of the boolean supplied
+			 *
+			 * @var boolean result
+			 *
+			 * @return boolean FALSE if result is TRUE, or TRUE otherwise
+			 */
+			var inverseResult;
+
+			/**
+			 * @object for handling everything to do with individual filter fields
+			 */
+			var UsableFilterField;
+
+			if( fieldType !== 'input' && fieldType !== 'select' && fieldType !== 'textarea' ) {
+				return;
+			}
+
+
+			thisField = $(this).get();
+
+			if( $(this).data('nofilter') || $(this).data('notfilter') ) {
+				// we shouldn't use this field as a filter.
+				return;
+			};
+
+			if( _validateType($(this).prop('id')) === 'string' ) {
+				var _id = $(this).prop('id');
+			};
+
+			if( _validateType($(this).prop('name')) === 'string' ) {
+				var _id = $(this).prop('name');
+			};
+
+
+			if( fieldType === 'input' ) {
+				// becaues this is an input we need to know what type of input
+				fieldType = $(this).prop('type').toLowerCase();
+
+				if( fieldType === 'submit' || fieldType === 'button' ) {
+					// buttons are no good as filters.
+					return false;
+				} else if ( fieldType !== 'checkbox' && fieldType !== 'radio' ) {
+					// if it's not a checkbox or radio field treat it as text
+					fieldType = 'text';
+				};
+			} else if( fieldType === 'textarea' ) {
+				// if it's a <TEXTAREA>
+				fieldType = 'text';
+			};
+
+			if( $(this).prop('id') ) {
+				// grab the ID if there is one
+				_id = $(this).prop('id');
+				// add the ID to a list of possible selectors used for finding which
+				// filter to preset
+				_matchingSelectors.push(_id);
+				// create a usable selector for the node using its ID
+				_selector = '#' + _id;
+				// add that _selector as another possible match fir finding which
+				// filter to preset
+				_matchingSelectors.push(_selector);
+			};
+
+			if( ( _id === '' || fieldType === 'radio' ) && $(this).prop('name') ) {
+
+				// there was no ID or this is a usable radio field
+				_selector = filterWrapper + ' ' + _filterFieldTypes[i] + '[name="' + _name + '"]';
+
+				if( fieldType === 'radio' && $.inArray( _selector , filterFieldSelectors ) > -1 ) {
 					return;
-				};
-
-				/**
-				 * @var string fieldType HTML element the filter form field is
-				 */
-				var _fieldType = $(this).prop('tagName').toLowerCase();
-
-				/**
-				 * @var object thisField javascript object for the field.
-				 */
-				var thisField = $(this).get();
-
-				/**
-				 * @var string _selector the selector that can be used to act on the
-				 *	form field
-				 */
-				var _selector = '';
-
-				/**
-				 * @var array _matchingSelectors possible selectors that can be used
-				 *	to match when presetting a field from URL
-				 */
-				var _matchingSelectors = [];
-
-				/**
-				 * @var string id the ID of the form field
-				 */
-				var _id = ''
-
-				/**
-				 * @var string _name the value of the name attribute of a field
-				 */
-				var _name = '';
-
-				/**
-				 * @var boolean exclusiveField whether or not this field is exclusive
-				 *	or not.
-				 *	i.e.	if not exclusive, matching items should be shown
-				 *		regardles of whether they might have already been
-				 *		filtered out.
-				 */
-				var exclusiveField = true;
-
-				/**
-				 * @var boolean inclusiveCheckbox inclusive checkboxes need to be handled
-				 *		handled slightly differently since their value is unchanging but
-				 *		their state can change. The state of an inclusive checkbox should
-				 *		only effect items that it matches and are already visible. To do
-				 *		this inclusive checkboxes are processed with the exclusive filter
-				 *		fields but must have an internal state to differentiate them from
-				 *		exclusive checkboxes.
-				 */
-				var inclusiveCheckbox = false;
-
-				/**
-				 * @var boolean priority whether or not an inclusive field should be
-				 *		processed before or after exclusive fields
-				 */
-				var priority = false;
-
-				/**
-				 * @var funcion _useFilter() used to test whether the
-				 *	object matches the selector provided
-				 */
-				var _useFilter;
-
-				/**
-				 * @var function _getFilterValues() returns an array
-				 *	of filterField values of the selected/checked
-				 *	item (or an empty array in the case of checkboxes
-				 *	if the box isn't checked
-				 */
-				var _getFilterValues;
-
-				/**
-				 * @function _testItem() checks whether any items in the supplied
-				 *	array match any of the values in this filterField's list of
-				 *	values
-				 *
-				 * @param array itemClasses list of classes supplied by the
-				 *	  filterable item being processed
-				 *
-				 * @return boolean TRUE if a class matched one of the filter's values
-				 *	   FALSE otherwise
-				 */
-				var _testItem;
-
-				/**
-				 * @var bolean goodToGo whether or not the selector
-				 *	provided is a usable filter field
-				 */
-				var goodToGo = false;
-
-				/**
-				 * @var string _chooser the string used to check
-				 *	whether a select/radio/checkbox field is selected
-				 */
-				var _chooser = 'checked';
-
-				/**
-				 * @var string getName
-				 */
-				var _getName = '';
-
-				/**
-				 * @function _setGetName()
-				 */
-				var _setGetName = function( input ) {
-					if( _validateType(input) === 'string' && input !== '' ) {
-						// we have something useful asign it to _getName
-						_getName = input;
-						return true;
-					} else if( _getName === '' ) {
-						// _getName has never been defined, we'll give it a default value
-						if( _name !== '' ) {
-							_getName = _name;
-							return true;
-						} else if( _id !== '' ) {
-							_getName = _id;
-							return true;
-						};
-					};
-					return false;
-				};
-
-				/**
-				 * @function inverseResult() returns the opposite of the boolean supplied
-				 *
-				 * @var boolean result
-				 *
-				 * @return boolean FALSE if result is TRUE, or TRUE otherwise
-				 */
-				var inverseResult;
-
-				/**
-				 * @object for handling everything to do with individual filter fields
-				 */
-				var UsableFilterField;
-
-				if( _validateType($(this).prop('id')) === 'string' ) {
-					var _id = $(this).prop('id');
-				};
-
-				if( _validateType($(this).prop('name')) === 'string' ) {
-					var _id = $(this).prop('name');
-				};
-
-
-				if( _fieldType === 'input' ) {
-					// becaues this is an input we need to know what type of input
-					_fieldType = $(this).prop('type').toLowerCase();
-
-					if( _fieldType === 'submit' || _fieldType === 'button' ) {
-						// buttons are no good as filters.
-						return false;
-					} else if ( _fieldType !== 'checkbox' && _fieldType !== 'radio' ) {
-						// if it's not a checkbox or radio field treat it as text
-						_fieldType = 'text';
-					};
-				} else if( _fieldType === 'textarea' ) {
-					// if it's a <TEXTAREA>
-					_fieldType = 'text';
-				};
-
-				if( $(this).prop('id') ) {
-					// grab the ID if there is one
-					_id = $(this).prop('id');
-					// add the ID to a list of possible selectors used for finding which
-					// filter to preset
-					_matchingSelectors.push(_id);
-					// create a usable selector for the node using its ID
-					_selector = '#' + _id;
-					// add that _selector as another possible match fir finding which
-					// filter to preset
-					_matchingSelectors.push(_selector);
-				};
-
-				if( ( _id === '' || _fieldType === 'radio' ) && $(this).prop('name') ) {
-
-					// there was no ID or this is a usable radio field
-					_selector = filterWrapper + ' ' + _filterFieldTypes[i] + '[name="' + _name + '"]';
-
-					if( _fieldType === 'radio' && $.inArray( _selector , filterFieldSelectors ) > -1 ) {
-						return;
-					} else {
-						_matchingSelectors.push(_name);
-						$(_selector).each(function() {
-							if( $(this).prop('id') ) {
-								// grab all the possible selectors for this radio field
-								_matchingSelectors.push( $(this).prop('id') );
-								_matchingSelectors.push( '#' + $(this).prop('id') );
-							};
-						});
-					};
-				};
-
-				if( _selector !== '' &&  $.inArray( _selector , filterFieldSelectors ) === -1 ) {
-					// we haven't seen this one before. Add it to the list
-					filterFieldSelectors.push(_selector);
 				} else {
-					// already got this one.
+					_matchingSelectors.push(_name);
+					$(_selector).each(function() {
+						if( $(this).prop('id') ) {
+							// grab all the possible selectors for this radio field
+							_matchingSelectors.push( $(this).prop('id') );
+							_matchingSelectors.push( '#' + $(this).prop('id') );
+						};
+					});
+				};
+			};
+
+			if( _selector !== '' &&  $.inArray( _selector , filterFieldSelectors ) === -1 ) {
+				// we haven't seen this one before. Add it to the list
+				filterFieldSelectors.push(_selector);
+			} else {
+				// already got this one.
+				return true;
+			}
+
+			if( $(this).data('inclusive') ) {
+				// this is an inclusive filter. i.e. items matched by this filter
+				// will be shown regardless of preceeding or succeeding filters
+				exclusiveField = false;
+
+				switch( $(this).data('inclusive').toLowerCase() ) {
+					case 'exclusive':
+					case 'checkbox':
+						if( fieldType === 'checkbox' ) {
+							// this filter needs to be treated as a normal exclusive filter because
+							exclusiveField = true;
+							// but we want the filter to know that it's sort of inclusive.
+							inclusiveCheckbox = true;
+						}
+						break;
+					case 'priority':
+					case 'first':
+					case 'before':
+						priority = true;
+						break;
+				}
+			}
+
+			if( $(this).data('inverse') !== undefined && $(this).data('inverse') !== false ) {
+				inverseResult = function( result ) { return !result; };
+			} else {
+				inverseResult = function( result ) { return result; };
+			}
+
+			_useFilter=  function( selector ) {
+				// does the supplied selector match any of the possible selectors
+				if( $.inArray( selector , _matchingSelectors ) !== -1 ) {
 					return true;
-				}
+				};
+				return false;
+			};
 
-				if( $(this).data('inclusive') ) {
-					// this is an inclusive filter. i.e. items matched by this filter
-					// will be shown regardless of preceeding or succeeding filters
-					exclusiveField = false;
-
-					switch( $(this).data('inclusive').toLowerCase() ) {
-						case 'exclusive':
-						case 'checkbox':
-							if( _fieldType === 'checkbox' ) {
-								// this filter needs to be treated as a normal exclusive filter because
-								exclusiveField = true;
-								// but we want the filter to know that it's sort of inclusive.
-								inclusiveCheckbox = true;
-							}
-							break;
-						case 'priority':
-						case 'first':
-						case 'before':
-							priority = true;
-							break;
-					}
-				}
-
-				if( $(this).data('inverse') !== undefined && $(this).data('inverse') !== false ) {
-					inverseResult = function( result ) { return !result; };
-				} else {
-					inverseResult = function( result ) { return result; };
-				}
-
-				_useFilter=  function( selector ) {
-					// does the supplied selector match any of the possible selectors
-					if( $.inArray( selector , _matchingSelectors ) !== -1 ) {
+			_setGetName = function( input ) {
+				if( _validateType(input) === 'string' && input !== '' ) {
+					// we have something useful asign it to _getName
+					_getName = input;
+					return true;
+				} else if( _getName === '' ) {
+					// _getName has never been defined, we'll give it a default value
+					if( _name !== '' ) {
+						_getName = _name;
+						return true;
+					} else if( _id !== '' ) {
+						_getName = _id;
 						return true;
 					};
-					return false;
 				};
+				return false;
+			};
+
+			if( fieldType === 'checkbox' ) {
 
 
-				if( _fieldType === 'checkbox' ) {
-
-
-					if( inclusiveCheckbox ) {
-
-						_getFilterValues = function() {
-							return _getValAsList( _selector );
-						};
-
-
-						// an inclusiveCheckbox checkbox works slightly differently to other filters.
-						// if an item has matching classes it will be shown or hidden based
-						// on whether the checkbox is ticked or not respectively however, if
-						// the item doesn't match, it will be shown anyway.
-						_testItem  = function ( itemClasses ) {
-
-							/**
-							 * @var array value list of strings split on space to be used
-							 *	to check items against
-							 */
-							var value = _getValAsList( _selector );
-
-							/**
-							 * @var boolean usable just because an item doesn't match
-							 *	doesn't mean it shouldn't be shown
-							 */
-							var usable = false;
-
-
-							// loop through each itemClass to see if any match
-							for( var i = 0 ; i < itemClasses.length ; i += 1 ) {
-								if( $.inArray( itemClasses[i] , value ) !== -1 ) {
-									// how about that, this one matches.
-									usable = true;
-									break;
-								};
-							};
-
-							if( usable === false || inverseResult($(_selector).is(':checked')) ) {
-								return true;
-							} else {
-								return false;
-							}
-						};
-					} else {
-
-						_getFilterValues = function() {
-							return _getValAsList( _selector + ':checked' );
-						};
-						// exclusive (default) checkboxes work in the normal way, you're
-						// either in or you're out
-						_testItem  = function ( itemClasses ) {
-							/**
-							 * @var array value list of strings split on space to be used
-							 *	to check items against
-							 */
-							var value = _getValAsList( _selector );
-
-							// loop through each itemClass to see if any match
-							for( var i = 0 ; i < itemClasses.length ; i += 1 ) {
-								if( $.inArray( itemClasses[i] , value ) !== -1 ) {
-
-									// how about that, this one matches.
-									return inverseResult(true);
-								};
-							};
-							// oh well better luck next time.
-							return inverseResult(false);
-						};
-					};
-					goodToGo = true;
-
-				} else if ( _fieldType === 'text' ) {
+				if( inclusiveCheckbox ) {
 
 					_getFilterValues = function() {
 						return _getValAsList( _selector );
 					};
 
+
+					// an inclusiveCheckbox checkbox works slightly differently to other filters.
+					// if an item has matching classes it will be shown or hidden based
+					// on whether the checkbox is ticked or not respectively however, if
+					// the item doesn't match, it will be shown anyway.
 					_testItem  = function ( itemClasses ) {
 
 						/**
@@ -843,171 +784,241 @@ $.FilterFairy = function( filterWrapper ) {
 						 */
 						var value = _getValAsList( _selector );
 
-						// loop through the classes to see if any match
+						/**
+						 * @var boolean usable just because an item doesn't match
+						 *	doesn't mean it shouldn't be shown
+						 */
+						var usable = false;
+
+
+						// loop through each itemClass to see if any match
 						for( var i = 0 ; i < itemClasses.length ; i += 1 ) {
 							if( $.inArray( itemClasses[i] , value ) !== -1 ) {
-
-								// yay one of the classes matches one of the sub-strings in the value
-								return inverseResult(true);
+								// how about that, this one matches.
+								usable = true;
+								break;
 							};
 						};
-						return inverseResult(false);
-					};
-					goodToGo = true;
-				} else  if ( _fieldType === 'select' || _fieldType === 'radio' ) {
 
-					/**
-					 * @var string _selectorSub the selector string individual
-					 *	items <select> <option>s or <input type="radio"> fields
-					 */
-					var _selectorSub = _selector;
-					if( _fieldType === 'select' ) {
-						_selectorSub += ' option';
-						_chooser = 'selected';
+						if( usable === false || inverseResult($(_selector).is(':checked')) ) {
+							return true;
+						} else {
+							return false;
+						}
 					};
-
-					/**
-					 * @var string _selectorSelected the selector that matches the
-					 *	selected <option> or <input type="radio">
-					 */
-					var _selectorSelected = _selectorSub + ':' + _chooser;
+				} else {
 
 					_getFilterValues = function() {
-						// give'm the list of filter strings as an array
-						return _getValAsList( _selectorSelected );
+						return _getValAsList( _selector + ':checked' );
 					};
-
+					// exclusive (default) checkboxes work in the normal way, you're
+					// either in or you're out
 					_testItem  = function ( itemClasses ) {
-
 						/**
 						 * @var array value list of strings split on space to be used
 						 *	to check items against
 						 */
-						var value = _getValAsList( _selectorSelected );
+						var value = _getValAsList( _selector );
 
+						// loop through each itemClass to see if any match
 						for( var i = 0 ; i < itemClasses.length ; i += 1 ) {
-
-							// loop through each itemClass to see if any match
 							if( $.inArray( itemClasses[i] , value ) !== -1 ) {
 
 								// how about that, this one matches.
 								return inverseResult(true);
 							};
 						};
-						// bummer it didn't match
+						// oh well better luck next time.
 						return inverseResult(false);
 					};
-					goodToGo = true;
+				};
+				goodToGo = true;
+
+			} else if ( fieldType === 'text' ) {
+
+				_getFilterValues = function() {
+					return _getValAsList( _selector );
 				};
 
+				_testItem  = function ( itemClasses ) {
 
-				if( goodToGo === true ) {
+					/**
+					 * @var array value list of strings split on space to be used
+					 *	to check items against
+					 */
+					var value = _getValAsList( _selector );
 
-					// create the object for this filter field
-					var UsableFilterField = function() {
-						/**
-						 * method for getting the cononical string for matching this filterField
-						 * @returns {string} the string used to uniquely identify this
-						 *                   filterField
-						 */
-						this.getSelector = function() { return _selector; };
+					if( value.length === 0 ) {
+						return inverseResult(true);
+					}
 
-						/**
-						 * method for getting an array of strings used to match this
-						 * filterField
-						 *
-						 * @returns {array} list of strings that could be used to identify
-						 *					this field
-						 */
-						this.getMatchingSelectors = function() { return _matchingSelectors; };
+					// loop through the classes to see if any match
+					for( var i = 0 ; i < itemClasses.length ; i += 1 ) {
+						if( $.inArray( itemClasses[i] , value ) !== -1 ) {
 
-						/**
-						 * method for working out if this filter should be used based on selector provided
-						 *
-						 * @param {string} selector to try and match this field
-						 *
-						 * @return {boolean} TRUE if the filterField was matched by the
-						 *					 selector. FALSE otherwise
-						 */
-						this.useFilter = _useFilter;
-						this.getType = function() {
-							// give 'em the form field type
-							// [ 'text' , 'radio' , 'checkbox' , 'select' ]
-							return _fieldType;
+							// yay one of the classes matches one of the sub-strings in the value
+							return inverseResult(true);
 						};
-						this.getFilterValues = _getFilterValues;
+					};
+					return inverseResult(false);
+				};
+				goodToGo = true;
+			} else  if ( fieldType === 'select' || fieldType === 'radio' ) {
 
-						/**
-						 * @method getFilterValuesCount() for getting the number of filter
-						 *		   values for the current state of the filter field
-						 *
-						 * @returns {numeric} the number of items in the array of filter
-						 *			values for the current state of this filterField
-						 */
-						this.getFilterValuesCount = function() {
-							var output = _getFilterValues();
-							return output.length;
+				/**
+				 * @var string _selectorSub the selector string individual
+				 *	items <select> <option>s or <input type="radio"> fields
+				 */
+				var _selectorSub = _selector;
+				if( fieldType === 'select' ) {
+					_selectorSub += ' option';
+					_chooser = 'selected';
+				};
+
+				/**
+				 * @var string _selectorSelected the selector that matches the
+				 *	selected <option> or <input type="radio">
+				 */
+				var _selectorSelected = _selectorSub + ':' + _chooser;
+
+				_getFilterValues = function() {
+					// give'm the list of filter strings as an array
+					return _getValAsList( _selectorSelected );
+				};
+
+				_testItem  = function ( itemClasses ) {
+
+					/**
+					 * @var array value list of strings split on space to be used
+					 *	to check items against
+					 */
+					var value = _getValAsList( _selectorSelected );
+
+					if( value.length === 0 ) {
+						return inverseResult(true);
+					}
+
+					for( var i = 0 ; i < itemClasses.length ; i += 1 ) {
+
+						// loop through each itemClass to see if any match
+						if( $.inArray( itemClasses[i] , value ) !== -1 ) {
+
+							// how about that, this one matches.
+							return inverseResult(true);
 						};
+					};
+					// bummer it didn't match
+					return inverseResult(false);
+				};
+				goodToGo = true;
+			};
 
-						this.attrType = null;
 
-						/**
-						 * @method testItem() checks whether any items in the supplied
-						 *	array match any of the values in this filterField's list of
-						 *	values
-						 *
-						 * @param array itemClasses list of classes supplied by the
-						 *	  filterable item being processed
-						 *
-						 * @return boolean TRUE if a class matched one of the filter's values
-						 *	   FALSE otherwise
-						 */
-						this.testItem = _testItem;
+			if( goodToGo === true ) {
 
-						/**
-						 * @method isInclusiveCheckbox() returns the incState of this filterField
-						 * @returns {boolean} TRUE if this is an inclusive checkbox FALSE
-						 *                    otherwise.
-						 */
-						this.isInclusiveCheckbox = function() { return inclusiveCheckbox; };
+				// create the object for this filter field
+				var UsableFilterField = function() {
+					/**
+					 * method for getting the cononical string for matching this filterField
+					 * @returns {string} the string used to uniquely identify this
+					 *                   filterField
+					 */
+					this.getSelector = function() { return _selector; };
 
-						/**
-						 * @method inclusive() returns whether this field is an inlcusive
-						 *			filterField
-						 *
-						 * @returns {boolean} TRUE if the filterField is inclusive.
-						 *					  FALSE otherwise
-						 */
-						this.isExclusive = function() { return exclusiveField; };
+					/**
+					 * method for getting an array of strings used to match this
+					 * filterField
+					 *
+					 * @returns {array} list of strings that could be used to identify
+					 *					this field
+					 */
+					this.getMatchingSelectors = function() { return _matchingSelectors; };
 
-						/**
-						 * @method triggerChange() causes this field to trigger change
-						 */
-						this.triggerChange = function() { $(thisField).trigger('change'); };
+					/**
+					 * method for working out if this filter should be used based on selector provided
+					 *
+					 * @param {string} selector to try and match this field
+					 *
+					 * @return {boolean} TRUE if the filterField was matched by the
+					 *					 selector. FALSE otherwise
+					 */
+					this.useFilter = _useFilter;
+					this.getType = function() {
+						// give 'em the form field type
+						// [ 'text' , 'radio' , 'checkbox' , 'select' ]
+						return fieldType;
+					};
+					this.getFilterValues = _getFilterValues;
 
-						/**
-						 * @method hasPriority() returns the priority state of the field.
-						 * @return {boolean} whether or not this field should be processed as inclusive
-						 *                   with priority
-						 */
-						this.hasPriority = function() { return priority; };
-
+					/**
+					 * @method getFilterValuesCount() for getting the number of filter
+					 *		   values for the current state of the filter field
+					 *
+					 * @returns {numeric} the number of items in the array of filter
+					 *			values for the current state of this filterField
+					 */
+					this.getFilterValuesCount = function() {
+						var output = _getFilterValues();
+						return output.length;
 					};
 
-					// add the object to the list of filter fields
-					filterFieldsRepo.push( new UsableFilterField() );
-					goodToGo = false;
+					this.attrType = null;
 
-				} else {
-					// bummer
-					console.warning('Supplied filterField (' + _Selector + ') did not return a valid form field type. ' + _fieldType + ' was returned. Was expecting, select; input or textarea');
-					return;
+					/**
+					 * @method testItem() checks whether any items in the supplied
+					 *	array match any of the values in this filterField's list of
+					 *	values
+					 *
+					 * @param array itemClasses list of classes supplied by the
+					 *	  filterable item being processed
+					 *
+					 * @return boolean TRUE if a class matched one of the filter's values
+					 *	   FALSE otherwise
+					 */
+					this.testItem = _testItem;
+
+					/**
+					 * @method isInclusiveCheckbox() returns the incState of this filterField
+					 * @returns {boolean} TRUE if this is an inclusive checkbox FALSE
+					 *                    otherwise.
+					 */
+					this.isInclusiveCheckbox = function() { return inclusiveCheckbox; };
+
+					/**
+					 * @method inclusive() returns whether this field is an inlcusive
+					 *			filterField
+					 *
+					 * @returns {boolean} TRUE if the filterField is inclusive.
+					 *					  FALSE otherwise
+					 */
+					this.isExclusive = function() { return exclusiveField; };
+
+					/**
+					 * @method triggerChange() causes this field to trigger change
+					 */
+					this.triggerChange = function() { $(thisField).trigger('change'); };
+
+					/**
+					 * @method hasPriority() returns the priority state of the field.
+					 * @return {boolean} whether or not this field should be processed as inclusive
+					 *                   with priority
+					 */
+					this.hasPriority = function() { return priority; };
+
 				};
 
+				// add the object to the list of filter fields
+				filterFieldsRepo.push( new UsableFilterField() );
+				goodToGo = false;
 
-			});
+			} else {
+				// bummer
+				console.warning('Supplied filterField (' + _Selector + ') did not return a valid form field type. ' + fieldType + ' was returned. Was expecting, select; input or textarea');
+				return;
+			};
 
-		};
+
+		});
 
 		if( filterFieldsRepo.length === 0 ) {
 			console.error('"' + filterWrapper + '" did not contain any form fields. i.e. can\'t find any thing to use as a filter.' );
@@ -1297,13 +1308,8 @@ $.FilterFairy = function( filterWrapper ) {
 
 
 	fields = filterFields.getAll();
-	if( fields.length > 0 ) {
-
-		// Build the list of inclusive and exclusive filters
-//		var priorityInclusiveFitlerFields = new FilterFieldsObj();
-		var exclusiveFilterFields = new FilterFieldsObj();
-		var inclusiveFilterFields = new FilterFieldsObj();
-		var priorityInclusiveFields = new FilterFieldsObj();
+	items = filterableItems.getAll();
+	if ( fields.length > 0 ) {
 
 
 		/**
@@ -1318,176 +1324,49 @@ $.FilterFairy = function( filterWrapper ) {
 		 */
 		applyFilter = function() {
 
-			/**
-			 * @var array excluded initialy a list o fall the filterable items
-			 *	available. Later, after a filter has been processed, it
-			 *	contains items that have not been shown.
-			 */
-			var source = filterableItems.getAll();
+			var itemStrings = [];
+			var exlcusiveField = true;
+			var show = true;
 
-			var tmpSource = [];
+			// loop through all the items
+			for ( var i = 0 ; i < items.length ; i += 1 ) {
 
-			/**
-			 * @var array Excluded a storage bucket for filterable items that
-			 *	were not included by the current filter
-			 */
-			var excluded = [];
+				// get the filter strings for the item
+				itemStrings = items[i].getClasses();
 
-			/**
-			 * @var array included filterable items that are to be shown
-			 */
-			var included = [];
+				// loop through all the fields
+				for ( var j = 0 ; j < fields.length ; j += 1 ) {
+//					exlcusiveField = fields[j].isExclusive();
+//					if ( ( exlcusiveField === false &&  show === false ) || ( exlcusiveField === true && show === true ) ) {
 
-			/**
-			 * @var array filterStrings temporarily holds the list of filter strings for
-			 *	a given filter
-			 */
-			var filterStrings = [];
-
-			/**
-			 * @var string filterType the current type of filter being processed
-			 */
-			var filterType = false;
-
-			/**
-			 * @var array the list of fields of this filter type
-			 */
-			var fields = [];
-
-			/**
-			 * @var array list of filter types
-			 */
-			var types = [ 'priorityInclusive' , 'exclusive' , 'inclusive' ];
-
-			/**
-			 * @var numeric processedFilters the number of filters that have been
-			 *		processed so far
-			 */
-			var processedFilters = 0;
-
-			/**
-			 * @var filterField thisField the filterField that triggered this
-			 *		round of filtering
-			 */
-			var thisField = false;
-
-
-			if( $(this).attr('name') !== undefined ) {
-				thisField = filterFields.getField($(this).attr('name'));
-			}
-
-			if( thisField === false && $(this).attr('id') !== undefined ) {
-				thisField = filterFields.getField($(this).attr('id'));
-			}
-
-			if( thisField === false ) {
-				// nothing has changed, give up now.
-				return false;
-			}
-
-			// add this filterField to the list of fields to be processed
-			if( thisField.isExclusive() === true ) {
-				exclusiveFilterFields.addField(thisField);
-			} else {
-				if( thisField.hasPriority() === true ) {
-					priorityInclusiveFields.addField(thisField);
-				} else {
-					inclusiveFilterFields.addField(thisField);
-				}
-			}
-
-			for( var h = 0 ; h < 3 ; h += 1 ) {
-
-				switch( types[h] ) {
-					case 'priorityInclusive':
-						fields = priorityInclusiveFields.getFields();
-						tmpSource = filterableItems.getAll();
-						break;
-					case 'exclusive':
-						fields = exclusiveFilterFields.getFields();
-						if( processedFilters > 0 ) {
-							tmpSource = included;
-						} else {
-							tmpSource = filterableItems.getAll();
+					// try this filter if it's inclusive or if the item hasn't already been excluded
+					if ( fields[j].isExclusive() === false ) {
+console.log('itemStrings = '+itemStrings+"\nfields["+j+"].getFilterValues() = "+fields[j].getFilterValues());
+						if ( show === false )  {
+							show = fields[j].testItem(itemStrings);
+console.log('show = '+show);
 						}
-						break;
-					case 'inclusive':
-						fields = inclusiveFilterFields.getFields();
-						tmpSource = excluded;
-						break;
+					} else if ( show === true ) {
+						show = fields[j].testItem(itemStrings);
+					}
 				}
 
-				if( fields.length > 0 ) {
-					source = tmpSource;
-					tmpSource = null;
-
-					// loop through this type of filters
-					for( var i = 0 ; i < fields.length ; i += 1 ) {
-						if( fields[i].getFilterValuesCount() > 0 || fields[i].isInclusiveCheckbox() === true ) {
-							processedFilters += 1;
-							// there is something to use lets try it on all the excluded items
-							for( var j = 0 ; j < source.length ; j += 1 ) {
-
-								// test this the list of filter strings against this filterable item
-								if( fields[i].testItem(source[j].getClasses()) ) {
-									// Yay the filter matched something for this item lets include it
-									if( $.inArray(source[j],included) === -1 ) {
-										included.push(source[j]);
-									}
-								} else {
-									if( $.inArray(source[j],excluded) === -1 ) {
-									// Oh well, we'll save this one for later
-										excluded.push(source[j]);
-									}
-								};
-							};
-						};
-						if( i < ( fields.length - 1 ) ) {
-							if( types[h] === 'exclusive' ) {
-								// make included excluded so that the next filter only has a limited
-								// subset of filterable items to work with.
-								source = included;
-								if( source.length === 0 ) {
-									break;
-								}
-								excluded = [];
-								included = [];
-							} else {
-								// since this is an inclusive filter, we only want to add itmes that
-								// are not already being shown
-								source = excluded;
-								excluded = [];
-							};
-						};
-					};
-				};
-			};
-
-			if( processedFilters > 0 ) {
-				// loop through each filter fields adding matched items to the
-				// included array
-				filterableItems.hideAll();
-
-				// loop through all the included items
-				for( var i = 0 ; i < included.length ; i += 1 ) {
-					// show the included items
-					included[i].showItem();
-				};
-			} else if ( hideAllOnEmptyFilter === true ) {
-				filterableItems.hideAll();
-			} else {
-				filterableItems.showAll();
-			};
-
+				if( show === true ) {
+					items[i].showItem();
+				} else {
+					items[i].hideItem();
+				}
+				show = true;
+			}
 			// set push state
 			_setPushState();
 
 		};
 
 		// loop through each filter field adding the applyFilter
-		for( var i = 0 ; i < fields.length ; i += 1 ) {
+		for ( var i = 0 ; i < fields.length ; i += 1 ) {
 
-			if( fields[i].getType() === 'text' ) {
+			if ( fields[i].getType() === 'text' ) {
 				// if a filter field is text then only apply filter on blur
 				$(fields[i].getSelector()).on('blur',applyFilter);
 			} else {
