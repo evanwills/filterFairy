@@ -820,16 +820,24 @@ $.FilterFairy = function( filterWrapper ) {
 						 */
 						var value = _getValAsList( _selector );
 
-						// loop through each itemClass to see if any match
-						for( var i = 0 ; i < itemClasses.length ; i += 1 ) {
-							if( $.inArray( itemClasses[i] , value ) !== -1 ) {
+						/**
+						 * @var boolean output
+						 */
+						var output = false;
 
-								// how about that, this one matches.
-								return inverseResult(true);
-							};
-						};
-						// oh well better luck next time.
-						return inverseResult(false);
+						if( $(_selector).is(':checked') ) {
+							// loop through each itemClass to see if any match
+							for( var i = 0 ; i < itemClasses.length ; i += 1 ) {
+								if( $.inArray( itemClasses[i] , value ) !== -1 ) {
+
+									// how about that, this one matches.
+									output = true;
+									break;
+								}
+							}
+						}
+
+						return inverseResult(output);
 					};
 				};
 				goodToGo = true;
