@@ -1,24 +1,59 @@
-"use strict";
-
-
-if( typeof console !== 'object' ) {
+if( window.console === undefined ) {
 	var Console = function() {
 		this.log = function() { };
 		this.warn = function() { };
 		this.error = function() { };
 		this.info = function() { };
-//		this.debug = function() { };
+//		this.debugger = function() { };
 	};
-	var console = new Console();
+	window.console = new Console();
 };
 
+/**
+ * PresetFormFields provides an easy way to set HTML form field
+ * states from URL GET variables
+ *
+ * If you only have one field to preset, then call this as a
+ * function, passing in the following parameters
+ *
+ * If you are presetting multiple form fields, create a
+ * $.PresetFormFields object then call the preset() method for each
+ * form field you wish to preset
+ *
+ * @param   {String}   fieldSelector ID or Name attribute or CSS
+ *                                   selector of field to be preset
+ * @param   {string}   getName       [optional] name of URL GET
+ *                                   variable.
+ *                                   If undefined, it defaults to the
+ *                                   fieldSelector value (excluding
+ *                                   everything up to and inclusding
+ *                                   the last white space char and
+ *                                   any CSS special chars
+ * @param   {string}   attrName      [optional] name of attribute
+ *                                   whose value is to matched
+ *                                   against the URL GET variable's
+ *                                   value.
+ *                                   If undefined, defaults to the
+ *                                   getName value
+ * @param   {string}   attrType      the type of HTML attribute to be
+ *                                   checked ['data', 'standard', 'normal', 'norm' ]
+ *                                   If undefined, the field's value
+ *                                   is checked first, then (if defined)
+ *                                   the data attribute matching the
+ *                                   attribute name finally the
+ *                                   attrName is checked as a normal
+ *                                   attribute
+ * @returns {Boolean}  TRUE if form field was set. FALSE otherwise
+ */
+$.PresetFormFields = function( fieldSelector , getName , attrName , attrType ) {
+	"use strict";
 
-$.PresetFormFields = function() {
 	var getObj;
 	var compareAttr;
 	var badSelector = true;
 	var reg = /[^a-z0-9_-]+/i;
 	var isRaw = null;
+	var presetField;
 
 	/**
 	 * @function _validateType() takes a variable tries to get its type.
@@ -48,24 +83,24 @@ $.PresetFormFields = function() {
 	 *			field should be set
 	 * @param   {string} attrName the name of the attribute to match
 	 *			values with
-	 * @param   {string} propType 'data' [default], 'standard' /
+	 * @param   {string} attrType 'data' [default], 'standard' /
 	 *			'normal' / 'norm' the field attribute type ie is it a
 	 *			data field or a normal field
 	 *
 	 * @returns {Boolean} TRUE if this field should be set or FALSE
 	 *			otherwise
 	 */
-	function isItThisOne( obj , tryAll , getValue , attrName , propType ) {
+	function isItThisOne( obj , tryAll , getValue , attrName , attrType ) {
 
 		if(
 			(
 				( tryAll === true || attrName === 'value' )
 				&& $(obj).val() === getValue
 			) || (
-				( tryAll === true || propType === 'data' )
+				( tryAll === true || attrType === 'data' )
 				&& $(obj).data(attrName) === getValue
 			) || (
-				( tryAll === true || propType === 'norm' )
+				( tryAll === true || attrType === 'norm' )
 				&& $(obj).attr(attrName) === getValue
 			)
 		  ) {
@@ -111,7 +146,7 @@ $.PresetFormFields = function() {
 	getObj = new GetGet();
 
 	/**
-	 * presets a given form field
+	 * presetField a given form field
 	 * @param   {String} fieldSelector CSS selector to match a desired
 	 *			form field (NOTE: if a raw string is given that doen't
 	 *			match anything it will try prefixing the string with a
@@ -127,11 +162,11 @@ $.PresetFormFields = function() {
 	 *			NULL, it is assumed that the attrName is the same as the
 	 *			getName (which may have been automatically set to the
 	 *			same as the fieldSelector)
-	 * @param   {string} propType the type of property to be used
+	 * @param   {string} attrType the type of property to be used
 	 *			[ 'data' , 'standard' / 'normal' / 'norm' ]
 	 * @returns {Boolean} TRUE if the form field was preset, FALSE otherwise
 	 */
-	this.preset = function( fieldSelector , getName , attrName , propType ) {
+	presetField = function( fieldSelector , getName , attrName , attrType ) {
 		var tryAll = false;
 		var getValue = '';
 		var checked = 'checked';
@@ -153,14 +188,14 @@ $.PresetFormFields = function() {
 			tryAll = true;
 		}
 
-		if( _validateType(propType) !== 'string' ) {
+		if( _validateType(attrType) !== 'string' ) {
 			tryAll = true;
 		}
 
-		if( _validateType(propType) !== 'string' && propType !== 'data' && ( propType !== 'normal' || propType !== 'standard' ) ) {
+		if( _validateType(attrType) !== 'string' && attrType !== 'data' && attrType !== 'normal' && attrType !== 'standard' && attrType !== 'norm' ) {
 			tryAll = true;
-		} else if ( propType === 'normal' || propType === 'standard' ) {
-			propType = 'norm';
+		} else if ( attrType === 'normal' || attrType === 'standard' ) {
+			attrType = 'norm';
 		}
 
 		if( getObj.isGet === false ) {
@@ -228,13 +263,13 @@ $.PresetFormFields = function() {
 
 				$(this).val(getValue);
 			} else if ( fieldType === 'checkbox' ) {
-				if( isItThisOne( this , tryAll , getValue , attrName , propType ) ) {
+				if( isItThisOne( this , tryAll , getValue , attrName , attrType ) ) {
 					$(this).attr('checked','checked');
 					isDone = true;
 				}
 			} else if ( fieldType === 'radio' || fieldType === 'select' ) {
 				$(fieldSelector).each(function(){
-					if( isItThisOne( this , tryAll , getValue , attrName , propType ) ) {
+					if( isItThisOne( this , tryAll , getValue , attrName , attrType ) ) {
 
 						$(this).attr(checked,checked);
 						isDone = true;
@@ -242,10 +277,17 @@ $.PresetFormFields = function() {
 				});
 			}
 			if( isDone === true ) {
+console.log('Triggering change');
 				$(this).trigger('change');
 				return false;
 			}
 		});
 		return isDone;
 	};
+
+	if( _validateType(fieldSelector) === 'string') {
+		presetField( fieldSelector , getName , attrName , attrType );
+	}
+
+	this.preset = presetField;
 };
