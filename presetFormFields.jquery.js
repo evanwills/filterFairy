@@ -52,7 +52,7 @@ $.PresetFormFields = function (fieldSelector, getName, attrName, attrType) {
 	var getObj,
 		compareAttr,
 		badSelector = true,
-		reg = /[^a-z0-9_\-] + /i,
+		reg = /[^a-z0-9_\-]+/i,
 		isRaw = null,
 		presetField;
 
@@ -111,7 +111,7 @@ $.PresetFormFields = function (fieldSelector, getName, attrName, attrType) {
 		if (getString !== '') {
 			// split the GET into its individual key/value pairs
 			getString = getString.split('&');
-			for (i = 0; i < getString.length; i  + = 1) {
+			for (i = 0; i < getString.length; i += 1) {
 				// add the key/value pairs
 				getString[i] = getString[i].split('=');
 				getName.push(getString[i][0]);
@@ -170,7 +170,7 @@ $.PresetFormFields = function (fieldSelector, getName, attrName, attrType) {
 		fieldSelector = fieldSelector.trim();
 
 		if (varType(getName) !== 'string') {
-			getName = fieldSelector.replace(/^.*?([a-z0-9_\-] + )['"]?\]?$/i, '$1');
+			getName = fieldSelector.replace(/^.*?([a-z0-9_\-]+)['"]?\]?$/i, '$1');
 			tryAll = true;
 		}
 
@@ -196,6 +196,7 @@ $.PresetFormFields = function (fieldSelector, getName, attrName, attrType) {
 
 		if ($(fieldSelector).length === 0) {
 			isRaw = reg.exec(fieldSelector);
+
 			if (isRaw === null) {
 				if ($('#' + fieldSelector).length > 0) {
 					fieldSelector = '#' + fieldSelector;
@@ -218,31 +219,32 @@ $.PresetFormFields = function (fieldSelector, getName, attrName, attrType) {
 			return false;
 		}
 
-		$(fieldSelector).each( function () {
+		$(fieldSelector).each(function () {
 			var fieldType = $(this).prop('tagName').toLowerCase();
 
 			if (fieldType === 'input') {
 				fieldType = $(this).prop('type');
-				switch( fieldType) {
-					case 'button':
-					case 'submit':
-						// can't use this field
-						fieldType = false;
-						break;
-					case 'radio':
-						if ($(this).attr('name') !== undefined) {
-							fieldSelector = 'input[name="' + $(this).attr('name') + '"]';
-						}
-					case 'checkbox':
-						break;
-					default:
-						fieldType = 'text';
-						break;
+				switch (fieldType) {
+				case 'button':
+				case 'submit':
+					// can't use this field
+					fieldType = false;
+					break;
+				case 'radio':
+					if ($(this).attr('name') !== undefined) {
+						fieldSelector = 'input[name="' + $(this).attr('name') + '"]';
+					}
+					break;
+				case 'checkbox':
+					break;
+				default:
+					fieldType = 'text';
+					break;
 				}
 			} else if (fieldType === 'select') {
-				fieldSelector  + = ' option';
+				fieldSelector  += ' option';
 				checked = 'selected';
-			} else if (fieldType !== 'textarea' ) {
+			} else if (fieldType !== 'textarea') {
 				// this is obviously not a form field
 				fieldType = false;
 			}
@@ -254,21 +256,19 @@ $.PresetFormFields = function (fieldSelector, getName, attrName, attrType) {
 
 				$(this).val(getValue);
 			} else if (fieldType === 'checkbox') {
-				if (isItThisOne( this, tryAll, getValue, attrName, attrType )) {
-					$(this).attr('checked','checked');
+				if (isItThisOne(this, tryAll, getValue, attrName, attrType)) {
+					$(this).attr('checked', 'checked');
 					isDone = true;
 				}
 			} else if (fieldType === 'radio' || fieldType === 'select') {
-				$(fieldSelector).each(function (){
-					if (isItThisOne( this, tryAll, getValue, attrName, attrType )) {
-
-						$(this).attr(checked,checked);
+				$(fieldSelector).each(function () {
+					if (isItThisOne(this, tryAll, getValue, attrName, attrType)) {
+						$(this).attr(checked, checked);
 						isDone = true;
 					}
 				});
 			}
 			if (isDone === true) {
-console.log('Triggering change');
 				$(this).trigger('change');
 				return false;
 			}
@@ -277,7 +277,7 @@ console.log('Triggering change');
 	};
 
 	if (varType(fieldSelector) === 'string') {
-		presetField( fieldSelector, getName, attrName, attrType );
+		presetField(fieldSelector, getName, attrName, attrType);
 	}
 
 	this.preset = presetField;
