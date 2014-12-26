@@ -1,16 +1,16 @@
 "use strict";
 
 
-if( typeof console !== 'object' ) {
-	var Console = function() {
-		this.log = function() { };
-		this.warn = function() { };
-		this.error = function() { };
-		this.info = function() { };
-//		this.debug = function() { };
+if (typeof window.console !== 'object') {
+	var Console = function () {
+		this.log = function () { };
+		this.warn = function () { };
+		this.error = function () { };
+		this.info = function () { };
+//		this.debug = function () { };
 	};
 	var console = new Console();
-};
+}
 
 
 /**
@@ -128,18 +128,11 @@ if( typeof console !== 'object' ) {
  *	<input type="checkbox" id="checkboxfield" name="checkboxfield" data-cbfield="oi" value="hey-you" data-inclusive="exclusive" />
  *
  * data attributes:
- *		inclusive [ checkbox , true , first ]
- *		inverse [ true , false ]
- *		notfilter [ true , false ]
+ *		inclusive [ checkbox, true, first ]
+ *		inverse [ true, false ]
+ *		notfilter [ true, false ]
  */
-$.FilterFairy = function( filterWrapper ) {
-
-	// validate filterWrapper
-	if( _validateType(filterWrapper) !== 'string' ) {
-		console.error( 'The first and only parameter for filterFairy must be a string' );
-		return false;
-	};
-
+$.FilterFairy = function (filterWrapper) {
 
 
 // ==================================================================
@@ -148,35 +141,35 @@ $.FilterFairy = function( filterWrapper ) {
 	/**
 	 * @var boolean canDo whether or not filteFairy is viable.
 	 */
-	var canDo = true;
+	var canDo = true,
 
 	/**
 	 * @var function/object filterFields list of filters to be used
 	 */
-	var filterFields;
+		filterFields,
 
 	/**
 	 * @ver function/object filterableItems an object that manages
 	 *	all the filterable items as a group
 	 */
-	var filterableItems;
+		filterableItems,
 
 	/**
 	 * @var boolean hideAllOnEmptyFilter if you want the items to be
 	 *	hidden if nothing is matched, set this to true
 	 */
-	var hideAllOnEmptyFilter = false;
+		hideAllOnEmptyFilter = false,
 
 	/**
 	 * @var array fields list of filterFields
 	 */
-	var fields = [];
+		fields = [],
 
-	var items = [];
+		items = [],
 	/**
 	 * @var GetGet get object managing accessing get variable info
 	 */
-	var get;
+		get,
 
 	/**
 	 * @function applyFilter when any of the filter fields
@@ -188,196 +181,256 @@ $.FilterFairy = function( filterWrapper ) {
 	 * by running exclusive filters then by adding the
 	 * inclusive filters
 	 */
-	var applyFilter
+		applyFilter,
 
-	var tmp;
+		tmp,
+		g = 0;
 
 // END:   declaring variables
 // ==================================================================
 // START: declaring functions
 
 	/**
-	 * @function _getFilterableItems() handles building an array of
+	 * @function varType() takes a variable tries to get its type.
+	 *	     If successful it returns the string name of the type if
+	 *	     not, it returns false
+	 *
+	 * @param mixed input a varialbe whose type is to be tested.
+	 *
+	 * @return string false string name of the variable type or false if
+	 *	   type couldn't be determined
+	 */
+	function varType(input) {
+		try {
+			return $.type(input);
+		} catch (e) {
+			return false;
+		}
+	}
+
+	/**
+	 * @function splitValueOnWhiteSpace() takes a string, trims white
+	 *           space from begining and end, converts multiple white
+	 *           space characters into single space characters then splits
+	 *           the string into an array
+	 *
+	 * @param string inputValue the string to be split
+	 *
+	 * @return array a list of items that were separated by one or more
+	 *         white space characters
+	 */
+	function splitValueOnWhiteSpace(inputValue) {
+		var regex = /\s+/,
+			output;
+		try {
+			output = $.trim(inputValue.replace(regex, ' '));
+
+			if (output !== '') {
+				return output.split(' ');
+			} else {
+				return [];
+			}
+		} catch (e) {
+			return [];
+		}
+	}
+
+	/**
+	 * @function getValAsList() returns the value of a form field's
+	 *	     current state as an array split on spaces
+	 *
+	 * @param string selector jQuery selector to be used to find the
+	 *	  string to split
+	 *
+	 * @return array a list of items that were separated by one or more
+	 *         white space characters
+	 */
+	function getValAsList(selector) {
+		if ($(selector).val() !== undefined) {
+			return splitValueOnWhiteSpace($(selector).val());
+		} else {
+			return [];
+		}
+	}
+
+	/**
+	 * @function getFilterableItems() handles building an array of
 	 *	     filterableItem objects which are then used for
 	 *	     interacting with the DOM
 	 *
 	 * @return function/object that has a number of property
 	 *	   functions to facilitate doing stuff
 	 */
-	function _getFilterableItems() {
+	function getFilterableItems() {
 		/**
 		 * @var array filterableItemsArray list of all the
 		 *	filterable items
 		 */
-		var filterableItemsArray = [];
+		var filterableItemsArray = [],
 
 		/**
 		 * @var array filterThisSelectors list of unique selectors matching
 		 *	filterable items
 		 */
-		var filterThisSelectors = [];
+			filterThisSelectors = [],
 
 		/**
 		 * @var string filterThis selector for finding filterable item wrappers
 		 */
-		var filterThis = filterWrapper + ' .filter-this';
+			filterThis = filterWrapper + ' .filter-this',
 
 		/**
 		 * @var array filterThisTags list of wrapper tags used encountered
 		 *	so far
 		 */
-		var filterThisTags = [];
+			filterThisTags = [],
 
 		/**
 		 * @var boolean standardFilterItems TRUE if standard filterable items
 		 *	were found
 		 */
-		var standardFilterItems = false;
+			standardFilterItems = false,
 
 		/**
 		 * @var array nonStandardFilterItems list of wrapper tag names for non
 		 *	standard filterable items
 		 */
-		var nonStandardFilterItems = [];
+			nonStandardFilterItems = [],
 
 		/**
 		 * @var string tmpItemWrapper the element used for wrapping
 		 *	filterable items
 		 */
-		var tmpItemWrapper = '';
+			tmpItemWrapper = '',
 
 		/**
 		 * @var numeric index local itterator for looping through an
 		 *		array
 		 */
-		var index = -1;
+			index = -1,
+			h = 0,
+			FilterableItems;
 
-		if( $(filterWrapper + ' .filter-this').length === 0 ) {
+		if ($(filterWrapper + ' .filter-this').length === 0) {
 			// cutting our losses there's nothing to filter.
 			// See ya lata Turkey
-			console.error( '"' + filterWrapper + '" did not match any items. i.e. it can\'t find anything to filter' );
+			console.error('"' + filterWrapper + '" did not match any items. i.e. it can\'t find anything to filter');
 			return false;
 		} else {
 
-			$( filterThis ).each( function() {
+			$(filterThis).each(function () {
 
 				/**
 				 * @var string filterThisItem the tag name used for filterable
 				 *	items within this .filter-this wrapper
 				 */
-				var filterThisItem = '';
+				var filterThisItem = '',
 
 				/**
 				 * @var string tmpFilterThis the selector for this group of
 				 *	filterable items.
 				 */
-				var tmpFilterThis = '';
+					tmpFilterThis = '';
 
 				tmpItemWrapper = $(this).prop('tagName').toLowerCase();
 
 				// check whether we've encountered this tag name before
-				if( $.inArray( tmpItemWrapper , filterThisTags ) > -1 ) {
+				if ($.inArray(tmpItemWrapper, filterThisTags) > -1) {
 					// we've done this one before;
 					return;
-				};
+				}
 
 				// store the tag name so we know we've used it before
 				filterThisTags.push(tmpItemWrapper);
 
 				// work out the best tag name to use for filterable items
-				switch( tmpItemWrapper ) {
-					case 'ul':
-					case 'ol':
-						// <LI> is the expected filterable item
-						filterThisItem = ' li';
-						standardFilterItems = true;
-						break;
-					case 'table':
-						// <TR> is the expected filterable item
-						filterThisItem = ' tbody tr';
-						standardFilterItems = true;
-						break;
-					case 'section':
-					case 'aside':
-						// <ARTICLE> is the expected filterable item
-						filterThisItem = ' article';
-						standardFilterItems = true;
-						break;
-					default:
-						// Assuming custom filterable item so either .filter-this nodes or
-						// .filter-this .filter-item nodes are the filterable items
-						filterThisItem = ' .filter-item';
-						if( $(filterWrapper + ' ' + tmpItemWrapper + '.filter-this' + filterThisItem).length === 0 ) {
-							// this is a non-standard filterable item wrapper have to assume that
-							// it is the filterable item itself
-							nonStandardFilterItems.push(tmpItemWrapper);
-							console.warning( 'This non-standard filterable item wrapper (' + filterWrapper + ' ' + tmp + '.filter-this' + filterThisItem + ') didn\'t contain any .filter-item nodes. It may be useable as a filterable item itself');
-							return;
-						};
-						tmpItemWrapper = '';
-				};
+				switch (tmpItemWrapper) {
+				case 'ul':
+				case 'ol':
+					// <LI> is the expected filterable item
+					filterThisItem = ' li';
+					standardFilterItems = true;
+					break;
+				case 'table':
+					// <TR> is the expected filterable item
+					filterThisItem = ' tbody tr';
+					standardFilterItems = true;
+					break;
+				case 'section':
+				case 'aside':
+					// <ARTICLE> is the expected filterable item
+					filterThisItem = ' article';
+					standardFilterItems = true;
+					break;
+				default:
+					// Assuming custom filterable item so either .filter-this nodes or
+					// .filter-this .filter-item nodes are the filterable items
+					filterThisItem = ' .filter-item';
+					if ($(filterWrapper + ' ' + tmpItemWrapper + '.filter-this' + filterThisItem).length === 0) {
+						// this is a non-standard filterable item wrapper have to assume that
+						// it is the filterable item itself
+						nonStandardFilterItems.push(tmpItemWrapper);
+						console.warning('This non-standard filterable item wrapper (' + filterWrapper + ' ' + tmp + '.filter-this' + filterThisItem + ') didn\'t contain any .filter-item nodes. It may be useable as a filterable item itself');
+						return;
+					}
+					tmpItemWrapper = '';
+				}
 
 				tmpFilterThis = filterWrapper + ' ' + tmpItemWrapper + '.filter-this' + filterThisItem;
 
 
 				// check whether the selector matches any items and has not
 				// been found before
-				if( $(tmpFilterThis).length > 0 && $.inArray( tmpFilterThis , filterThisSelectors ) === -1 ) {
+				if ($(tmpFilterThis).length > 0 && $.inArray(tmpFilterThis, filterThisSelectors) === -1) {
 					// It's unique. We'll add it to the list
-					filterThisSelectors.push( tmpFilterThis );
-				};
+					filterThisSelectors.push(tmpFilterThis);
+				}
 			});
 
-			if( standardFilterItems === false && nonStandardFilterItems.length > 0 ) {
+			if (standardFilterItems === false && nonStandardFilterItems.length > 0) {
 				// no standard filterable items were found
 				// some non-standard filterable items were found but contained no
 				// standard filterable items.
 				// filterable items must be the .filter-this node itself
-				filterThisSelectors.push( filterWrapper + ' .filter-this' );
-			} else if ( $(filterThisSelectors).length > 0 ) {
+				filterThisSelectors.push(filterWrapper + ' .filter-this');
+			} else if ($(filterThisSelectors).length > 0) {
 				// We found something to filter
-				if( nonStandardFilterItems.length > 0 ) {
+				if (nonStandardFilterItems.length > 0) {
 					// But there were some duds too. (We'll just ignore them)
-					// console.log( 'Found a number of non-standard filter item wrappers ("' + nonStandardFilterItems.join('.filter-this" , "') + '.filter-this") these will be ignored');
-				};
+					// console.log( 'Found a number of non-standard filter item wrappers ("' + nonStandardFilterItems.join('.filter-this", "') + '.filter-this") these will be ignored');
+				}
 				// make a single selector for all the filterable items
-//				filterThis = filterThisSelectors.join(' , ');
+//				filterThis = filterThisSelectors.join(', ');
 			} else {
 				// Well that sucks! Couldn't find any filterable items.
-				console.warning( 'Couldn\'t find any filterable items using "' + filterThis + '". Nothing to do!!!');
+				console.warning('Couldn\'t find any filterable items using "' + filterThis + '". Nothing to do!!!');
 				return;
-			};
+			}
 
 
 			// build an array where each filterable item is represented by
 			// a function that tests whether a supplied string is matched
 			// by an item in an array within the function
-			for( var i = 0 ; i < filterThisSelectors.length ; i += 1 ) {
+			for (h = 0; h < filterThisSelectors.length; h += 1) {
 
-				$(filterThisSelectors[i]).each(function() {
+				$(filterThisSelectors[h]).each(function () {
 
 					/**
 					 * @var object item the jQuery reference object for this filterable
 					 *	item, used as a permanent connection to the DOM element.
 					 */
-					var item = $(this).get();
-
-					/**
-					 * @var object tmpClasses the jQuery object containing the list of
-					 *	classes for this filterable tiem
-					 */
-//					var classes = _extractDOMTokenList($(this).prop('classList'));
+					var item = $(this).get(),
 
 					/**
 					 * @var array classes list of classes for this filterable item used
 					 *	to decide whether or not this filterable itme should be
 					 *	hidden or visible
 					 */
-					var classes = _splitValueOnWhiteSpace($(this).attr('class'));
+						classes = splitValueOnWhiteSpace($(this).attr('class'));
 
-					if( classes.length < 1 ) {
+					if (classes.length < 1) {
 						return;
-					};
+					}
 
 
 
@@ -396,26 +449,22 @@ $.FilterFairy = function( filterWrapper ) {
 						 *	   If filterString is empty then the ID of the filterable
 						 *	   item is returned.
 						 */
-						this.testFilter = function( filterList ) {
+						this.testFilter = function (filterList) {
 
-							var filterListType = _validateType(filterList);
-							if( filterListType === 'string' ) {
+							var filterListType = varType(filterList),
+								i = 0;
+
+							if (filterListType === 'string') {
 								filterList = [ filterList ];
 								filterListType = 'array';
-							};
+							}
 
-							/**
-							 * @var string classArray the list of items applied to the
-							 *	filterable item (split on space)
-							 */
-							var classArray = classes;
-
-							for( var i = 0 ; i < filterList.length ; i += 1 ) {
+							for (i = 0; i < filterList.length; i += 1) {
 								// loop through the class array
-								if( $.inArray( filterList[i] , classArray ) !== -1 ) {
+								if ($.inArray(filterList[i], classes) !== -1) {
 									return true;
 								}
-							};
+							}
 							// no there was no match for this item.
 							return false;
 						};
@@ -423,14 +472,14 @@ $.FilterFairy = function( filterWrapper ) {
 						/**
 						 * @function showItem() makes the the item visible if it was hidden
 						 */
-						this.showItem = function() {
+						this.showItem = function () {
 							$(item).removeClass('filter-hide').addClass('filter-show');
 						};
 
 						/**
 						 * @function hideItem() hides the item if it was visible
 						 */
-						this.hideItem = function() {
+						this.hideItem = function () {
 							$(item).removeClass('filter-show').addClass('filter-hide');
 						};
 
@@ -439,87 +488,98 @@ $.FilterFairy = function( filterWrapper ) {
 						 *	     if the item is currently
 						 *	     visible or false if hidden
 						 */
-						this.isVisible = function() {
-							if( $(item).hasClass('filter-hide') ) {
+						this.isVisible = function () {
+							if ($(item).hasClass('filter-hide')) {
 								return true;
 							} else {
 								return false;
-							};
+							}
 						};
 
-						this.getClasses = function() {
+						this.getClasses = function () {
 							return classes;
-						}
-					};
+						};
+					}
 					// Add the function to an array
 					filterableItemsArray.push(new FilterableItem());
 				});
-			};
-		};
-
-		var FilterableItems = function () {
-			this.itemCount = function() {
-				return filterableItemsArray.length;
 			}
-			this.getAll = function() {
+		}
+
+		FilterableItems = function () {
+			this.itemCount = function () {
+				return filterableItemsArray.length;
+			};
+			this.getAll = function () {
 				return filterableItemsArray;
 			};
-			this.getSelectors = function() {
+			this.getSelectors = function () {
 				return filterThisSelectors;
 			};
-			this.hideAll = function() {
-				for( var i = 0 ; i < filterThisSelectors.length ; i += 1 ) {
+			this.hideAll = function () {
+				var i = 0;
+				for (i = 0; i < filterThisSelectors.length; i += 1) {
 					$(filterThisSelectors[i]).removeClass('filter-show').addClass('filter-hide');
 				}
-			}
-			this.showAll = function() {
-				for( var i = 0 ; i < filterThisSelectors.length ; i += 1 ) {
+			};
+			this.showAll = function () {
+				var i = 0;
+				for (i = 0; i < filterThisSelectors.length; i += 1) {
 					$(filterThisSelectors[i]).removeClass('filter-hide').addClass('filter-show');
 				}
-			}
+			};
 		};
 		return new FilterableItems();
-	};
+	}
 
 
 
 	/**
-	 * @function _getFilterFields() handles building an array of
+	 * @function getFilterFields() handles building an array of
 	 *	     filterField objects which are used for acting on the
 	 *	     filterableItems
 	 *
 	 * @return function/object that has a number of property
 	 *	   functions to facilitate doing stuff
 	 */
-	function _getFilterFields() {
+	function getFilterFields() {
 		/**
 		 * @var array filterFieldsRepo the repository for all filterField items
 		 */
-		var filterFieldsRepo = [];
-		/**
-		 * @var array _filterFieldTypes the tree possible HTML form field types
-		 */
-		var _filterFieldTypes = [ 'select' , 'textarea' , 'input' ];
+		var filterFieldsRepo = [],
 
 		/**
 		 * @var array filterFieldSelectors the list of selector used to match
 		 *	form filter fields
 		 */
-		var filterFieldSelectors = [];
-
-		var tmpLowPriorityFields = [];
-		var tmpHighPriorityFields = [];
-		var tmpFilterFieldsRepo = [];
-
-		var lastInclusive = 0;
-
-		$( filterWrapper + ' *' ).each( function() {
+			filterFieldSelectors = [],
+			FilterFieldsObj,
 
 			/**
-			 * @var string _chooser the string used to check
+			 * @var bolean goodToGo whether or not the selector
+			 *	provided is a usable filter field
+			 */
+			goodToGo = false,
+
+			tmpLowPriorityFields = [],
+			tmpHighPriorityFields = [],
+			tmpFilterFieldsRepo = [],
+
+			lastInclusive = 0,
+			h = 0;
+
+		$(filterWrapper + ' *').each(function () {
+
+			/**
+			 * @var string nameAttr the value of the name attribute of a field
+			 */
+			var	nameAttr = '',
+
+			/**
+			 * @var string chooser the string used to check
 			 *	whether a select/radio/checkbox field is selected
 			 */
-			var _chooser = 'checked';
+				chooser = 'checked',
 
 			/**
 			 * @var boolean exclusiveField whether or not this field is exclusive
@@ -528,36 +588,30 @@ $.FilterFairy = function( filterWrapper ) {
 			 *		regardles of whether they might have already been
 			 *		filtered out.
 			 */
-			var exclusiveField = true;
+				exclusiveField = true,
 
 			/**
 			 * @var string fieldType HTML element the filter form field is
 			 */
-			var fieldType = $(this).prop('tagName').toLowerCase();
+				fieldType = $(this).prop('tagName').toLowerCase(),
 
 			/**
-			 * @var function _getFilterValues() returns an array
+			 * @var function getFilterValuesFunc() returns an array
 			 *	of filterField values of the selected/checked
 			 *	item (or an empty array in the case of checkboxes
 			 *	if the box isn't checked
 			 */
-			var _getFilterValues;
+				getFilterValuesFunc,
 
 			/**
 			 * @var string getName
 			 */
-			var _getName = '';
-
-			/**
-			 * @var bolean goodToGo whether or not the selector
-			 *	provided is a usable filter field
-			 */
-			var goodToGo = false;
+				getName = '',
 
 			/**
 			 * @var string id the ID of the form field
 			 */
-			var _id = '';
+				idAttr = '',
 
 			/**
 			 * @var boolean inclusiveCheckbox inclusive checkboxes need to be handled
@@ -568,7 +622,7 @@ $.FilterFairy = function( filterWrapper ) {
 			 *		fields but must have an internal state to differentiate them from
 			 *		exclusive checkboxes.
 			 */
-			var inclusiveCheckbox = false;
+				inclusiveCheckbox = false,
 
 			/**
 			 * @function inverseResult() returns the opposite of the boolean supplied
@@ -577,40 +631,42 @@ $.FilterFairy = function( filterWrapper ) {
 			 *
 			 * @return boolean FALSE if result is TRUE, or TRUE otherwise
 			 */
-			var inverseResult;
+				inverseResult,
 
-			var lowPriority =  false;
+				lowPriority =  false,
 
 			/**
-			 * @var array _matchingSelectors possible selectors that can be used
+			 * @var array matchingSelectors possible selectors that can be used
 			 *	to match when presetting a field from URL
 			 */
-			var _matchingSelectors = [];
-
-			/**
-			 * @var string _name the value of the name attribute of a field
-			 */
-			var _name = '';
+				matchingSelectors = [],
 
 			/**
 			 * @var boolean priority whether or not an inclusive field should be
 			 *		processed before or after exclusive fields
 			 */
-			var highPriority = null;
+				highPriority = null,
 
 			/**
-			 * @var string _selector the selector that can be used to act on the
+			 * @var string selector the selector that can be used to act on the
 			 *	form field
 			 */
-			var _selector = '';
+				selector = '',
+
+				/**
+				 * @var string selectorSub the selector string individual
+				 *	items <select> <option>s or <input type="radio"> fields
+				 */
+				selectorSub = '',
+				selectorSelected = '',
 
 			/**
-			 * @function _setGetName()
+			 * @function setGetNameFunc()
 			 */
-			var _setGetName;
+				setGetNameFunc,
 
 			/**
-			 * @function _testItem() checks whether any items in the supplied
+			 * @function testItemFunc() checks whether any items in the supplied
 			 *	array match any of the values in this filterField's list of
 			 *	values
 			 *
@@ -620,121 +676,117 @@ $.FilterFairy = function( filterWrapper ) {
 			 * @return boolean TRUE if a class matched one of the filter's values
 			 *	   FALSE otherwise
 			 */
-			var _testItem;
+				testItemFunc,
 
 			/**
 			 * @var object thisField javascript object for the field.
 			 */
-			var thisField;
+				thisField,
 
-			var tmpField;
+				tmpField,
 			/**
 			 * @object for handling everything to do with individual filter fields
 			 */
-			var UsableFilterField;
+				UsableFilterField,
 
 			/**
-			 * @var funcion _useFilter() used to test whether the
+			 * @var funcion useFilterFunc() used to test whether the
 			 *	object matches the selector provided
 			 */
-			var _useFilter;
+				useFilterFunc;
 
-			if( ( fieldType !== 'input' && fieldType !== 'select' && fieldType !== 'textarea' ) ||  $(this).data('nofilter') || $(this).data('notfilter')  ) {
+			if ((fieldType !== 'input' && fieldType !== 'select' && fieldType !== 'textarea') ||  $(this).data('nofilter') || $(this).data('notfilter')) {
 				// this is either not a form field or we shouldn't use this field as a filter.
 				return;
 			}
 
 			thisField = $(this).get();
 
-			if( _validateType($(this).prop('id')) === 'string' ) {
-				var _id = $(this).prop('id');
-			};
+			if (varType($(this).prop('name')) === 'string') {
+				nameAttr = $(this).prop('name');
+			}
 
-			if( _validateType($(this).prop('name')) === 'string' ) {
-				var _id = $(this).prop('name');
-			};
-
-
-			if( fieldType === 'input' ) {
+			if (fieldType === 'input') {
 				// becaues this is an input we need to know what type of input
 				fieldType = $(this).prop('type').toLowerCase();
 
-				if( fieldType === 'submit' || fieldType === 'button' ) {
+				if (fieldType === 'submit' || fieldType === 'button') {
 					// buttons are no good as filters.
 					return;
-				} else if ( fieldType !== 'checkbox' && fieldType !== 'radio' ) {
+				} else if (fieldType !== 'checkbox' && fieldType !== 'radio') {
 					// if it's not a checkbox or radio field treat it as text
 					fieldType = 'text';
-				};
-			};
-
-			if( $(this).prop('id') ) {
-				// grab the ID if there is one
-				_id = $(this).prop('id');
-				// add the ID to a list of possible selectors used for finding which
-				// filter to preset
-				_matchingSelectors.push(_id);
-				// create a usable selector for the node using its ID
-				_selector = '#' + _id;
-				// add that _selector as another possible match fir finding which
-				// filter to preset
-				_matchingSelectors.push(_selector);
-			};
-
-			if( ( _id === '' || fieldType === 'radio' ) && $(this).prop('name') ) {
-
-				// there was no ID or this is a usable radio field
-				_selector = filterWrapper + ' ' + _filterFieldTypes[i] + '[name="' + _name + '"]';
-
-				if( fieldType === 'radio' && $.inArray( _selector , filterFieldSelectors ) > -1 ) {
-					return;
-				} else {
-					_matchingSelectors.push(_name);
-					$(_selector).each(function() {
-						if( $(this).prop('id') ) {
-							// grab all the possible selectors for this radio field
-							_matchingSelectors.push( $(this).prop('id') );
-							_matchingSelectors.push( '#' + $(this).prop('id') );
-						};
-					});
-				};
-			};
-
-			if( _selector !== '' &&  $.inArray( _selector , filterFieldSelectors ) === -1 ) {
-				// we haven't seen this one before. Add it to the list
-				filterFieldSelectors.push(_selector);
-			} else {
-				// already got this one.
-				return true;
+				}
 			}
 
-			if( $(this).data('inclusive') ) {
+			if (varType($(this).prop('id')) === 'string') {
+				// grab the ID if there is one
+				idAttr = $(this).prop('id');
+				// add the ID to a list of possible selectors used for finding which
+				// filter to preset
+				matchingSelectors.push(idAttr);
+				// create a usable selector for the node using its ID
+				selector = '#' + idAttr;
+
+				// add that selector as another possible match fir finding which
+				// filter to preset
+				matchingSelectors.push(selector);
+			}
+
+			if ((idAttr === '' || fieldType === 'radio') && $(this).prop('name')) {
+
+				// there was no ID or this is a usable radio field
+				selector = filterWrapper + ' ' + $(this).prop('tagName').toLowerCase() + '[name="' + nameAttr + '"]';
+
+				if (fieldType === 'radio' && $.inArray(selector, filterFieldSelectors) > -1) {
+					return;
+				} else {
+					matchingSelectors.push(nameAttr);
+					$(selector).each(function () {
+						if ($(this).prop('id')) {
+							// grab all the possible selectors for this radio field
+							matchingSelectors.push($(this).prop('id'));
+							matchingSelectors.push('#' + $(this).prop('id'));
+						}
+					});
+				}
+			}
+
+			if (selector !== '' &&  $.inArray(selector, filterFieldSelectors) === -1) {
+				// we haven't seen this one before. Add it to the list
+				filterFieldSelectors.push(selector);
+			} else {
+				// already got this one.
+				return;
+			}
+
+			if ($(this).data('inclusive')) {
 				// this is an inclusive filter. i.e. items matched by this filter
 				// will be shown regardless of preceeding or succeeding filters
 				exclusiveField = false;
 
-				switch( $(this).data('inclusive').toLowerCase() ) {
-					case 'exclusive':
-					case 'checkbox':
-						if( fieldType === 'checkbox' ) {
-							// this filter needs to be treated as a normal exclusive filter because
-							exclusiveField = true;
-							// but we want the filter to know that it's sort of inclusive.
-							inclusiveCheckbox = true;
-						}
-						break;
+				switch ($(this).data('inclusive').toLowerCase()) {
+				case 'exclusive':
+				case 'checkbox':
+					if (fieldType === 'checkbox') {
+						// this filter needs to be treated as a normal exclusive filter because
+						exclusiveField = true;
+						// but we want the filter to know that it's sort of inclusive.
+						inclusiveCheckbox = true;
+					}
+					break;
 				}
 			}
 
-			if( $(this).data('inverse') !== undefined && $(this).data('inverse') !== false ) {
-				inverseResult = function( result ) { return !result; };
+			if ($(this).data('inverse') !== undefined && $(this).data('inverse') !== false) {
+				inverseResult = function (result) { return !result; };
 			} else {
-				inverseResult = function( result ) { return result; };
+				inverseResult = function (result) { return result; };
 			}
 
-			if( $(this).data('priority') !== undefined && $(this).data('priority') !== false ) {
-				$(this).data('priority',$(this).data('priority').toLowerCase());
-				if( $(this).data('priority') === 'low' ) {
+			if ($(this).data('priority') !== undefined && $(this).data('priority') !== false) {
+				$(this).data('priority', $(this).data('priority').toLowerCase());
+				if ($(this).data('priority') === 'low') {
 					lowPriority = true;
 				} else {
 					highPriority = true;
@@ -742,39 +794,37 @@ $.FilterFairy = function( filterWrapper ) {
 			}
 
 
-			_useFilter=  function( selector ) {
+			useFilterFunc = function (selector) {
 				// does the supplied selector match any of the possible selectors
-				if( $.inArray( selector , _matchingSelectors ) !== -1 ) {
+				if ($.inArray(selector, matchingSelectors) !== -1) {
 					return true;
-				};
+				}
 				return false;
 			};
 
-			_setGetName = function( input ) {
-				if( _validateType(input) === 'string' && input !== '' ) {
-					// we have something useful asign it to _getName
-					_getName = input;
+			setGetNameFunc = function (input) {
+				if (varType(input) === 'string' && input !== '') {
+					// we have something useful asign it to getName
+					getName = input;
 					return true;
-				} else if( _getName === '' ) {
-					// _getName has never been defined, we'll give it a default value
-					if( _name !== '' ) {
-						_getName = _name;
+				} else if (getName === '') {
+					// getName has never been defined, we'll give it a default value
+					if (nameAttr !== '') {
+						getName = nameAttr;
 						return true;
-					} else if( _id !== '' ) {
-						_getName = _id;
+					} else if (idAttr !== '') {
+						getName = idAttr;
 						return true;
-					};
-				};
+					}
+				}
 				return false;
 			};
 
-			if( fieldType === 'checkbox' ) {
+			if (fieldType === 'checkbox') {
+				if (inclusiveCheckbox) {
 
-
-				if( inclusiveCheckbox ) {
-
-					_getFilterValues = function() {
-						return _getValAsList( _selector );
+					getFilterValuesFunc = function () {
+						return getValAsList(selector);
 					};
 
 
@@ -782,31 +832,31 @@ $.FilterFairy = function( filterWrapper ) {
 					// if an item has matching classes it will be shown or hidden based
 					// on whether the checkbox is ticked or not respectively however, if
 					// the item doesn't match, it will be shown anyway.
-					_testItem  = function ( itemClasses ) {
+					testItemFunc  = function (itemClasses) {
 
 						/**
 						 * @var array value list of strings split on space to be used
 						 *	to check items against
 						 */
-						var value = _getValAsList( _selector );
+						var value = getValAsList(selector),
 
 						/**
 						 * @var boolean usable just because an item doesn't match
 						 *	doesn't mean it shouldn't be shown
 						 */
-						var usable = false;
-
+							usable = false,
+							i = 0;
 
 						// loop through each itemClass to see if any match
-						for( var i = 0 ; i < itemClasses.length ; i += 1 ) {
-							if( $.inArray( itemClasses[i] , value ) !== -1 ) {
+						for (i = 0; i < itemClasses.length; i += 1) {
+							if ($.inArray(itemClasses[i], value) !== -1) {
 								// how about that, this one matches.
 								usable = true;
 								break;
-							};
-						};
+							}
+						}
 
-						if( usable === false || inverseResult($(_selector).is(':checked')) ) {
+						if (usable === false || inverseResult($(selector).is(':checked'))) {
 							return true;
 						} else {
 							return false;
@@ -814,27 +864,28 @@ $.FilterFairy = function( filterWrapper ) {
 					};
 				} else {
 
-					_getFilterValues = function() {
-						return _getValAsList( _selector + ':checked' );
+					getFilterValuesFunc = function () {
+						return getValAsList(selector + ':checked');
 					};
 					// exclusive (default) checkboxes work in the normal way, you're
 					// either in or you're out
-					_testItem  = function ( itemClasses ) {
+					testItemFunc  = function (itemClasses) {
 						/**
 						 * @var array value list of strings split on space to be used
 						 *	to check items against
 						 */
-						var value = _getValAsList( _selector );
+						var value = getValAsList(selector),
 
 						/**
 						 * @var boolean output
 						 */
-						var output = false;
+							output = false,
+							i = 0;
 
-						if( $(_selector).is(':checked') ) {
+						if ($(selector).is(':checked')) {
 							// loop through each itemClass to see if any match
-							for( var i = 0 ; i < itemClasses.length ; i += 1 ) {
-								if( $.inArray( itemClasses[i] , value ) !== -1 ) {
+							for (i = 0; i < itemClasses.length; i += 1) {
+								if ($.inArray(itemClasses[i], value) !== -1) {
 
 									// how about that, this one matches.
 									output = true;
@@ -845,97 +896,94 @@ $.FilterFairy = function( filterWrapper ) {
 
 						return inverseResult(output);
 					};
-				};
+				}
 				goodToGo = true;
 
-			} else  if ( fieldType === 'select' || fieldType === 'radio' ) {
+			} else if (fieldType === 'select' || fieldType === 'radio') {
+
+				selectorSub = selector;
+				if (fieldType === 'select') {
+					selectorSub += ' option';
+					chooser = 'selected';
+				}
 
 				/**
-				 * @var string _selectorSub the selector string individual
-				 *	items <select> <option>s or <input type="radio"> fields
-				 */
-				var _selectorSub = _selector;
-				if( fieldType === 'select' ) {
-					_selectorSub += ' option';
-					_chooser = 'selected';
-				};
-
-				/**
-				 * @var string _selectorSelected the selector that matches the
+				 * @var string selectorSelected the selector that matches the
 				 *	selected <option> or <input type="radio">
 				 */
-				var _selectorSelected = _selectorSub + ':' + _chooser;
+				selectorSelected = selectorSub + ':' + chooser;
 
-				_getFilterValues = function() {
+				getFilterValuesFunc = function () {
 					// give'm the list of filter strings as an array
-					return _getValAsList( _selectorSelected );
+					return getValAsList(selectorSelected);
 				};
 
-				_testItem  = function ( itemClasses ) {
+				testItemFunc  = function (itemClasses) {
 
 					/**
 					 * @var array value list of strings split on space to be used
 					 *	to check items against
 					 */
-					var value = _getValAsList( _selectorSelected );
+					var value = getValAsList(selectorSelected),
+						i = 0;
 
-					if( value.length === 0 ) {
+					if (value.length === 0) {
 						return inverseResult(true);
 					}
 
-					for( var i = 0 ; i < itemClasses.length ; i += 1 ) {
+					for (i = 0; i < itemClasses.length; i += 1) {
 
 						// loop through each itemClass to see if any match
-						if( $.inArray( itemClasses[i] , value ) !== -1 ) {
+						if ($.inArray(itemClasses[i], value) !== -1) {
 
 							// how about that, this one matches.
 							return inverseResult(true);
-						};
-					};
+						}
+					}
 					// bummer it didn't match
 					return inverseResult(false);
 				};
 				goodToGo = true;
 			} else {
 
-				_getFilterValues = function() {
-					return _getValAsList( _selector );
+				getFilterValuesFunc = function () {
+					return getValAsList(selector);
 				};
 
-				_testItem  = function ( itemClasses ) {
+				testItemFunc  = function (itemClasses) {
 
 					/**
 					 * @var array value list of strings split on space to be used
 					 *	to check items against
 					 */
-					var value = _getValAsList( _selector );
+					var value = getValAsList(selector),
+						i = 0;
 
-					if( value.length === 0 ) {
+					if (value.length === 0) {
 						return inverseResult(true);
 					}
 
 					// loop through the classes to see if any match
-					for( var i = 0 ; i < itemClasses.length ; i += 1 ) {
-						if( $.inArray( itemClasses[i] , value ) !== -1 ) {
+					for (i = 0; i < itemClasses.length; i += 1) {
+						if ($.inArray(itemClasses[i], value) !== -1) {
 
 							// yay one of the classes matches one of the sub-strings in the value
 							return inverseResult(true);
-						};
-					};
+						}
+					}
 					return inverseResult(false);
 				};
 				goodToGo = true;
 			}
 
-
-			if( goodToGo === true ) {
+			if (goodToGo === true) {
 
 				// create the object for this filter field
-				UsableFilterField = function() {
+				UsableFilterField = function () {
 
 					this.attrType = null;
 
-					this.getFilterValues = _getFilterValues;
+					this.getFilterValues = getFilterValuesFunc;
 
 					/**
 					 * @method getFilterValuesCount() for getting the number of filter
@@ -944,8 +992,8 @@ $.FilterFairy = function( filterWrapper ) {
 					 * @returns {numeric} the number of items in the array of filter
 					 *			values for the current state of this filterField
 					 */
-					this.getFilterValuesCount = function() {
-						var output = _getFilterValues();
+					this.getFilterValuesCount = function () {
+						var output = getFilterValuesFunc();
 						return output.length;
 					};
 
@@ -956,17 +1004,17 @@ $.FilterFairy = function( filterWrapper ) {
 					 * @returns {array} list of strings that could be used to identify
 					 *					this field
 					 */
-					this.getMatchingSelectors = function() { return _matchingSelectors; };
+					this.getMatchingSelectors = function () { return matchingSelectors; };
 					/**
 					 * method for getting the cononical string for matching this filterField
 					 * @returns {string} the string used to uniquely identify this
 					 *                   filterField
 					 */
-					this.getSelector = function() { return _selector; };
+					this.getSelector = function () { return selector; };
 
-					this.getType = function() {
+					this.getType = function () {
 						// give 'em the form field type
-						// [ 'text' , 'radio' , 'checkbox' , 'select' ]
+						// [ 'text', 'radio', 'checkbox', 'select' ]
 						return fieldType;
 					};
 
@@ -977,14 +1025,14 @@ $.FilterFairy = function( filterWrapper ) {
 					 * @returns {boolean} TRUE if the filterField is inclusive.
 					 *					  FALSE otherwise
 					 */
-					this.isExclusive = function() { return exclusiveField; };
+					this.isExclusive = function () { return exclusiveField; };
 
 					/**
 					 * @method isInclusiveCheckbox() returns the incState of this filterField
 					 * @returns {boolean} TRUE if this is an inclusive checkbox FALSE
 					 *                    otherwise.
 					 */
-					this.isInclusiveCheckbox = function() { return inclusiveCheckbox; };
+					this.isInclusiveCheckbox = function () { return inclusiveCheckbox; };
 
 					/**
 					 * @method isHighPriority() returns the whether or not this field is a high
@@ -992,7 +1040,7 @@ $.FilterFairy = function( filterWrapper ) {
 					 * @return {boolean} whether or not this field should be processed before
 					 *         other fields
 					 */
-					this.isHighPriority = function() { return highPriority; };
+					this.isHighPriority = function () { return highPriority; };
 
 					/**
 					 * @method isLowPriority() returns the whether or not this field is a low
@@ -1000,7 +1048,7 @@ $.FilterFairy = function( filterWrapper ) {
 					 * @return {boolean} whether or not this field should be processed after
 					 *         other fields
 					 */
-					this.isLowPriority = function() { return lowPriority; };
+					this.isLowPriority = function () { return lowPriority; };
 
 					/**
 					 * @method testItem() checks whether any items in the supplied
@@ -1013,12 +1061,12 @@ $.FilterFairy = function( filterWrapper ) {
 					 * @return boolean TRUE if a class matched one of the filter's values
 					 *	   FALSE otherwise
 					 */
-					this.testItem = _testItem;
+					this.testItem = testItemFunc;
 
 					/**
 					 * @method triggerChange() causes this field to trigger change
 					 */
-					this.triggerChange = function() { $(thisField).trigger('change'); };
+					this.triggerChange = function () { $(thisField).trigger('change'); };
 
 					/**
 					 * method for working out if this filter should be used based on selector provided
@@ -1028,159 +1076,95 @@ $.FilterFairy = function( filterWrapper ) {
 					 * @return {boolean} TRUE if the filterField was matched by the
 					 *					 selector. FALSE otherwise
 					 */
-					this.useFilter = _useFilter;
+					this.useFilter = useFilterFunc;
 				};
 
 				// add the object to the list of filter fields
-				filterFieldsRepo.push( new UsableFilterField() );
+				filterFieldsRepo.push(new UsableFilterField());
 
 				goodToGo = false;
 
 			} else {
 				// bummer
-				console.warning('Supplied filterField (' + _Selector + ') did not return a valid form field type. ' + fieldType + ' was returned. Was expecting, select; input or textarea');
+				console.warning('Supplied filterField (' + selector + ') did not return a valid form field type. ' + fieldType + ' was returned. Was expecting, select; input or textarea');
 				return;
-			};
-
-
+			}
 		});
 
-		if( filterFieldsRepo.length === 0 ) {
-			console.error('"' + filterWrapper + '" did not contain any form fields. i.e. can\'t find any thing to use as a filter.' );
+		if (filterFieldsRepo.length === 0) {
+			console.error('"' + filterWrapper + '" did not contain any form fields. i.e. can\'t find any thing to use as a filter.');
 			return false;
 		} else {
 
 			// pull high & low priority fields out and put them in a separate arrays
-			for( var i = 0 ; i < filterFieldsRepo.length ; i += 1 ) {
-				if( filterFieldsRepo[i].isExclusive() === false ) {
-					lastInclusive = i;
+			for (h = 0; h < filterFieldsRepo.length; h += 1) {
+				if (filterFieldsRepo[h].isExclusive() === false) {
+					lastInclusive = h;
 				}
-				if ( filterFieldsRepo[i].isLowPriority() === true ) {
-					tmpLowPriorityFields.push(filterFieldsRepo[i]);
-				} else if ( filterFieldsRepo[i].isHighPriority() === true ) {
-					tmpHighPriorityFields.push(filterFieldsRepo[i]);
+				if (filterFieldsRepo[h].isLowPriority() === true) {
+					tmpLowPriorityFields.push(filterFieldsRepo[h]);
+				} else if (filterFieldsRepo[h].isHighPriority() === true) {
+					tmpHighPriorityFields.push(filterFieldsRepo[h]);
 				} else {
-					tmpFilterFieldsRepo.push(filterFieldsRepo[i]);
+					tmpFilterFieldsRepo.push(filterFieldsRepo[h]);
 				}
 			}
 			filterFieldsRepo = [];
 
 			// put high priority fields first (in their DOM order)
-			if( tmpHighPriorityFields.length > 0 ) {
-				for( var i = 0 ; i < tmpHighPriorityFields.length ; i += 1 ) {
-					filterFieldsRepo.push(tmpHighPriorityFields[i]);
+			if (tmpHighPriorityFields.length > 0) {
+				for (h = 0; h < tmpHighPriorityFields.length; h += 1) {
+					filterFieldsRepo.push(tmpHighPriorityFields[h]);
 				}
 			}
 			// then put all the other fields next (in their DOM order)
-			if( tmpFilterFieldsRepo.length > 0 ) {
-				for( var i = 0 ; i < tmpFilterFieldsRepo.length ; i += 1 ) {
-					filterFieldsRepo.push(tmpFilterFieldsRepo[i]);
+			if (tmpFilterFieldsRepo.length > 0) {
+				for (h = 0; h < tmpFilterFieldsRepo.length; h += 1) {
+					filterFieldsRepo.push(tmpFilterFieldsRepo[h]);
 				}
 			}
 			// then put low priority fields at the end of the list of fields
-			if( tmpLowPriorityFields.length > 0 ) {
-				for( var i = 0 ; i = tmpLowPriorityFields.length ; i += 1 ) {
-					filterFieldsRepo.push(tmpLowPriorityFields[i]);
+			if (tmpLowPriorityFields.length > 0) {
+				for (h = 0; h < tmpLowPriorityFields.length; h += 1) {
+					filterFieldsRepo.push(tmpLowPriorityFields[h]);
 				}
 			}
 
 
-			var FilterFieldsObj = function() {
+			FilterFieldsObj = function () {
+				var i = 0;
 				// all good so far we
-				this.getAll = function() { return filterFieldsRepo; };
-				this.getField = function ( selector ) {
-					for( var i = 0 ; i < filterFieldsRepo.length ; i += 1 ) {
-					goodToGo = false;
-						if( filterFieldsRepo[i].useFilter(selector) === true ) {
+				this.getAll = function () { return filterFieldsRepo; };
+				this.getField = function (selector) {
+					for (i = 0; i < filterFieldsRepo.length; i += 1) {
+						goodToGo = false;
+						if (filterFieldsRepo[i].useFilter(selector) === true) {
 							return filterFieldsRepo[i];
-						};
-					};
+						}
+					}
 					return false;
 				};
-				this.noMoreInclusiveFilters = function(a) {
-					if( a >= lastInclusive ) {
+				this.noMoreInclusiveFilters = function (a) {
+					if (a >= lastInclusive) {
 						return true;
 					}
 					return false;
 				};
 			};
 			return new FilterFieldsObj();
-		};
-	};
-
-	/**
-	 * @function _getValAsList() returns the value of a form field's
-	 *	     current state as an array split on spaces
-	 *
-	 * @param string selector jQuery selector to be used to find the
-	 *	  string to split
-	 *
-	 * @return array a list of items that were separated by one or more
-	 *         white space characters
-	 */
-	function _getValAsList( selector ) {
-		if( $(selector).val() !== undefined ) {
-			return _splitValueOnWhiteSpace( $(selector).val() );
-		} else {
-			return [];
 		}
 	}
 
 
 	/**
-	 * @function _splitValueOnWhiteSpace() takes a string, trims white
-	 *           space from begining and end, converts multiple white
-	 *           space characters into single space characters then splits
-	 *           the string into an array
-	 *
-	 * @param string inputValue the string to be split
-	 *
-	 * @return array a list of items that were separated by one or more
-	 *         white space characters
-	 */
-	function _splitValueOnWhiteSpace( inputValue ) {
-		var regex = /\s+/;
-		try {
-			var output = $.trim(inputValue.replace(regex,' '));
-
-			if( output !== '' ) {
-				return output.split(' ');
-			} else {
-				return [];
-			}
-		} catch(e) {
-			return [];
-		};
-	};
-
-	/**
-	 * @function _validateType() takes a variable tries to get its type.
-	 *	     If successful it returns the string name of the type if
-	 *	     not, it returns false
-	 *
-	 * @param mixed input a varialbe whose type is to be tested.
-	 *
-	 * @return string false string name of the variable type or false if
-	 *	   type couldn't be determined
-	 */
-	function _validateType( input ) {
-		try {
-			return $.type(input);
-		} catch(e) {
-			return false;
-		};
-	};
-
-
-	/**
-	 * @function _setPushState() updates the page's URL so that it can be
+	 * @function setPushState() updates the page's URL so that it can be
 	 *	     bookmarked and be in the browser history
 	 *
 	 * @return boolean TRUE if the push state was updated FALSE otherwise
 	 */
-	function _setPushState() {
+	function setPushState() {
 // console.log(window.location);
-	};
+	}
 
 
 
@@ -1190,15 +1174,21 @@ $.FilterFairy = function( filterWrapper ) {
 // START: checking if it's worth continuing
 
 
-	filterableItems = _getFilterableItems();
+	// validate filterWrapper
+	if (varType(filterWrapper) !== 'string') {
+		console.error('The first and only parameter for filterFairy must be a string');
+		return false;
+	}
 
-	filterFields = _getFilterFields();
+	filterableItems = getFilterableItems();
+
+	filterFields = getFilterFields();
 
 	// did anything go wrong?
-	if( filterFields === false || filterableItems === false ) {
-		console.error( 'Because of the previously mentioned errors, filterFairy cannot continue. Goodbye!' );
+	if (filterFields === false || filterableItems === false) {
+		console.error('Because of the previously mentioned errors, filterFairy cannot continue. Goodbye!');
 		return false;
-	};
+	}
 
 
 // END:   checking if it's worth continuing
@@ -1216,11 +1206,11 @@ $.FilterFairy = function( filterWrapper ) {
 	 * @return boolean TRUE if hideAllOnEmptyFilter was updated
 	 *	   FALSE otherwise
 	 */
-	this.setHideAllOnEmptyFilter = function( input ) {
-		if( _validateType(input) === 'boolean' ) {
+	this.setHideAllOnEmptyFilter = function (input) {
+		if (varType(input) === 'boolean') {
 			hideAllOnEmptyFilter = input;
 			return true;
-		};
+		}
 		return false;
 	};
 
@@ -1228,17 +1218,17 @@ $.FilterFairy = function( filterWrapper ) {
 	/**
 	 * @function hideAll() hides all filterable items
 	 */
-	this.hideAll = function() {
+	this.hideAll = function () {
 		filterableItems.hideAll();
-	}
+	};
 
 
 	/**
 	 * @function showAll() exposes all filterable items
 	 */
-	this.showAll = function() {
+	this.showAll = function () {
 		filterableItems.showAll();
-	}
+	};
 
 	/**
 	 * returns a filterField object for use outside FilterFairy.
@@ -1247,8 +1237,8 @@ $.FilterFairy = function( filterWrapper ) {
 	 * @returns {Boolean,filterField} filterField object if matched by
 	 *                                fieldSelector or FALSE otherwise
 	 */
-	this.getFormField = function( fieldSelector ) {
-		if( _validateType(fieldSelector) === 'string' ) {
+	this.getFormField = function (fieldSelector) {
+		if (varType(fieldSelector) === 'string') {
 			return filterFields.getField(fieldSelector);
 		}
 		return false;
@@ -1262,8 +1252,7 @@ $.FilterFairy = function( filterWrapper ) {
 
 	fields = filterFields.getAll();
 	items = filterableItems.getAll();
-	if ( fields.length > 0 ) {
-
+	if (fields.length > 0) {
 
 		/**
 		 * @function applyFilter when any of the filter fields
@@ -1275,39 +1264,41 @@ $.FilterFairy = function( filterWrapper ) {
 		 * by running exclusive filters then by adding the
 		 * inclusive filters
 		 */
-		applyFilter = function() {
+		applyFilter = function () {
 
-			var itemStrings = [];
-			var exlcusiveField = true;
-			var show = true;
+			var itemStrings = [],
+				exlcusiveField = true,
+				show = true,
+				i = 0,
+				j = 0;
 
 			// loop through all the items
-			for ( var i = 0 ; i < items.length ; i += 1 ) {
+			for (i = 0; i < items.length; i += 1) {
 
 				// get the filter strings for the item
 				itemStrings = items[i].getClasses();
 
 				// loop through all the fields
-				for ( var j = 0 ; j < fields.length ; j += 1 ) {
+				for (j = 0; j < fields.length; j += 1) {
 //					exlcusiveField = fields[j].isExclusive();
-//					if ( ( exlcusiveField === false &&  show === false ) || ( exlcusiveField === true && show === true ) ) {
+//					if (( exlcusiveField === false &&  show === false ) || (exlcusiveField === true && show === true )) {
 
 					// try this filter if it's inclusive or if the item hasn't already been excluded
-					if ( fields[j].isExclusive() === false ) {
-						if ( show === false )  {
+					if (fields[j].isExclusive() === false) {
+						if (show === false) {
 							show = fields[j].testItem(itemStrings);
 						}
-					} else if ( show === true ) {
+					} else if (show === true) {
 						show = fields[j].testItem(itemStrings);
 					}
-					if( show === false && filterFields.noMoreInclusiveFilters(j) ) {
+					if (show === false && filterFields.noMoreInclusiveFilters(j)) {
 						// there are no more inclusive filters so don't bother checking any
 						// other filters for this item
 						j = fields.length;
 					}
 				}
 
-				if( show === true ) {
+				if (show === true) {
 					items[i].showItem();
 				} else {
 					items[i].hideItem();
@@ -1315,23 +1306,24 @@ $.FilterFairy = function( filterWrapper ) {
 				show = true;
 			}
 			// set push state
-			_setPushState();
+			setPushState();
 
 		};
 
 		// loop through each filter field adding the applyFilter
-		for ( var i = 0 ; i < fields.length ; i += 1 ) {
-
-			if ( fields[i].getType() === 'text' ) {
+		for (g = 0; g < fields.length; g += 1) {
+			if (fields[g].getType() === 'text') {
 				// if a filter field is text then only apply filter on blur
-				$(fields[i].getSelector()).on('blur',applyFilter);
+				$(fields[g].getSelector()).on('blur', applyFilter);
 			} else {
 				// if a filter field is not text then try applying the filter every time it changes
-				$(fields[i].getSelector()).on('change',applyFilter);
-			};
-		};
+				$(fields[g].getSelector()).on('change', applyFilter);
+			}
+		}
 	} else {
 		// there were no filter fields so complain
 		console.error('There are no filter fields to use');
 	}
+
 };
+
