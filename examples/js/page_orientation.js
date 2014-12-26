@@ -51,11 +51,8 @@ $('document').ready(function(){
 
 	var presetter = new $.PresetFormFields();
 
-	presetter.preset('#bagecohort1' , 'bagecohort' );
 	presetter.preset('#course-filter' , 'course' , 'coursecode' , 'data' );
 	presetter.preset('#agecohort');
-	presetter.preset('#textarea1' );
-	presetter.preset('#textInput1' );
 
 
 	var config = {
