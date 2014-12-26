@@ -1,13 +1,14 @@
-if( window.console === undefined ) {
-	var Console = function() {
-		this.log = function() { };
-		this.warn = function() { };
-		this.error = function() { };
-		this.info = function() { };
-//		this.debugger = function() { };
+if (window.console === undefined) {
+	var Console = function () {
+		"use strict";
+		this.log = function () { };
+		this.warn = function () { };
+		this.error = function () { };
+		this.info = function () { };
+//		this.debugger = function () { };
 	};
 	window.console = new Console();
-};
+}
 
 /**
  * PresetFormFields provides an easy way to set HTML form field
@@ -45,18 +46,18 @@ if( window.console === undefined ) {
  *                                   attribute
  * @returns {Boolean}  TRUE if form field was set. FALSE otherwise
  */
-$.PresetFormFields = function( fieldSelector , getName , attrName , attrType ) {
+$.PresetFormFields = function (fieldSelector, getName, attrName, attrType) {
 	"use strict";
 
-	var getObj;
-	var compareAttr;
-	var badSelector = true;
-	var reg = /[^a-z0-9_-]+/i;
-	var isRaw = null;
-	var presetField;
+	var getObj,
+		compareAttr,
+		badSelector = true,
+		reg = /[^a-z0-9_\-] + /i,
+		isRaw = null,
+		presetField;
 
 	/**
-	 * @function _validateType() takes a variable tries to get its type.
+	 * @function varType() takes a variable tries to get its type.
 	 *	     If successful it returns the string name of the type if
 	 *	     not, it returns false
 	 *
@@ -65,19 +66,19 @@ $.PresetFormFields = function( fieldSelector , getName , attrName , attrType ) {
 	 * @return string false string name of the variable type or false if
 	 *	   type couldn't be determined
 	 */
-	function _validateType( input ) {
+	function varType(input) {
 		try {
 			return $.type(input);
-		} catch(e) {
+		} catch (e) {
 			return false;
 		}
-	};
+	}
 
 	/**
 	 * @function a shortcut for checking GET value against field attributes.
 	 *
 	 * @param   {jQuery DOM object} obj 'this' in the parent function
-	 * @param   {boolean} tryAll   Whether or not to try .val() , .attr()
+	 * @param   {boolean} tryAll   Whether or not to try .val(), .attr()
 	 *			& .data() properties of the form field
 	 * @param   {string} getValue the value to be matched to see if this
 	 *			field should be set
@@ -90,20 +91,9 @@ $.PresetFormFields = function( fieldSelector , getName , attrName , attrType ) {
 	 * @returns {Boolean} TRUE if this field should be set or FALSE
 	 *			otherwise
 	 */
-	function isItThisOne( obj , tryAll , getValue , attrName , attrType ) {
+	function isItThisOne(obj, tryAll, getValue, attrName, attrType) {
 
-		if(
-			(
-				( tryAll === true || attrName === 'value' )
-				&& $(obj).val() === getValue
-			) || (
-				( tryAll === true || attrType === 'data' )
-				&& $(obj).data(attrName) === getValue
-			) || (
-				( tryAll === true || attrType === 'norm' )
-				&& $(obj).attr(attrName) === getValue
-			)
-		  ) {
+		if (((tryAll === true || attrName === 'value') && $(obj).val() === getValue) || ((tryAll === true || attrType === 'data') && $(obj).data(attrName) === getValue) || ((tryAll === true || attrType === 'norm') && $(obj).attr(attrName) === getValue)) {
 			return true;
 		}
 		return false;
@@ -114,33 +104,34 @@ $.PresetFormFields = function( fieldSelector , getName , attrName , attrType ) {
 		 * @var array string getString the GET part of a URL split up into
 		 *	individual GET variable key/value pairs
 		 */
-		var getString = window.location.search.substring(1);
-		var getName = [];
-		var getValue = [];
-		if( getString !== '' ) {
+		var getString = window.location.search.substring(1),
+			getName = [],
+			getValue = [],
+			i = 0;
+		if (getString !== '') {
 			// split the GET into its individual key/value pairs
 			getString = getString.split('&');
-			for( var i = 0 ; i < getString.length ; i += 1 ) {
+			for (i = 0; i < getString.length; i  + = 1) {
 				// add the key/value pairs
 				getString[i] = getString[i].split('=');
-				getName.push( getString[i][0] );
-				getValue.push( decodeURI(getString[i][1]) );
+				getName.push(getString[i][0]);
+				getValue.push(decodeURI(getString[i][1]));
 			}
 		}
-		this.getGET = function(varName) {
-			var index = $.inArray( varName , getName );
-			if( index > -1 ) {
+		this.getGET = function (varName) {
+			var index = $.inArray(varName, getName);
+			if (index > -1) {
 				return getValue[index];
 			} else {
 				return undefined;
 			}
-		}
-		this.isGet = function() {
-			if( getString !== '' ) {
+		};
+		this.isGet = function () {
+			if (getString !== '') {
 				return true;
 			}
 			return false;
-		}
+		};
 	}
 
 	getObj = new GetGet();
@@ -163,84 +154,84 @@ $.PresetFormFields = function( fieldSelector , getName , attrName , attrType ) {
 	 *			getName (which may have been automatically set to the
 	 *			same as the fieldSelector)
 	 * @param   {string} attrType the type of property to be used
-	 *			[ 'data' , 'standard' / 'normal' / 'norm' ]
+	 *			[ 'data', 'standard' / 'normal' / 'norm' ]
 	 * @returns {Boolean} TRUE if the form field was preset, FALSE otherwise
 	 */
-	presetField = function( fieldSelector , getName , attrName , attrType ) {
-		var tryAll = false;
-		var getValue = '';
-		var checked = 'checked';
-		var isDone = false;
+	presetField = function (fieldSelector, getName, attrName, attrType) {
+		var tryAll = false,
+			getValue = '',
+			checked = 'checked',
+			isDone = false;
 
-		if( _validateType(fieldSelector) !== 'string' ) {
-			console.error( 'presetFilter\'s first paramater must be a string' );
+		if (varType(fieldSelector) !== 'string') {
+			console.error('presetFilter\'s first paramater must be a string');
 			return;
 		}
 		fieldSelector = fieldSelector.trim();
 
-		if( _validateType(getName) !== 'string' ) {
-			getName = fieldSelector.replace( /^.*?([a-z0-9_-]+)['"]?\]?$/i , '$1' );
+		if (varType(getName) !== 'string') {
+			getName = fieldSelector.replace(/^.*?([a-z0-9_\-] + )['"]?\]?$/i, '$1');
 			tryAll = true;
 		}
 
-		if( _validateType(attrName) !== 'string' ) {
+		if (varType(attrName) !== 'string') {
 			attrName = getName;
 			tryAll = true;
 		}
 
-		if( _validateType(attrType) !== 'string' ) {
+		if (varType(attrType) !== 'string') {
 			tryAll = true;
 		}
 
-		if( _validateType(attrType) !== 'string' && attrType !== 'data' && attrType !== 'normal' && attrType !== 'standard' && attrType !== 'norm' ) {
+		if (varType(attrType) !== 'string' && attrType !== 'data' && attrType !== 'normal' && attrType !== 'standard' && attrType !== 'norm') {
 			tryAll = true;
-		} else if ( attrType === 'normal' || attrType === 'standard' ) {
+		} else if (attrType === 'normal' || attrType === 'standard') {
 			attrType = 'norm';
 		}
 
-		if( getObj.isGet === false ) {
+		if (getObj.isGet === false) {
 			console.info('The URL didn\'t contain any GET variables preset() can\'t do anything');
 			return false;
 		}
 
-		if( $(fieldSelector).length === 0 ) {
+		if ($(fieldSelector).length === 0) {
 			isRaw = reg.exec(fieldSelector);
-			if( isRaw === null ) {
-				if( $('#'+fieldSelector).length > 0 ) {
-					fieldSelector = '#'+fieldSelector;
+			if (isRaw === null) {
+				if ($('#' + fieldSelector).length > 0) {
+					fieldSelector = '#' + fieldSelector;
 					badSelector = false;
-				} else if ( $('.'+fieldSelector).length > 0 ) {
-					fieldSelector = '.'+fieldSelector;
+				} else if ($('.' + fieldSelector).length > 0) {
+					fieldSelector = '.' + fieldSelector;
 					badSelector = false;
 				}
 			}
-			if( badSelector === true ) {
-				console.warn('Could not find any HTML form fields with '+fieldSelector);
+			if (badSelector === true) {
+				console.warn('Could not find any HTML form fields with ' + fieldSelector);
 				return false;
 			}
 		}
 
 		getValue = getObj.getGET(getName);
 
-		if( getValue === undefined ) {
-			console.warn('Could not find the get variable "'+getName+'"');
+		if (getValue === undefined) {
+			console.warn('Could not find the get variable "' + getName + '"');
 			return false;
 		}
 
-		$(fieldSelector).each( function() {
+		$(fieldSelector).each( function () {
 			var fieldType = $(this).prop('tagName').toLowerCase();
 
-			if( fieldType === 'input' ) {
+			if (fieldType === 'input') {
 				fieldType = $(this).prop('type');
-				switch( fieldType ) {
+				switch( fieldType) {
 					case 'button':
 					case 'submit':
 						// can't use this field
 						fieldType = false;
 						break;
 					case 'radio':
-						if( $(this).attr('name') !== undefined ) {
-							fieldSelector = 'input[name="'+$(this).attr('name')+'"]';
+						if ($(this).attr('name') !== undefined) {
+							fieldSelector = 'input[name="' + $(this).attr('name') + '"]';
 						}
 					case 'checkbox':
 						break;
@@ -248,35 +239,35 @@ $.PresetFormFields = function( fieldSelector , getName , attrName , attrType ) {
 						fieldType = 'text';
 						break;
 				}
-			} else if ( fieldType === 'select' ) {
-				fieldSelector += ' option';
+			} else if (fieldType === 'select') {
+				fieldSelector  + = ' option';
 				checked = 'selected';
-			} else if ( fieldType !== 'textarea'  ) {
+			} else if (fieldType !== 'textarea' ) {
 				// this is obviously not a form field
 				fieldType = false;
 			}
 
-			if( fieldType === 'textarea' ) {
+			if (fieldType === 'textarea') {
 
 				$(this).html(getValue);
-			} else if ( fieldType === 'text' ) {
+			} else if (fieldType === 'text') {
 
 				$(this).val(getValue);
-			} else if ( fieldType === 'checkbox' ) {
-				if( isItThisOne( this , tryAll , getValue , attrName , attrType ) ) {
+			} else if (fieldType === 'checkbox') {
+				if (isItThisOne( this, tryAll, getValue, attrName, attrType )) {
 					$(this).attr('checked','checked');
 					isDone = true;
 				}
-			} else if ( fieldType === 'radio' || fieldType === 'select' ) {
-				$(fieldSelector).each(function(){
-					if( isItThisOne( this , tryAll , getValue , attrName , attrType ) ) {
+			} else if (fieldType === 'radio' || fieldType === 'select') {
+				$(fieldSelector).each(function (){
+					if (isItThisOne( this, tryAll, getValue, attrName, attrType )) {
 
 						$(this).attr(checked,checked);
 						isDone = true;
 					}
 				});
 			}
-			if( isDone === true ) {
+			if (isDone === true) {
 console.log('Triggering change');
 				$(this).trigger('change');
 				return false;
@@ -285,8 +276,8 @@ console.log('Triggering change');
 		return isDone;
 	};
 
-	if( _validateType(fieldSelector) === 'string') {
-		presetField( fieldSelector , getName , attrName , attrType );
+	if (varType(fieldSelector) === 'string') {
+		presetField( fieldSelector, getName, attrName, attrType );
 	}
 
 	this.preset = presetField;
