@@ -20,9 +20,9 @@ By default, each field is exclusive, meaning that (when you have multiple filter
 
 |  filter-this wrapper | filterable item |
 | -------------------- | --------------- |
-| &gt;ul class="filter-this"&lt; or &gt;ol class="filter-this"&lt; | &gt;li&lt; |
-| &gt;table class="filter-this"&lt; | &gt;tr&lt; |
-| &gt;section class="filter-this"&lt; or &gt;aside class="filter-this"&lt; | &gt;article&lt; |
+| &lt;ul class="filter-this"&gt; or &lt;ol class="filter-this"&gt; | &lt;li&gt; |
+| &lt;table class="filter-this"&gt; | &lt;tr&gt; |
+| &lt;section class="filter-this"&gt; or &lt;aside class="filter-this"&gt; | &lt;article&gt; |
 | (non standard wrapper) .filterthis | .filter-item |
 
 ### Checkboxes
