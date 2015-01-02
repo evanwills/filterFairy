@@ -262,15 +262,16 @@ $.FilterFairy = function (filterWrapper) {
 	 *	   functions to facilitate doing stuff
 	 */
 	function getFilterableItems() {
+
 		/**
 		 * @var array filterableItemsArray list of all the
-		 *	filterable items
+		 *      filterable items
 		 */
 		var filterableItemsArray = [],
 
 		/**
 		 * @var array filterThisSelectors list of unique selectors matching
-		 *	filterable items
+		 *      filterable items
 		 */
 			filterThisSelectors = [],
 
@@ -281,25 +282,25 @@ $.FilterFairy = function (filterWrapper) {
 
 		/**
 		 * @var array filterThisTags list of wrapper tags used encountered
-		 *	so far
+		 *      so far
 		 */
 			filterThisTags = [],
 
 		/**
 		 * @var boolean standardFilterItems TRUE if standard filterable items
-		 *	were found
+		 *      were found
 		 */
 			standardFilterItems = false,
 
 		/**
 		 * @var array nonStandardFilterItems list of wrapper tag names for non
-		 *	standard filterable items
+		 *      standard filterable items
 		 */
 			nonStandardFilterItems = [],
 
 		/**
 		 * @var string tmpItemWrapper the element used for wrapping
-		 *	filterable items
+		 *      filterable items
 		 */
 			tmpItemWrapper = '',
 
@@ -414,12 +415,17 @@ $.FilterFairy = function (filterWrapper) {
 			for (h = 0; h < filterThisSelectors.length; h += 1) {
 
 				$(filterThisSelectors[h]).each(function () {
+					/**
+					 * @var object filterableItem an object for extracting information
+					 *      about a particular filterable item
+					 */
+					var FilterableItem,
 
 					/**
 					 * @var object item the jQuery reference object for this filterable
 					 *	item, used as a permanent connection to the DOM element.
 					 */
-					var item = $(this).get(),
+						item = $(this).get(),
 
 					/**
 					 * @var array classes list of classes for this filterable item used
@@ -437,7 +443,7 @@ $.FilterFairy = function (filterWrapper) {
 					/**
 					 * @function filterableItem() does everything to do with filtering an item.
 					 */
-					function FilterableItem() {
+					FilterableItem = function () {
 						/**
 						 * @function testFilter()  takes a string and checks if it matches
 						 *	     any of the items in its array if the string is empty
@@ -457,6 +463,10 @@ $.FilterFairy = function (filterWrapper) {
 							if (filterListType === 'string') {
 								filterList = [ filterList ];
 								filterListType = 'array';
+							}
+
+							if (filterListType !== 'array') {
+								return false;
 							}
 
 							for (i = 0; i < filterList.length; i += 1) {
