@@ -1,41 +1,44 @@
-"use strict";
 
-
-$('document').ready(function(){
+$('document').ready(function () {
+	'use strict';
 	/**
 	 * @function tabSelectFunction() shows desired tab based on filter
 	 *           class value
 	 */
-	var tabSelectFunction = function() {
+	var tabSelectFunction, fairy, presetter, config, selector;
+	tabSelectFunction = function () {
 
-		var filterStrings = $('#course-filter option:selected').val().replace(/\s+/,' ');
-		filterStrings = $.trim(filterStrings);
-		filterStrings = filterStrings.split(' ');
+		var filterStrings = $('#course-filter option:selected').val().replace(/\s+/, ' '),
 
 		/**
 		 * @var RegExp reg regular expression for cleaning up the
 		 *      value to be used to find the ID of the correct tab
 		 *      to be shown
 		 */
-		var reg = new RegExp('^grp__((mon|tues|wednes|thrus|fri|satur|sun)day)$');
+			reg = new RegExp('^grp__((mon|tues|wednes|thrus|fri|satur|sun)day)$'),
+			i = 0,
+			tabName = '';
 
-		for( var i = 0 ; i < filterStrings.length ; i += 1 ) {
+		filterStrings = $.trim(filterStrings);
+		filterStrings = filterStrings.split(' ');
 
-			if( filterStrings[i].match( reg ) ) {
+		for (i = 0; i < filterStrings.length; i += 1) {
+
+			if (filterStrings[i].match(reg)) {
 				// clean up the tab neame
-				var tabName = filterStrings[i].replace( 'grp__' , '' ,'i' );
+				tabName = filterStrings[i].replace('grp__', '', 'i');
 
 				// show the tab
-				$( '#oWeek-tabs a[href="#oWeek-' + tabName + '"]').tab('show');
+				$('#oWeek-tabs a[href="#oWeek-' + tabName + '"]').tab('show');
 				return true;
-			};
-		};
-		$( '#oWeek-tabs a[href="#oWeek-Monday"]').tab('show');
+			}
+		}
+		$('#oWeek-tabs a[href="#oWeek-Monday"]').tab('show');
 		return false;
 	};
 
 
-	var fairy = new $.FilterFairy( '#filter-select' );
+	fairy = new $.FilterFairy('#filter-select');
 //	fairy.presetFilter( '#course-filter' , 'coursecode' , 'course');
 //	fairy.presetFilter( 'agecohort' );
 	fairy.setHideAllOnEmptyFilter(true);
@@ -43,26 +46,26 @@ $('document').ready(function(){
 	//$('#course-filter').on('change',tabSelectFunction);
 
 	$('#oWeek-tabs a').click(function (e) {
-		e.preventDefault()
+		e.preventDefault();
 		$(this).tab('show');
 	});
 
 	$('#oWeek-tabs a[href="#oWeek-monday"]').tab('show');
 
-	var presetter = new $.PresetFormFields();
+	presetter = new $.PresetFormFields();
 
-	presetter.preset('#course-filter' , 'course' , 'coursecode' , 'data' );
+	presetter.preset('#course-filter', 'course', 'coursecode', 'data');
 	presetter.preset('#agecohort');
 
 
-	var config = {
+	config = {
 		'.chosen-select'		: {},
-		'.chosen-select-deselect'	: {allow_single_deselect:true},
-		'.chosen-select-no-single'	: {disable_search_threshold:10},
-		'.chosen-select-no-results'	: {no_results_text:'Oops, nothing found!'},
-		'.chosen-select-width'		: {width:"95%"}
-	}
-	for (var selector in config) {
+		'.chosen-select-deselect'	: {allow_single_deselect: true},
+		'.chosen-select-no-single'	: {disable_search_threshold: 10},
+		'.chosen-select-no-results'	: {no_results_text: 'Oops, nothing found!'},
+		'.chosen-select-width'		: {width: "95%"}
+	};
+	for (selector in config) {
 		$('#course-filter').chosen(config[selector]);
 	}
 
