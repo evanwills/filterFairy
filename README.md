@@ -24,9 +24,9 @@ By default, each field is exclusive, meaning that (when you have multiple filter
 
 |  filter-this wrapper | filterable item |
 | -------------------- | --------------- |
-| `&lt;ul class="filter-this"&gt;` or `&lt;ol class="filter-this"&gt;` | `&lt;li&gt;` |
-| `&lt;table class="filter-this"&gt;` | `&lt;tr&gt;` |
-| `&lt;section class="filter-this"&gt;` or `&lt;aside class="filter-this"&gt;` | `&lt;article&gt;` |
+| `<ul class="filter-this">` or `<ol class="filter-this">` | `<li>` |
+| `<table class="filter-this">` | `<tr>` |
+| `<section class="filter-this">` or `<aside class="filter-this">` | `<article>` |
 | (non standard wrapper) `.filterthis` | `.filter-item` |
 
 
