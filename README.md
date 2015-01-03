@@ -94,6 +94,15 @@ Say you have a form that is being submitted to the server and have fields that a
 <input type="hidden" value="random server stuff" id="ignore-me" name="ignore-me" data-notfilter="true" />
 ```
 
+### Hiding all items when filters are blank
+
+Sometimes, you want to force people to use the filters. One way to do this is to have all the items hidden if all the filter fields are blank. To do this you need to assign FilterFairy to a variable then call the setHideAllOnEmptyFilter() method
+
+``` javascript
+var myFilter = new $.FilterFairy('#filterWrapperID');
+myFilter.setHideAllOnEmptyFilter(true);
+```
+
 ## PresetFormFields (presetFormFields.jquery.js)
 
 ###
