@@ -215,7 +215,7 @@ $.PresetFormFields = function (fieldSelector, getName, attrName, attrType) {
 		getValue = getObj.getGET(getName);
 
 		if (getValue === undefined) {
-			console.warn('Could not find the get variable "' + getName + '"');
+//			console.warn('Could not find the get variable "' + getName + '"');
 			return false;
 		}
 
