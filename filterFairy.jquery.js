@@ -1224,6 +1224,14 @@ $.FilterFairy = function (filterWrapper) {
 		return false;
 	};
 
+	this.hideAllOnEmpty = function (input) {
+		if (input !== false) {
+			hideAllOnEmptyFilter = true;
+		} else {
+			hideAllOnEmptyFilter = false;
+		}
+	}
+
 
 	/**
 	 * @function hideAll() hides all filterable items
