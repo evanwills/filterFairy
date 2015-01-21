@@ -19,6 +19,7 @@ Values in the form fields must be valid HTML class names (multiple values can be
 By default, each field is exclusive, meaning that (when you have multiple filter fields), only items matched by the preceeding field can be included in the next round of filtering.
 
 **NOTE:** fields with empty values selected will be ignored. i.e. they will not be used to filter
+
 **NOTE also:** Only valid HTML form fields can be used as filters. (Buttons will be ignored!)
 
 
@@ -44,7 +45,7 @@ There are a number of data attributes that can be used to modify filter behaviou
 
 ### Inclusive filters
 
-There are times when you might want to show items matched by a particular filter regardless of whether it has been matched by a preceeding filter to do this you can add an the data attribute data-inclusive="inclusive" or data-inclusive or data-inclusive="true" e.g.
+There are times when you might want to show items matched by a particular filter regardless of whether it has been matched by a preceeding filter to do this you can add an the data attribute `data-inclusive="inclusive"` or `data-inclusive` or `data-inclusive="true"` e.g.
 
 ``` html
 <input type="checkbox" value="sample" id="inclusive-field" name="inclusive-field" data-inlcusive="true" />
@@ -52,7 +53,7 @@ There are times when you might want to show items matched by a particular filter
 
 ### Checkboxes
 
-Sometimes it is useful for a checkbox to only show or hide matched item within a list of already filtered items you can add the data attribute data-inclusive="checkbox"
+Sometimes it is useful for a checkbox to only show or hide matched item within a list of already filtered items you can add the data attribute `data-inclusive="checkbox"`
 
 ``` html
 <input type="checkbox" value="sample" id="inclusive-checkbox" name="inclusive-checkbox" data-inlcusive="checkbox" />
@@ -61,7 +62,7 @@ This causes any items matched by the checkbox field to be shown or hidden (depen
 
 ### Inverting the filter
 
-Say you want to hide all the items matched by a filter value you can add the data attribute data-inverse or data-inverse="true" or data-inverse="inverse"
+Say you want to hide all the items matched by a filter value you can add the data attribute `data-inverse` or `data-inverse="true"` or `data-inverse="inverse"`
 ``` html
 <label for="inverse-field">Hide sample</label>
 <input type="checkbox" value="sample" id="inverse-field" name="inverse-field" data-inverse="inverse" />
@@ -70,7 +71,7 @@ When the checkbox is checked any items with the class 'sample' will be hidden.
 
 ### Low and high priority fields
 
-By default filter fields are proccessed in the order they appear in the HTML DOM. To alter this you can set the data attribute data-priority. To make fields be processed before other fields, you can use data-priority or data-priority="high" or data-priority="true". To make them be proccessed after other fields you can use data-priority="low"
+By default filter fields are proccessed in the order they appear in the HTML DOM. To alter this you can set the data attribute `data-priority`. To make fields be processed before other fields, you can use data-priority or `data-priority="high"` or `data-priority="true"`. To make them be proccessed after other fields you can use `data-priority="low"`
 
 ``` html
 <input type="checkbox" value="me-first" id="high-priority" name="high-priority" data-priority="high" />
@@ -80,15 +81,15 @@ or
 <input type="checkbox" value="me-last" id="low-priority" name="low-priority" data-priority="low" />
 ```
 
-**NOTE:*** if you have multiple fields set with the same priority, they will be processed together in the order they appear in the HTML. If their prioity is high, they will be proccessed before the other fields. If the prority is low, they will be processed after other fields.
+**NOTE:** if you have multiple fields set with the same priority, they will be processed together in the order they appear in the HTML. If their prioity is high, they will be proccessed before the other fields. If the prority is low, they will be processed after other fields.
 
 #### Why set priority?
 
-Say you have a list of restaurants they are filtered by nationality and by Suburb. The nationality field is a select box and the suburbs are each a checkbox. You would make the checkboxes data-inclusive="incluisve" and data-priority="high" Therefore, a list of restaurants in each of the suburbs is created. That list is then filtered by nationality.
+Say you have a list of restaurants they are filtered by nationality and by Suburb. The nationality field is a select box and the suburbs are each a checkbox. You would make the checkboxes `data-inclusive="incluisve"` and `data-priority="high"` Therefore, a list of restaurants in each of the suburbs is created. That list is then filtered by nationality.
 
 ### How to ignore a form field
 
-Say you have a form that is being submitted to the server and have fields that are used for the filter and some that are only used by the server. To hide the server only fields use the data attribute data-notfilter or data-notfilter="true" or data-notfilter="notfilter"
+Say you have a form that is being submitted to the server and have fields that are used for the filter and some that are only used by the server. To hide the server only fields use the data attribute `data-notfilter` or `data-notfilter="true"` or `data-notfilter="notfilter"`.
 
 ``` html
 <input type="hidden" value="random server stuff" id="ignore-me" name="ignore-me" data-notfilter="true" />
@@ -96,13 +97,70 @@ Say you have a form that is being submitted to the server and have fields that a
 
 ### Hiding all items when filters are blank
 
-Sometimes, you want to force people to use the filters. One way to do this is to have all the items hidden if all the filter fields are blank. To do this you need to assign FilterFairy to a variable then call the setHideAllOnEmptyFilter() method
+Sometimes, you want to force people to use the filters. One way to do this is to have all the items hidden if all the filter fields are blank. To do this you need to assign FilterFairy to a variable then call the `hideAllOnEmpty()` method.
 
 ``` javascript
 var myFilter = new $.FilterFairy('#filterWrapperID');
-myFilter.setHideAllOnEmptyFilter(true);
+myFilter.hideAllOnEmpty();
 ```
 
 ## PresetFormFields (presetFormFields.jquery.js)
 
-###
+### Preset form fields based on URL get variables
+
+```javascript
+var presetter = new $.presetFormFields();
+presetter.preset(fieldSelector, getName, attributeName, attributeType);
+```
+| parameter name | parameter purpose |
+| ---------------------- | ------------------------- |
+| fieldSelector | usually the field's ID or NAME attribute |
+| getName | the name of the GET variable (if different from the ID or NAME) |
+| attributeName | the name of the attribute whose value is to be checked against the GET variable value (for when the field's value is needs to be different from the GET value) |
+| attributeType | 'data' or 'normal' |
+
+If you've created a page with a form and then want people who land on that page to have parts of the form prepopulated (e.g. a page with form fields used as filters). PresetFormFields makes this easy.
+
+**URL:** `http://my.site.com/path/to/page?myField=my-value`
+```html
+<input type="text" name="myField" id="myField" value="my-value" />
+```
+```javascript
+var presetter = new $.presetFormFields();
+presetter.preset('field');
+```
+
+Because the GET variable `myField` is the same as the input's ID, you don't need to specify anything else. If, however, you need to use a different GET variable, you can specify it's name as the second parameter to `preset()`.
+
+**URL:** `http://my.site.com/path/to/page?surprise=my-value`
+```html
+<input type="text" name="myField" id="myField" value="my-value" />
+```
+```javascript
+var presetter = new $.presetFormFields();
+presetter.preset('field','surprise');
+```
+
+Sometimes it's undesirable or inappropriate to send a field values in the GET string. If so, you can check the GET variable's value against another field attribute e.g.
+
+
+**URL:** `http://my.site.com/path/to/page?surprise=bird`
+```html
+<input type="text" name="myField" id="myField" value="sexy chicken" class="bird" />
+```
+```javascript
+var presetter = new $.presetFormFields();
+presetter.preset('field','surprise','class','normal');
+```
+
+or
+
+**URL:** `http://my.site.com/path/to/page?surprise=bird`
+```html
+<input type="text" name="myField" id="myField" value="sexy chicken" data-chicken="bird" />
+```
+```javascript
+var presetter = new $.presetFormFields();
+presetter.preset('field','surprise','chicken','data');
+```
+
