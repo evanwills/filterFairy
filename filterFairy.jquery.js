@@ -730,12 +730,11 @@ $.FilterFairy = function (filterWrapper) {
 
 			if (fieldType === 'checkbox') {
 
-				getFilterValuesFunc = function () {
-					return getValAsList(selector + ':checked');
-				};
-
 				if (inclusiveCheckbox) {
 
+					getFilterValuesFunc = function () {
+						return getValAsList(selector);
+					};
 
 					// an inclusiveCheckbox checkbox works slightly differently to other filters.
 					// if an item has matching classes it will be shown or hidden based
@@ -772,6 +771,9 @@ $.FilterFairy = function (filterWrapper) {
 						}
 					};
 				} else {
+					getFilterValuesFunc = function () {
+						return getValAsList(selector + ':checked');
+					};
 
 					// exclusive (default) checkboxes work in the normal way, you're
 					// either in or you're out
