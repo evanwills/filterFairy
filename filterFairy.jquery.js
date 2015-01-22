@@ -676,15 +676,15 @@ $.FilterFairy = function (filterWrapper) {
 				exclusiveField = false;
 
 				switch ($(this).data('inclusive').toLowerCase()) {
-				case 'exclusive':
-				case 'checkbox':
-					if (fieldType === 'checkbox') {
-						// this filter needs to be treated as a normal exclusive filter because
-						exclusiveField = true;
-						// but we want the filter to know that it's sort of inclusive.
-						inclusiveCheckbox = true;
-					}
-					break;
+					case 'exclusive':
+					case 'checkbox':
+						if (fieldType === 'checkbox') {
+							// this filter needs to be treated as a normal exclusive filter because
+							exclusiveField = true;
+							// but we want the filter to know that it's sort of inclusive.
+							inclusiveCheckbox = true;
+						}
+						break;
 				}
 			}
 
