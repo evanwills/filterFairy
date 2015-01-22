@@ -40,6 +40,7 @@ $('document').ready(function () {
 
 	fairy = new $.FilterFairy('#filter-select');
 	fairy.setHideAllOnEmptyFilter(true);
+	fairy.optimiseForSequential();
 
 	$('#course-filter').on('change',tabSelectFunction);
 
@@ -53,8 +54,8 @@ $('document').ready(function () {
 	presetter = new $.PresetFormFields();
 
 	presetter.preset('#course-filter', 'course', 'coursecode', 'data');
-	presetter.preset('#agecohort');
-	presetter.preset('#international', 'os', 'international', 'data');
+	presetter.preset('#agecohort', 'cohort', 'agecohort');
+	presetter.preset('#international', 'region', 'international', 'data');
 
 
 	config = {
@@ -74,7 +75,7 @@ $('document').ready(function () {
 			$('#int-tab').removeAttr('style');
 			$('#oWeek-tabs').addClass('has-int').removeClass('no-int');
 			$('#oWeek-int-thursday').removeAttr('style');
-			$('#oWeek-tabs #int-tab a').tab('show');
+//			$('#oWeek-tabs #int-tab a').tab('show');
 
 		} else {
 			$('#int-tab').attr('style', 'display:none;');
@@ -87,13 +88,5 @@ $('document').ready(function () {
 		}
 	});
 
-
-	$('#int-tab').attr('style', 'display:none;');
-	$('#oWeek-tabs').addClass('no-int');
-	$('#oWeek-int-thursday').attr('style', 'display:none;');
-
 	$('#international').trigger('change');
-
-
-	$('#course-filter').trigger('change');
 });
