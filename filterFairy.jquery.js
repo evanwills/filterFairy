@@ -4,6 +4,7 @@
 
 if (typeof window.console !== 'object') {
 	var Console = function () {
+		"use strict";
 		this.log = function () { };
 		this.warn = function () { };
 		this.error = function () { };
@@ -558,6 +559,11 @@ $.FilterFairy = function (filterWrapper) {
 				nameAttr = '',
 
 			/**
+			 * @var boolean required whether or not the field is required
+			 */
+				required = false,
+
+			/**
 			 * @var string selector the selector that can be used to act on the
 			 *	form field
 			 */
@@ -594,6 +600,8 @@ $.FilterFairy = function (filterWrapper) {
 				thisField,
 
 				tmpField,
+				tmpDataRequired = null,
+				tmpRequired = null,
 			/**
 			 * @object for handling everything to do with individual filter fields
 			 */
@@ -688,6 +696,16 @@ $.FilterFairy = function (filterWrapper) {
 				}
 			}
 
+			if ($(this).data('required') !== undefined) {
+				if ($(this).data('required') !== false) {
+					required = true;
+				} else {
+					required = false;
+				}
+			} else if ($(this).attr('required') !== undefined && $(this).attr('required') !== false) {
+				required = true;
+			}
+
 			if ($(this).data('inverse') !== undefined && $(this).data('inverse') !== false) {
 				inverseResult = function (result) { return !result; };
 			} else {
@@ -701,6 +719,11 @@ $.FilterFairy = function (filterWrapper) {
 				} else {
 					highPriority = true;
 				}
+			}
+
+			// if a field is marked as required and the priority hasn't been set make it high priority.
+			if (required === true && lowPriority !== true) {
+				highPriority = true;
 			}
 
 
@@ -961,6 +984,11 @@ $.FilterFairy = function (filterWrapper) {
 					this.isLowPriority = function () { return lowPriority; };
 
 					/**
+					 * @method isRequired
+					 * @returns {boolean} whether or not this field is required
+					 */
+					this.isRequired = function () { return required; };
+					/**
 					 * @method testItem() checks whether any items in the supplied
 					 *	array match any of the values in this filterField's list of
 					 *	values
@@ -1076,53 +1104,12 @@ $.FilterFairy = function (filterWrapper) {
 // console.log(window.location);
 	}
 
-	function optimiseSequentialFiltering(fields) {
-		var activeCount = 0,
-			activeFields = [],
-			j = 0,
-			lastInclusive = 0;
-
-		// Lets do a quick check on which fields are active
-		// don't bother testing inactive fields
-		for (j = 0; j < fields.length; j += 1) {
-
-			if (fields[j].getFilterValuesCount() > 0) {
-				// this field is active
-				activeFields[activeCount] = fields[j];
-				if (fields[j].isExclusive() === false) {
-					// it's inclusive
-					lastInclusive = activeCount;
-				}
-				activeCount += 1;
-			} else if (filterFields.noMoreInclusiveFilters(j)) {
-				// this field is not active and there is no hope
-				j = fields.length;
-			}
-		}
-		return [activeFields, lastInclusive];
+	function optimiseSequentialFiltering(input) {
+		return filterFields.noMoreInclusiveFilters(input);
 	}
 
-	function optimiseFiltering(fields) {
-		var activeCount = 0,
-			activeFields = [],
-			j = 0,
-			lastInclusive = 0;
-
-		// Lets do a quick check on which fields are active
-		// don't bother testing inactive fields
-		for (j = 0; j < fields.length; j += 1) {
-
-			if (fields[j].getFilterValuesCount() > 0) {
-				// this field is active
-				activeFields[activeCount] = fields[j];
-				if (fields[j].isExclusive() === false) {
-					// it's inclusive
-					lastInclusive = activeCount;
-				}
-				activeCount += 1;
-			}
-		}
-		return [activeFields, lastInclusive];
+	function optimiseStandardFiltering(input) {
+		return false;
 	}
 
 
@@ -1214,7 +1201,7 @@ $.FilterFairy = function (filterWrapper) {
 		if (input !== false) {
 			filterOptimiser = optimiseSequentialFiltering;
 		} else {
-			filterOptimiser = optimiseFiltering;
+			filterOptimiser = optimiseStandardFiltering;
 		}
 	};
 
@@ -1249,29 +1236,23 @@ $.FilterFairy = function (filterWrapper) {
 				j = 0,
 				tmp;
 
-			tmp = filterOptimiser(fields);
-			activeFields = tmp[0];
-			lastInclusive = tmp[1];
-			activeCount = activeFields.length;
-/*
 			// Lets do a quick check on which fields are active
 			// don't bother testing inactive fields
 			for (j = 0; j < fields.length; j += 1) {
 
 				if (fields[j].getFilterValuesCount() > 0) {
 					// this field is active
-					activeFields[activeCount] = fields[j];
+					activeCount = activeFields.push(fields[j]);
 					if (fields[j].isExclusive() === false) {
 						// it's inclusive
-						lastInclusive = activeCount;
+						lastInclusive = (activeCount - 1);
 					}
-					activeCount += 1;
-				} else if ( filterFields.noMoreInclusiveFilters(j) ) {
+				} else if (fields[j].isRequired() || filterOptimiser(j)) {
 					// this field is not active and there is no hope
 					j = fields.length;
 				}
 			}
-*/
+
 			// OK, so there are no active fields
 			// hide filterable items if appropriate
 			if (activeCount === 0) {
@@ -1340,7 +1321,7 @@ $.FilterFairy = function (filterWrapper) {
 			}
 		}
 
-		filterOptimiser = optimiseFiltering;
+		filterOptimiser = optimiseStandardFiltering;
 	} else {
 		// there were no filter fields so complain
 		console.error('There are no filter fields to use');

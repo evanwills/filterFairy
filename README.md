@@ -36,11 +36,12 @@ By default, each field is exclusive, meaning that (when you have multiple filter
 
 There are a number of data attributes that can be used to modify filter behaviour
 
-| data attribute name | possible values | purpose |
+| attribute name | possible values | purpose |
 | ------------------- | --------------- | ------- |
 | data-inclusive | true, 'inclusive', 'checkbox' |
 | data-inverse | true, 'inverse' |
 | data-priority | 'high', 'low' |
+| data-required / required | true, 'required' |
 | data-notfilter | true, 'notfilter' |
 
 #### data-inclusive
@@ -59,6 +60,8 @@ or
 ``` html
 <input type="checkbox" data-inlcusive value="sample" id="inclusive-field" name="inclusive-field" />
 ```
+
+**NOTE:** If your inclusive fields are not the last fields in your filter set, you may need to set the [priority](#user-content-data-priority) on the field to `low` to ensure your items are shown.
 
 ##### `checkbox`
 
@@ -102,8 +105,34 @@ or
 
 Say you have a list of restaurants they are filtered by nationality and by Suburb. The nationality field is a select box and the suburbs are each a checkbox. You would make the checkboxes `data-inclusive="incluisve"` and `data-priority="high"` Therefore, a list of restaurants in each of the suburbs is created. That list is then filtered by nationality.
 
+#### data-required / required
+
+There are times when one field the value of one field is essential to the rest of the filter. If that field is blank, there's not point in continuing with the filter.
+To achieve this, you can use either the HTML5 attribute `required` or the custom data attribute `data-required`
+
+```html
+<input type="checkbox" required value="me-first" id="requiredA" name="requiredA" />
+
+<input type="checkbox" required="required" value="me-first" id="requiredB" name="requiredB" />
+
+<input type="checkbox" required="true" value="me-first" id="requiredC" name="requiredC" />
+```
+or
+```html
+<input type="checkbox" data-required value="me-first" id="requiredA" name="requiredA" />
+
+<input type="checkbox" data-required="required" value="me-first" id="requiredB" name="requiredB" />
+
+<input type="checkbox" data-required="true" value="me-first" id="requiredB" name="requiredB" />
+```
+
+##### Why have a custom data attribute for required?
+If a form is being submitted to a server, it may not be appropriate for that field to block submission by being required (I can't think of a usecase but it is possible). If you don't what the field to block submission but do want the filter to stop if that field is blank then use `data-required` attribute.
+
+**NOTE:** `data-required` takes priority over `required`. If `data-required` is defined (either true, 'required' or false) it will set the required state for the field.
+
 #### data-notfilter
-### How to ignore a form field
+##### How to ignore a form field
 
 Say you have a form that is being submitted to the server and have fields that are used for the filter and some that are only used by the server. To hide the server only fields use the data attribute `data-notfilter` or `data-notfilter="true"` or `data-notfilter="notfilter"`.
 
@@ -119,6 +148,17 @@ Sometimes, you want to force people to use the filters. One way to do this is to
 var myFilter = new $.FilterFairy('#filterWrapperID');
 myFilter.hideAllOnEmpty();
 ```
+### Optimise for sequential only filtering
+
+If you have a filter set where each filter fields must be filtered in order. Once one field is blank, it and subsequent fields must must be ignored. (This is most likely when you have set `hideAllOnEmpty()`) you can force this by calling the `optimiseForSequential()` method
+
+``` javascript
+var myFilter = new $.FilterFairy('#filterWrapperID');
+myFilter.optimiseForSequential();
+```
+
+**NOTE:** You can achieve the same result by giving the fields the attributes: `data-priority` and `data-required` or just `data-required`.
+(This is easier if you have less control over the HTML.)
 
 ## PresetFormFields (presetFormFields.jquery.js)
 
