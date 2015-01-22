@@ -1,3 +1,8 @@
+
+// ==================================================================
+// see https://github.com/evanwills/filterFairy/ for documentation
+
+
 if (window.console === undefined) {
 	var Console = function () {
 		"use strict";
