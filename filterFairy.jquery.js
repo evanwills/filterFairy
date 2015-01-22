@@ -405,7 +405,7 @@ $.FilterFairy = function (filterWrapper) {
 						this.getClasses = function () {
 							return classes;
 						};
-					}
+					};
 					// Add the function to an array
 					filterableItemsArray.push(new FilterableItem());
 				});
@@ -1090,7 +1090,7 @@ $.FilterFairy = function (filterWrapper) {
 					lastInclusive = activeCount;
 				}
 				activeCount += 1;
-			} else if ( filterFields.noMoreInclusiveFilters(j) ) {
+			} else if (filterFields.noMoreInclusiveFilters(j)) {
 				// this field is not active and there is no hope
 				j = fields.length;
 			}
@@ -1174,7 +1174,7 @@ $.FilterFairy = function (filterWrapper) {
 		} else {
 			hideAllOnEmptyFilter = false;
 		}
-	}
+	};
 
 
 	/**
@@ -1207,12 +1207,12 @@ $.FilterFairy = function (filterWrapper) {
 	};
 
 	this.optimiseForSequential = function (input) {
-		if (input !== false ) {
+		if (input !== false) {
 			filterOptimiser = optimiseSequentialFiltering;
 		} else {
 			filterOptimiser = optimiseFiltering;
 		}
-	}
+	};
 
 // END:   declaring property functions
 // ==================================================================
@@ -1245,7 +1245,7 @@ $.FilterFairy = function (filterWrapper) {
 				j = 0,
 				tmp;
 
-			tmp = filterOptimiser(fields)
+			tmp = filterOptimiser(fields);
 			activeFields = tmp[0];
 			lastInclusive = tmp[1];
 			activeCount = activeFields.length;
@@ -1271,10 +1271,14 @@ $.FilterFairy = function (filterWrapper) {
 			// OK, so there are no active fields
 			// hide filterable items if appropriate
 			if (activeCount === 0) {
+				j = items.length;
 				if (hideAllOnEmptyFilter === true) {
-					j = items.length;
-					for( i = 0 ; i < j ; i += 1 ) {
+					for (i = 0; i < j; i += 1) {
 						items[i].hideItem();
+					}
+				} else {
+					for (i = 0; i < j; i += 1) {
+						items[i].showItem();
 					}
 				}
 				setPushState();
