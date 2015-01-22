@@ -53,7 +53,11 @@ There are times when you might want to show items matched by a particular filter
 To do this you can add an the data attribute `data-inclusive="inclusive"` or `data-inclusive` or `data-inclusive="true"` e.g.
 
 ``` html
-<input type="checkbox" value="sample" id="inclusive-field" name="inclusive-field" data-inlcusive="true" />
+<input type="checkbox" data-inlcusive="true" value="sample" id="inclusive-field" name="inclusive-field" />
+```
+or
+``` html
+<input type="checkbox" data-inlcusive value="sample" id="inclusive-field" name="inclusive-field" />
 ```
 
 ##### `checkbox`
@@ -62,7 +66,7 @@ Normally when a field's state is blank, it is ignored. Sometimes it is useful fo
 You can add the data attribute `data-inclusive="checkbox"`
 
 ``` html
-<input type="checkbox" value="sample" id="inclusive-checkbox" name="inclusive-checkbox" data-inlcusive="checkbox" />
+<input type="checkbox" data-inlcusive="checkbox" value="sample" id="inclusive-checkbox" name="inclusive-checkbox" />
 ```
 This causes any items matched by the checkbox field to be shown or hidden (depending on the field's state).
 
@@ -74,7 +78,7 @@ This causes any items matched by the checkbox field to be shown or hidden (depen
 Say you want to hide all the items matched by a filter value you can add the data attribute `data-inverse` or `data-inverse="true"` or `data-inverse="inverse"`
 ``` html
 <label for="inverse-field">Hide sample</label>
-<input type="checkbox" value="sample" id="inverse-field" name="inverse-field" data-inverse="inverse" />
+<input type="checkbox" data-inverse="inverse" value="sample" id="inverse-field" name="inverse-field" />
 ```
 When the checkbox is checked any items with the class 'sample' will be hidden.
 
@@ -85,11 +89,11 @@ When the checkbox is checked any items with the class 'sample' will be hidden.
 By default filter fields are processed in the order they appear in the HTML DOM. To alter this you can set the data attribute `data-priority`. To make fields be processed before other fields, you can use data-priority or `data-priority="high"` or `data-priority="true"`. To make them be processed after other fields you can use `data-priority="low"`
 
 ``` html
-<input type="checkbox" value="me-first" id="high-priority" name="high-priority" data-priority="high" />
+<input type="checkbox" data-priority="high" value="me-first" id="high-priority" name="high-priority" />
 ```
 or
 ``` html
-<input type="checkbox" value="me-last" id="low-priority" name="low-priority" data-priority="low" />
+<input type="checkbox" data-priority="low" value="me-last" id="low-priority" name="low-priority" />
 ```
 
 **NOTE:** if you have multiple fields set with the same priority, they will be processed together in the order they appear in the HTML. If their priority is high, they will be processed before the other fields. If the priority is low, they will be processed after other fields.
@@ -104,7 +108,7 @@ Say you have a list of restaurants they are filtered by nationality and by Subur
 Say you have a form that is being submitted to the server and have fields that are used for the filter and some that are only used by the server. To hide the server only fields use the data attribute `data-notfilter` or `data-notfilter="true"` or `data-notfilter="notfilter"`.
 
 ``` html
-<input type="hidden" value="random server stuff" id="ignore-me" name="ignore-me" data-notfilter="true" />
+<input type="hidden" data-notfilter="true" value="random server stuff" id="ignore-me" name="ignore-me" />
 ```
 
 ### Hiding all items when filters are blank
