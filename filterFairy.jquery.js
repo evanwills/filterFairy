@@ -1,4 +1,5 @@
-"use strict";
+// ==================================================================
+// see https://github.com/evanwills/filterFairy/ for documentation
 
 
 if (typeof window.console !== 'object') {
@@ -24,6 +25,7 @@ if (typeof window.console !== 'object') {
  * @retur object
  */
 $.FilterFairy = function (filterWrapper) {
+	"use strict";
 
 
 // ==================================================================
