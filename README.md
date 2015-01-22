@@ -158,7 +158,7 @@ myFilter.optimiseForSequential();
 ```
 
 **NOTE:** You can achieve the same result by giving the fields the attributes: `data-priority` and `data-required` or just `data-required`.
-(This is easier if you have less control over the HTML.)
+(optimiseForSequential() is easier if you have less control over the HTML.)
 
 ## PresetFormFields (presetFormFields.jquery.js)
 
