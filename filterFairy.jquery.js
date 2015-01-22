@@ -21,116 +21,7 @@ if (typeof window.console !== 'object') {
  *		  will wrap a single filter block (usually an ID or some
  *		  other unique selector)
  *
- * Default action when instantiated:
- *	-	Finds all form fields inside the filterWrapper (excluding
- *		submit and buttons fields)
- *
- *	-	Finds all items wrapped by an element with the class
- *		'filter-this'
- *		NOTE:	if the filter this element is a
- *			-	<UL> or <OL> then the filter able items will be <LI>s
- *			-	<TABLE> then the filterable items will be <TR>s
- *			-	<SECTION> or <ASIDE> then the filterable items will
- *				be <ARTICLE>s
- *			-	otherwise filterable items will be any element will
- *				the classs 'filter-item'
- *
- *	-	Filter fields are exclusive, meaning that each field limits
- *		items that can be filtered by the next field
- *
- *	-	Filter fields are processed in the order that they are changed.
- *		e.g. field A is changed. Items not matching field a are hidden
- *			field B is changed. Items are cleared. Then field A is
- *				processed, followed by field B
- *			field C is changed. Items are cleared. Then field A is
- *				processed, followed by field B, followed by field C
- *			field B is changed again. Items are cleared. Then field A
- *				is processed, followed by field C, followed by field B
- *
- * Modifying filter behav
- *
- * <div id="filter-wrapper">
- *	 <select id="my-select-field">
- *		<option value="option1" data-my="one">Option one</option>
- *		<option value="option2" data-my="two">Option two</option>
- *		<option value="option3" data-my="three">Option three</option>
- *	 </select>
- *
- *	 <label><input type="radio" id="anotherRadioField1" name="anotherRadioField" value="option-1" /> Option 1</label>
- *	 <label><input type="radio" id="anotherRadioField2" name="anotherRadioField" value="option-2" /> Option 2</label>
- *	 <label><input type="radio" id="anotherRadioField3" name="anotherRadioField" value="option-3" /> Option 3</label>
- *
- * <!--
- *  ! data-inclusive attribute allows you to make filters inclusive
- *  !	  i.e.  items with classes match the values of the filter will
- *  !		be shown regardless of whether they may have been
- *  !		filtered out earlier
- *  !		CHECKBOXES with data-inclusive="exclusive" cause matching
- *  !		items (who have not yet been excluded) to be excluded
- *  !		only if the checkbox is checked. Items not matching the
- *  !		checkbox filter will always be shown.
- *  -->
- *	<label><input type="checkbox" id="checkboxfield" name="checkboxfield" data-cbfield="oi" value="hey-you" /> Hey you</label>
- *
- *	<ul class="filter-this">
- *		<li class="option1">filter this one</li>
- *		<li class="option2 see">filter this one instead</li>
- *		<li class="option1 option3 hey-you">filter this one</li>
- *		<li class="option2 hey-you">filter this one</li>
- *		<li class="option1 ay bee">filter this one</li>
- *		<li class="option1 hey-you">filter this one</li>
- *	</ul>
- * </div>
- *
- * @usage basic
- *
- * <script type="text/javascript">
- *	 new $.filterFairy( '#filter-wrapper');
- * </script>
- *
- *	  This will create the filters based on form fields and items with .filter-this wrappers
- *	 standard filterable item wrappers are
- *		ul.filter-this, ol.filter-this (<LI> for filter items)
- *		table.filter-this (<TR> for filter items)
- *		section.filter-this, aside.filter-this (<ARTICLE> for filter item)
- *	  or	.filter-this (.filter-item for filter item)
- * 	  the values from input (not button or submit), select and/or textarea are used as filters
- *
- *	  If you have a GET variable named anotherRadioField with a value of "ay", "bee" or "cee" the appropriate radio button will be checked automatically
- *
- *
- * @usage hiding all when no filter
- *	If you want nothing shown when the filter doesn't match
- *	anything or is blank:
- *
- * <script type="text/javascript">
- *		var filter = $.filterFairy('#filter-wrapper');
- *		filter.setHideAllOnEmptyFilter(true);
- * </script>
- *
- *
- * @usage inclusive filters
- *	  By default, filters are exclusive, meaning that when an item
- *	  is excluded by a filter, it cannot be included again.
- *	  If you want a filter to be inclusive i.e. if an item is
- *	  matched it will be shown regardless of preceeding filters,
- *	  add the data attribute 'data-inclusive="inclusive"' e.g.
- *
- *	<select id="my-select-field" data-inclusive="inclusive">
- *
- *	  NOTE:	inclusive filters are processed after exclusive
- *		filters so matched items will always be shown.
- *
- *	  Checkbox fields have the additional functionality that if
- *	  you want to hide items that are matched by the checkbox
- *	  when the checkbox is NOT checked and show them when it is
- *	  checked, use 'data-inclusive="exclusive" e.g.
- *	<input type="checkbox" id="checkboxfield" name="checkboxfield" data-cbfield="oi" value="hey-you" data-inclusive="exclusive" />
- *
- * data attributes:
- *		inclusive [ checkbox, true, first ]
- *		inverse [ true, false ]
- *		notfilter [ true, false ]
+ * @retur object
  */
 $.FilterFairy = function (filterWrapper) {
 
@@ -138,10 +29,23 @@ $.FilterFairy = function (filterWrapper) {
 // ==================================================================
 // Start declaring variables
 
+	var
+	/**
+	 * @function applyFilter when any of the filter fields
+	 *	     are changed (or blurred in the case of
+	 *	     text/textare fields) this function is executed
+	 *
+	 * This function firstly hides all items. Then builds
+	 * an array of which items should be shown, firstly
+	 * by running exclusive filters then by adding the
+	 * inclusive filters
+	 */
+		applyFilter,
+
 	/**
 	 * @var boolean canDo whether or not filteFairy is viable.
 	 */
-	var canDo = true,
+		canDo = true,
 
 	/**
 	 * @var function/object filterFields list of filters to be used
@@ -165,26 +69,18 @@ $.FilterFairy = function (filterWrapper) {
 	 */
 		fields = [],
 
-		items = [],
+		g = 0,
+
 	/**
 	 * @var GetGet get object managing accessing get variable info
 	 */
 		get,
 
-	/**
-	 * @function applyFilter when any of the filter fields
-	 *	     are changed (or blurred in the case of
-	 *	     text/textare fields) this function is executed
-	 *
-	 * This function firstly hides all items. Then builds
-	 * an array of which items should be shown, firstly
-	 * by running exclusive filters then by adding the
-	 * inclusive filters
-	 */
-		applyFilter,
+		filterOptimiser,
 
-		tmp,
-		g = 0;
+		items = [],
+
+		tmp;
 
 // END:   declaring variables
 // ==================================================================
@@ -580,10 +476,7 @@ $.FilterFairy = function (filterWrapper) {
 
 		$(filterWrapper + ' *').each(function () {
 
-			/**
-			 * @var string nameAttr the value of the name attribute of a field
-			 */
-			var	nameAttr = '',
+			var
 
 			/**
 			 * @var string chooser the string used to check
@@ -619,6 +512,12 @@ $.FilterFairy = function (filterWrapper) {
 				getName = '',
 
 			/**
+			 * @var boolean priority whether or not an inclusive field should be
+			 *		processed before or after exclusive fields
+			 */
+				highPriority = null,
+
+			/**
 			 * @var string id the ID of the form field
 			 */
 				idAttr = '',
@@ -652,10 +551,9 @@ $.FilterFairy = function (filterWrapper) {
 				matchingSelectors = [],
 
 			/**
-			 * @var boolean priority whether or not an inclusive field should be
-			 *		processed before or after exclusive fields
+			 * @var string nameAttr the value of the name attribute of a field
 			 */
-				highPriority = null,
+				nameAttr = '',
 
 			/**
 			 * @var string selector the selector that can be used to act on the
@@ -831,11 +729,12 @@ $.FilterFairy = function (filterWrapper) {
 			};
 
 			if (fieldType === 'checkbox') {
-				if (inclusiveCheckbox) {
 
-					getFilterValuesFunc = function () {
-						return getValAsList(selector);
-					};
+				getFilterValuesFunc = function () {
+					return getValAsList(selector + ':checked');
+				};
+
+				if (inclusiveCheckbox) {
 
 
 					// an inclusiveCheckbox checkbox works slightly differently to other filters.
@@ -874,9 +773,6 @@ $.FilterFairy = function (filterWrapper) {
 					};
 				} else {
 
-					getFilterValuesFunc = function () {
-						return getValAsList(selector + ':checked');
-					};
 					// exclusive (default) checkboxes work in the normal way, you're
 					// either in or you're out
 					testItemFunc  = function (itemClasses) {
@@ -1176,6 +1072,54 @@ $.FilterFairy = function (filterWrapper) {
 // console.log(window.location);
 	}
 
+	function optimiseSequentialFiltering(fields) {
+		var activeCount = 0,
+			activeFields = [],
+			j = 0,
+			lastInclusive = 0;
+
+		// Lets do a quick check on which fields are active
+		// don't bother testing inactive fields
+		for (j = 0; j < fields.length; j += 1) {
+
+			if (fields[j].getFilterValuesCount() > 0) {
+				// this field is active
+				activeFields[activeCount] = fields[j];
+				if (fields[j].isExclusive() === false) {
+					// it's inclusive
+					lastInclusive = activeCount;
+				}
+				activeCount += 1;
+			} else if ( filterFields.noMoreInclusiveFilters(j) ) {
+				// this field is not active and there is no hope
+				j = fields.length;
+			}
+		}
+		return [activeFields, lastInclusive];
+	}
+
+	function optimiseFiltering(fields) {
+		var activeCount = 0,
+			activeFields = [],
+			j = 0,
+			lastInclusive = 0;
+
+		// Lets do a quick check on which fields are active
+		// don't bother testing inactive fields
+		for (j = 0; j < fields.length; j += 1) {
+
+			if (fields[j].getFilterValuesCount() > 0) {
+				// this field is active
+				activeFields[activeCount] = fields[j];
+				if (fields[j].isExclusive() === false) {
+					// it's inclusive
+					lastInclusive = activeCount;
+				}
+				activeCount += 1;
+			}
+		}
+		return [activeFields, lastInclusive];
+	}
 
 
 
@@ -1262,6 +1206,13 @@ $.FilterFairy = function (filterWrapper) {
 		return false;
 	};
 
+	this.optimiseForSequential = function (input) {
+		if (input !== false ) {
+			filterOptimiser = optimiseSequentialFiltering;
+		} else {
+			filterOptimiser = optimiseFiltering;
+		}
+	}
 
 // END:   declaring property functions
 // ==================================================================
@@ -1287,8 +1238,49 @@ $.FilterFairy = function (filterWrapper) {
 			var itemStrings = [],
 				exlcusiveField = true,
 				show = true,
+				activeFields = [],
+				lastInclusive = 0,
+				activeCount = 0,
 				i = 0,
-				j = 0;
+				j = 0,
+				tmp;
+
+			tmp = filterOptimiser(fields)
+			activeFields = tmp[0];
+			lastInclusive = tmp[1];
+			activeCount = activeFields.length;
+/*
+			// Lets do a quick check on which fields are active
+			// don't bother testing inactive fields
+			for (j = 0; j < fields.length; j += 1) {
+
+				if (fields[j].getFilterValuesCount() > 0) {
+					// this field is active
+					activeFields[activeCount] = fields[j];
+					if (fields[j].isExclusive() === false) {
+						// it's inclusive
+						lastInclusive = activeCount;
+					}
+					activeCount += 1;
+				} else if ( filterFields.noMoreInclusiveFilters(j) ) {
+					// this field is not active and there is no hope
+					j = fields.length;
+				}
+			}
+*/
+			// OK, so there are no active fields
+			// hide filterable items if appropriate
+			if (activeCount === 0) {
+				if (hideAllOnEmptyFilter === true) {
+					j = items.length;
+					for( i = 0 ; i < j ; i += 1 ) {
+						items[i].hideItem();
+					}
+				}
+				setPushState();
+				return;
+			}
+
 
 			// loop through all the items
 			for (i = 0; i < items.length; i += 1) {
@@ -1297,22 +1289,20 @@ $.FilterFairy = function (filterWrapper) {
 				itemStrings = items[i].getClasses();
 
 				// loop through all the fields
-				for (j = 0; j < fields.length; j += 1) {
-//					exlcusiveField = fields[j].isExclusive();
-//					if (( exlcusiveField === false &&  show === false ) || (exlcusiveField === true && show === true )) {
+				for (j = 0; j < activeCount; j += 1) {
 
 					// try this filter if it's inclusive or if the item hasn't already been excluded
-					if (fields[j].isExclusive() === false) {
+					if (activeFields[j].isExclusive() === false) {
 						if (show === false) {
-							show = fields[j].testItem(itemStrings);
+							show = activeFields[j].testItem(itemStrings);
 						}
 					} else if (show === true) {
-						show = fields[j].testItem(itemStrings);
+						show = activeFields[j].testItem(itemStrings);
 					}
-					if (show === false && filterFields.noMoreInclusiveFilters(j)) {
+					if (show === false && j > lastInclusive) {
 						// there are no more inclusive filters so don't bother checking any
 						// other filters for this item
-						j = fields.length;
+						j = activeCount;
 					}
 				}
 
@@ -1323,6 +1313,9 @@ $.FilterFairy = function (filterWrapper) {
 				}
 				show = true;
 			}
+
+
+
 			// set push state
 			setPushState();
 
@@ -1338,6 +1331,8 @@ $.FilterFairy = function (filterWrapper) {
 				$(fields[g].getSelector()).on('change', applyFilter);
 			}
 		}
+
+		filterOptimiser = optimiseFiltering;
 	} else {
 		// there were no filter fields so complain
 		console.error('There are no filter fields to use');
