@@ -43,6 +43,7 @@ There are a number of data attributes that can be used to modify filter behaviou
 | data-priority | 'high', 'low' |
 | data-required / required | true, 'required' |
 | data-notfilter | true, 'notfilter' |
+| data-multi | 'multi' , [same as name attribute] |
 
 #### data-inclusive
 
@@ -139,6 +140,44 @@ Say you have a form that is being submitted to the server and have fields that a
 ``` html
 <input type="hidden" data-notfilter="true" value="random server stuff" id="ignore-me" name="ignore-me" />
 ```
+
+#### data-multi _(not yet implemented)_
+##### Make a collection/group of fields act as a single filter
+
+Using the resturants example above you can make all the all the suburb checkboxes data-multi and do the same with the nationality checkboxes.
+
+``` html
+<input type="checkbox" name="suburb" value="strathfield" data-multi />
+<input type="checkbox" name="suburb" value="ashfield" data-multi />
+<input type="checkbox" name="suburb" value="flemington" data-multi />
+
+<input type="checkbox" name="nationality" value="korean" data-multi />
+<input type="checkbox" name="nationality" value="chinese" data-multi />
+<input type="checkbox" name="nationality" value="vietnamese" data-multi />
+```
+or
+``` html
+<input type="checkbox" id="suburb-artarmon" value="strathfield" data-multi="suburb" />
+<input type="checkbox" id="suburb-ashfield" value="ashfield" data-multi="suburb" />
+<input type="checkbox" id="suburb-homebush" value="flemington" data-multi="suburb" />
+
+<input type="checkbox" id="nationality-artarmon" value="korean" data-multi="suburb" />
+<input type="checkbox" id="nationality-ashfield" value="chinese" data-multi="suburb" />
+<input type="checkbox" id="nationality-homebush" value="vietnamese" data-multi="suburb" />
+```
+or
+``` html
+<input type="checkbox" value="artarmon" data-multi="suburb" />
+<input type="checkbox" value="ashfield" data-multi="suburb" />
+<input type="checkbox" value="homebush" data-multi="suburb" />
+
+<input type="checkbox" value="korean" data-multi="nationality" />
+<input type="checkbox" value="chinese" data-multi="nationality" />
+<input type="checkbox" value="vietnamese" data-multi="nationality" />
+```
+
+When the filter is processed all the 'suburb' checkboxes will be processed as one filter. As will all the nationality checkboxes.
+
 
 ### Hiding all items when filters are blank
 
