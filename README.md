@@ -1,4 +1,4 @@
-# FilterFairy & PresetFormFields
+# FilterFairy & PreNULL , setFormFields
 
 ## FilterFairy (filterFairy.jquery.js)
 
@@ -36,20 +36,20 @@ By default, each field is exclusive, meaning that (when you have multiple filter
 
 There are a number of data attributes that can be used to modify filter behaviour
 
-| attribute name | possible values | purpose |
+| attribute name | possible values |
 | ------------------- | --------------- | ------- |
-| data-inclusive | true, 'inclusive', 'checkbox', 'exclusive' |
-| data-inverse | true, 'inverse' |
-| data-priority | 'high', 'low' |
-| data-required / required | true, 'required' |
-| data-notfilter | true, 'notfilter' |
+| data-inclusive | NULL , true, 'inclusive', 'checkbox', 'exclusive' |
+| data-inverse | NULL , true, 'inverse' |
+| data-priority | NULL [same as 'high'] , 'high', 'low' |
+| data-required / required | NULL , true, 'required' |
+| data-notfilter | NULL , true, 'notfilter' |
 | data-multi | NULL , [name to identify the group (could be the same as the name attribute)] |
 
 #### data-inclusive
 
 By default filterFairy processes fields as exclusive, meaning that if an item has not been matched by a preceding filter, it cannot be matched again.
 
-##### `inclusive` or `true`
+##### `NULL` or `inclusive` or `true`
 
 There are times when you might want to show items matched by a particular filter regardless of whether it has been matched by a preceding filter.
 To do this you can add an the data attribute `data-inclusive="inclusive"` or `data-inclusive` or `data-inclusive="true"` e.g.
@@ -83,6 +83,11 @@ Say you want to hide all the items matched by a filter value you can add the dat
 ``` html
 <label for="inverse-field">Hide sample</label>
 <input type="checkbox" data-inverse="inverse" value="sample" id="inverse-field" name="inverse-field" />
+```
+or
+``` html
+<label for="inverse-field">Hide sample</label>
+<input type="checkbox" data-inverse value="sample" id="inverse-field" name="inverse-field" />
 ```
 When the checkbox is checked any items with the class 'sample' will be hidden.
 
@@ -138,7 +143,11 @@ If a form is being submitted to a server, it may not be appropriate for that fie
 Say you have a form that is being submitted to the server and have fields that are used for the filter and some that are only used by the server. To hide the server only fields use the data attribute `data-notfilter` or `data-notfilter="true"` or `data-notfilter="notfilter"`.
 
 ``` html
+<input type="hidden" data-notfilter value="random server stuff" id="ignore-me" name="ignore-me" />
+
 <input type="hidden" data-notfilter="true" value="random server stuff" id="ignore-me" name="ignore-me" />
+
+<input type="hidden" data-notfilter="notfilter" value="random server stuff" id="ignore-me" name="ignore-me" />
 ```
 
 #### data-multi _(not yet implemented)_
@@ -147,16 +156,6 @@ Say you have a form that is being submitted to the server and have fields that a
 Using the resturants example above you can make all the all the suburb checkboxes data-multi and do the same with the nationality checkboxes.
 
 ``` html
-<input type="checkbox" data-multi name="suburb" value="strathfield" />
-<input type="checkbox" data-multi name="suburb" value="ashfield" />
-<input type="checkbox" data-multi name="suburb" value="flemington" />
-
-<input type="checkbox" data-multi name="nationality" value="korean" />
-<input type="checkbox" data-multi name="nationality" value="chinese" />
-<input type="checkbox" data-multi name="nationality" value="vietnamese" />
-```
-or
-``` html
 <input type="checkbox" data-multi="suburb" value="artarmon" />
 <input type="checkbox" data-multi="suburb" value="ashfield" />
 <input type="checkbox" data-multi="suburb" value="homebush" />
@@ -164,6 +163,16 @@ or
 <input type="checkbox" data-multi="nationality" value="korean" />
 <input type="checkbox" data-multi="nationality" value="chinese" />
 <input type="checkbox" data-multi="nationality" value="vietnamese" />
+```
+or
+``` html
+<input type="checkbox" data-multi name="suburb" value="strathfield" />
+<input type="checkbox" data-multi name="suburb" value="ashfield" />
+<input type="checkbox" data-multi name="suburb" value="flemington" />
+
+<input type="checkbox" data-multi name="nationality" value="korean" />
+<input type="checkbox" data-multi name="nationality" value="chinese" />
+<input type="checkbox" data-multi name="nationality" value="vietnamese" />
 ```
 
 When the filter is processed all the 'suburb' checkboxes will be processed as one filter. As will all the nationality checkboxes.
