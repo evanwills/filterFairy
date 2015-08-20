@@ -6,7 +6,13 @@
 
 FilterFairy allows you to filter large lists of information based on values in form fields.
 
-In it's most basic form:
+### What's different about FilterFairy?
+
+Most filters assume that each filter field contains a single filter value. While this works well when you have complete control over the items being filtered, if you are stuck building a filter where a single option/input applies to multiple unique values then the traditional single option/input value matching many items model doesn't work.
+
+With FilterFairy a list of filter values is for each filter based on a space separated list of HTML/CSS class names in the value attribute of the filter field. If a filterable item's class (or one of may classes) matches something in the filter's list, that item is considered matched. You can also group multiple inputs/options into a single filter e.g. a list of checkboxes or collections of radio button groups.
+
+### In it's most basic form:
 
 ``` javascript
 new $.FilterFairy('#filterWrapperID');
@@ -38,16 +44,58 @@ There are a number of data attributes that can be used to modify filter behaviou
 
 | attribute name | possible values |
 | ------------------- | --------------- | ------- |
+| data-multi | NULL , [name to identify the group (could be same as the name attribute)] |
 | data-inclusive | NULL , true, 'inclusive', 'checkbox', 'exclusive' |
 | data-inverse | NULL , true, 'inverse' |
 | data-priority | NULL [same as 'high'] , 'high', 'low' |
 | data-required / required | NULL , true, 'required' |
 | data-notfilter | NULL , true, 'notfilter' |
-| data-multi | NULL , [name to identify the group (could be the same as the name attribute)] |
+
+
+#### data-multi
+##### Make a collection/group of fields act as a single filter
+
+##### Why have multi input fields?
+Say you have resturants list above and you want to filter by suburb then nationality of cuisine you can make all the all the suburb checkboxes data-multi and do the same with the nationality checkboxes.
+
+``` html
+<label><input type="checkbox" data-multi="suburb" value="strathfield" /> Strathfield</label>
+<label><input type="checkbox" data-multi="suburb" value="ashfield" /> Ashfield</label>
+<label><input type="checkbox" data-multi="suburb" value="homebush" /> Homebush</label>
+
+<label><input type="checkbox" data-multi="nationality" value="korean" /> Korean</label>
+<label><input type="checkbox" data-multi="nationality" value="chinese" /> Chinese</label>
+<label><input type="checkbox" data-multi="nationality" value="vietnamese" /> Vietnamese</label>
+```
+or
+``` html
+<label><input type="checkbox" data-multi name="suburb" value="strathfield" /> Strathfield</label>
+<label><input type="checkbox" data-multi name="suburb" value="ashfield" /> Ashfield</label>
+<label><input type="checkbox" data-multi name="suburb" value="flemington" /> Homebush</label>
+
+<label><input type="checkbox" data-multi name="nationality" value="korean" /> Korean</label>
+<label><input type="checkbox" data-multi name="nationality" value="chinese" /> Chinese</label>
+<label><input type="checkbox" data-multi name="nationality" value="vietnamese" /> Vietnamese</label>
+```
+
+When the filter is processed all the 'suburb' checkboxes will be processed as one filter. As will all the nationality checkboxes.
+
+
+##### `NULL` or `multi` or `true`
+If `data-multi` or `data-multi="multi"` or `data-multi="true"` the name attribute is required. (Otherwise) FilterFairy can't work out what other fields are part of the group.
+
+__NOTE:__ multi can used with any valid HTML form field.
+
+__NOTE ALSO:__ only the first declared multi field is analysed when building the multi filter. Therefore all other settings you want to apply to all the multi fields must be set on the first field.
+
+__Final note on multi fields:__ if checkbox fields are used then their `data-inclusive` state is ignored (see below for info on inclusive checkboxes).
+
 
 #### data-inclusive
 
 By default filterFairy processes fields as exclusive, meaning that if an item has not been matched by a preceding filter, it cannot be matched again.
+
+__NOTE:__ if a checkbox field is set as `data-multi`, then `data-inclusive` is ignored.
 
 ##### `NULL` or `inclusive` or `true`
 
@@ -150,34 +198,6 @@ Say you have a form that is being submitted to the server and have fields that a
 <input type="hidden" data-notfilter="notfilter" value="random server stuff" id="ignore-me" name="ignore-me" />
 ```
 
-#### data-multi _(not yet implemented)_
-##### Make a collection/group of fields act as a single filter
-
-Using the resturants example above you can make all the all the suburb checkboxes data-multi and do the same with the nationality checkboxes.
-
-``` html
-<input type="checkbox" data-multi="suburb" value="artarmon" />
-<input type="checkbox" data-multi="suburb" value="ashfield" />
-<input type="checkbox" data-multi="suburb" value="homebush" />
-
-<input type="checkbox" data-multi="nationality" value="korean" />
-<input type="checkbox" data-multi="nationality" value="chinese" />
-<input type="checkbox" data-multi="nationality" value="vietnamese" />
-```
-or
-``` html
-<input type="checkbox" data-multi name="suburb" value="strathfield" />
-<input type="checkbox" data-multi name="suburb" value="ashfield" />
-<input type="checkbox" data-multi name="suburb" value="flemington" />
-
-<input type="checkbox" data-multi name="nationality" value="korean" />
-<input type="checkbox" data-multi name="nationality" value="chinese" />
-<input type="checkbox" data-multi name="nationality" value="vietnamese" />
-```
-
-When the filter is processed all the 'suburb' checkboxes will be processed as one filter. As will all the nationality checkboxes.
-
-__NOTE:__ if `data-multi` is boolean, then the `name` attribute is required. However, if `data-multi` has a value, then `name` and `ID` attributes are optional.
 
 ### Hiding all items when filters are blank
 

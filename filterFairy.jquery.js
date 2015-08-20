@@ -682,13 +682,26 @@ $.FilterFairy = function (filterWrapper) {
 			if ((idAttr === '' || fieldType === 'radio' || $(this).data('multi') !== undefined) && $(this).prop('name')) {
 
 				if ($(this).data('multi') !== undefined) {
-					if (varType($(this).data('multi')) === 'string' && $(this).data('multi') !== 'multi' && $(this).data('multi') !== '') {
+					if (varType($(this).data('multi')) === 'string' && $(this).data('multi') !== 'multi' && $(this).data('multi') !== '' && $(this).data('multi') !== 'true' && $(this).data('multi') !== 'multi') {
 						selector = filterWrapper + ' ' + $(this).prop('tagName').toLowerCase() + '[data-multi="' + $(this).data('multi') + '"]';
 						nameAttr = $(this).data('multi');
 						isMulti = true;
 					} else if ($(this).attr('name') !== '') {
 						selector = filterWrapper + ' ' + $(this).prop('tagName').toLowerCase() + '[name="' + nameAttr + '"]';
 						isMulti = true;
+					} else {
+						// reporte warning notice about dud multi field.
+						if ($(this).prop('id') !== undefined) {
+							nameAttr = '[id="+'$(this).val().'"]';
+						} else if ($(this).val() !== undefined ) {
+							nameAttr = '[value="+'$(this).val().'"]';
+						}
+
+						if (nameAttr === '') {
+							nameAttr = ' (with no "name", "id" or "value" attribute)';
+						}
+						console.warn(fieldType + nameAttr + ' was defined as a multi part field but the field could not be identified by either it\'s data-multi attribute value or it\'s name attribute value. So it will be ignored');
+						return;
 					}
 				}
 
