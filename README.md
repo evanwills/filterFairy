@@ -38,12 +38,12 @@ There are a number of data attributes that can be used to modify filter behaviou
 
 | attribute name | possible values | purpose |
 | ------------------- | --------------- | ------- |
-| data-inclusive | true, 'inclusive', 'checkbox' |
+| data-inclusive | true, 'inclusive', 'checkbox', 'exclusive' |
 | data-inverse | true, 'inverse' |
 | data-priority | 'high', 'low' |
 | data-required / required | true, 'required' |
 | data-notfilter | true, 'notfilter' |
-| data-multi | 'multi' , [same as name attribute] |
+| data-multi | NULL , [name to identify the group (could be the same as the name attribute)] |
 
 #### data-inclusive
 
