@@ -153,6 +153,40 @@ $.FilterFairy = function (filterWrapper) {
 	}
 
 	/**
+	 * @function getFieldType() gets the tag name of a DOM/jQuery object
+	 *
+	 * @param jQuery DOM object
+	 *
+	 * @return string false name of DOM object or FALSE if not a usable form field
+	 */
+	function getFieldType(domObj) {
+		var tagName = $(domObj).prop('tagName').toLowerCase(),
+			propType = '';
+		if($(domObj).data('notfilter') !== undefined) {
+			return false;
+		}
+		if (tagName === 'input') {
+			propType = $(domObj).prop('type').toLowerCase();
+			switch (propType) {
+				case 'submit':
+				case 'reset':
+				case 'button':
+					return false;
+				case 'radio':
+				case 'checkbox':
+					return propType;
+				default:
+					return 'text';
+			}
+		} else if (tagName === 'textarea') {
+			return 'text';
+		} else if (tagName === 'select') {
+			return tagName;
+		}
+		return false;
+	}
+
+	/**
 	 * @function getFilterableItems() handles building an array of
 	 *	     filterableItem objects which are then used for
 	 *	     interacting with the DOM
@@ -270,7 +304,7 @@ $.FilterFairy = function (filterWrapper) {
 						// this is a non-standard filterable item wrapper have to assume that
 						// it is the filterable item itself
 						nonStandardFilterItems.push(tmpItemWrapper);
-						console.warning('This non-standard filterable item wrapper (' + filterWrapper + ' ' + tmp + '.filter-this' + filterThisItem + ') didn\'t contain any .filter-item nodes. It may be useable as a filterable item itself');
+						console.warn('This non-standard filterable item wrapper (' + filterWrapper + ' ' + tmp + '.filter-this' + filterThisItem + ') didn\'t contain any .filter-item nodes. It may be useable as a filterable item itself');
 						return;
 					}
 					tmpItemWrapper = '';
@@ -303,7 +337,7 @@ $.FilterFairy = function (filterWrapper) {
 //				filterThis = filterThisSelectors.join(', ');
 			} else {
 				// Well that sucks! Couldn't find any filterable items.
-				console.warning('Couldn\'t find any filterable items using "' + filterThis + '". Nothing to do!!!');
+				console.warn('Couldn\'t find any filterable items using "' + filterThis + '". Nothing to do!!!');
 				return;
 			}
 
@@ -499,7 +533,7 @@ $.FilterFairy = function (filterWrapper) {
 			/**
 			 * @var string fieldType HTML element the filter form field is
 			 */
-				fieldType = $(this).prop('tagName').toLowerCase(),
+				fieldType = getFieldType(this),
 
 			/**
 			 * @var function getFilterValuesFunc() returns an array
@@ -554,6 +588,12 @@ $.FilterFairy = function (filterWrapper) {
 				matchingSelectors = [],
 
 			/**
+			 * @ver boolean isMulti whether this field is part of a group of fields to be
+			 *		processed as a single filter
+			 */
+				isMulti = false,
+
+			/**
 			 * @var string nameAttr the value of the name attribute of a field
 			 */
 				nameAttr = '',
@@ -597,7 +637,7 @@ $.FilterFairy = function (filterWrapper) {
 			/**
 			 * @var object thisField javascript object for the field.
 			 */
-				thisField,
+				thisField = $(this).get(),
 
 				tmpField,
 				tmpDataRequired = null,
@@ -613,28 +653,15 @@ $.FilterFairy = function (filterWrapper) {
 			 */
 				useFilterFunc;
 
-			if ((fieldType !== 'input' && fieldType !== 'select' && fieldType !== 'textarea') ||  $(this).data('nofilter') || $(this).data('notfilter')) {
+			if (fieldType === false ) {
 				// this is either not a form field or we shouldn't use this field as a filter.
 				return;
 			}
 
-			thisField = $(this).get();
+
 
 			if (varType($(this).prop('name')) === 'string') {
 				nameAttr = $(this).prop('name');
-			}
-
-			if (fieldType === 'input') {
-				// becaues this is an input we need to know what type of input
-				fieldType = $(this).prop('type').toLowerCase();
-
-				if (fieldType === 'submit' || fieldType === 'button') {
-					// buttons are no good as filters.
-					return;
-				} else if (fieldType !== 'checkbox' && fieldType !== 'radio') {
-					// if it's not a checkbox or radio field treat it as text
-					fieldType = 'text';
-				}
 			}
 
 			if (varType($(this).prop('id')) === 'string') {
@@ -651,24 +678,40 @@ $.FilterFairy = function (filterWrapper) {
 				matchingSelectors.push(selector);
 			}
 
-			if ((idAttr === '' || fieldType === 'radio') && $(this).prop('name')) {
 
-				// there was no ID or this is a usable radio field
-				selector = filterWrapper + ' ' + $(this).prop('tagName').toLowerCase() + '[name="' + nameAttr + '"]';
+			if ((idAttr === '' || fieldType === 'radio' || $(this).data('multi') !== undefined) && $(this).prop('name')) {
 
-				if (fieldType === 'radio' && $.inArray(selector, filterFieldSelectors) > -1) {
+				if ($(this).data('multi') !== undefined) {
+					if (varType($(this).data('multi')) === 'string' && $(this).data('multi') !== 'multi' && $(this).data('multi') !== '') {
+						selector = filterWrapper + ' ' + $(this).prop('tagName').toLowerCase() + '[data-multi="' + $(this).data('multi') + '"]';
+						nameAttr = $(this).data('multi');
+						isMulti = true;
+					} else if ($(this).attr('name') !== '') {
+						selector = filterWrapper + ' ' + $(this).prop('tagName').toLowerCase() + '[name="' + nameAttr + '"]';
+						isMulti = true;
+					}
+				}
+
+				if (isMulti === false) {
+					// there was no ID or this is a usable radio field
+					selector = filterWrapper + ' ' + $(this).prop('tagName').toLowerCase() + '[name="' + nameAttr + '"]';
+				}
+
+				if ((fieldType === 'radio' || isMulti === true) && $.inArray(selector, filterFieldSelectors) > -1) {
+					// we've seen this one before.
 					return;
 				} else {
 					matchingSelectors.push(nameAttr);
 					$(selector).each(function () {
 						if ($(this).prop('id')) {
-							// grab all the possible selectors for this radio field
+							// grab all the possible selectors for this radio/multi field
 							matchingSelectors.push($(this).prop('id'));
 							matchingSelectors.push('#' + $(this).prop('id'));
 						}
 					});
 				}
 			}
+
 
 			if (selector !== '' &&  $.inArray(selector, filterFieldSelectors) === -1) {
 				// we haven't seen this one before. Add it to the list
@@ -726,7 +769,6 @@ $.FilterFairy = function (filterWrapper) {
 				highPriority = true;
 			}
 
-
 			useFilterFunc = function (selector) {
 				// does the supplied selector match any of the possible selectors
 				if ($.inArray(selector, matchingSelectors) !== -1) {
@@ -753,7 +795,68 @@ $.FilterFairy = function (filterWrapper) {
 				return false;
 			};
 
-			if (fieldType === 'checkbox') {
+			if (isMulti === true) {
+
+				getFilterValuesFunc = function () {
+					var value = [],
+						typeOfField;
+					$(selector).each(function() {
+						typeOfField = getFieldType(this);
+
+						switch (typeOfField) {
+							case 'radio':
+							case 'checkbox':
+							case 'text':
+								if ($(this).is(':checked')) {
+									value = value.concat(splitValueOnWhiteSpace($(this).val()));
+								}
+								break;
+							case 'select':
+								$(this).find('option:selected').each(function(){
+									value = value.concat(splitValueOnWhiteSpace($(this).val()));
+								})
+						}
+					});
+					return value;
+				};
+
+				// an inclusiveCheckbox checkbox works slightly differently to other filters.
+				// if an item has matching classes it will be shown or hidden based
+				// on whether the checkbox is ticked or not respectively however, if
+				// the item doesn't match, it will be shown anyway.
+				testItemFunc  = function (itemClasses) {
+
+					/**
+					 * @var array value list of strings split on space to be used
+					 *	to check items against
+					 */
+					var value = getFilterValuesFunc(),
+
+					/**
+					 * @var boolean usable just because an item doesn't match
+					 *	doesn't mean it shouldn't be shown
+					 */
+						usable = false,
+						i = 0;
+
+					if (value.length === 0) {
+						return inverseResult(true);
+					}
+
+					// loop through each itemClass to see if any match
+					for (i = 0; i < itemClasses.length; i += 1) {
+						if ($.inArray(itemClasses[i], value) !== -1) {
+							// how about that, this one matches.
+							return inverseResult(true);
+							break;
+						}
+					}
+					// bummer it didn't match
+					return inverseResult(false);
+				};
+				goodToGo = true;
+
+			} else if (fieldType === 'checkbox') {
 
 				if (inclusiveCheckbox) {
 
@@ -952,7 +1055,7 @@ $.FilterFairy = function (filterWrapper) {
 					};
 
 					/**
-					 * @method inclusive() returns whether this field is an inlcusive
+					 * @method isExclusive() returns whether this field is an inlcusive
 					 *			filterField
 					 *
 					 * @returns {boolean} TRUE if the filterField is inclusive.
@@ -1024,7 +1127,7 @@ $.FilterFairy = function (filterWrapper) {
 
 			} else {
 				// bummer
-				console.warning('Supplied filterField (' + selector + ') did not return a valid form field type. ' + fieldType + ' was returned. Was expecting, select; input or textarea');
+				console.warn('Supplied filterField (' + selector + ') did not return a valid form field type. ' + fieldType + ' was returned. Was expecting, select; input or textarea');
 				return;
 			}
 		});
