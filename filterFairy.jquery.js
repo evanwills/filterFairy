@@ -692,9 +692,9 @@ $.FilterFairy = function (filterWrapper) {
 					} else {
 						// reporte warning notice about dud multi field.
 						if ($(this).prop('id') !== undefined) {
-							nameAttr = '[id="+'$(this).val().'"]';
+							nameAttr = '[id="' + $(this).val() + '"]';
 						} else if ($(this).val() !== undefined ) {
-							nameAttr = '[value="+'$(this).val().'"]';
+							nameAttr = '[value="' + $(this).val() + '"]';
 						}
 
 						if (nameAttr === '') {
