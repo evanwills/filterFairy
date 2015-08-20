@@ -176,6 +176,7 @@ or
 ```
 
 When the filter is processed all the 'suburb' checkboxes will be processed as one filter. As will all the nationality checkboxes.
+
 __NOTE:__ if `data-multi` is boolean, then the `name` attribute is required. However, if `data-multi` has a value, then `name` and `ID` attributes are optional.
 
 ### Hiding all items when filters are blank
