@@ -86,10 +86,10 @@ There are a number of data attributes that can be used to modify filter behaviou
 ### data-hideall
 #### Hiding all items when filters are blank
 
-Sometimes, you want to force people to use the filters. One way to do this is to have all the items hidden if all the filter fields are blank. To do this you need to add the data-hideall attribute on the filterFairy-block element
+Sometimes, you want to force people to use the filters. One way to do this is to have all the items hidden if all the filter fields are blank. To do this you need to add the data-hideall attribute on the filterFairy element
 
 ``` html
-<div class="filterFairy-block" data-hideall>
+<div class="filterFairy" data-hideall>
 ...
 </div>
 ```
@@ -99,7 +99,7 @@ Sometimes, you want to force people to use the filters. One way to do this is to
 If you have a filter set where each filter fields must be filtered in order. Once one field is blank, it and subsequent fields must must be ignored. (This is most likely when you have set `data-hideall` attribute) you can force this by setting the `data-sequential` attribute on teh wrapper as well.
 
 ``` html
-<div class="filterFairy-block" data-hideall data-sequential>
+<div class="filterFairy" data-hideall data-sequential>
 ...
 </div>
 ```
