@@ -83,7 +83,8 @@ There are a number of data attributes that can be used to modify filter behaviou
 
 ## Wrapper attributes
 
-### Hiding all items when filters are blank
+### data-hideAll
+#### Hiding all items when filters are blank
 
 Sometimes, you want to force people to use the filters. One way to do this is to have all the items hidden if all the filter fields are blank. To do this you need to add the data-hideAll attribute on the filterFairy-block element
 
@@ -92,7 +93,8 @@ Sometimes, you want to force people to use the filters. One way to do this is to
 ...
 </div>
 ```
-### Optimise for sequential only filtering
+### data-optimiseSequential
+#### Optimise for sequential only filtering
 
 If you have a filter set where each filter fields must be filtered in order. Once one field is blank, it and subsequent fields must must be ignored. (This is most likely when you have set `data-hideAll` attribute) you can force this by setting the `data-optimiseSequential` attribute on teh wrapper as well.
 
