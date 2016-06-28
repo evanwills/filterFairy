@@ -45,8 +45,8 @@ for a block to be filterable, it must have the `filterFairy` class applied to th
 
 | attribute name | possible values | purpose |
 | -------------- | --------------- | ------- |
-| [data-hideAll](#data-hideAll)	 | null, true      | When page is loaded all filterable items are hidden until filters are applied. |
-| [data-optimiseSequential](#data-optimiseSequential) | null, true | Once an item is excluded by a filter, ignore all subsequent filters. |
+| [data-hideall](#data-hideall)	 | null, true      | When page is loaded all filterable items are hidden until filters are applied. |
+| [data-sequential](#data-sequential) | null, true | Once an item is excluded by a filter, ignore all subsequent filters. |
 
 #### Filter Fields
 
@@ -83,7 +83,7 @@ There are a number of data attributes that can be used to modify filter behaviou
 
 ## Wrapper attributes
 
-### data-hideAll
+### data-hideall
 #### Hiding all items when filters are blank
 
 Sometimes, you want to force people to use the filters. One way to do this is to have all the items hidden if all the filter fields are blank. To do this you need to add the data-hideAll attribute on the filterFairy-block element
@@ -93,7 +93,7 @@ Sometimes, you want to force people to use the filters. One way to do this is to
 ...
 </div>
 ```
-### data-optimiseSequential
+### data-sequential
 #### Optimise for sequential only filtering
 
 If you have a filter set where each filter fields must be filtered in order. Once one field is blank, it and subsequent fields must must be ignored. (This is most likely when you have set `data-hideAll` attribute) you can force this by setting the `data-optimiseSequential` attribute on teh wrapper as well.
