@@ -45,8 +45,8 @@ for a block to be filterable, it must have the `filterFairy` class applied to th
 
 | attribute name | possible values | purpose |
 | -------------- | --------------- | ------- |
-| data-hideAll	 | null, true      | When page is loaded all filterable items are hidden until filters are applied. |
-| data-optimiseSequential | null, true | Once an item is excluded by a filter, ignore all subsequent filters. |
+| [data-hideAll](#data-hideAll)	 | null, true      | When page is loaded all filterable items are hidden until filters are applied. |
+| [data-optimiseSequential](#data-optimiseSequential) | null, true | Once an item is excluded by a filter, ignore all subsequent filters. |
 
 #### Filter Fields
 
@@ -54,13 +54,13 @@ There are a number of data attributes that can be used to modify filter behaviou
 
 | attribute name | possible values | purpose |
 | -------------- | --------------- | ------- |
-| data-multi 	 | NULL , [name to identify the group (could be same as the name attribute)] | group multiple fields togeter as a single filter
-| data-inclusive | NULL , true, 'inclusive', 'checkbox', 'exclusive' |
-| data-inverse	 | NULL , true, 'inverse'	 |
-| data-priority	 | NULL [same as 'high'] , 'high', 'low' |
-| data-order	 | integer |
-| data-required / required | NULL , true, 'required' |
-| data-notfilter | NULL , true, 'notfilter' |
+| [data-multi](#data-multi) 	 | NULL , [name to identify the group (could be same as the name attribute)] | group multiple fields togeter as a single filter
+| [data-inclusive](#data-inclusive) | NULL , true, 'inclusive', 'checkbox', 'exclusive' |
+| [data-inverse](#data-inverse)	 | NULL , true, 'inverse'	 |
+| [data-priority](#data-priority)	 | NULL [same as 'high'] , 'high', 'low' |
+| [data-order](#data-order)	 | integer |
+| [data-required](#data-required) / required | NULL , true, 'required' |
+| [data-notfilter](#data-notfilter) | NULL , true, 'notfilter' |
 
 #### Filterable items
 
@@ -75,7 +75,7 @@ There are a number of data attributes that can be used to modify filter behaviou
 
 | attribute name | possible values | purpose |
 | --------------- | -------------- | ------- |
-| data-alwaysShow | null, true	   | regardless of the filter state, always show this item |
+| [data-alwaysShow](#data-alwaysShow) | null, true	   | regardless of the filter state, always show this item |
 
 -------------------------------------------
 
