@@ -1,24 +1,26 @@
-# FilterFairy & PresetFormFields
+# filterFairy2 & PresetFormFields
 
-## FilterFairy (filterFairy.jquery.js)
+## filterFairy2 (filterFairy.jquery.js)
 
 (Named for my 4 year old daughter, because it works like magic.)
 
-FilterFairy allows you to filter large lists of information based on values in form fields.
+filterFairy allows you to filter large lists of information based on values in form fields.
 
-### What's different about FilterFairy?
+### What's different about filterFairy?
 
 Most filters assume that each filter field contains a single filter value. While this works well when you have complete control over the items being filtered, if you are stuck building a filter where a single option/input applies to multiple unique values then the traditional single option/input value matching many items model doesn't work.
 
-With FilterFairy a list of filter values is for each filter based on a space separated list of HTML/CSS class names in the value attribute of the filter field. If a filterable item's class (or one of may classes) matches something in the filter's list, that item is considered matched. You can also group multiple inputs/options into a single filter e.g. a list of checkboxes or collections of radio button groups.
+With filterFairy a list of filter values is for each filter based on a space separated list of HTML/CSS class names in the value attribute of the filter field. If a filterable item's class (or one of may classes) matches something in the filter's list, that item is considered matched. You can also group multiple inputs/options into a single filter e.g. a list of checkboxes or collections of radio button groups.
 
-### In it's most basic form:
+### What's different in filterFairy2?
+
+To simplify instantiation, all configuration for filterFairy blocks is done via data attributes on the wrapper, on the filter fields and on the filterable items. Only one line of javascript is required:
 
 ``` javascript
-new $.FilterFairy('#filterWrapperID');
+$.filterFairy();
 ```
 
-FilterFairy finds all the form fields wrapped by ID '#filterWrapperID' and then all the items wrapped by the class 'filter-this'. Items within the .filter-this wrapper will be filter based on class names that match values in the form fields.
+filterFairy finds all the form fields wrapped by the class '#filterFairy' and then all the items wrapped by the class 'filter-this'. Items within the .filter-this wrapper will be filter based on class names that match values in the form fields.
 
 Values in the form fields must be valid HTML class names (multiple values can be white space separated).
 
@@ -28,6 +30,39 @@ By default, each field is exclusive, meaning that (when you have multiple filter
 
 **NOTE also:** Only valid HTML form fields can be used as filters. (Buttons will be ignored!)
 
+If there is an ID applied to the
+
+#### filterFairy2 under the hood:
+
+The first version of filterFairy did a lot of HTML class and input value checking. This made it very slow when filtering large numbers of items. To speed up the filtering process, filterFairy2 stores filter values in memory and compares them to item values which are also stored in memory. Items are only made hidden/visible when the filter changes their state. This means that there is much less DOM checking and manipulation. Hopefully this means the filter process is much faster.
+
+
+### Changing filterFairy's default behaviour
+
+#### Filter wrapper
+
+for a block to be filterable, it must have the `filterFairy` class applied to the wrapper
+
+| attribute name | possible values | purpose |
+| -------------- | --------------- | ------- |
+| data-hideAll	 | null, true      | When page is loaded all filterable items are hidden until filters are applied. |
+| data-optimiseSequential | null, true | Once an item is excluded by a filter, ignore all subsequent filters. |
+
+#### Filter Fields
+
+There are a number of data attributes that can be used to modify filter behaviour
+
+| attribute name | possible values | purpose |
+| -------------- | --------------- | ------- |
+| data-multi 	 | NULL , [name to identify the group (could be same as the name attribute)] | group multiple fields togeter as a single filter
+| data-inclusive | NULL , true, 'inclusive', 'checkbox', 'exclusive' |
+| data-inverse	 | NULL , true, 'inverse'	 |
+| data-priority	 | NULL [same as 'high'] , 'high', 'low' |
+| data-order	 | integer |
+| data-required / required | NULL , true, 'required' |
+| data-notfilter | NULL , true, 'notfilter' |
+
+#### Filterable items
 
 |  filter-this wrapper | filterable item |
 | -------------------- | --------------- |
@@ -38,24 +73,47 @@ By default, each field is exclusive, meaning that (when you have multiple filter
 
 
 
-### Changing FilterFairy's default behaviour
+| attribute name | possible values | purpose |
+| --------------- | -------------- | ------- |
+| data-alwaysShow | null, true	   | regardless of the filter state, always show this item |
 
-There are a number of data attributes that can be used to modify filter behaviour
+-------------------------------------------
 
-| attribute name | possible values |
-| ------------------- | --------------- | ------- |
-| data-multi | NULL , [name to identify the group (could be same as the name attribute)] |
-| data-inclusive | NULL , true, 'inclusive', 'checkbox', 'exclusive' |
-| data-inverse | NULL , true, 'inverse' |
-| data-priority | NULL [same as 'high'] , 'high', 'low' |
-| data-required / required | NULL , true, 'required' |
-| data-notfilter | NULL , true, 'notfilter' |
+## Data attributes in depth
 
+### Wrapper attributes
+
+#### Hiding all items when filters are blank
+
+Sometimes, you want to force people to use the filters. One way to do this is to have all the items hidden if all the filter fields are blank. To do this you need to add the data-hideAll attribute on the filterFairy-block element
+
+``` html
+<div class="filterFairy-block" data-hideAll>
+...
+</div>
+```
+#### Optimise for sequential only filtering
+
+If you have a filter set where each filter fields must be filtered in order. Once one field is blank, it and subsequent fields must must be ignored. (This is most likely when you have set `data-hideAll` attribute) you can force this by setting the `data-optimiseSequential` attribute on teh wrapper as well.
+
+``` html
+<div class="filterFairy-block" data-hideAll data-optimiseSequential>
+...
+</div>
+```
+
+For those who can't spell optimise correctly you can also use `data-optimizeSequential`.
+
+**NOTE:** You can achieve the same result by giving the fields the attributes: `data-priority` and `data-required` or just `data-required`.
+(optimiseForSequential() is easier if you have less control over the HTML.)
+
+### Filter field attributes
 
 #### data-multi
 ##### Make a collection/group of fields act as a single filter
 
-##### Why have multi input fields?
+__Why have multi input fields?__
+
 Say you have resturants list above and you want to filter by suburb then nationality of cuisine you can make all the all the suburb checkboxes data-multi and do the same with the nationality checkboxes.
 
 ``` html
@@ -82,7 +140,7 @@ When the filter is processed all the 'suburb' checkboxes will be processed as on
 
 
 ##### `NULL` or `multi` or `true`
-If `data-multi` or `data-multi="multi"` or `data-multi="true"` the name attribute is required. (Otherwise) FilterFairy can't work out what other fields are part of the group.
+If `data-multi` or `data-multi="multi"` or `data-multi="true"` the name attribute is required. (Otherwise) filterFairy can't work out what other fields are part of the group.
 
 __NOTE:__ multi can used with any valid HTML form field.
 
@@ -197,27 +255,6 @@ Say you have a form that is being submitted to the server and have fields that a
 
 <input type="hidden" data-notfilter="notfilter" value="random server stuff" id="ignore-me" name="ignore-me" />
 ```
-
-
-### Hiding all items when filters are blank
-
-Sometimes, you want to force people to use the filters. One way to do this is to have all the items hidden if all the filter fields are blank. To do this you need to assign FilterFairy to a variable then call the `hideAllOnEmpty()` method.
-
-``` javascript
-var myFilter = new $.FilterFairy('#filterWrapperID');
-myFilter.hideAllOnEmpty();
-```
-### Optimise for sequential only filtering
-
-If you have a filter set where each filter fields must be filtered in order. Once one field is blank, it and subsequent fields must must be ignored. (This is most likely when you have set `hideAllOnEmpty()`) you can force this by calling the `optimiseForSequential()` method
-
-``` javascript
-var myFilter = new $.FilterFairy('#filterWrapperID');
-myFilter.optimiseForSequential();
-```
-
-**NOTE:** You can achieve the same result by giving the fields the attributes: `data-priority` and `data-required` or just `data-required`.
-(optimiseForSequential() is easier if you have less control over the HTML.)
 
 ---
 
