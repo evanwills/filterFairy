@@ -86,25 +86,25 @@ There are a number of data attributes that can be used to modify filter behaviou
 ### data-hideall
 #### Hiding all items when filters are blank
 
-Sometimes, you want to force people to use the filters. One way to do this is to have all the items hidden if all the filter fields are blank. To do this you need to add the data-hideAll attribute on the filterFairy-block element
+Sometimes, you want to force people to use the filters. One way to do this is to have all the items hidden if all the filter fields are blank. To do this you need to add the data-hideall attribute on the filterFairy-block element
 
 ``` html
-<div class="filterFairy-block" data-hideAll>
+<div class="filterFairy-block" data-hideall>
 ...
 </div>
 ```
 ### data-sequential
 #### Optimise for sequential only filtering
 
-If you have a filter set where each filter fields must be filtered in order. Once one field is blank, it and subsequent fields must must be ignored. (This is most likely when you have set `data-hideAll` attribute) you can force this by setting the `data-optimiseSequential` attribute on teh wrapper as well.
+If you have a filter set where each filter fields must be filtered in order. Once one field is blank, it and subsequent fields must must be ignored. (This is most likely when you have set `data-hideall` attribute) you can force this by setting the `data-sequential` attribute on teh wrapper as well.
 
 ``` html
-<div class="filterFairy-block" data-hideAll data-optimiseSequential>
+<div class="filterFairy-block" data-hideall data-sequential>
 ...
 </div>
 ```
 
-For those who can't spell optimise correctly you can also use `data-optimizeSequential`.
+For those who can't spell optimise correctly you can also use `data-sequential`.
 
 **NOTE:** You can achieve the same result by giving the fields the attributes: `data-priority` and `data-required` or just `data-required`.
 (optimiseForSequential() is easier if you have less control over the HTML.)
