@@ -89,6 +89,8 @@ $.FilterFairy = function (filterWrapper) {
 // ==================================================================
 // START: declaring functions
 
+
+
 	/**
 	 * @function varType() takes a variable tries to get its type.
 	 *	     If successful it returns the string name of the type if
@@ -162,7 +164,7 @@ $.FilterFairy = function (filterWrapper) {
 	function getFieldType(domObj) {
 		var tagName = $(domObj).prop('tagName').toLowerCase(),
 			propType = '';
-		if($(domObj).data('notfilter') !== undefined) {
+		if ($(domObj).data('notfilter') !== undefined) {
 			return false;
 		}
 		if (tagName === 'input') {
@@ -244,6 +246,7 @@ $.FilterFairy = function (filterWrapper) {
 			index = -1,
 			h = 0,
 			FilterableItems;
+
 
 		if ($(filterWrapper + ' .filter-this').length === 0) {
 			// cutting our losses there's nothing to filter.
@@ -370,7 +373,6 @@ $.FilterFairy = function (filterWrapper) {
 					if (classes.length < 1) {
 						return;
 					}
-
 
 
 					/**
@@ -651,13 +653,43 @@ $.FilterFairy = function (filterWrapper) {
 			 * @var funcion useFilterFunc() used to test whether the
 			 *	object matches the selector provided
 			 */
-				useFilterFunc;
+				useFilterFunc,
 
-			if (fieldType === false ) {
+				localGetValAsList = getValAsList;
+
+			if (fieldType === false) {
 				// this is either not a form field or we shouldn't use this field as a filter.
 				return;
 			}
 
+			if($(this).data('filtervalue') !== undefined) {
+				/**
+				 * @function getValAsList() returns the value of a form field's
+				 *	     current state as an array split on spaces
+				 *
+				 * @param string selector jQuery selector to be used to find the
+				 *	  string to split
+				 *
+				 * @return array a list of items that were separated by one or more
+				 *         white space characters
+				 */
+				localGetValAsList = function (selector) {
+					if ($(selector).data('filtervalue') !== undefined) {
+						return splitValueOnWhiteSpace($(selector).data('filtervalue'));
+					} else {
+						return [];
+					}
+				};
+			}
+			/*
+			getValAsList = function (selector) {
+				if ($(selector).val() !== undefined) {
+					return splitValueOnWhiteSpace($(selector).val());
+				} else {
+					return [];
+				}
+			};
+			*/
 
 
 			if (varType($(this).prop('name')) === 'string') {
@@ -693,7 +725,7 @@ $.FilterFairy = function (filterWrapper) {
 						// reporte warning notice about dud multi field.
 						if ($(this).prop('id') !== undefined) {
 							nameAttr = '[id="' + $(this).val() + '"]';
-						} else if ($(this).val() !== undefined ) {
+						} else if ($(this).val() !== undefined) {
 							nameAttr = '[value="' + $(this).val() + '"]';
 						}
 
@@ -825,7 +857,7 @@ $.FilterFairy = function (filterWrapper) {
 								}
 								break;
 							case 'select':
-								$(this).find('option:selected').each(function(){
+								$(this).find('option:selected').each(function() {
 									value = value.concat(splitValueOnWhiteSpace($(this).val()));
 								})
 						}
@@ -861,7 +893,6 @@ $.FilterFairy = function (filterWrapper) {
 						if ($.inArray(itemClasses[i], value) !== -1) {
 							// how about that, this one matches.
 							return inverseResult(true);
-							break;
 						}
 					}
 					// bummer it didn't match
@@ -874,7 +905,7 @@ $.FilterFairy = function (filterWrapper) {
 				if (inclusiveCheckbox) {
 
 					getFilterValuesFunc = function () {
-						return getValAsList(selector);
+						return localGetValAsList(selector);
 					};
 
 					// an inclusiveCheckbox checkbox works slightly differently to other filters.
@@ -887,7 +918,7 @@ $.FilterFairy = function (filterWrapper) {
 						 * @var array value list of strings split on space to be used
 						 *	to check items against
 						 */
-						var value = getValAsList(selector),
+						var value = localGetValAsList(selector),
 
 						/**
 						 * @var boolean usable just because an item doesn't match
@@ -895,7 +926,6 @@ $.FilterFairy = function (filterWrapper) {
 						 */
 							usable = false,
 							i = 0;
-
 						// loop through each itemClass to see if any match
 						for (i = 0; i < itemClasses.length; i += 1) {
 							if ($.inArray(itemClasses[i], value) !== -1) {
@@ -913,7 +943,7 @@ $.FilterFairy = function (filterWrapper) {
 					};
 				} else {
 					getFilterValuesFunc = function () {
-						return getValAsList(selector + ':checked');
+						return localGetValAsList(selector + ':checked');
 					};
 
 					// exclusive (default) checkboxes work in the normal way, you're
@@ -923,7 +953,7 @@ $.FilterFairy = function (filterWrapper) {
 						 * @var array value list of strings split on space to be used
 						 *	to check items against
 						 */
-						var value = getValAsList(selector),
+						var value = localGetValAsList(selector),
 
 						/**
 						 * @var boolean output
@@ -964,7 +994,7 @@ $.FilterFairy = function (filterWrapper) {
 
 				getFilterValuesFunc = function () {
 					// give'm the list of filter strings as an array
-					return getValAsList(selectorSelected);
+					return localGetValAsList(selectorSelected);
 				};
 
 				testItemFunc  = function (itemClasses) {
@@ -973,7 +1003,7 @@ $.FilterFairy = function (filterWrapper) {
 					 * @var array value list of strings split on space to be used
 					 *	to check items against
 					 */
-					var value = getValAsList(selectorSelected),
+					var value = localGetValAsList(selectorSelected),
 						i = 0;
 
 					if (value.length === 0) {
@@ -996,7 +1026,7 @@ $.FilterFairy = function (filterWrapper) {
 			} else {
 
 				getFilterValuesFunc = function () {
-					return getValAsList(selector);
+					return localGetValAsList(selector);
 				};
 
 				testItemFunc  = function (itemClasses) {
@@ -1005,7 +1035,7 @@ $.FilterFairy = function (filterWrapper) {
 					 * @var array value list of strings split on space to be used
 					 *	to check items against
 					 */
-					var value = getValAsList(selector),
+					var value = localGetValAsList(selector),
 						i = 0;
 
 					if (value.length === 0) {
@@ -1410,7 +1440,6 @@ $.FilterFairy = function (filterWrapper) {
 						j = activeCount;
 					}
 				}
-
 				if (show === true) {
 					items[i].showItem();
 				} else {

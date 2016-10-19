@@ -50,6 +50,7 @@ There are a number of data attributes that can be used to modify filter behaviou
 | data-priority | NULL [same as 'high'] , 'high', 'low' |
 | data-required / required | NULL , true, 'required' |
 | data-notfilter | NULL , true, 'notfilter' |
+| data-filtervalue | [string] |
 
 
 #### data-multi
@@ -196,6 +197,18 @@ Say you have a form that is being submitted to the server and have fields that a
 <input type="hidden" data-notfilter="true" value="random server stuff" id="ignore-me" name="ignore-me" />
 
 <input type="hidden" data-notfilter="notfilter" value="random server stuff" id="ignore-me" name="ignore-me" />
+```
+
+#### data-filtervalue
+##### using a different attribute to get filter values
+
+You have a large form that is to be submitted to a server. To make it easier for users, one field's value limits the available options for another. Problem is that the system that receives the form requires specific values from inputs (e.g. 1, 2, 3). Those values can't be used as classes.
+
+You can use `data-filtervalue="something"` to the field and instead of the filter looking at the value attribute of the field it will use the value of `data-filtervalue` attribute to filter on.
+``` html
+<label><input type="radio" data-filterValue="something" value="1" id="custom-value_1" name="custom-value" /> Something</label>
+<label><input type="radio" data-filterValue="other-thing" value="2" id="custom-value_2" name="custom-value" /> Other thing</label>
+<label><input type="radio" data-filterValue="random-thing" value="3" id="custom-value_3" name="custom-value" /> Random thing</label>
 ```
 
 
