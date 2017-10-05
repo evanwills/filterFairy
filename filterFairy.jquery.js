@@ -280,8 +280,7 @@ $.FilterFairy = function (filterWrapper, showLog) {
 				 */
 					tmpFilterThis = '';
 				tmpItemWrapper = $(this).prop('tagName').toLowerCase();
-
-				logToConsole($(this), tmpItemWrapper);
+				logToConsole(284, $(this), tmpItemWrapper);
 
 				// check whether we've encountered this tag name before
 				if ($.inArray(tmpItemWrapper, filterThisTags) > -1) {
@@ -327,12 +326,12 @@ $.FilterFairy = function (filterWrapper, showLog) {
 
 				tmpFilterThis = filterWrapper + ' ' + tmpItemWrapper + '.filter-this' + filterThisItem;
 
-
 				// check whether the selector matches any items and has not
 				// been found before
 				if ($(tmpFilterThis).length > 0 && $.inArray(tmpFilterThis, filterThisSelectors) === -1) {
 					// It's unique. We'll add it to the list
 					filterThisSelectors.push(tmpFilterThis);
+					logToConsole(335, "Filterable item selector: '" + tmpFilterThis + "'");
 				}
 			});
 
@@ -723,10 +722,9 @@ $.FilterFairy = function (filterWrapper, showLog) {
 				matchingSelectors.push(selector);
 			}
 
+			if ((idAttr === '' || fieldType === 'radio' || typeof $(this).data('multi') !== 'undefined')) {
 
-			if ((idAttr === '' || fieldType === 'radio' || $(this).data('multi') !== undefined) && $(this).prop('name')) {
-
-				if ($(this).data('multi') !== undefined) {
+				if (typeof $(this).data('multi') !== 'undefined') {
 					if (varType($(this).data('multi')) === 'string' && $(this).data('multi') !== 'multi' && $(this).data('multi') !== '' && $(this).data('multi') !== 'true' && $(this).data('multi') !== 'multi') {
 						selector = filterWrapper + ' ' + $(this).prop('tagName').toLowerCase() + '[data-multi="' + $(this).data('multi') + '"]';
 						nameAttr = $(this).data('multi');
@@ -897,8 +895,8 @@ $.FilterFairy = function (filterWrapper, showLog) {
 						usable = false,
 						i = 0;
 
-					logToConsole('itemClasses: ', itemClasses);
-					logToConsole('value: ', value);
+					logToConsole(900, 'itemClasses: ', itemClasses);
+					logToConsole(901, 'value: ', value);
 
 					if (value.length === 0) {
 						return inverseResult(true);
@@ -906,8 +904,8 @@ $.FilterFairy = function (filterWrapper, showLog) {
 
 					// loop through each itemClass to see if any match
 					for (i = 0; i < itemClasses.length; i += 1) {
-						logToConsole('itemClasses[' + i + ']: ', itemClasses[i]);
-						logToConsole('value: ', value);
+						logToConsole(909, 'itemClasses[' + i + ']: ', itemClasses[i]);
+						logToConsole(910, 'value: ', value);
 						if ($.inArray(itemClasses[i], value) !== -1) {
 							// how about that, this one matches.
 							return inverseResult(true);
@@ -945,13 +943,13 @@ $.FilterFairy = function (filterWrapper, showLog) {
 							usable = false,
 							i = 0;
 
-						logToConsole('itemClasses: ', itemClasses);
-						logToConsole('value: ', value);
+						logToConsole(948, 'itemClasses: ', itemClasses);
+						logToConsole(949, 'value: ', value);
 
 						// loop through each itemClass to see if any match
 						for (i = 0; i < itemClasses.length; i += 1) {
-							logToConsole('itemClasses[' + i + ']: ', itemClasses[i]);
-							logToConsole('value: ', value);
+							logToConsole(953, 'itemClasses[' + i + ']: ', itemClasses[i]);
+							logToConsole(954, 'value: ', value);
 							if ($.inArray(itemClasses[i], value) !== -1) {
 								// how about that, this one matches.
 								usable = true;
@@ -985,14 +983,14 @@ $.FilterFairy = function (filterWrapper, showLog) {
 							output = false,
 							i = 0;
 
-						logToConsole('itemClasses: ', itemClasses);
-						logToConsole('value: ', value);
+						logToConsole(988, 'itemClasses: ', itemClasses);
+						logToConsole(989, 'value: ', value);
 
 						if ($(selector).is(':checked')) {
 							// loop through each itemClass to see if any match
 							for (i = 0; i < itemClasses.length; i += 1) {
-								logToConsole('itemClasses[' + i + ']: ', itemClasses[i]);
-								logToConsole('value: ', value);
+								logToConsole(994, 'itemClasses[' + i + ']: ', itemClasses[i]);
+								logToConsole(995, 'value: ', value);
 								if ($.inArray(itemClasses[i], value) !== -1) {
 
 									// how about that, this one matches.
@@ -1035,8 +1033,8 @@ $.FilterFairy = function (filterWrapper, showLog) {
 					var value = localGetValAsList(selectorSelected),
 						i = 0;
 
-					logToConsole('itemClasses: ', itemClasses);
-					logToConsole('value: ', value);
+					logToConsole(1038, 'itemClasses: ', itemClasses);
+					logToConsole(1039, 'value: ', value);
 
 					if (value.length === 0) {
 						return inverseResult(true);
@@ -1044,8 +1042,8 @@ $.FilterFairy = function (filterWrapper, showLog) {
 
 					for (i = 0; i < itemClasses.length; i += 1) {
 
-						logToConsole('itemClasses[' + i + ']: ', itemClasses[i]);
-						logToConsole('value: ', value);
+						logToConsole(1047, 'itemClasses[' + i + ']: ', itemClasses[i]);
+						logToConsole(1048, 'value: ', value);
 
 						// loop through each itemClass to see if any match
 						if ($.inArray(itemClasses[i], value) !== -1) {
@@ -1073,8 +1071,8 @@ $.FilterFairy = function (filterWrapper, showLog) {
 					var value = localGetValAsList(selector),
 						i = 0;
 
-					logToConsole('itemClasses: ', itemClasses);
-					logToConsole('value: ', value);
+					logToConsole(1076, 'itemClasses: ', itemClasses);
+					logToConsole(1077, 'value: ', value);
 
 					if (value.length === 0) {
 						return inverseResult(true);
@@ -1082,8 +1080,8 @@ $.FilterFairy = function (filterWrapper, showLog) {
 
 					// loop through the classes to see if any match
 					for (i = 0; i < itemClasses.length; i += 1) {
-						logToConsole('itemClasses[' + i + ']: ', itemClasses[i]);
-						logToConsole('value: ', value);
+						logToConsole(1085, 'itemClasses[' + i + ']: ', itemClasses[i]);
+						logToConsole(1086, 'value: ', value);
 						if ($.inArray(itemClasses[i], value) !== -1) {
 
 							// yay one of the classes matches one of the sub-strings in the value
@@ -1253,7 +1251,7 @@ $.FilterFairy = function (filterWrapper, showLog) {
 					filterFieldsRepo.push(tmpLowPriorityFields[h]);
 				}
 			}
-
+			logToConsole(1256, filterFieldsRepo);
 
 			FilterFieldsObj = function () {
 				var i = 0;
@@ -1277,6 +1275,7 @@ $.FilterFairy = function (filterWrapper, showLog) {
 			};
 			return new FilterFieldsObj();
 		}
+		logToConsole(1280, filterFieldsRepo);
 	}
 
 
@@ -1463,7 +1462,7 @@ $.FilterFairy = function (filterWrapper, showLog) {
 				// get the filter strings for the item
 				itemStrings = items[i].getClasses();
 
-				logToConsole('itemStrings: ', itemStrings);
+				logToConsole(1467, 'itemStrings: ', itemStrings);
 
 				// loop through all the fields
 				for (j = 0; j < activeCount; j += 1) {
@@ -1471,26 +1470,26 @@ $.FilterFairy = function (filterWrapper, showLog) {
 					// try this filter if it's inclusive or if the item hasn't already been excluded
 					if (activeFields[j].isExclusive() === false) {
 						if (show === false) {
-							logToConsole(itemStrings, activeFields[j].testItem(itemStrings));
+							logToConsole(1475, itemStrings, activeFields[j].testItem(itemStrings));
 							show = activeFields[j].testItem(itemStrings);
 						}
 					} else if (show === true) {
-							logToConsole(activeFields[j].testItem(itemStrings));
+							logToConsole(1479, activeFields[j].testItem(itemStrings));
 						show = activeFields[j].testItem(itemStrings);
 					}
 					if (show === false && j > lastInclusive) {
-						logToConsole('j: ', j);
-						logToConsole('lastInclusive: ', lastInclusive);
+						logToConsole(1483, 'j: ', j);
+						logToConsole(1484, 'lastInclusive: ', lastInclusive);
 						// there are no more inclusive filters so don't bother checking any
 						// other filters for this item
 						j = activeCount;
 					}
 				}
 				if (show === true) {
-					logToConsole('show item');
+					logToConsole(1491, 'show item');
 					items[i].showItem();
 				} else {
-					logToConsole('-- hide item --');
+					logToConsole(1494, '-- hide item --');
 					items[i].hideItem();
 				}
 				show = true;
