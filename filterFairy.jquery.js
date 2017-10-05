@@ -25,7 +25,7 @@ if (typeof window.console !== 'object') {
  *
  * @retur object
  */
-$.FilterFairy = function (filterWrapper) {
+$.FilterFairy = function (filterWrapper, showLog) {
 	"use strict";
 
 
@@ -49,6 +49,11 @@ $.FilterFairy = function (filterWrapper) {
 	 * @var boolean canDo whether or not filteFairy is viable.
 	 */
 		canDo = true,
+
+	/**
+	 * @var logToConsole
+	 */
+		logToConsole = function () {}, // by default no logging
 
 	/**
 	 * @var function/object filterFields list of filters to be used
@@ -89,6 +94,11 @@ $.FilterFairy = function (filterWrapper) {
 // ==================================================================
 // START: declaring functions
 
+	if (typeof showLog === 'boolean' && showLog === true) {
+		logToConsole = function () {
+			console.log.apply(this, arguments);
+		};
+	}
 
 
 	/**
@@ -248,6 +258,7 @@ $.FilterFairy = function (filterWrapper) {
 			FilterableItems;
 
 
+
 		if ($(filterWrapper + ' .filter-this').length === 0) {
 			// cutting our losses there's nothing to filter.
 			// See ya lata Turkey
@@ -268,8 +279,9 @@ $.FilterFairy = function (filterWrapper) {
 				 *	filterable items.
 				 */
 					tmpFilterThis = '';
-
 				tmpItemWrapper = $(this).prop('tagName').toLowerCase();
+
+				logToConsole($(this), tmpItemWrapper);
 
 				// check whether we've encountered this tag name before
 				if ($.inArray(tmpItemWrapper, filterThisTags) > -1) {
@@ -657,6 +669,7 @@ $.FilterFairy = function (filterWrapper) {
 
 				localGetValAsList = getValAsList;
 
+
 			if (fieldType === false) {
 				// this is either not a form field or we shouldn't use this field as a filter.
 				return;
@@ -884,12 +897,17 @@ $.FilterFairy = function (filterWrapper) {
 						usable = false,
 						i = 0;
 
+					logToConsole('itemClasses: ', itemClasses);
+					logToConsole('value: ', value);
+
 					if (value.length === 0) {
 						return inverseResult(true);
 					}
 
 					// loop through each itemClass to see if any match
 					for (i = 0; i < itemClasses.length; i += 1) {
+						logToConsole('itemClasses[' + i + ']: ', itemClasses[i]);
+						logToConsole('value: ', value);
 						if ($.inArray(itemClasses[i], value) !== -1) {
 							// how about that, this one matches.
 							return inverseResult(true);
@@ -926,8 +944,14 @@ $.FilterFairy = function (filterWrapper) {
 						 */
 							usable = false,
 							i = 0;
+
+						logToConsole('itemClasses: ', itemClasses);
+						logToConsole('value: ', value);
+
 						// loop through each itemClass to see if any match
 						for (i = 0; i < itemClasses.length; i += 1) {
+							logToConsole('itemClasses[' + i + ']: ', itemClasses[i]);
+							logToConsole('value: ', value);
 							if ($.inArray(itemClasses[i], value) !== -1) {
 								// how about that, this one matches.
 								usable = true;
@@ -961,9 +985,14 @@ $.FilterFairy = function (filterWrapper) {
 							output = false,
 							i = 0;
 
+						logToConsole('itemClasses: ', itemClasses);
+						logToConsole('value: ', value);
+
 						if ($(selector).is(':checked')) {
 							// loop through each itemClass to see if any match
 							for (i = 0; i < itemClasses.length; i += 1) {
+								logToConsole('itemClasses[' + i + ']: ', itemClasses[i]);
+								logToConsole('value: ', value);
 								if ($.inArray(itemClasses[i], value) !== -1) {
 
 									// how about that, this one matches.
@@ -1006,11 +1035,17 @@ $.FilterFairy = function (filterWrapper) {
 					var value = localGetValAsList(selectorSelected),
 						i = 0;
 
+					logToConsole('itemClasses: ', itemClasses);
+					logToConsole('value: ', value);
+
 					if (value.length === 0) {
 						return inverseResult(true);
 					}
 
 					for (i = 0; i < itemClasses.length; i += 1) {
+
+						logToConsole('itemClasses[' + i + ']: ', itemClasses[i]);
+						logToConsole('value: ', value);
 
 						// loop through each itemClass to see if any match
 						if ($.inArray(itemClasses[i], value) !== -1) {
@@ -1038,12 +1073,17 @@ $.FilterFairy = function (filterWrapper) {
 					var value = localGetValAsList(selector),
 						i = 0;
 
+					logToConsole('itemClasses: ', itemClasses);
+					logToConsole('value: ', value);
+
 					if (value.length === 0) {
 						return inverseResult(true);
 					}
 
 					// loop through the classes to see if any match
 					for (i = 0; i < itemClasses.length; i += 1) {
+						logToConsole('itemClasses[' + i + ']: ', itemClasses[i]);
+						logToConsole('value: ', value);
 						if ($.inArray(itemClasses[i], value) !== -1) {
 
 							// yay one of the classes matches one of the sub-strings in the value
@@ -1423,26 +1463,34 @@ $.FilterFairy = function (filterWrapper) {
 				// get the filter strings for the item
 				itemStrings = items[i].getClasses();
 
+				logToConsole('itemStrings: ', itemStrings);
+
 				// loop through all the fields
 				for (j = 0; j < activeCount; j += 1) {
 
 					// try this filter if it's inclusive or if the item hasn't already been excluded
 					if (activeFields[j].isExclusive() === false) {
 						if (show === false) {
+							logToConsole(itemStrings, activeFields[j].testItem(itemStrings));
 							show = activeFields[j].testItem(itemStrings);
 						}
 					} else if (show === true) {
+							logToConsole(activeFields[j].testItem(itemStrings));
 						show = activeFields[j].testItem(itemStrings);
 					}
 					if (show === false && j > lastInclusive) {
+						logToConsole('j: ', j);
+						logToConsole('lastInclusive: ', lastInclusive);
 						// there are no more inclusive filters so don't bother checking any
 						// other filters for this item
 						j = activeCount;
 					}
 				}
 				if (show === true) {
+					logToConsole('show item');
 					items[i].showItem();
 				} else {
+					logToConsole('-- hide item --');
 					items[i].hideItem();
 				}
 				show = true;
